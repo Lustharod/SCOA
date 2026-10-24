@@ -1,0 +1,30 @@
+# Arquivos gerados e configurações locais
+/target/
+/.idea/
+/.run/
+*.iml
+*.class
+*.log
+.DS_Store
+Thumbs.db
+
+# Configurações e credenciais locais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Documentação pública: apenas a versão final e os diagramas atuais
+/docs/*
+!/docs/SCOA - Sistema de Controle Acadêmico v7.5.pdf
+!/docs/SCOA_8_1_1_Modelo_Conceitual.drawio
+!/docs/SCOA_Diagramas_Casos_de_Uso_v7_3.drawio
+!/docs/SCOA_Diagramas_de_Atividades_v7_4.drawio
+!/docs/SCOA_Diagramas_de_Classes_v7_4.drawio
+!/docs/SCOA_Diagramas_de_Sequencia_v7_4.drawio
+!/docs/SCOA_Modelo_Fisico_v7.drawio
+!/docs/SCOA_Modelo_Logico_v7.drawio
+
+# Exemplo didático usado na primeira execução; não integra a aplicação
+/src/main/java/br/edu/cefetmg/scoa/ExemploSala.java

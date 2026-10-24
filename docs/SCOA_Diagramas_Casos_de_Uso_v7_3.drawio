@@ -1,0 +1,1653 @@
+<mxfile host="app.diagrams.net" agent="SCOA" pages="23">
+  <diagram id="view-01" name="01 Serviços gerais e gestão de acesso">
+    <mxGraphModel dx="1576" dy="677" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="674" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Serviços gerais e gestão de acesso" vertex="1">
+          <mxGeometry height="75" width="860" x="110" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="499" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-GE-01" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-GE-01&#xa;Autenticar-se no SCOA" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-01-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="175" y="157.5" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-01-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Usuário" vertex="1">
+          <mxGeometry height="38" width="190" x="92" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-01-0" edge="1" parent="1" source="actor-UC-GE-01-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-GE-09" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-GE-09&#xa;Consultar relatórios gerenciais integrados" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-09-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="160" y="288" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-09-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Administrador" vertex="1">
+          <mxGeometry height="38" width="190" x="77" y="327" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-09-0" edge="1" parent="1" source="actor-UC-GE-09-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="UC-GE-09">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-09-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="160" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-09-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Coordenador/Gestor" vertex="1">
+          <mxGeometry height="38" width="190" x="96" y="419" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-09-1" edge="1" parent="1" source="actor-UC-GE-09-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="UC-GE-09">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-GE-10" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-GE-10&#xa;Gerenciar usuários e perfis" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-10-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="185" y="493.5" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-10-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Administrador" vertex="1">
+          <mxGeometry height="38" width="190" x="102" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-10-0" edge="1" parent="1" source="actor-UC-GE-10-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-02" name="02 Visão dos processos acadêmicos financeiros e da biblioteca">
+    <mxGraphModel dx="1896" dy="814" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="822" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Visão dos processos acadêmicos financeiros e da biblioteca" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="647" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-GE-02" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-GE-02&#xa;Gerenciar processos acadêmicos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-02-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="143" y="121" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-02-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Aluno" vertex="1">
+          <mxGeometry height="38" width="54" x="130" y="153" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-02-0" edge="1" parent="1" source="actor-UC-GE-02-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-02-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="70" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-02-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Professor" vertex="1">
+          <mxGeometry height="38" width="104" x="20" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-02-1" edge="1" parent="1" source="actor-UC-GE-02-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-02-2" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="120" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-02-2-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="90" x="87" y="259" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-02-2" edge="1" parent="1" source="actor-UC-GE-02-2" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-02-3" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="210" y="259" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-02-3-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Coordenador / Gestor" vertex="1">
+          <mxGeometry height="38" width="96" x="174" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-02-3" edge="1" parent="1" source="actor-UC-GE-02-3" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-GE-03" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-GE-03&#xa;Gerenciar processos financeiros" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-03-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="145" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-03-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário Financeiro" vertex="1">
+          <mxGeometry height="38" width="90" x="112" y="399" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-03-0" edge="1" parent="1" source="actor-UC-GE-03-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-GE-04" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-GE-04&#xa;Gerenciar biblioteca" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-04-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="143" y="458" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-04-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Bibliotecário" vertex="1">
+          <mxGeometry height="29" width="114" x="98" y="488.5" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-04-0" edge="1" parent="1" source="actor-UC-GE-04-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-04-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="143" y="534" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-04-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Usuário da Biblioteca" vertex="1">
+          <mxGeometry height="38" width="90" x="112" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-04-1" edge="1" parent="1" source="actor-UC-GE-04-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-14" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-14&#xa;Registrar acesso à biblioteca" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="note-UC-MB-14" parent="1" style="text;html=0;fontSize=20;" value="Comportamento&#xa; interno de apoio" vertex="1">
+          <mxGeometry height="58" width="157" x="78.5" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="include-UC-GE-04" edge="1" parent="1" source="UC-GE-04" style="dashed=1;endArrow=open;endFill=0;html=0;fontSize=19;strokeWidth=2;" target="UC-MB-14" value="«include»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-03" name="03 Visão dos processos administrativos e de compras">
+    <mxGraphModel dx="1817" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="822" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Visão dos processos administrativos e de compras" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="647" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-GE-05" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-GE-05&#xa;Gerenciar almoxarifado e patrimônio" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-05-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-05-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Almoxarife" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-05-0" edge="1" parent="1" source="actor-UC-GE-05-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-GE-06" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-GE-06&#xa;Gerenciar recursos administrativos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-06-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-06-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Administrador" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-06-0" edge="1" parent="1" source="actor-UC-GE-06-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-06">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-GE-07" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-GE-07&#xa;Gerenciar recursos humanos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-07-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="388" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-07-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário de RH" vertex="1">
+          <mxGeometry height="38" width="154" x="80" y="431" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-07-0" edge="1" parent="1" source="actor-UC-GE-07-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-07">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-07-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="474" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-07-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Usuário Autorizador" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="517" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-07-1" edge="1" parent="1" source="actor-UC-GE-07-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-07">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-GE-08" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-GE-08&#xa;Gerenciar compras" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-08-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="166" y="556" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-08-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Responsável por Compras" vertex="1">
+          <mxGeometry height="38" width="106" x="124" y="599" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-08-0" edge="1" parent="1" source="actor-UC-GE-08-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-08">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZEMUbaJQVdAgNczj_5cg-1" edge="1" parent="1" source="actor-UC-GE-08-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="actor-UC-GE-08-1-label" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-08-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="66" y="642" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-08-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Solicitante" vertex="1">
+          <mxGeometry height="38" width="94" x="30" y="685" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-08-1" edge="1" parent="1" source="actor-UC-GE-08-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-08">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-08-2" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="718" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-GE-08-2-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Usuário Aprovador" vertex="1">
+          <mxGeometry height="38" width="94" x="110" y="761" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-GE-08-2" edge="1" parent="1" source="actor-UC-GE-08-2" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-GE-08">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-04" name="04 Cadastros e organização curricular">
+    <mxGraphModel dx="2144" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="970" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Cadastros e organização curricular" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="795" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-01" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-01&#xa;Gerenciar alunos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-01-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-01-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-01-0" edge="1" parent="1" source="actor-UC-MA-01-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-02" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-02&#xa;Gerenciar professores" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-02-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-02-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-02-0" edge="1" parent="1" source="actor-UC-MA-02-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-03" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-03&#xa;Gerenciar cursos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-03-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="428" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-03-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-03-0" edge="1" parent="1" source="actor-UC-MA-03-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-04" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-04&#xa;Gerenciar disciplinas e pré-requisitos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-04-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="576" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-04-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="619" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-04-0" edge="1" parent="1" source="actor-UC-MA-04-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-05" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-05&#xa;Gerenciar estrutura curricular" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-05-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="724" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-05-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-05-0" edge="1" parent="1" source="actor-UC-MA-05-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-05" name="05 Oferta de turmas e utilização das salas">
+    <mxGraphModel dx="1896" dy="814" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="674" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Oferta de turmas e utilização das salas" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="499" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-06" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-06&#xa;Gerenciar turmas" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-06-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="136" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-06-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-06-0" edge="1" parent="1" source="actor-UC-MA-06-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-06">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-07" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-07&#xa;Gerenciar salas" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-07-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="136" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-07-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-07-0" edge="1" parent="1" source="actor-UC-MA-07-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-07">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-08" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-08&#xa;Alocar salas" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-08-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="136" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-08-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-08-0" edge="1" parent="1" source="actor-UC-MA-08-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-08">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-06" name="06 Matrícula rematrícula e trajetória acadêmica">
+    <mxGraphModel dx="2515" dy="1081" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1118" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Matrícula rematrícula e trajetória acadêmica" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="943" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-09" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-09&#xa;Gerenciar matrícula acadêmica" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-09-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-09-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-09-0" edge="1" parent="1" source="actor-UC-MA-09-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-09">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-11" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-11&#xa;Executar rematrícula automática" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-11-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-11-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-11-0" edge="1" parent="1" source="actor-UC-MA-11-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-30" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-30&#xa;Validar elegibilidade para inscrição" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="note-UC-MA-30" parent="1" style="text;html=0;fontSize=20;" value="Comportamento &#xa;interno de apoio" vertex="1">
+          <mxGeometry height="70" width="150" x="82" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-12" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-12&#xa;Registrar transferência acadêmica" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-12-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="576" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-12-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="619" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-12-0" edge="1" parent="1" source="actor-UC-MA-12-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-13" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-13&#xa;Registrar aproveitamento/equivalência" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-13-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="724" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-13-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-13-0" edge="1" parent="1" source="actor-UC-MA-13-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-14" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-14&#xa;Gerenciar plano de estudo" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="903" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-14-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="872" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-14-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="915" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-14-0" edge="1" parent="1" source="actor-UC-MA-14-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include-UC-MA-11" edge="1" parent="1" source="UC-MA-11" style="dashed=1;endArrow=open;endFill=0;html=0;fontSize=19;strokeWidth=2;" target="UC-MA-30" value="«include»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-07" name="07 Inscrição em disciplinas e informações para o MEC">
+    <mxGraphModel dx="1470" dy="631" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="674" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Inscrição em disciplinas e informações para o MEC" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="499" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-10" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-10&#xa;Realizar inscrição em disciplinas" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-10-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-10-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Aluno" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-10-0" edge="1" parent="1" source="actor-UC-MA-10-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-10-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="238" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-10-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="281" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-10-1" edge="1" parent="1" source="actor-UC-MA-10-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-30" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-30&#xa;Validar elegibilidade para inscrição" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="note-UC-MA-30" parent="1" style="text;html=0;fontSize=20;" value="Comportamento &#xa;interno de apoio" vertex="1">
+          <mxGeometry height="70" width="150" x="83" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-28" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-28&#xa;Gerar relatório MEC" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-28-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="493" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-28-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="536" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-28-0" edge="1" parent="1" source="actor-UC-MA-28-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include-UC-MA-10" edge="1" parent="1" source="UC-MA-10" style="dashed=1;endArrow=open;endFill=0;html=0;fontSize=19;strokeWidth=2;" target="UC-MA-30" value="«include»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-08" name="08 Registro e consulta das atividades docentes">
+    <mxGraphModel dx="1896" dy="814" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="822" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Registro e consulta das atividades docentes" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="647" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-16" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-16&#xa;Gerenciar avaliações e notas" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-16-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="178" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-16-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Professor" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-16-0" edge="1" parent="1" source="actor-UC-MA-16-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-17" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-17&#xa;Registrar frequência acadêmica" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-17-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="286" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-17-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Professor" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-17-0" edge="1" parent="1" source="actor-UC-MA-17-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-17-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="382" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-17-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Sistema de Controle de Acesso às Salas" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="419" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-17-1" edge="1" parent="1" source="actor-UC-MA-17-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-18" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-18&#xa;Registrar pauta e conteúdo programático" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-18-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="494" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-18-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Professor" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="531" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-18-0" edge="1" parent="1" source="actor-UC-MA-18-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-19" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-19&#xa;Consultar diário de classe" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-19-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="642" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-19-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Professor" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="679" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-19-0" edge="1" parent="1" source="actor-UC-MA-19-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-09" name="09 Coordenação e acompanhamento acadêmico">
+    <mxGraphModel dx="1817" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="822" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Coordenação e acompanhamento acadêmico" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="647" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-20" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-20&#xa;Gerenciar prazos e metas docentes" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-20-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-20-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Coordenador/Gestor" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-20-0" edge="1" parent="1" source="actor-UC-MA-20-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-21" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-21&#xa;Auditar diário de classe" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-21-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-21-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Coordenador/Gestor" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-21-0" edge="1" parent="1" source="actor-UC-MA-21-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-22" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-22&#xa;Consultar avaliações por turma/disciplina" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-22-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-22-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Coordenador/Gestor" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-22-0" edge="1" parent="1" source="actor-UC-MA-22-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-23" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-23&#xa;Monitorar desempenho acadêmico" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-23-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="586" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-23-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Coordenador/Gestor" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="619" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-23-0" edge="1" parent="1" source="actor-UC-MA-23-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-10" name="10 Consultas e documentos do aluno">
+    <mxGraphModel dx="1817" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="822" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Consultas e documentos do aluno" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="647" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-15" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-15&#xa;Consultar horário de aulas" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-15-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-15-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Aluno" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-15-0" edge="1" parent="1" source="actor-UC-MA-15-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-24" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-24&#xa;Consultar histórico escolar" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-24-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-24-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Aluno" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-24-0" edge="1" parent="1" source="actor-UC-MA-24-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-25" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-25&#xa;Consultar notas e frequência" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-25-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-25-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Aluno" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-25-0" edge="1" parent="1" source="actor-UC-MA-25-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-26" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-26&#xa;Solicitar documentos acadêmicos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-26-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="586" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-26-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Aluno" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="619" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-26-0" edge="1" parent="1" source="actor-UC-MA-26-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-11" name="11 Manifestação plano de estudo e inscrição">
+    <mxGraphModel dx="1817" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="822" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Manifestação plano de estudo e inscrição" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="647" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-27" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-27&#xa;Registrar sugestões e reclamações" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-27-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-27-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Aluno" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-27-0" edge="1" parent="1" source="actor-UC-MA-27-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-29" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-29&#xa;Consultar plano de estudo" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-29-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-29-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Aluno" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-29-0" edge="1" parent="1" source="actor-UC-MA-29-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-10" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-10&#xa;Realizar inscrição em disciplinas" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-10-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-10-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Aluno" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-10-0" edge="1" parent="1" source="actor-UC-MA-10-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-10-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="534" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MA-10-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="567" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MA-10-1" edge="1" parent="1" source="actor-UC-MA-10-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MA-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MA-30" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MA-30&#xa;Validar elegibilidade para inscrição" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="note-UC-MA-30" parent="1" style="text;html=0;fontSize=20;" value="Comportamento interno de apoio" vertex="1">
+          <mxGeometry height="70" width="230" x="20" y="632" as="geometry" />
+        </mxCell>
+        <mxCell id="include-UC-MA-10" edge="1" parent="1" source="UC-MA-10" style="dashed=1;endArrow=open;endFill=0;html=0;fontSize=19;strokeWidth=2;" target="UC-MA-30" value="«include»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-12" name="12 Cobranças boletos e mensalidades">
+    <mxGraphModel dx="1817" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="822" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Cobranças boletos e mensalidades" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="647" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MF-01" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MF-01&#xa;Gerenciar cobranças" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-01-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="152" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-01-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário Financeiro" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MF-01-0" edge="1" parent="1" source="actor-UC-MF-01-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MF-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MF-02" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MF-02&#xa;Emitir e controlar boletos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-02-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-02-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário Financeiro" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MF-02-0" edge="1" parent="1" source="actor-UC-MF-02-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MF-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-02-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="376" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-02-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Serviço Bancário" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="419" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MF-02-1" edge="1" parent="1" source="actor-UC-MF-02-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MF-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MF-03" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MF-03&#xa;Calcular mensalidades" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-03-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="488" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-03-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário Financeiro" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="531" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MF-03-0" edge="1" parent="1" source="actor-UC-MF-03-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MF-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MF-04" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MF-04&#xa;Atualizar mensalidades" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-04-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="636" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-04-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário Financeiro" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="679" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MF-04-0" edge="1" parent="1" source="actor-UC-MF-04-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MF-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-13" name="13 Condições financeiras pagamentos e débitos">
+    <mxGraphModel dx="2144" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="970" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Condições financeiras pagamentos e débitos" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="795" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MF-05" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MF-05&#xa;Gerenciar mensalidades fixas" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-05-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-05-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário Financeiro" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MF-05-0" edge="1" parent="1" source="actor-UC-MF-05-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MF-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MF-06" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MF-06&#xa;Gerenciar bolsas de estudo" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-06-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="284" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-06-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário Financeiro" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MF-06-0" edge="1" parent="1" source="actor-UC-MF-06-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MF-06">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MF-07" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MF-07&#xa;Gerenciar financiamentos estudantis" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-07-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="402" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-07-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário Financeiro" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="441" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MF-07-0" edge="1" parent="1" source="actor-UC-MF-07-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MF-07">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-07-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="508" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-07-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Programa/Agente de Financiamento" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="547" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MF-07-1" edge="1" parent="1" source="actor-UC-MF-07-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MF-07">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MF-08" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MF-08&#xa;Registrar pagamentos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-08-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-08-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário Financeiro" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="649" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MF-08-0" edge="1" parent="1" source="actor-UC-MF-08-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MF-08">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-08-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="696" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-08-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Serviço Bancário" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="735" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MF-08-1" edge="1" parent="1" source="actor-UC-MF-08-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MF-08">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MF-09" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MF-09&#xa;Incorporar débitos de outros módulos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-09-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="838" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MF-09-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário Financeiro" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="877" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MF-09-0" edge="1" parent="1" source="actor-UC-MF-09-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MF-09">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-14" name="14 Acervo usuários e registro de acessos">
+    <mxGraphModel dx="2144" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="970" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Acervo usuários e registro de acessos" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="795" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-01" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-01&#xa;Gerenciar acervo" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-01-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-01-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Bibliotecário" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-01-0" edge="1" parent="1" source="actor-UC-MB-01-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-02" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-02&#xa;Gerenciar informações e classificação do acervo" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-02-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-02-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Bibliotecário" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-02-0" edge="1" parent="1" source="actor-UC-MB-02-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-03" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-03&#xa;Gerenciar usuários da biblioteca" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-03-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-03-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Bibliotecário" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-03-0" edge="1" parent="1" source="actor-UC-MB-03-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-04" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-04&#xa;Pesquisar acervo" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-04-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="586" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-04-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Usuário da Biblioteca" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="619" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-04-0" edge="1" parent="1" source="actor-UC-MB-04-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-04-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="672" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-04-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Bibliotecário" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="705" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-04-1" edge="1" parent="1" source="actor-UC-MB-04-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-14" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-14&#xa;Registrar acesso à biblioteca" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="note-UC-MB-14" parent="1" style="text;html=0;fontSize=20;" value="Comportamento&#xa;interno de apoio" vertex="1">
+          <mxGeometry height="70" width="150" x="83" y="780" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-15" name="15 Empréstimos devoluções e pendências">
+    <mxGraphModel dx="1817" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="822" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Empréstimos devoluções e pendências" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="647" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-05" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-05&#xa;Registrar empréstimo" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-05-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-05-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Bibliotecário" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-05-0" edge="1" parent="1" source="actor-UC-MB-05-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-13" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-13&#xa;Verificar condições para empréstimo" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="note-UC-MB-13" parent="1" style="text;html=0;fontSize=20;" value="Comportamento interno de apoio" vertex="1">
+          <mxGeometry height="70" width="230" x="20" y="336" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-06" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-06&#xa;Registrar devolução" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-06-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-06-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Bibliotecário" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-06-0" edge="1" parent="1" source="actor-UC-MB-06-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-06">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-07" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-07&#xa;Controlar atrasos, multas e danos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-07-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="586" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-07-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Bibliotecário" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="619" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-07-0" edge="1" parent="1" source="actor-UC-MB-07-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-07">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include-UC-MB-05" edge="1" parent="1" source="UC-MB-05" style="dashed=1;endArrow=open;endFill=0;html=0;fontSize=19;strokeWidth=2;" target="UC-MB-13" value="«include»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-16" name="16 Notificações integração relatórios e ajuda">
+    <mxGraphModel dx="2144" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="970" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Notificações integração relatórios e ajuda" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="795" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-08" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-08&#xa;Emitir alertas de devolução" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-08-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-08-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Serviço de E-mail/SMS" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-08-0" edge="1" parent="1" source="actor-UC-MB-08-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-08">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-08-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="218" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-08-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Usuário da Biblioteca" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="251" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-08-1" edge="1" parent="1" source="actor-UC-MB-08-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-08">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-09" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-09&#xa;Encaminhar débitos ao Módulo Financeiro" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-09-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-09-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Bibliotecário" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="353" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-09-0" edge="1" parent="1" source="actor-UC-MB-09-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-09">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-10" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-10&#xa;Informar pendências ao Módulo Acadêmico" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-10-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="428" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-10-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Aluno" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="461" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-10-0" edge="1" parent="1" source="actor-UC-MB-10-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-10-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="504" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-10-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Secretário Acadêmico" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="537" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-10-1" edge="1" parent="1" source="actor-UC-MB-10-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-11" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-11&#xa;Gerar relatórios da biblioteca" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-11-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="606" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-11-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Bibliotecário" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="639" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-11-0" edge="1" parent="1" source="actor-UC-MB-11-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-MB-12" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-MB-12&#xa;Consultar ajuda e manual" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-12-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="714" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-12-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Usuário da Biblioteca" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="747" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-12-0" edge="1" parent="1" source="actor-UC-MB-12-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-12-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-MB-12-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Bibliotecário" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="843" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-MB-12-1" edge="1" parent="1" source="actor-UC-MB-12-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-MB-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-17" name="17 Produtos e movimentação de estoque">
+    <mxGraphModel dx="2144" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="970" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Produtos e movimentação de estoque" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="795" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AL-01" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AL-01&#xa;Gerenciar produtos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-01-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-01-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Almoxarife" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AL-01-0" edge="1" parent="1" source="actor-UC-AL-01-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AL-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AL-02" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AL-02&#xa;Classificar produtos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-02-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-02-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Almoxarife" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AL-02-0" edge="1" parent="1" source="actor-UC-AL-02-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AL-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AL-03" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AL-03&#xa;Gerenciar informações de estoque" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-03-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-03-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Almoxarife" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AL-03-0" edge="1" parent="1" source="actor-UC-AL-03-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AL-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AL-04" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AL-04&#xa;Registrar movimentação de estoque" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-04-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="586" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-04-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Almoxarife" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="619" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AL-04-0" edge="1" parent="1" source="actor-UC-AL-04-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AL-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AL-05" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AL-05&#xa;Controlar retirada e devolução de produtos não consumíveis" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-05-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="734" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-05-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Almoxarife" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AL-05-0" edge="1" parent="1" source="actor-UC-AL-05-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AL-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-18" name="18 Patrimônio tombamento baixa e relatórios">
+    <mxGraphModel dx="1817" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="822" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Patrimônio tombamento baixa e relatórios" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="647" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AL-06" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AL-06&#xa;Gerenciar bens patrimoniais" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-06-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-06-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Almoxarife" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AL-06-0" edge="1" parent="1" source="actor-UC-AL-06-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AL-06">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AL-07" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AL-07&#xa;Realizar tombamento e distribuição de bens" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-07-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-07-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Almoxarife" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AL-07-0" edge="1" parent="1" source="actor-UC-AL-07-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AL-07">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AL-08" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AL-08&#xa;Registrar baixa de bens inservíveis" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-08-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-08-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Almoxarife" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AL-08-0" edge="1" parent="1" source="actor-UC-AL-08-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AL-08">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AL-09" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AL-09&#xa;Gerar relatórios de estoque e patrimônio" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-09-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="586" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AL-09-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Almoxarife" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="619" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AL-09-0" edge="1" parent="1" source="actor-UC-AL-09-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AL-09">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-19" name="19 Gestão administrativa de informações e recursos">
+    <mxGraphModel dx="2144" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="970" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Gestão administrativa de informações e recursos" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="795" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AD-01" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AD-01&#xa;Consultar informações integradas" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AD-01-0" parent="1" style="shape=umlActor;html=0;" value="       " vertex="1">
+          <mxGeometry height="39" width="24" x="143" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AD-01-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Administrador" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AD-01-0" edge="1" parent="1" source="actor-UC-AD-01-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AD-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AD-02" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AD-02&#xa;Gerenciar centros de custo" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AD-02-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="143" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AD-02-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Administrador" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AD-02-0" edge="1" parent="1" source="actor-UC-AD-02-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AD-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AD-03" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AD-03&#xa;Gerenciar recursos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AD-03-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="143" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AD-03-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Administrador" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AD-03-0" edge="1" parent="1" source="actor-UC-AD-03-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AD-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AD-04" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AD-04&#xa;Distribuir recursos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AD-04-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="143" y="586" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AD-04-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Administrador" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="619" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AD-04-0" edge="1" parent="1" source="actor-UC-AD-04-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AD-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-AD-05" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-AD-05&#xa;Consultar movimentações de recursos" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AD-05-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="143" y="734" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-AD-05-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Administrador" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-AD-05-0" edge="1" parent="1" source="actor-UC-AD-05-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-AD-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-20" name="20 Recursos humanos e autorização financeira">
+    <mxGraphModel dx="2144" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="970" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Recursos humanos e autorização financeira" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="795" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-RH-01" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-RH-01&#xa;Gerenciar funcionários" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-RH-01-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-RH-01-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário de RH" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-RH-01-0" edge="1" parent="1" source="actor-UC-RH-01-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-RH-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-RH-02" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-RH-02&#xa;Gerenciar funções dos funcionários" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-RH-02-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-RH-02-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário de RH" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-RH-02-0" edge="1" parent="1" source="actor-UC-RH-02-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-RH-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-RH-03" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-RH-03&#xa;Processar folha de pagamento" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-RH-03-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-RH-03-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário de RH" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-RH-03-0" edge="1" parent="1" source="actor-UC-RH-03-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-RH-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-RH-04" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-RH-04&#xa;Emitir e consultar folha de pagamento" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-RH-04-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="586" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-RH-04-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Funcionário de RH" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="619" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-RH-04-0" edge="1" parent="1" source="actor-UC-RH-04-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-RH-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-RH-05" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-RH-05&#xa;Autorizar transações financeiras" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-RH-05-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="734" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-RH-05-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Usuário Autorizador" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-RH-05-0" edge="1" parent="1" source="actor-UC-RH-05-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-RH-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-21" name="21 Fornecedores solicitação aprovação e compra">
+    <mxGraphModel dx="2144" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="970" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Fornecedores solicitação aprovação e compra" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="795" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-CO-01" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-CO-01&#xa;Gerenciar fornecedores" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-01-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="144" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-01-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Responsável por Compras" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-CO-01-0" edge="1" parent="1" source="actor-UC-CO-01-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-CO-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-CO-02" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-CO-02&#xa;Registrar solicitação de compra" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-02-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="144" y="288" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-02-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Solicitante" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-CO-02-0" edge="1" parent="1" source="actor-UC-CO-02-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-CO-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-CO-03" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-CO-03&#xa;Aprovar solicitação de compra" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-03-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="144" y="436" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-03-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Usuário Aprovador" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-CO-03-0" edge="1" parent="1" source="actor-UC-CO-03-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-CO-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-CO-04" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-CO-04&#xa;Registrar compra" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-04-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="144" y="584" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-04-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Responsável por Compras" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="619" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-CO-04-0" edge="1" parent="1" source="actor-UC-CO-04-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-CO-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-CO-05" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-CO-05&#xa;Gerenciar itens da compra" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-05-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="144" y="732" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-05-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Responsável por Compras" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-CO-05-0" edge="1" parent="1" source="actor-UC-CO-05-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-CO-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include-UC-CO-04" edge="1" parent="1" source="UC-CO-04" style="dashed=1;endArrow=open;endFill=0;html=0;fontSize=19;strokeWidth=2;" target="UC-CO-05" value="«include»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-22" name="22 Recebimento estoque acompanhamento e cancelamento">
+    <mxGraphModel dx="1952" dy="839" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="822" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Recebimento estoque acompanhamento e cancelamento" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="647" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-CO-06" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-CO-06&#xa;Registrar recebimento de compra" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-06-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-06-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Responsável por Compras" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-CO-06-0" edge="1" parent="1" source="actor-UC-CO-06-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-CO-06">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-CO-07" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-CO-07&#xa;Integrar recebimento ao estoque" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-07-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-07-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Responsável por Compras" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-CO-07-0" edge="1" parent="1" source="actor-UC-CO-07-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-CO-07">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-CO-10" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-CO-10&#xa;Acompanhar situação da compra" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-10-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="418" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-10-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Responsável por Compras" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="451" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-CO-10-0" edge="1" parent="1" source="actor-UC-CO-10-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-CO-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-10-1" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="524" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-10-1-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Solicitante" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="557" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-CO-10-1" edge="1" parent="1" source="actor-UC-CO-10-1" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-CO-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-CO-11" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-CO-11&#xa;Cancelar compra" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-11-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="636" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-11-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Responsável por Compras" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="669" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-CO-11-0" edge="1" parent="1" source="actor-UC-CO-11-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-CO-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="extend-UC-CO-07" edge="1" parent="1" source="UC-CO-07" style="dashed=1;endArrow=open;endFill=0;html=0;fontSize=19;strokeWidth=2;" target="UC-CO-06" value="«extend»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="extension-condition" parent="1" style="text;html=0;fontSize=18;" value="EP-CO-06-01: após confirmar o recebimento&#xa;Condição: produto recebido destinado ao estoque" vertex="1">
+          <mxGeometry height="45" width="940" x="30" y="758" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="view-23" name="23 Registro e condições de pagamento da compra">
+    <mxGraphModel dx="1576" dy="677" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="526" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=23;fontStyle=1;align=center;" value="Registro e condições de pagamento da compra" vertex="1">
+          <mxGeometry height="75" width="940" x="30" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;horizontal=1;startSize=45;fillColor=none;fontSize=21;strokeColor=#444444;" value="SCOA — vista parcial" vertex="1">
+          <mxGeometry height="351" width="700" x="275" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-CO-08" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-CO-08&#xa;Registrar pagamento da compra" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-08-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-08-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Responsável por Compras" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-CO-08-0" edge="1" parent="1" source="actor-UC-CO-08-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-CO-08">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UC-CO-09" parent="1" style="ellipse;whiteSpace=wrap;html=0;fontSize=24;fillColor=#f7f9fb;strokeColor=#333333;" value="UC-CO-09&#xa;Registrar forma e condição de pagamento" vertex="1">
+          <mxGeometry height="108" width="555" x="350" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-09-0" parent="1" style="shape=umlActor;html=0;" value="" vertex="1">
+          <mxGeometry height="39" width="24" x="146" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-UC-CO-09-0-label" parent="1" style="text;html=0;fontSize=16;align=center;whiteSpace=wrap;" value="Responsável por Compras" vertex="1">
+          <mxGeometry height="38" width="190" x="62" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="association-UC-CO-09-0" edge="1" parent="1" source="actor-UC-CO-09-0" style="endArrow=none;startArrow=none;html=0;strokeWidth=2;" target="UC-CO-09">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include-UC-CO-08" edge="1" parent="1" source="UC-CO-08" style="dashed=1;endArrow=open;endFill=0;html=0;fontSize=19;strokeWidth=2;" target="UC-CO-09" value="«include»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
