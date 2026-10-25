@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Os bloqueios de sala e turma serializam a verificação e a gravação entre instâncias. */
 public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
-    private static final String TURMA = "SELECT t.id_turma,t.codigo,t.capacidade,p.data_inicio,p.data_fim "
+    private static final String TURMA = "SELECT t.id_turma,t.codigo,t.capacidade,p.data_inicio,p.data_fim,t.situacao AS situacao_turma,p.situacao AS situacao_periodo "
             + "FROM turma t JOIN periodo_letivo p ON p.id_periodo=t.id_periodo";
     private final Connection conexao;
     private final RepositorioSalaJdbc salas;
@@ -62,7 +62,7 @@ public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
         HorarioAula.validarId(idTurma);
         Objects.requireNonNull(faixa, "Informe o horário.");
         try {
-            TurmaResumo turma = buscarTurma(idTurma, false);
+            TurmaResumo turma = buscarTurma(idTurma, false, true);
             RegraAlocacao.validarDia(turma, faixa);
             List<Sala> disponiveis = new ArrayList<>();
             for (Sala sala : salas.listar()) {
@@ -81,7 +81,7 @@ public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
         return TransacaoJdbc.executar(conexao, () -> {
             // Mesma ordem em todas as inclusões: sala e, depois, turma/período.
             Sala sala = salas.buscarBloqueada(horario.idSala());
-            TurmaResumo turma = buscarTurma(horario.idTurma(), true);
+            TurmaResumo turma = buscarTurma(horario.idTurma(), true, true);
             RegraAlocacao.validarSala(sala, turma);
             RegraAlocacao.validarDia(turma, horario.faixa());
             if (temConflito(horario, turma.periodo(), true))
@@ -123,10 +123,15 @@ public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
     }
 
     private TurmaResumo buscarTurma(long id, boolean bloquear) throws SQLException {
+        return buscarTurma(id,bloquear,false);
+    }
+    private TurmaResumo buscarTurma(long id, boolean bloquear, boolean exigirAtiva) throws SQLException {
         try (var comando = conexao.prepareStatement(TURMA + " WHERE t.id_turma=?" + (bloquear ? " FOR UPDATE" : ""))) {
             comando.setLong(1, id);
             try (var registro = comando.executeQuery()) {
                 if (!registro.next()) throw new IllegalArgumentException("Turma não encontrada.");
+                if (exigirAtiva && (!"ATIVO".equals(registro.getString("situacao_turma")) || !"ATIVO".equals(registro.getString("situacao_periodo"))))
+                    throw new IllegalArgumentException("A turma e o período devem estar ativos para alocação.");
                 return lerTurma(registro);
             }
         }

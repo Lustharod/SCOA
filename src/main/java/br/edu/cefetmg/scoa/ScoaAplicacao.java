@@ -2,6 +2,9 @@ package br.edu.cefetmg.scoa;
 
 import br.edu.cefetmg.scoa.aplicacao.ServicoSala;
 import br.edu.cefetmg.scoa.aplicacao.ServicoAlocacao;
+import br.edu.cefetmg.scoa.aplicacao.ServicoCadastroAcademico;
+import br.edu.cefetmg.scoa.apresentacao.ConsoleCadastrosAcademicos;
+import br.edu.cefetmg.scoa.persistencia.RepositorioCadastroAcademicoJdbc;
 import br.edu.cefetmg.scoa.dominio.Sala;
 import br.edu.cefetmg.scoa.dominio.SalaNaoEncontradaException;
 import br.edu.cefetmg.scoa.persistencia.ConexaoMySql;
@@ -25,6 +28,7 @@ public final class ScoaAplicacao {
                 System.out.println("\nSCOA — Salas");
                 System.out.println("1 Cadastrar | 2 Listar | 3 Consultar | 4 Atualizar | 5 Inativar | 0 Sair");
                 System.out.println("6 Turmas | 7 Horários da turma | 8 Salas disponíveis | 9 Alocar sala | 10 Desalocar");
+                System.out.println("11 Cadastros de períodos e turmas");
                 String opcao = ler(entrada, "Opção: ");
                 try {
                     switch (opcao) {
@@ -80,6 +84,8 @@ public final class ScoaAplicacao {
                             alocacao.desalocar(numero(entrada, "ID da alocação: "));
                             System.out.println("Alocação removida.");
                         }
+                        case "11" -> new ConsoleCadastrosAcademicos(entrada,
+                                new ServicoCadastroAcademico(new RepositorioCadastroAcademicoJdbc(conexao))).executar();
                         default -> System.out.println("Escolha uma das opções do menu.");
                     }
                 } catch (IllegalArgumentException | SalaNaoEncontradaException | PersistenciaException e) {

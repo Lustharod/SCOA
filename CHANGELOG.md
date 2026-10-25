@@ -1,5 +1,13 @@
 # Alterações do SCOA
 
+## 0.3.0-SNAPSHOT
+
+- Incluídos cadastro, consulta, listagem, atualização e inativação de períodos letivos e turmas, com confirmação das operações no console.
+- Turmas vinculam disciplina e professor previamente cadastrados e ativos e um período letivo ativo.
+- Protegidas datas e situação de períodos vinculados a turmas, preservados os horários e os vínculos das turmas e validada a capacidade frente às salas alocadas e inscrições registradas.
+- Alocação passou a recusar turmas e períodos inativos, mantendo as consultas históricas.
+- Validação: 56 execuções unitárias e 35 JDBC aprovadas, incluindo regressões e concorrência; fluxo do console validado. DDL v7.5 preservado.
+
 ## 0.2.0-SNAPSHOT
 
 - Corrigida a perda de alterações entre instâncias no cadastro de salas. Consulta para alteração e gravação passaram a ocorrer sob bloqueio na mesma transação.
