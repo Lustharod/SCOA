@@ -104,13 +104,13 @@ class SalaJdbcIT {
             comando.executeUpdate();
         }
         assertTrue(repositorio.buscarPorId(inicial.getId()).isEmpty());
-        assertThrows(SalaNaoEncontradaException.class, () -> repositorio.salvar(inicial));
+        assertThrows(SalaNaoEncontradaException.class, () -> repositorio.alterar(inicial.getId(), sala -> sala));
     }
 
     @Test
     void ctJiSala006SalvarSemAlteracoesNaoAcusaAusencia() {
         Sala inicial = servico.cadastrar(etiqueta, "Bloco A", 30);
-        assertDoesNotThrow(() -> repositorio.salvar(inicial));
+        assertDoesNotThrow(() -> repositorio.alterar(inicial.getId(), sala -> sala));
         assertEquals(etiqueta, servico.buscar(inicial.getId()).getIdentificacao());
     }
 

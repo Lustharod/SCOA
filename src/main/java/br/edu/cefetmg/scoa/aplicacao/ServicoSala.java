@@ -6,7 +6,7 @@ import br.edu.cefetmg.scoa.dominio.SalaNaoEncontradaException;
 import java.util.List;
 import java.util.Objects;
 
-/** Coordena o cadastro; a disponibilidade por horário será implementada com a alocação. */
+/** Coordena o cadastro e utiliza alterações atômicas para preservar dados concorrentes. */
 public final class ServicoSala {
     private final RepositorioSala repositorio;
 
@@ -28,13 +28,14 @@ public final class ServicoSala {
     }
 
     public Sala atualizar(long id, String identificacao, String localizacao, int capacidade) {
-        Sala atual = buscar(id);
-        return repositorio.salvar(new Sala(id, identificacao, localizacao, capacidade, atual.getSituacao()));
+        Sala.validarId(id);
+        return repositorio.alterar(id, atual ->
+                new Sala(id, identificacao, localizacao, capacidade, atual.getSituacao()));
     }
 
     public Sala inativar(long id) {
-        Sala atual = buscar(id);
-        return repositorio.salvar(new Sala(id, atual.getIdentificacao(), atual.getLocalizacao(),
+        Sala.validarId(id);
+        return repositorio.alterar(id, atual -> new Sala(id, atual.getIdentificacao(), atual.getLocalizacao(),
                 atual.getCapacidade(), "INATIVO"));
     }
 }

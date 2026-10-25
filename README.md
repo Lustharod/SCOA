@@ -4,9 +4,13 @@ Projeto acadêmico desenvolvido para a disciplina de Engenharia de Software do C
 
 ## Estado da implementação
 
-A versão 0.1.0 inicia o módulo acadêmico pelo gerenciamento de salas: cadastro, consulta, listagem, atualização e inativação, com persistência no MySQL.
+A versão 0.2.0-SNAPSHOT reúne o gerenciamento de salas e sua alocação a turmas por dia e horário, com persistência no MySQL.
 
-Essa entrega implementa parte de RF-MA-07 / UC-MA-07. Disponibilidade por horário, alocação de salas às turmas, autenticação, autorização e os demais módulos fazem parte da evolução prevista do projeto.
+O cadastro permite incluir, consultar, listar, atualizar e inativar salas. A alocação verifica capacidade, situação da sala, sobreposição de horários e períodos letivos, incluindo conflitos da própria turma. Horários adjacentes são permitidos. A disponibilidade é revalidada no momento da gravação.
+
+As alterações concorrentes são coordenadas por transações e bloqueios de registros. Salas com alocações em períodos atuais ou futuros não podem ser inativadas nem ter a capacidade reduzida abaixo da capacidade das turmas comprometidas.
+
+A entrega avança RF-MA-07 e RF-MA-08, com as regras de RN-MA-03 na interface de console. Autenticação, autorização, interface web, cadastros completos de turmas e períodos e os demais módulos permanecem em desenvolvimento.
 
 ## Tecnologias
 
@@ -30,10 +34,10 @@ Essa entrega implementa parte de RF-MA-07 / UC-MA-07. Disponibilidade por horár
 
 A [documentação do SCOA v7.5](docs/SCOA%20-%20Sistema%20de%20Controle%20Acad%C3%AAmico%20v7.5.pdf) apresenta os requisitos, a modelagem e o escopo planejado do sistema. A implementação disponível nesta versão corresponde ao gerenciamento de salas descrito acima.
 
-Os arquivos `.drawio` em `docs` contêm as vistas editáveis dos casos de uso, classes, atividades, sequências e dos modelos conceitual, lógico e físico do banco de dados.
+Os arquivos `.drawio` em `docs` contêm as vistas editáveis dos casos de uso, classes, atividades, sequências e dos modelos conceitual, lógico e físico do banco de dados. A [nota técnica da implementação v0.2](docs/SCOA_Implementacao_v0_2.md) descreve as novas classes, os critérios de alocação e a verificação desta entrega. O DDL v7.5 permanece compatível, sem novas tabelas ou colunas.
 
 ## Verificação
 
-A implementação inicial foi verificada com 32 execuções unitárias e seis testes de integração JDBC, sem falhas ou erros. O cadastro, a consulta, a atualização e a inativação também foram conferidos pelo console e pelo MySQL Workbench.
+A implementação v0.2 foi verificada com 47 execuções unitárias e 23 de integração JDBC, sem falhas, erros ou testes ignorados. A bateria inclui conexões simultâneas para alteração de salas, disputa de alocação e preservação de capacidade e situação. O fluxo de alocação e desalocação também foi exercitado pelo console em uma instância MySQL isolada.
 
-Os testes de integração utilizam um schema próprio de testes e transações desfeitas ao final. O repositório contém a estrutura SQL; os dados locais e as credenciais de acesso não fazem parte do código-fonte.
+Os testes de integração utilizam um schema próprio. Os cenários sequenciais usam rollback; os cenários concorrentes confirmam fixtures sintéticas para permitir sua leitura por conexões independentes e removem os registros pelos IDs ao final. As credenciais locais não fazem parte do código-fonte.

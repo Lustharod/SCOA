@@ -117,6 +117,10 @@ class ServicoSalaTest {
         }
 
         @Override public Optional<Sala> buscarPorId(long id) { return Optional.ofNullable(salas.get(id)); }
+        @Override public synchronized Sala alterar(long id, java.util.function.UnaryOperator<Sala> modificacao) {
+            Sala atual = buscarPorId(id).orElseThrow(() -> new SalaNaoEncontradaException(id));
+            return salvar(modificacao.apply(atual));
+        }
         @Override public List<Sala> listar() { return new ArrayList<>(salas.values()); }
     }
 }

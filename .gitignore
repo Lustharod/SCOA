@@ -25,6 +25,7 @@ Thumbs.db
 !/docs/SCOA_Diagramas_de_Sequencia_v7_4.drawio
 !/docs/SCOA_Modelo_Fisico_v7.drawio
 !/docs/SCOA_Modelo_Logico_v7.drawio
+!/docs/SCOA_Implementacao_v0_2.md
 
 # Exemplo didático usado na primeira execução; não integra a aplicação
 /src/main/java/br/edu/cefetmg/scoa/ExemploSala.java
