@@ -2,6 +2,8 @@
 
 ## 0.3.0-SNAPSHOT
 
+- Incluído relatório da validação do autor em 27–28/10/2026, com ambiente, resultados extraídos dos relatórios JUnit e seleção de capturas originais.
+
 - Incluídos cadastro, consulta, listagem, atualização e inativação de períodos letivos e turmas, com confirmação das operações no console.
 - Turmas vinculam disciplina e professor previamente cadastrados e ativos e um período letivo ativo.
 - Protegidas datas e situação de períodos vinculados a turmas, preservados os horários e os vínculos das turmas e validada a capacidade frente às salas alocadas e inscrições registradas.

@@ -30,3 +30,39 @@ Thumbs.db
 
 # Exemplo didático usado na primeira execução; não integra a aplicação
 /src/main/java/br/edu/cefetmg/scoa/ExemploSala.java
+
+# Evidências técnicas revisadas para publicação; demais testes/guias locais privados
+!/docs/testes/
+/docs/testes/*
+!/docs/testes/publicados/
+/docs/testes/publicados/*
+!/docs/testes/publicados/execucao_autor_v0_3/
+/docs/testes/publicados/execucao_autor_v0_3/*
+!/docs/testes/publicados/execucao_autor_v0_3/ambiente.txt
+!/docs/testes/publicados/execucao_autor_v0_3/RELATORIO.md
+!/docs/testes/publicados/execucao_autor_v0_3/MANIFESTO.md
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/
+/docs/testes/publicados/execucao_autor_v0_3/capturas/*
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes unitários e de integração - 01.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes unitários e de integração - 02.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes unitários e de integração - 03.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes funcionais manuais - 01.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes funcionais manuais - 02.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes funcionais manuais - 04.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes funcionais manuais - 05.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes funcionais manuais - 06.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes funcionais manuais - 09.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes funcionais manuais - 10.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes funcionais manuais - 11.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes funcionais manuais - 12.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes funcionais manuais - 14.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Testes funcionais manuais - 15.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Banco - Ambiente.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Banco - Turma e periodo.png
+!/docs/testes/publicados/execucao_autor_v0_3/capturas/v0.3 - Banco - Alocacoes removidas.png
+!/docs/testes/publicados/execucao_autor_v0_3/surefire-reports/
+/docs/testes/publicados/execucao_autor_v0_3/surefire-reports/*
+!/docs/testes/publicados/execucao_autor_v0_3/surefire-reports/RESULTADOS.md
+!/docs/testes/publicados/execucao_autor_v0_3/failsafe-reports/
+/docs/testes/publicados/execucao_autor_v0_3/failsafe-reports/*
+!/docs/testes/publicados/execucao_autor_v0_3/failsafe-reports/RESULTADOS.md

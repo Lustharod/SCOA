@@ -27,3 +27,5 @@ Em 25/10/2026, foram aprovadas 56 execuções unitárias e 35 JDBC com Java 25.0
 O console foi exercitado para criar período e turma, consultar e atualizar turma, cancelar uma operação antes de gravar, recusar mudança de datas de período vinculado, inativar uma turma sem compromissos e recusar sua alocação posterior.
 
 As 71 tabelas do DDL v7.5, o Word e os diagramas aprovados foram preservados. Esta nota registra a evolução da implementação. Autenticação, autorização, interface web, manutenção completa de disciplinas e professores, inscrições e demais módulos permanecem pendentes; os testes desta versão não representam aprovação desses fluxos.
+
+O autor também concluiu a execução automatizada em 27/10/2026 e a conferência manual registrada em 28/10/2026. Os resultados e as evidências selecionadas estão no [relatório de validação](testes/publicados/execucao_autor_v0_3/RELATORIO.md).

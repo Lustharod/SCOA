@@ -1,0 +1,32 @@
+Projeto: SCOA
+Versão: 0.3.0-SNAPSHOT
+Commit: e9efc1b
+Responsável pela execução: Rodrigo Lustosa
+Data e hora da execução: 2026-10-27T22:49:00-03:00
+
+Sistema operacional: Windows 11
+IDE: IntelliJ IDEA 2025.3
+Java utilizado: JDK 25
+Versão do MySQL: 8.0.46
+Driver JDBC: MySQL Connector/J 26.7.0
+Schema de testes: scoa_java_teste
+
+Execução Maven: verify -Pmysql-it
+
+Resultado observado:
+Testes unitários: 56 executados
+Testes de integração: 35 executados
+Falhas e erros: 0 falhas, 0 erros e 0 testes ignorados
+Resultado final do Maven: BUILD SUCCESS
+
+Validação manual:
+Realizado o roteiro da versão 0.3 para cadastro, consulta,
+atualização e inativação de períodos letivos e turmas.
+Conferidas as regras de restrição para períodos vinculados,
+capacidade das salas, alteração de vínculos e inativação de
+turmas com alocações. Conferidos também a remoção das alocações
+e o cancelamento de cadastro sem gravação.
+As operações apresentaram os resultados esperados.
+Evidências registradas em capturas do IntelliJ e do MySQL Workbench.
+Data das capturas manuais e da conferência do banco: 2026-10-28.
+Consolidação das evidências públicas: 2026-10-28.
