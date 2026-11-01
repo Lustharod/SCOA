@@ -1,0 +1,22 @@
+Projeto: SCOA
+Versão: 0.4.0-SNAPSHOT
+Código: base a3d0282 com alterações ainda sem commit; fontes identificadas em FONTES_SHA256.json
+Responsável pela execução: Codex
+Data e hora do encerramento automatizado: 2026-10-28T15:19:28.416723-03:00
+Sistema operacional: Windows
+Java: OpenJDK 25.0.1
+Maven: 3.9.11
+JUnit Jupiter: 6.0.1
+Servidor MySQL: 8.0.46
+Driver JDBC: MySQL Connector/J 26.7.0
+Schema: scoa_java_teste em instância isolada
+Execução: verify -Pmysql-it
+Testes unitários: 65
+Testes de integração: 49
+Falhas: 0
+Erros: 0
+Ignorados: 0
+Resultado: BUILD SUCCESS
+Console: testes automatizados com entradas controladas e conferência dos dados persistidos; entrada pelo menu principal também verificada.
+Limpeza: zero registros nas 11 tabelas verificadas após os testes.
+Validação manual do autor: pendente; não integra esta execução.

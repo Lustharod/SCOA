@@ -1,0 +1,6 @@
+id_disciplina,codigo,nome,carga_horaria,situacao
+18,DEMO-f41fc2e7,"Engenharia de Software demonstrativa",60,ATIVO
+48,DEMO-c216fb14,"Engenharia de Software demonstrativa",60,ATIVO
+121,"disciplina teste 1","Teste 1",40,ATIVO
+122,"Disciplina Teste 2.1","Teste 2.1",55,ATIVO
+123,"disciplina teste 3","Teste 3",35,ATIVO

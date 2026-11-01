@@ -28,4 +28,6 @@ O console foi exercitado para criar período e turma, consultar e atualizar turm
 
 As 71 tabelas do DDL v7.5, o Word e os diagramas aprovados foram preservados. Esta nota registra a evolução da implementação. Autenticação, autorização, interface web, manutenção completa de disciplinas e professores, inscrições e demais módulos permanecem pendentes; os testes desta versão não representam aprovação desses fluxos.
 
+O [plano conceitual de testes](testes/SCOA_Plano_Conceitual_Testes_v0_3.pdf), com [versão em texto](testes/SCOA_Plano_Conceitual_Testes_v0_3.md), consolida 28 casos em 28/10/2026: 24 automatizados, rastreados aos 69 métodos e às 91 execuções da bateria, e quatro fluxos manuais. A consolidação é posterior à implementação e não representa nova execução. Requisitos, casos de uso, condições e resultados esperados ficam ligados à comprovação histórica, sem valores concretos de entrada no plano. A aprovação se limita às condições exercitadas; autenticação, autorização e fluxos não implementados continuam pendentes.
+
 O autor também concluiu a execução automatizada em 27/10/2026 e a conferência manual registrada em 28/10/2026. Os resultados e as evidências selecionadas estão no [relatório de validação](testes/publicados/execucao_autor_v0_3/RELATORIO.md).

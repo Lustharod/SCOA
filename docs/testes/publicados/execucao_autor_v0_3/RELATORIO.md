@@ -8,7 +8,7 @@ A execução automatizada terminou em **27/10/2026 às 22:49:00, UTC−03:00**, 
 
 A entrega contempla períodos letivos e turmas, vinculados a disciplinas e professores existentes, e sua integração com a alocação de salas. Referências: RF-MA-06 / UC-MA-06 e regressão dos fluxos de salas e alocação de RF-MA-07 e RF-MA-08, conforme a documentação v7.5. As restrições iniciais e os limites da implementação estão descritos na [nota técnica da v0.3](../../../SCOA_Implementacao_v0_3.md).
 
-Esta é a consolidação da validação efetivamente realizada. O quadro conceitual abaixo organiza os comportamentos verificados e seus resultados esperados, sem valores de entrada. Não representa um planejamento anterior à execução. O plano geral ligado aos requisitos e a atualização correspondente do documento acadêmico serão tratados em uma etapa própria.
+Esta é a consolidação da validação efetivamente realizada. O quadro conceitual abaixo organiza os comportamentos verificados e seus resultados esperados, sem valores de entrada. Não representa um planejamento anterior à execução. Em 28/10/2026, o [plano conceitual de testes da v0.3](../../SCOA_Plano_Conceitual_Testes_v0_3.pdf), também disponível em [texto](../../SCOA_Plano_Conceitual_Testes_v0_3.md), passou a complementar a documentação acadêmica v7.5. Ele liga 28 casos conceituais aos requisitos, métodos e capturas deste escopo. Essa atualização preserva a origem posterior da consolidação e não constitui nova execução nem aprovação dos módulos pendentes.
 
 ## Comportamentos verificados na v0.3
 

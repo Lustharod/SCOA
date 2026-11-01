@@ -1,0 +1,90 @@
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: Identificação do professor: Confirmar operação? (S/N): Professor 43 | CTP04-80a6db5b-8 Console | ATIVO
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: Professor 42 | CTP04-80a6db5b-8 Professor | ATIVO
+Professor 43 | CTP04-80a6db5b-8 Console | ATIVO
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: ID do professor: Professor 42 | CTP04-80a6db5b-8 Professor | ATIVO
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: ID do professor: Professor 42 | CTP04-80a6db5b-8 Professor | ATIVO
+Identificação do professor: Confirmar operação? (S/N): Professor 42 | CTP04-80a6db5b-8 Corrigido | ATIVO
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: ID do professor: Professor 42 | CTP04-80a6db5b-8 Corrigido | ATIVO
+Confirmar operação? (S/N): Professor 42 | CTP04-80a6db5b-8 Corrigido | INATIVO
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: Código: Nome: Carga horária: Confirmar operação? (S/N): Disciplina 69 | CTP04-80a6db5b-8C | CTP04-80a6db5b-8 Console Disciplina | carga horária 60 | ATIVO
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: Disciplina 66 | CTP04-80a6db5b-8A | CTP04-80a6db5b-8 Disciplina A | carga horária 60 | ATIVO
+Disciplina 67 | CTP04-80a6db5b-8B | CTP04-80a6db5b-8 Disciplina B | carga horária 60 | ATIVO
+Disciplina 68 | CTP04-80a6db5b-8D | CTP04-80a6db5b-8 Disciplina D | carga horária 60 | ATIVO
+Disciplina 69 | CTP04-80a6db5b-8C | CTP04-80a6db5b-8 Console Disciplina | carga horária 60 | ATIVO
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: ID da disciplina: Disciplina 66 | CTP04-80a6db5b-8A | CTP04-80a6db5b-8 Disciplina A | carga horária 60 | ATIVO
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: ID da disciplina: Disciplina 66 | CTP04-80a6db5b-8A | CTP04-80a6db5b-8 Disciplina A | carga horária 60 | ATIVO
+Código: Nome: Carga horária: Confirmar operação? (S/N): Disciplina 66 | CTP04-80a6db5b-8A | CTP04-80a6db5b-8 Atualizada | carga horária 90 | ATIVO
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: ID da disciplina: ID do pré-requisito: Disciplina 66 | CTP04-80a6db5b-8A | CTP04-80a6db5b-8 Atualizada | carga horária 90 | ATIVO
+Disciplina 67 | CTP04-80a6db5b-8B | CTP04-80a6db5b-8 Disciplina B | carga horária 60 | ATIVO
+Confirmar operação? (S/N): Pré-requisito registrado.
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: ID da disciplina: Disciplina 66 | CTP04-80a6db5b-8A | CTP04-80a6db5b-8 Atualizada | carga horária 90 | ATIVO
+Disciplina 67 | CTP04-80a6db5b-8B | CTP04-80a6db5b-8 Disciplina B | carga horária 60 | ATIVO
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: ID da disciplina: ID do pré-requisito: Disciplina 66 | CTP04-80a6db5b-8A | CTP04-80a6db5b-8 Atualizada | carga horária 90 | ATIVO
+Disciplina 67 | CTP04-80a6db5b-8B | CTP04-80a6db5b-8 Disciplina B | carga horária 60 | ATIVO
+Confirmar operação? (S/N): Pré-requisito removido.
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: 

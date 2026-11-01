@@ -1,0 +1,29 @@
+Projeto: SCOA
+Versão: 0.4.0-SNAPSHOT
+Commit do código validado: b714404cdc293f68dbd9f58b2a68ede13ff44ddc
+Branch da implementação: versao-0.4-professores-disciplinas
+Commit-base: a3d028261410b1e46d76067bb02c32ba18e7a2aa
+Identificação retrospectiva: o commit foi criado após a execução; nenhum código foi alterado neste fechamento. Os 48 arquivos do manifesto anterior foram conferidos por SHA-256.
+Responsável pela execução: Rodrigo Lustosa
+Encerramento automatizado: 2026-10-31T16:03:46-03:00
+Validação manual: 31/10/2026; horário exato não registrado no PDF
+Consulta do estado final do banco: 2026-10-31T21:38:15-03:00
+
+Sistema operacional: Windows 11
+IDE: IntelliJ IDEA 2025.3
+Java utilizado: OpenJDK 25.0.1
+Servidor MySQL: 8.0.46
+Driver JDBC: MySQL Connector/J 26.7.0
+Schema de testes: scoa_java_teste
+Execução Maven: verify -Pmysql-it
+
+Resultado observado:
+Testes unitários: 65 executados
+Testes de integração: 49 executados
+Falhas: 0; erros: 0; ignorados: 0
+Resultado final do Maven: BUILD SUCCESS
+
+Validação manual:
+Cadastros e manutenção de professores e disciplinas; inclusão, consulta e retirada de pré-requisitos; recusas de autorreferência, ciclos direto e indireto e duplicidade; cancelamentos sem gravação; inativação de professor livre e atualização sem reativação; integração com período e turma e recusa de inativação de professor comprometido.
+Evidências: PDF original de 17 páginas, três capturas automatizadas, seis CSVs do banco e relatórios JUnit originais. A seleção pública contém resumos dos XMLs sem propriedades locais.
+Fechamento documental: 31/10/2026; Word v7.7; software mantido em 0.4.0-SNAPSHOT.

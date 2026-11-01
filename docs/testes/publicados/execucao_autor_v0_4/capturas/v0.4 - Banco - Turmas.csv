@@ -1,0 +1,7 @@
+id_turma,codigo_turma,situacao_turma,capacidade,id_professor,professor,situacao_professor,id_disciplina,codigo_disciplina,disciplina,id_periodo,periodo,data_inicio,data_fim,situacao_periodo
+22,DEMO-f41fc2e7-T1,ATIVO,30,18,"professor teste",ATIVO,18,DEMO-f41fc2e7,"Engenharia de Software demonstrativa",20,DEMO-f41fc2e7,2026-10-25,2027-04-25,ATIVO
+23,DEMO-f41fc2e7-T2,ATIVO,30,18,"professor teste",ATIVO,18,DEMO-f41fc2e7,"Engenharia de Software demonstrativa",20,DEMO-f41fc2e7,2026-10-25,2027-04-25,ATIVO
+58,DEMO-c216fb14-T1,ATIVO,30,48,DEMO-c216fb14-Professor,ATIVO,48,DEMO-c216fb14,"Engenharia de Software demonstrativa",56,DEMO-c216fb14,2026-10-27,2027-04-27,ATIVO
+59,DEMO-c216fb14-T2,ATIVO,30,48,DEMO-c216fb14-Professor,ATIVO,48,DEMO-c216fb14,"Engenharia de Software demonstrativa",56,DEMO-c216fb14,2026-10-27,2027-04-27,ATIVO
+60,ENGSOFT2027-01,INATIVO,30,18,"professor teste",ATIVO,18,DEMO-f41fc2e7,"Engenharia de Software demonstrativa",57,"2027-01 teste",2027-01-02,2027-06-30,ATIVO
+99,teste-periodo2-2027,ATIVO,40,95,"teste turma periodo",ATIVO,121,"disciplina teste 1","Teste 1",99,2027-2,2027-03-01,2027-06-30,ATIVO

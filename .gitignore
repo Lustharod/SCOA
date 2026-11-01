@@ -35,6 +35,10 @@ Thumbs.db
 !/docs/testes/
 /docs/testes/*
 !/docs/testes/publicados/
+
+# Plano técnico complementar; o Word editável permanece local
+!/docs/testes/SCOA_Plano_Conceitual_Testes_v0_3.pdf
+!/docs/testes/SCOA_Plano_Conceitual_Testes_v0_3.md
 /docs/testes/publicados/*
 !/docs/testes/publicados/execucao_autor_v0_3/
 /docs/testes/publicados/execucao_autor_v0_3/*
@@ -66,3 +70,29 @@ Thumbs.db
 !/docs/testes/publicados/execucao_autor_v0_3/failsafe-reports/
 /docs/testes/publicados/execucao_autor_v0_3/failsafe-reports/*
 !/docs/testes/publicados/execucao_autor_v0_3/failsafe-reports/RESULTADOS.md
+
+# Entrega v0.4: documentação técnica; Word e evidências brutas permanecem locais
+!/docs/SCOA_Implementacao_v0_4.md
+!/docs/testes/SCOA_Plano_Testes_Professores_Disciplinas_v0_4.pdf
+!/docs/testes/SCOA_Plano_Testes_Professores_Disciplinas_v0_4.md
+!/docs/testes/publicados/execucao_codex_v0_4/
+/docs/testes/publicados/execucao_codex_v0_4/*
+!/docs/testes/publicados/execucao_codex_v0_4/RELATORIO.md
+!/docs/testes/publicados/execucao_codex_v0_4/RESULTADOS.md
+!/docs/testes/publicados/execucao_codex_v0_4/FONTES_SHA256.json
+!/docs/testes/publicados/execucao_codex_v0_4/ambiente.txt
+!/docs/testes/publicados/execucao_codex_v0_4/MANIFESTO.md
+!/docs/testes/publicados/execucao_codex_v0_4/console-confirmacoes.txt
+!/docs/testes/publicados/execucao_codex_v0_4/console-cancelamentos.txt
+!/docs/testes/publicados/execucao_codex_v0_4/console-entrada-menu.txt
+
+# Evidências revisadas do fechamento da v0.4
+!/docs/testes/publicados/execucao_autor_v0_4/
+/docs/testes/publicados/execucao_autor_v0_4/*
+!/docs/testes/publicados/execucao_autor_v0_4/RELATORIO.md
+!/docs/testes/publicados/execucao_autor_v0_4/MANIFESTO.md
+!/docs/testes/publicados/execucao_autor_v0_4/FONTES_SHA256.json
+!/docs/testes/publicados/execucao_autor_v0_4/ambiente.txt
+!/docs/testes/publicados/execucao_autor_v0_4/capturas/
+!/docs/testes/publicados/execucao_autor_v0_4/surefire-reports/
+!/docs/testes/publicados/execucao_autor_v0_4/failsafe-reports/

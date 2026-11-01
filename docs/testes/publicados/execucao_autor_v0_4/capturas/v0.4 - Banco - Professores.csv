@@ -1,0 +1,5 @@
+id_professor,identificacao,situacao
+18,"professor teste",ATIVO
+48,DEMO-c216fb14-Professor,ATIVO
+94,"Alterar ativo-inativo",INATIVO
+95,"teste turma periodo",ATIVO

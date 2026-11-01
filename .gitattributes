@@ -1,0 +1,5 @@
+
+# Preservar bytes dos pacotes de evidências e seus hashes entre plataformas.
+docs/testes/publicados/execucao_autor_v0_4/** -text whitespace=cr-at-eol
+docs/testes/publicados/execucao_codex_v0_4/** -text whitespace=cr-at-eol
+docs/testes/publicados/execucao_codex_v0_4/console-*.txt whitespace=cr-at-eol,-blank-at-eol

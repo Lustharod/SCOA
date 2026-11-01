@@ -1,0 +1,28 @@
+
+SCOA — Salas
+1 Cadastrar | 2 Listar | 3 Consultar | 4 Atualizar | 5 Inativar | 0 Sair
+6 Turmas | 7 Horários da turma | 8 Salas disponíveis | 9 Alocar sala | 10 Desalocar
+11 Cadastros de períodos e turmas | 12 Professores, disciplinas e pré-requisitos
+Opção: 
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: Nenhum professor cadastrado.
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: Nenhuma disciplina cadastrada.
+
+SCOA — Professores e disciplinas
+1 Listar professores | 2 Criar professor | 3 Consultar professor | 4 Atualizar professor | 5 Inativar professor
+6 Listar disciplinas | 7 Criar disciplina | 8 Consultar disciplina | 9 Atualizar disciplina
+10 Consultar pré-requisitos | 11 Adicionar pré-requisito | 12 Remover pré-requisito | 0 Voltar
+Opção: 
+SCOA — Salas
+1 Cadastrar | 2 Listar | 3 Consultar | 4 Atualizar | 5 Inativar | 0 Sair
+6 Turmas | 7 Horários da turma | 8 Salas disponíveis | 9 Alocar sala | 10 Desalocar
+11 Cadastros de períodos e turmas | 12 Professores, disciplinas e pré-requisitos
+Opção: 

@@ -1,5 +1,13 @@
 # Alterações do SCOA
 
+## 0.4.0-SNAPSHOT
+
+- Incluídos cadastro e manutenção de professores e disciplinas e inclusão, consulta e retirada de pré-requisitos, com confirmação pelo console no menu principal 12.
+- Preservados vínculos de usuário e histórico de professores; protegida inativação com turmas ativas em período atual ou futuro.
+- Rejeitadas autorreferência, duplicidade e ciclos diretos, indiretos e concorrentes de pré-requisitos, com transações e leituras coordenadas.
+- Plano da entrega registrado antes da codificação, com 15 casos executados pelo Codex: 65 execuções unitárias e 49 JDBC aprovadas, incluindo as 91 regressões da v0.3 e testes de console. Validação do autor concluída em 31/10/2026, com os mesmos totais aprovados, PDF manual de 17 páginas, três capturas automatizadas e seis CSVs. Código validado: b714404.
+- DDL e diagramas v7.5 preservados. Word v7.7 atualiza o capítulo 9 com a validação do autor; planos e evidências complementares rastreados.
+
 ## 0.3.0-SNAPSHOT
 
 - Incluído relatório da validação do autor em 27–28/10/2026, com ambiente, resultados extraídos dos relatórios JUnit e seleção de capturas originais.
