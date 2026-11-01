@@ -1,0 +1,13 @@
+SCOA 0.6.0-SNAPSHOT — execução do Codex, separada da execução do autor
+Encerramento final: 01/11/2026 14:43:43 UTC−03:00; BUILD SUCCESS
+Resultado: 77 testes unitários e 95 de integração; zero falhas, erros ou ignorados
+Windows; OpenJDK 25.0.1; Maven CLI 3.9.11
+JUnit Jupiter 6.0.1; Surefire e Failsafe 3.5.4; Connector/J 26.7.0
+MySQL 8.0.46 em instância isolada local, schema scoa_java_teste
+DDL v7.5 com migração aditiva V006; 72 tabelas
+Verificação separada da migração em base descartável com fixture legada
+Servidor temporário encerrado; bancos e configurações do autor preservados
+Código identificado retrospectivamente: 87fb486ea15fefa0c1f2ddc796472ddc9a169f55
+Fontes da preparação conferidas por SHA-256, sem alteração no fechamento
+Registro consolidado no fechamento a partir dos logs; não representa nova execução
+Credenciais e configurações completas omitidas

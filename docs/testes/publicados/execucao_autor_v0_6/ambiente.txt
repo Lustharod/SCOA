@@ -1,0 +1,18 @@
+SCOA 0.6.0-SNAPSHOT — execução do autor Rodrigo Lustosa
+Data final automatizada: 01/11/2026 15:04:41 UTC−03:00; duração Maven 57.585 s
+Resultado: 77 unitários, 95 integração; zero falhas, erros ou ignorados; BUILD SUCCESS
+Sistema: Windows; IntelliJ IDEA 2025.3
+Java: OpenJDK 25.0.1
+Maven Wrapper: 3.9.11
+JUnit Jupiter 6.0.1; Surefire e Failsafe 3.5.4
+Servidor: MySQL 8.0.46; driver: MySQL Connector/J 26.7.0
+Schema de teste: scoa_java_teste; DDL v7.5 com migração aditiva V006
+Console automatizado: IBM850, conforme JAVA_TOOL_OPTIONS; manual: UTF-8
+Consulta final: 01/11/2026 18:51:59 no relógio do servidor, sessão SYSTEM
+Fuso do sistema registrado no CSV: Hora oficial do Brasil
+PDF automatizado: 3 páginas, emissão 15:15:45 UTC−03:00
+PDF manual parte 1: 6 páginas, emissão 18:04:10 UTC−03:00
+PDF manual parte 2: 8 páginas, emissão 18:26:33 UTC−03:00
+Emissão do PDF não equivale ao horário da execução; consultas e eventos usam relógio do servidor.
+Credenciais, propriedades completas dos XMLs e configurações locais omitidas.
+Registro de ambiente consolidado no fechamento a partir dos originais; não representa nova execução.

@@ -1,0 +1,3 @@
+identificacao,id_usuario_biblioteca,situacao_usuario,id_emprestimo,id_pendencia,tipo_pendencia,impeditiva,situacao_pendencia
+"V06MAN-6c5ed890d629 regular",32,ATIVO,32,8,TESTE_MANUAL,1,REGULARIZADO
+"V06MAN-6c5ed890d629 impedido",33,ATIVO,33,9,TESTE_MANUAL,1,ATIVO

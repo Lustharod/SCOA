@@ -1,0 +1,3 @@
+id_matricula,id_aluno,id_curso,data_ingresso,situacao,id_periodo_ingresso
+32,79,79,2026-01-17,CANCELADO,211
+33,79,79,2026-01-18,ATIVO,211

@@ -1,0 +1,8 @@
+id_evento,id_matricula,ocorrido_em,operacao,motivo,situacao_anterior,situacao_nova,data_anterior,data_nova,periodo_anterior,periodo_novo
+35,32,"2026-11-01 17:37:45.103522",CRIACAO,"V06 manual ingresso inicial",NULL,ATIVO,NULL,2026-01-15,NULL,211
+36,32,"2026-11-01 17:43:35.253543",CORRECAO,"V06 manual correcao confirmada",ATIVO,ATIVO,2026-01-15,2026-01-16,211,211
+37,32,"2026-11-01 17:46:15.188210",SITUACAO,"V06 manual trancamento confirmado",ATIVO,TRANCADO,2026-01-16,2026-01-16,211,211
+38,32,"2026-11-01 18:10:30.153405",CORRECAO,"V06 manual correcao sem efetivacao",TRANCADO,TRANCADO,2026-01-16,2026-01-17,211,211
+39,32,"2026-11-01 18:13:36.215034",SITUACAO,"V06 manual retorno autorizado",TRANCADO,ATIVO,2026-01-17,2026-01-17,211,211
+40,32,"2026-11-01 18:17:08.945840",SITUACAO,"V06 manual encerramento",ATIVO,CANCELADO,2026-01-17,2026-01-17,211,211
+41,33,"2026-11-01 18:19:09.303256",CRIACAO,"V06 manual reingresso",NULL,ATIVO,NULL,2026-01-18,NULL,211

@@ -1,5 +1,12 @@
 # Alterações do SCOA
 
+## 0.6.0-SNAPSHOT
+
+- Matrícula institucional no menu 14, com período de ingresso, correção, trancamento, retorno, cancelamento e histórico atômico.
+- Consulta bibliotecária real: impedimento, identidade não resolvida, situação desconhecida ou falha de consulta não liberam matrícula/retorno.
+- Duplicidade de vínculo vigente impedida; reingresso após encerramento mantém histórico e nova identidade, sem créditos automáticos.
+- Migração aditiva V006; DDL v7.5 original e dados legados preservados. Período usado em matrícula admite somente correção de descrição.
+- Plano P06 anterior ao código. Codex: 77 testes unitários e 95 de integração aprovados; validação do autor concluída em 01/11/2026 às 15:04:41 UTC−03:00, com os mesmos totais. Dois PDFs manuais (6 e 8 páginas) e sete CSVs preservados; falhas de consulta e retomada documentadas. Código validado: 87fb486. Word v7.9 atualiza o capítulo 9, preservando a v7.8.
 ## 0.5.0-SNAPSHOT
 
 - Incluídos cadastro básico de alunos e cursos e estruturas curriculares com inclusão e retirada de disciplinas, no menu principal 13, com confirmação e cancelamento.

@@ -122,3 +122,25 @@ Thumbs.db
 !/docs/testes/publicados/execucao_autor_v0_5/failsafe-reports/
 /docs/testes/publicados/execucao_autor_v0_5/failsafe-reports/*
 !/docs/testes/publicados/execucao_autor_v0_5/failsafe-reports/RESULTADOS.md
+
+# Incremento v0.6; roteiro e evidências brutas privados
+!/docs/SCOA_Implementacao_v0_6.md
+!/docs/testes/SCOA_Plano_Testes_Matricula_v0_6.md
+!/docs/testes/publicados/execucao_codex_v0_6/
+/docs/testes/publicados/execucao_codex_v0_6/*
+!/docs/testes/publicados/execucao_codex_v0_6/RELATORIO.md
+!/docs/testes/publicados/execucao_codex_v0_6/FONTES_SHA256.json
+
+# Fechamento v0.6: somente evidências revisadas do autor
+!/docs/testes/publicados/execucao_autor_v0_6/
+/docs/testes/publicados/execucao_autor_v0_6/*
+!/docs/testes/publicados/execucao_autor_v0_6/RELATORIO.md
+!/docs/testes/publicados/execucao_autor_v0_6/MANIFESTO.md
+!/docs/testes/publicados/execucao_autor_v0_6/FONTES_SHA256.json
+!/docs/testes/publicados/execucao_autor_v0_6/ambiente.txt
+!/docs/testes/publicados/execucao_autor_v0_6/capturas/
+!/docs/testes/publicados/execucao_autor_v0_6/surefire-reports/
+!/docs/testes/publicados/execucao_autor_v0_6/failsafe-reports/
+
+!/docs/testes/publicados/execucao_codex_v0_6/ambiente.txt
+!/docs/testes/publicados/execucao_codex_v0_6/MANIFESTO.md

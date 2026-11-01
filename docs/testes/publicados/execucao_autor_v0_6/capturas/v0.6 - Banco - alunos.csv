@@ -1,0 +1,4 @@
+id_aluno,id_usuario,identificacao,situacao
+79,38,"V06MAN-6c5ed890d629 regular",ATIVO
+80,39,"V06MAN-6c5ed890d629 impedido",ATIVO
+81,NULL,"V06MAN-6c5ed890d629 sem conta",ATIVO
