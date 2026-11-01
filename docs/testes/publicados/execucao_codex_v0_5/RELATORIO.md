@@ -2,7 +2,7 @@
 
 A versão 0.5.0-SNAPSHOT foi verificada em 31/10/2026, com encerramento às 22:42:50 UTC−03:00, em instância MySQL exclusiva desta conversa. Resultado: BUILD SUCCESS, 74 testes unitários e 66 de integração, sem falhas, erros ou ignorados. As 114 execuções da v0.4 estão incluídas nos totais; foram acrescentadas 26 execuções.
 
-Base Git consultada: 9c0f2e1, código anterior b714404. O código novo ainda não possui commit nesta preparação. FONTES_SHA256.json identifica exatamente os arquivos executados. Não atribuir a execução a um commit posterior sem comparar os hashes. Os 11 XMLs originais e o console Maven completo foram preservados na pasta privada testes/evidencias/execucao_codex_v0_5.
+Base Git consultada: 9c0f2e1, código anterior b714404. O código foi identificado posteriormente pelo commit dc1a6f36f6ec0f86aed7048be4e8ad846bb0dfd4. Os 53 arquivos de FONTES_SHA256.json foram comparados no fechamento e permaneceram idênticos. O commit foi criado depois dos testes, sem atribuir à execução uma data posterior. Os 11 XMLs originais e o console Maven completo foram preservados na pasta privada testes/evidencias/execucao_codex_v0_5.
 
 ## Correspondência com o plano anterior à codificação
 
@@ -26,4 +26,4 @@ Os testes de console utilizam entrada controlada com asserções sobre as mensag
 
 ## Limites
 
-A validação manual de Rodrigo Lustosa está pendente. Nenhuma captura ou aprovação do autor foi produzida por estes testes. Matrícula, inscrição, análise curricular, equivalências, autenticação, autorização e demais módulos permanecem pendentes. A proteção curricular aplica-se aos caminhos implementados e exige que futuros escritores de planos respeitem o bloqueio da estrutura. Resultados completos estão em RESULTADOS.md, sem publicar propriedades privadas dos XMLs.
+A validação de Rodrigo Lustosa foi concluída em execução própria e está documentada separadamente em execucao_autor_v0_5. Nenhuma captura ou aprovação do autor foi produzida pelos testes do Codex. Matrícula, inscrição, análise curricular, equivalências, autenticação, autorização e demais módulos permanecem pendentes. A proteção curricular aplica-se aos caminhos implementados e exige que futuros escritores de planos respeitem o bloqueio da estrutura. Resultados completos estão em RESULTADOS.md, sem publicar propriedades privadas dos XMLs.

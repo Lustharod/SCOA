@@ -107,3 +107,18 @@ Thumbs.db
 !/docs/testes/publicados/execucao_codex_v0_5/FONTES_SHA256.json
 !/docs/testes/publicados/execucao_codex_v0_5/ambiente.txt
 !/docs/testes/publicados/execucao_codex_v0_5/MANIFESTO.md
+
+# Fechamento v0.5: seleção revisada das evidências do autor
+!/docs/testes/publicados/execucao_autor_v0_5/
+/docs/testes/publicados/execucao_autor_v0_5/*
+!/docs/testes/publicados/execucao_autor_v0_5/RELATORIO.md
+!/docs/testes/publicados/execucao_autor_v0_5/MANIFESTO.md
+!/docs/testes/publicados/execucao_autor_v0_5/FONTES_SHA256.json
+!/docs/testes/publicados/execucao_autor_v0_5/ambiente.txt
+!/docs/testes/publicados/execucao_autor_v0_5/capturas/
+!/docs/testes/publicados/execucao_autor_v0_5/surefire-reports/
+/docs/testes/publicados/execucao_autor_v0_5/surefire-reports/*
+!/docs/testes/publicados/execucao_autor_v0_5/surefire-reports/RESULTADOS.md
+!/docs/testes/publicados/execucao_autor_v0_5/failsafe-reports/
+/docs/testes/publicados/execucao_autor_v0_5/failsafe-reports/*
+!/docs/testes/publicados/execucao_autor_v0_5/failsafe-reports/RESULTADOS.md

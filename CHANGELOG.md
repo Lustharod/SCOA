@@ -5,8 +5,8 @@
 - Incluídos cadastro básico de alunos e cursos e estruturas curriculares com inclusão e retirada de disciplinas, no menu principal 13, com confirmação e cancelamento.
 - Preservados conta opcional, identidade, situação e vínculos acadêmicos. Inativação de aluno é lógica; correção cadastral não reativa registros.
 - Protegidas composições curriculares já vinculadas a planos. Inclusões duplicadas, inclusive concorrentes, são recusadas.
-- Plano de 14 casos registrado antes da implementação. Verificação do Codex em 31/10/2026: 74 testes unitários e 66 de integração aprovados, incluindo as regressões anteriores. Validação do autor pendente.
-- DDL e diagramas preservados; nota técnica e roteiro privado de validação preparados. Matrícula, inscrição e análise curricular permanecem pendentes.
+- Plano de 14 casos registrado antes da implementação. Verificação do Codex em 31/10/2026: 74 testes unitários e 66 de integração aprovados, incluindo as regressões anteriores. Validação do autor concluída com os mesmos totais em 31/10/2026 às 22:52:45 UTC−03:00; PDF manual de 12 páginas e seis CSVs registrados em 01/11/2026. Código validado: dc1a6f3.
+- DDL e diagramas preservados; nota técnica e roteiro privado de validação preparados; revisão Word v7.8 atualiza o capítulo 9. Matrícula, inscrição e análise curricular permanecem pendentes.
 
 ## 0.4.0-SNAPSHOT
 

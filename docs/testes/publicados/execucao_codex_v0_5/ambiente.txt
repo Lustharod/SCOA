@@ -10,4 +10,4 @@ Schema: scoa_java_teste, DDL v7.5, 71 tabelas
 Comando: verify -Pmysql-it (dependências já disponíveis, execução offline)
 Unitários: 74; integração: 66; falhas/erros/ignorados: 0
 Base local: 9c0f2e1; código anterior b714404
-Código novo: sem commit; identificado por FONTES_SHA256.json
+Código validado identificado posteriormente: dc1a6f36f6ec0f86aed7048be4e8ad846bb0dfd4; 53 arquivos conferidos por SHA-256, sem alteração no fechamento

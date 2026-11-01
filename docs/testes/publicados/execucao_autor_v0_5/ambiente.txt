@@ -1,0 +1,30 @@
+Projeto: SCOA
+Versão: 0.5.0-SNAPSHOT
+Commit do código validado: dc1a6f36f6ec0f86aed7048be4e8ad846bb0dfd4
+Branch do fechamento: main
+Commit-base: 9c0f2e169cd8d3655a1c09ddeb0eed2a4e669e03
+Identificação retrospectiva: commit criado após a execução, sem modificar código no fechamento; 53 arquivos de fontes, testes, Maven e DDL conferidos pelo manifesto SHA-256 da preparação.
+Responsável pela execução: Rodrigo Lustosa
+Encerramento automatizado: 2026-10-31T22:52:45-03:00
+Registro manual: PDF original emitido em 01/11/2026 às 13:09:36 UTC−03:00; o console não registra horário exato de execução. A emissão não é o horário do teste.
+Consulta do estado final do banco: 2026-11-01 13:13:02, horário do servidor; sessão SYSTEM, fuso do sistema Hora oficial do Brasil.
+
+Sistema operacional: Windows 11, conforme ambiente de continuidade e capturas
+IDE: IntelliJ IDEA 2025.3, identificada no console
+Java: OpenJDK 25.0.1, identificado nos XMLs
+Maven: 3.9.11, conforme distribuição local utilizada
+JUnit Jupiter: 6.0.1
+Servidor MySQL: 8.0.46, identificado no CSV de ambiente
+Driver JDBC: MySQL Connector/J 26.7.0, identificado nos XMLs e console
+Schema de testes: scoa_java_teste
+Execução Maven: verify -Pmysql-it
+Observação de codificação: JAVA_TOOL_OPTIONS=-Dfile.encoding=IBM850 no console automatizado; não impediu os testes. O console manual usa UTF-8.
+
+Resultado observado: 74 testes unitários e 66 de integração; 0 falhas, 0 erros, 0 ignorados; BUILD SUCCESS.
+Os totais incluem as 114 execuções da v0.4 e 26 execuções novas da v0.5.
+
+Validação manual: criação, consulta, atualização, inativação lógica e cancelamentos de alunos; criação, consulta, correção e cancelamentos de cursos e estruturas; inclusão, consulta e retirada de componentes, recusa de duplicidade, relação ausente e referências inválidas.
+Estado final: aluno 26 INATIVO; curso 25 ATIVO; estrutura 22 ATIVO vinculada ao curso 25; componente 22 → 121 presente e 22 → 122 ausente. Disciplinas 121 e 122 continuam existentes. As disciplinas novas 213 e 214 foram criadas no início do PDF; a composição efetivamente testada reutilizou 121 e 122.
+Evidências: 11 XMLs JUnit originais, failsafe-summary.xml e relatórios TXT; PDF automatizado de 2 páginas; PDF manual de 12 páginas; 3 capturas automatizadas e 6 CSVs.
+Fechamento documental: 01/11/2026; revisão Word v7.8; software mantido em 0.5.0-SNAPSHOT.
+Execução do Codex: separada, encerrada em 31/10/2026 às 22:42:50 UTC−03:00, em instância isolada, com os mesmos totais.
