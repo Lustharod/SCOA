@@ -73,8 +73,8 @@ public final class RepositorioCadastroAcademicoJdbc implements RepositorioCadast
             var novo=Objects.requireNonNull(alteracao.apply(atual));
             if (!Long.valueOf(id).equals(novo.id())) throw new IllegalArgumentException("Preserve o ID do período.");
             if (!atual.datas().equals(novo.datas()) || !atual.situacao().equals(novo.situacao())) {
-                if (!consultar("SELECT id_turma FROM turma WHERE id_periodo=? LIMIT 1 FOR UPDATE",r -> r.getLong(1),id).isEmpty())
-                    throw new IllegalArgumentException("Este período possui turmas. Nesta etapa, apenas sua descrição pode ser alterada.");
+                if (!consultar("SELECT id_turma FROM turma WHERE id_periodo=? LIMIT 1 FOR UPDATE",r -> r.getLong(1),id).isEmpty() || !consultar("SELECT id_matricula FROM matricula_academica WHERE id_periodo_ingresso=? LIMIT 1 FOR UPDATE",r -> r.getLong(1),id).isEmpty())
+                    throw new IllegalArgumentException("Este período possui turmas ou matrículas. Nesta etapa, apenas sua descrição pode ser alterada.");
             }
             executar("UPDATE periodo_letivo SET descricao=?,data_inicio=?,data_fim=?,situacao=? WHERE id_periodo=?",
                     novo.descricao(),Date.valueOf(novo.datas().inicio()),Date.valueOf(novo.datas().fim()),novo.situacao(),id);

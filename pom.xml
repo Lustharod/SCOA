@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.edu.cefetmg</groupId>
     <artifactId>scoa</artifactId>
-    <version>0.5.0-SNAPSHOT</version>
+    <version>0.6.0-SNAPSHOT</version>
     <name>SCOA</name>
-    <description>Cadastros de alunos, cursos e estrutura curricular, professores, disciplinas, salas e alocação.</description>
+    <description>Matrícula institucional com consulta bibliotecária, bases acadêmicas, salas e alocação.</description>
     <properties>
         <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

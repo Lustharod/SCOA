@@ -27,6 +27,11 @@ final class ApoioJdbc {
                 resultado.next();
                 if (resultado.getInt(1) != 6) throw new IllegalStateException("O schema deve conter o DDL v7.5 com InnoDB.");
             }
+            try (var consulta = conexao.prepareStatement("SELECT (SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='matricula_academica' AND COLUMN_NAME='id_periodo_ingresso') + (SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='historico_matricula' AND ENGINE='InnoDB')");
+                 var resultado = consulta.executeQuery()) {
+                resultado.next();
+                if (resultado.getInt(1) != 2) throw new IllegalStateException("Aplique uma vez a migração V006__matricula_periodo_historico.sql em scoa_java_teste antes dos testes v0.6. Não recrie o DDL.");
+            }
             return conexao;
         } catch (SQLException | RuntimeException erro) {
             conexao.close();
