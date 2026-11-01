@@ -1,0 +1,13 @@
+Software: SCOA 0.5.0-SNAPSHOT
+Executor: Codex; validação do autor pendente
+Fim: 31/10/2026 22:42:50 UTC−03:00
+Java: OpenJDK 25.0.1
+Maven: 3.9.11
+JUnit Jupiter: 6.0.1
+Servidor: MySQL 8.0.46, instância temporária isolada
+Driver: MySQL Connector/J 26.7.0
+Schema: scoa_java_teste, DDL v7.5, 71 tabelas
+Comando: verify -Pmysql-it (dependências já disponíveis, execução offline)
+Unitários: 74; integração: 66; falhas/erros/ignorados: 0
+Base local: 9c0f2e1; código anterior b714404
+Código novo: sem commit; identificado por FONTES_SHA256.json

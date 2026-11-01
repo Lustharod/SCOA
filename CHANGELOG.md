@@ -1,5 +1,13 @@
 # Alterações do SCOA
 
+## 0.5.0-SNAPSHOT
+
+- Incluídos cadastro básico de alunos e cursos e estruturas curriculares com inclusão e retirada de disciplinas, no menu principal 13, com confirmação e cancelamento.
+- Preservados conta opcional, identidade, situação e vínculos acadêmicos. Inativação de aluno é lógica; correção cadastral não reativa registros.
+- Protegidas composições curriculares já vinculadas a planos. Inclusões duplicadas, inclusive concorrentes, são recusadas.
+- Plano de 14 casos registrado antes da implementação. Verificação do Codex em 31/10/2026: 74 testes unitários e 66 de integração aprovados, incluindo as regressões anteriores. Validação do autor pendente.
+- DDL e diagramas preservados; nota técnica e roteiro privado de validação preparados. Matrícula, inscrição e análise curricular permanecem pendentes.
+
 ## 0.4.0-SNAPSHOT
 
 - Incluídos cadastro e manutenção de professores e disciplinas e inclusão, consulta e retirada de pré-requisitos, com confirmação pelo console no menu principal 12.

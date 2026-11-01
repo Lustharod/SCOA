@@ -4,7 +4,7 @@ Projeto acadêmico desenvolvido para a disciplina de Engenharia de Software do C
 
 ## Estado da implementação
 
-A versão 0.4.0-SNAPSHOT reúne os cadastros de professores, disciplinas e pré-requisitos, salas, períodos letivos e turmas e a alocação por dia e horário, com persistência no MySQL. A manutenção de pré-requisitos rejeita autorreferência e ciclos, inclusive sob operações concorrentes. A inativação de professores preserva o histórico e protege turmas ativas em períodos atuais ou futuros.
+A versão 0.5.0-SNAPSHOT acrescenta alunos, cursos e estrutura curricular na opção principal 13. Permite inativação lógica de alunos, correção dos cadastros e manutenção de componentes curriculares, preservando vínculos e protegendo estruturas já usadas por planos de estudo. Mantém professores, disciplinas, pré-requisitos, salas, períodos, turmas e alocação das versões anteriores. Matrícula, inscrição, análise curricular e autenticação permanecem pendentes.
 
 O cadastro permite incluir, consultar, listar, atualizar e inativar salas. A alocação verifica capacidade, situação da sala, sobreposição de horários e períodos letivos, incluindo conflitos da própria turma. Horários adjacentes são permitidos. A disponibilidade é revalidada no momento da gravação.
 
@@ -34,13 +34,17 @@ A entrega avança RF-MA-02, RF-MA-04, RF-MA-06, RF-MA-07 e RF-MA-08 na interface
 
 ## Documentação técnica
 
-A [documentação do SCOA v7.5](docs/SCOA%20-%20Sistema%20de%20Controle%20Acad%C3%AAmico%20v7.5.pdf) apresenta os requisitos, a modelagem e o escopo planejado do sistema. A implementação disponível nesta versão corresponde aos cadastros de salas, períodos e turmas e à alocação descritos acima.
+A [documentação do SCOA v7.5](docs/SCOA%20-%20Sistema%20de%20Controle%20Acad%C3%AAmico%20v7.5.pdf) apresenta os requisitos, a modelagem e o escopo planejado do sistema. A implementação disponível nesta versão corresponde ao recorte executável descrito acima; o documento apresenta também funcionalidades futuras.
 
 Os arquivos `.drawio` em `docs` contêm as vistas editáveis dos casos de uso, classes, atividades, sequências e dos modelos conceitual, lógico e físico do banco de dados. As notas técnicas da [implementação v0.2](docs/SCOA_Implementacao_v0_2.md) e dos [cadastros v0.3](docs/SCOA_Implementacao_v0_3.md) descrevem as classes, regras e verificações incrementais. O [plano conceitual de testes da v0.3](docs/testes/SCOA_Plano_Conceitual_Testes_v0_3.pdf), também disponível em [texto](docs/testes/SCOA_Plano_Conceitual_Testes_v0_3.md), complementa a documentação v7.5 com 28 casos ligados aos requisitos e às evidências. Elaborado após a execução, registra essa origem e delimita a cobertura parcial dos casos de uso. O DDL v7.5 permanece compatível, sem novas tabelas ou colunas.
 
 A [nota técnica da v0.4](docs/SCOA_Implementacao_v0_4.md) descreve o incremento e seus limites. O [plano da v0.4](docs/testes/SCOA_Plano_Testes_Professores_Disciplinas_v0_4.pdf), preparado antes da codificação, complementa a documentação v7.5 com os casos de professores, disciplinas e pré-requisitos.
 
+A [nota da v0.5](docs/SCOA_Implementacao_v0_5.md) detalha o recorte e suas limitações. O [plano P05](docs/testes/SCOA_Plano_Testes_Base_Academica_v0_5.md) foi preparado antes da codificação e aprovado pelo autor quanto à prioridade das bases acadêmicas.
+
 ## Verificação
+
+A v0.5 passou por 74 testes unitários e 66 de integração, sem falhas, erros ou ignorados, em instância MySQL isolada. Inclui as 114 regressões da v0.4. O [relatório do Codex](docs/testes/publicados/execucao_codex_v0_5/RELATORIO.md) relaciona os 14 casos aos testes e identifica as fontes executadas. A validação do autor da v0.5 está pendente.
 
 A v0.4 foi verificada pelo Codex em instância MySQL isolada: 65 execuções unitárias e 49 de integração, sem falhas, erros ou ignorados, incluindo todas as regressões da v0.3 e os fluxos de console com conferência da persistência. Os 15 casos planejados foram executados e estão rastreados no [relatório da v0.4](docs/testes/publicados/execucao_codex_v0_4/RELATORIO.md). A validação do autor foi concluída em 31/10/2026: 65 testes unitários e 49 de integração aprovados, roteiro manual em PDF e estado final do banco em seis CSVs. O [relatório do autor da v0.4](docs/testes/publicados/execucao_autor_v0_4/RELATORIO.md) reúne os resultados e as evidências revisadas. Código validado: b714404.
 

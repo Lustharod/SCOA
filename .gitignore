@@ -96,3 +96,14 @@ Thumbs.db
 !/docs/testes/publicados/execucao_autor_v0_4/capturas/
 !/docs/testes/publicados/execucao_autor_v0_4/surefire-reports/
 !/docs/testes/publicados/execucao_autor_v0_4/failsafe-reports/
+
+# Entrega v0.5: somente documentação técnica e evidências revisadas
+!/docs/SCOA_Implementacao_v0_5.md
+!/docs/testes/SCOA_Plano_Testes_Base_Academica_v0_5.md
+!/docs/testes/publicados/execucao_codex_v0_5/
+/docs/testes/publicados/execucao_codex_v0_5/*
+!/docs/testes/publicados/execucao_codex_v0_5/RELATORIO.md
+!/docs/testes/publicados/execucao_codex_v0_5/RESULTADOS.md
+!/docs/testes/publicados/execucao_codex_v0_5/FONTES_SHA256.json
+!/docs/testes/publicados/execucao_codex_v0_5/ambiente.txt
+!/docs/testes/publicados/execucao_codex_v0_5/MANIFESTO.md
