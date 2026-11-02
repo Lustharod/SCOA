@@ -144,6 +144,8 @@ public final class RepositorioBaseAcademicaJdbc implements RepositorioBaseAcadem
         var e = bloquearEstrutura(id);
         if (!"ATIVO".equals(e.situacao())) throw new IllegalArgumentException("A estrutura deve estar ativa.");
         exigirCursoAtivo(e.idCurso());
+        if (!consultar("SELECT id_matricula FROM vinculo_curricular_matricula WHERE id_estrutura=? LIMIT 1 FOR UPDATE", r -> r.getLong(1), id).isEmpty())
+            throw new IllegalArgumentException("Estrutura vinculada a matrícula. Preserve a composição; utilize uma nova estrutura.");
         if (!consultar("SELECT id_plano FROM plano_estudo WHERE id_estrutura=? LIMIT 1 FOR UPDATE", r -> r.getLong(1), id).isEmpty())
             throw new IllegalArgumentException("Estrutura vinculada a plano de estudo. Preserve a composição; utilize uma nova estrutura.");
     }

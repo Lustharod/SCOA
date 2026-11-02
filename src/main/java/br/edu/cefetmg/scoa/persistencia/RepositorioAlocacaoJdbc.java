@@ -82,6 +82,7 @@ public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
             // Mesma ordem em todas as inclusões: sala e, depois, turma/período.
             Sala sala = salas.buscarBloqueada(horario.idSala());
             TurmaResumo turma = buscarTurma(horario.idTurma(), true, true);
+            exigirSemInscricoes(horario.idTurma());
             RegraAlocacao.validarSala(sala, turma);
             RegraAlocacao.validarDia(turma, horario.faixa());
             if (temConflito(horario, turma.periodo(), true))
@@ -114,6 +115,16 @@ public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
                 }
             }
             salas.buscarBloqueada(idSala);
+            long idTurma;
+            try (var comando=conexao.prepareStatement("SELECT id_turma FROM horario_aula WHERE id_horario=?")) {
+                comando.setLong(1,idHorario);
+                try(var registro=comando.executeQuery()) {
+                    if(!registro.next()) throw new IllegalArgumentException("Alocação não encontrada.");
+                    idTurma=registro.getLong(1);
+                }
+            }
+            buscarTurma(idTurma,true);
+            exigirSemInscricoes(idTurma);
             try (var comando = conexao.prepareStatement("DELETE FROM horario_aula WHERE id_horario=?")) {
                 comando.setLong(1, idHorario);
                 if (comando.executeUpdate() == 0) throw new IllegalArgumentException("Alocação não encontrada.");
@@ -159,6 +170,14 @@ public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
             }
         }
         return false;
+    }
+
+    private void exigirSemInscricoes(long turma) throws SQLException {
+        try(var s=conexao.prepareStatement("SELECT id_inscricao FROM inscricao_disciplina WHERE id_turma=? LIMIT 1 FOR UPDATE")) {
+            s.setLong(1,turma); try(var r=s.executeQuery()) {
+                if(r.next()) throw new IllegalArgumentException("Turma com inscrições: preserve os horários; alteração acadêmica ainda não implementada.");
+            }
+        }
     }
 
     private static TurmaResumo lerTurma(ResultSet registro) throws SQLException {

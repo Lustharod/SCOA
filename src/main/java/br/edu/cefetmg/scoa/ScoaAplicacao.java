@@ -35,7 +35,7 @@ public final class ScoaAplicacao {
                 System.out.println("1 Cadastrar | 2 Listar | 3 Consultar | 4 Atualizar | 5 Inativar | 0 Sair");
                 System.out.println("6 Turmas | 7 Horários da turma | 8 Salas disponíveis | 9 Alocar sala | 10 Desalocar");
                 System.out.println("11 Cadastros de períodos e turmas | 12 Professores, disciplinas e pré-requisitos");
-                System.out.println("13 Alunos, cursos e estrutura curricular | 14 Matrícula institucional");
+                System.out.println("13 Alunos, cursos e estrutura curricular | 14 Matrícula institucional | 15 Inscrição em disciplinas");
                 String opcao = ler(entrada, "Opção: ");
                 try {
                     switch (opcao) {
@@ -95,6 +95,7 @@ public final class ScoaAplicacao {
                                 new ServicoCadastroAcademico(new RepositorioCadastroAcademicoJdbc(conexao))).executar();
                         case "12" -> new ConsoleProfessoresDisciplinas(entrada,
                                 new ServicoProfessoresDisciplinas(new RepositorioProfessoresDisciplinasJdbc(conexao))).executar();
+                        case "15" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleInscricao(entrada, new br.edu.cefetmg.scoa.aplicacao.ServicoInscricao(new br.edu.cefetmg.scoa.persistencia.RepositorioInscricaoJdbc(conexao))).executar();
                         case "14" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleMatricula(entrada, new br.edu.cefetmg.scoa.aplicacao.ServicoMatricula(new br.edu.cefetmg.scoa.persistencia.RepositorioMatriculaJdbc(conexao))).executar();
                         case "13" -> new ConsoleBaseAcademica(entrada,
                                 new ServicoBaseAcademica(new RepositorioBaseAcademicaJdbc(conexao))).executar();
