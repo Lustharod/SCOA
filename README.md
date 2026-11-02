@@ -4,7 +4,7 @@ Projeto acadêmico desenvolvido para a disciplina de Engenharia de Software do C
 
 ## Estado da implementação
 
-A versão 0.6.0-SNAPSHOT acrescenta matrícula institucional no menu principal 14: criação, consulta, correção de ingresso, trancamento, retorno, cancelamento e histórico. Consulta pendências da biblioteca na efetivação e impede concluir se houver impedimento ou indisponibilidade. Permite reingresso após encerramento, com novo vínculo. Preserva os módulos anteriores. Inscrição, conclusão de curso, análise curricular e autenticação permanecem pendentes. Antes de usar esta versão, aplique uma vez a migração aditiva em database/migrations/V006__matricula_periodo_historico.sql sobre o DDL v7.5 existente, com backup e seleção explícita da base; não recrie o schema.
+A versão 0.7.0-SNAPSHOT acrescenta inscrição em disciplinas no menu 15, com janela anterior às aulas, vínculo curricular explícito, verificação de matrícula, pré-requisitos por resultados finais, horários, duplicidade e vagas, revalidando na confirmação. Inclui primeiro fechamento de resultado com P1/P2/PF e frequência mínima de 75%. Gestão de equivalências, geração de plano e retificação permanecem pendentes; casos dependentes de equivalência ainda não integrada são recusados. Antes de usar, aplique uma vez V006 e depois database/migrations/V007__inscricao_resultado_contexto.sql, com backup e seleção explícita da base. Consulte [as regras e limites da v0.7](docs/SCOA_Implementacao_v0_7.md).
 
 O cadastro permite incluir, consultar, listar, atualizar e inativar salas. A alocação verifica capacidade, situação da sala, sobreposição de horários e períodos letivos, incluindo conflitos da própria turma. Horários adjacentes são permitidos. A disponibilidade é revalidada no momento da gravação.
 
@@ -12,7 +12,7 @@ As alterações concorrentes são coordenadas por transações e bloqueios de re
 
 A manutenção de turmas associa disciplina, professor, período e capacidade, avançando RF-MA-06 / UC-MA-06. Os horários são mantidos pela alocação. Disciplinas e professores devem estar previamente cadastrados e ativos. A implementação preserva os vínculos com inscrições existentes e impede mudanças incompatíveis com as alocações.
 
-A entrega avança RF-MA-02, RF-MA-04, RF-MA-06, RF-MA-07 e RF-MA-08 na interface de console. Autenticação, autorização, interface web, gerenciamento de inscrições e os demais cadastros e módulos permanecem em desenvolvimento. A opção 12 do menu principal acessa professores, disciplinas e pré-requisitos; a opção 11 mantém períodos e turmas.
+A entrega avança RF-MA-02, RF-MA-04, RF-MA-06, RF-MA-07 e RF-MA-08 na interface de console. Autenticação, autorização, interface web e os demais cadastros e módulos permanecem em desenvolvimento. A opção 12 do menu principal acessa professores, disciplinas e pré-requisitos; a opção 11 mantém períodos e turmas.
 
 ## Tecnologias
 
@@ -56,3 +56,8 @@ A validação anterior do autor está documentada no [relatório da v0.3](docs/t
 
 
 A [nota da v0.6](docs/SCOA_Implementacao_v0_6.md) descreve as decisões e limites. O [plano P06](docs/testes/SCOA_Plano_Testes_Matricula_v0_6.md) antecede a implementação. Validação do Codex: 77 testes unitários e 95 de integração aprovados em MySQL isolado. Validação do autor concluída em 01/11/2026 às 15:04:41 UTC−03:00, com os mesmos totais; dois PDFs manuais e sete CSVs preservados. O [relatório do autor da v0.6](docs/testes/publicados/execucao_autor_v0_6/RELATORIO.md) identifica a cobertura e as ocorrências. Word v7.9 atualiza o capítulo 9 e preserva a v7.8. Código validado: 87fb486.
+
+
+### Validação da v0.7
+
+Rodrigo Lustosa concluiu verify -Pmysql-it em 01/11/2026 às 21:07:52 UTC−03:00: **97 testes unitários e 109 de integração**, sem falhas, erros ou ignorados. O [relatório do autor](docs/testes/publicados/execucao_autor_v0_7/RELATORIO.md) registra os PDFs, CSVs, IDs reais e limites da cobertura manual. As evidências do Codex permanecem separadas. O fechamento não migra bancos do autor nem altera as fontes já validadas.

@@ -1,5 +1,12 @@
 # Alterações do SCOA
 
+## 0.7.0-SNAPSHOT
+
+- Menu 15: inscrição com confirmação, contexto curricular explícito, janela [início−14 dias, início−7 dias), horários, pré-requisitos por resultado formal, duplicidade e vagas.
+- Notas 0–10 com uma casa, P1/P2/PF e frequência mínima exata de 75%; resultado final e situação persistidos atomicamente após encerramento do período.
+- Migração aditiva V007 e proteção de composição curricular e horários vinculados. Equivalências, plano e retificação continuam pendentes conforme a nota técnica.
+- Validação do autor em 01/11/2026 às 21:07:52 UTC−03:00: 97 unitários e 109 de integração aprovados. Execução do Codex e originais preservados separadamente.
+
 ## 0.6.0-SNAPSHOT
 
 - Matrícula institucional no menu 14, com período de ingresso, correção, trancamento, retorno, cancelamento e histórico atômico.

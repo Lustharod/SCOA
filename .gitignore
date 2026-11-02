@@ -144,3 +144,21 @@ Thumbs.db
 
 !/docs/testes/publicados/execucao_codex_v0_6/ambiente.txt
 !/docs/testes/publicados/execucao_codex_v0_6/MANIFESTO.md
+
+# Incremento v0.7: notas e resultados revisados; originais permanecem privados
+!/docs/SCOA_Implementacao_v0_7.md
+!/docs/testes/SCOA_P07_Implementado_v0_7.md
+!/docs/testes/publicados/execucao_codex_v0_7/
+/docs/testes/publicados/execucao_codex_v0_7/*
+!/docs/testes/publicados/execucao_codex_v0_7/RELATORIO.md
+!/docs/testes/publicados/execucao_codex_v0_7/FONTES_SHA256.json
+
+# Fechamento v0.7: seleção revisada; Word, guias e XMLs permanecem privados
+!/docs/testes/publicados/execucao_autor_v0_7/
+/docs/testes/publicados/execucao_autor_v0_7/*
+!/docs/testes/publicados/execucao_autor_v0_7/RELATORIO.md
+!/docs/testes/publicados/execucao_autor_v0_7/MANIFESTO.md
+!/docs/testes/publicados/execucao_autor_v0_7/MANIFESTO_SHA256.json
+!/docs/testes/publicados/execucao_autor_v0_7/FONTES_SHA256.json
+!/docs/testes/publicados/execucao_autor_v0_7/ambiente.txt
+!/docs/testes/publicados/execucao_autor_v0_7/capturas/

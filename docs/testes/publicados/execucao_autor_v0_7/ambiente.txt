@@ -1,0 +1,11 @@
+Registro derivado das evidências, não nova medição.
+Software: SCOA 0.7.0-SNAPSHOT.
+Java: OpenJDK 25.0.1; compilação release 25.
+Maven: 3.9.11, conforme caminho do console.
+IntelliJ IDEA: 2025.3.
+Connector/J: 26.7.0, conforme classpath do manual.
+JUnit: 6.0.1; Surefire/Failsafe 3.5.4, conforme projeto e console.
+MySQL: não houve nova consulta de versão ao servidor do autor neste fechamento.
+Console automatizado: JAVA_TOOL_OPTIONS IBM850; manual: UTF-8.
+Final automatizado: 01/11/2026 21:07:52 UTC-03:00; duração exibida 01:16 min.
+97 unitários e 109 integração; 0 falhas, erros ou ignorados.

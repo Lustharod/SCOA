@@ -1,0 +1,52 @@
+[
+  {
+    "arquivo": "ambiente.txt",
+    "sha256": "9eb2d0b94d342238ca13592bcf6d5b48a00c0ef00ef241de41e7f0e05215a34b",
+    "bytes": 619
+  },
+  {
+    "arquivo": "capturas/00_preparacao.csv",
+    "sha256": "f61d9c720cb2d6ea08fc46a1506959ee80d7b3d18354290303e4dd3d8b6bdfda",
+    "bytes": 124
+  },
+  {
+    "arquivo": "capturas/v0.7 - Banco - inscricao disciplina 29.csv",
+    "sha256": "2f40a82df2d35477d3c10ff7609ce22fb4aec10a5563f86600b50f6176a50d6d",
+    "bytes": 86
+  },
+  {
+    "arquivo": "capturas/v0.7 - Banco - turma 231.csv",
+    "sha256": "cc3ffdf18d6188d3d40e232682a02f7fcff279d5b15eab9edd1ee6f0660ec6c5",
+    "bytes": 37
+  },
+  {
+    "arquivo": "capturas/v0.7 - Banco - vinculo curricular matricula 28.csv",
+    "sha256": "168df450153598a0f1b0aaaabbf4d09171889f486857d338ce9583b419d4e480",
+    "bytes": 75
+  },
+  {
+    "arquivo": "capturas/v0.7 - Testes funcionais manuais.pdf",
+    "sha256": "8666517126db9b949b42c151783a674012d25535a6392bce7bd30bfe9fceeb4d",
+    "bytes": 135609
+  },
+  {
+    "arquivo": "capturas/v0.7 - Testes unitários e de integração.pdf",
+    "sha256": "334b751aa5d58ad7c81506c00ac6a62f0e2c427ab11d45c03c295bd7ea556dc6",
+    "bytes": 61787
+  },
+  {
+    "arquivo": "FONTES_SHA256.json",
+    "sha256": "f983c290f483329d29524b07440ffb132c36b24025dc6e8e3f95cf62a08f09dc",
+    "bytes": 13797
+  },
+  {
+    "arquivo": "MANIFESTO.md",
+    "sha256": "57053b2e56a500913abb3c3b13d4dd9df83029d97ee02e921a30fdd10a5866ef",
+    "bytes": 990
+  },
+  {
+    "arquivo": "RELATORIO.md",
+    "sha256": "e1b696011eea5506fa1d6872ae194e080eaf19b930ec41623259dc2aa29cc5c8",
+    "bytes": 6460
+  }
+]
