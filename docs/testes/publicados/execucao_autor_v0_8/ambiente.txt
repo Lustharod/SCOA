@@ -1,0 +1,20 @@
+Registro derivado das evidências do autor; não nova medição.
+Software: SCOA 0.8.0-SNAPSHOT.
+Java: OpenJDK 25.0.1; compilação release 25, conforme XMLs/console.
+Maven: 3.9.11, conforme caminho do console automatizado.
+IntelliJ IDEA: 2025.3, conforme console e classpath.
+Connector/J: 26.7.0, conforme classpath do manual/projeto.
+JUnit Jupiter: 6.0.1; Surefire/Failsafe: 3.5.4, conforme projeto/console.
+MySQL do autor: versão não medida neste fechamento; não inferir da instância do Codex.
+Base utilizada nos testes: scoa_java_teste, conforme relato do autor e contrato dos testes.
+Banco scoa: o autor informou que não o atualiza durante esta fase de testes.
+Automatizado: JAVA_TOOL_OPTIONS IBM850; manual: UTF-8.
+Final automatizado: 02/11/2026 16:22:06 UTC-03:00; duração exibida 48.069 s.
+Execuções: 103 unitárias + 130 integração = 233; 0 falhas, erros e ignorados.
+PDF automatizado: 3 páginas; emitido em 02/11/2026 16:41:02 UTC-03:00.
+PDF manual: 7 páginas; emitido em 02/11/2026 21:36:49 UTC-03:00.
+Emissão de PDF não é horário de execução de cada ação.
+59 fontes principais compiladas no autor; 58 no conjunto isolado do Codex.
+ExemploSala local foi preservado, identificado por hash e não adicionado automaticamente ao Git.
+Codex: execução separada em 01/11/2026 23:35:10 UTC-03:00; MySQL 8.0.46 isolado, porta 33318, encerrado.
+Não houve nova execução de testes ou migração do banco do autor neste fechamento.

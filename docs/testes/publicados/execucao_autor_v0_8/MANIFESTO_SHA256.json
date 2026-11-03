@@ -1,0 +1,241 @@
+{
+  "originais_privados": [
+    {
+      "arquivo": "capturas/v0.8 - Testes funcionais manuais.pdf",
+      "bytes": 167227,
+      "sha256": "3b93141d2e8e6bc4b1c65ab76fcaf310691851a4d38d6f8ab6f6e1c17d653f06"
+    },
+    {
+      "arquivo": "capturas/v0.8 - Testes unitários e de integração.pdf",
+      "bytes": 63415,
+      "sha256": "e30a24e5341fb1e7dee2eb2be600c1e4840704ec47ff893e44f3e4caa0415bb6"
+    },
+    {
+      "arquivo": "capturas/V08MAN-81a42485d6f0_01_pedidos_matricula73.csv",
+      "bytes": 1392,
+      "sha256": "e3def1753a832712e41a860e3cdecb2b771caf2513f8e8c64e1958287f45c10e"
+    },
+    {
+      "arquivo": "capturas/V08MAN-81a42485d6f0_02_vinculo_matricula73.csv",
+      "bytes": 104,
+      "sha256": "c2c51c75fe60ae692b115ce440eb65729e109ad42f0f022b12f43ea85a0b8f93"
+    },
+    {
+      "arquivo": "capturas/V08MAN-81a42485d6f0_03_inscricoes_matricula73.csv",
+      "bytes": 115,
+      "sha256": "c171db5e3a901f14c790667474d1acbb60daf749caac4be9a7a8725ef692ae34"
+    },
+    {
+      "arquivo": "capturas/V08MAN-81a42485d6f0_04_contagem_resultados_matricula73.csv",
+      "bytes": 77,
+      "sha256": "416d589d302cf285d9fbac4c2d1c222039330dd3a4cdf6e98968fa81e362b88d"
+    },
+    {
+      "arquivo": "failsafe-reports/br.edu.cefetmg.scoa.persistencia.AlocacaoJdbcIT.txt",
+      "bytes": 349,
+      "sha256": "6acd876b37bb03132bdcab5192ae237bdd7d14fbbacbd699c68fd796b2c6591d"
+    },
+    {
+      "arquivo": "failsafe-reports/br.edu.cefetmg.scoa.persistencia.BaseAcademicaJdbcIT.txt",
+      "bytes": 359,
+      "sha256": "9d9c3cba6c40a098de271f0c015b622a4d3cb7f9db6d0ba3afd04a21783cfef0"
+    },
+    {
+      "arquivo": "failsafe-reports/br.edu.cefetmg.scoa.persistencia.CadastroAcademicoJdbcIT.txt",
+      "bytes": 367,
+      "sha256": "6e0fbd9481aa9de47f80a09bd40b344865532553591d975f94f7e8d5baf4318f"
+    },
+    {
+      "arquivo": "failsafe-reports/br.edu.cefetmg.scoa.persistencia.EquivalenciaJdbcIT.txt",
+      "bytes": 357,
+      "sha256": "3de1ab4f0079dd74310b2b7ad80bc33cb343d24fbaed3758ddffe993f7b52e29"
+    },
+    {
+      "arquivo": "failsafe-reports/br.edu.cefetmg.scoa.persistencia.InscricaoJdbcIT.txt",
+      "bytes": 351,
+      "sha256": "33bfe67e56dca90d5760159ea39eed74887596931654af349f6691d43c1fec43"
+    },
+    {
+      "arquivo": "failsafe-reports/br.edu.cefetmg.scoa.persistencia.MatriculaJdbcIT.txt",
+      "bytes": 351,
+      "sha256": "b2a904d1bd50ba4ee6f0542bbf89c380d77f56fd550da09f3c17a92113fb7647"
+    },
+    {
+      "arquivo": "failsafe-reports/br.edu.cefetmg.scoa.persistencia.ProfessoresDisciplinasJdbcIT.txt",
+      "bytes": 377,
+      "sha256": "9df89e0a4bee3e4d826745265b6945f9d9bd40f72c79c90e4cc04b1bfadd3c41"
+    },
+    {
+      "arquivo": "failsafe-reports/br.edu.cefetmg.scoa.persistencia.SalaJdbcIT.txt",
+      "bytes": 340,
+      "sha256": "56eb2e72c7358fff9f15de5213f56505dbbdb45eea2594d7a3c23efa2e192f31"
+    },
+    {
+      "arquivo": "failsafe-reports/failsafe-summary.xml",
+      "bytes": 494,
+      "sha256": "923c899f17fda5c25c6262e3cd9f43b07f394616a0d27f020f5be27dcdd58513"
+    },
+    {
+      "arquivo": "failsafe-reports/TEST-br.edu.cefetmg.scoa.persistencia.AlocacaoJdbcIT.xml",
+      "bytes": 10166,
+      "sha256": "461bbcabee728275cf320df0c7b55979d2f5f6837b50d852ad79b1550e46a852"
+    },
+    {
+      "arquivo": "failsafe-reports/TEST-br.edu.cefetmg.scoa.persistencia.BaseAcademicaJdbcIT.xml",
+      "bytes": 10108,
+      "sha256": "8f4ce56440f22a34cb3ca48e22872aea2bbbf330fa9b743b8c1c062e0b6fc004"
+    },
+    {
+      "arquivo": "failsafe-reports/TEST-br.edu.cefetmg.scoa.persistencia.CadastroAcademicoJdbcIT.xml",
+      "bytes": 9532,
+      "sha256": "09d9aaf0eec921c212b5f81fe1cdd73d4fdf04d15abd18ceea73be35fb379104"
+    },
+    {
+      "arquivo": "failsafe-reports/TEST-br.edu.cefetmg.scoa.persistencia.EquivalenciaJdbcIT.xml",
+      "bytes": 11808,
+      "sha256": "06b4e6578648760c0983015ae373e97987dfa23a970d5b2d90838883db9f72e6"
+    },
+    {
+      "arquivo": "failsafe-reports/TEST-br.edu.cefetmg.scoa.persistencia.InscricaoJdbcIT.xml",
+      "bytes": 10305,
+      "sha256": "93777d2e5014f3b6e5c95cbbdcd69ff23a7916b830d6d6b15d181dc79f047ee4"
+    },
+    {
+      "arquivo": "failsafe-reports/TEST-br.edu.cefetmg.scoa.persistencia.MatriculaJdbcIT.xml",
+      "bytes": 11592,
+      "sha256": "16a76293df98eff3a5236399fb7459bac7af5f3fcebc9cf4bce7590b731277f2"
+    },
+    {
+      "arquivo": "failsafe-reports/TEST-br.edu.cefetmg.scoa.persistencia.ProfessoresDisciplinasJdbcIT.xml",
+      "bytes": 9901,
+      "sha256": "508ef45e6023e132347fe35568a9bce50b54765b7491e4cdbd6256248ccb3b59"
+    },
+    {
+      "arquivo": "failsafe-reports/TEST-br.edu.cefetmg.scoa.persistencia.SalaJdbcIT.xml",
+      "bytes": 8531,
+      "sha256": "03e191175d15f424730a1bec6e3bc82c18c062f9bf00316a939fc66061f74459"
+    },
+    {
+      "arquivo": "surefire-reports/br.edu.cefetmg.scoa.aplicacao.ServicoSalaTest.txt",
+      "bytes": 344,
+      "sha256": "9011d88aa926fd0fa13bf5c1e325b660ab74da3cb0478c6868283bf44101ad0b"
+    },
+    {
+      "arquivo": "surefire-reports/br.edu.cefetmg.scoa.dominio.AlocacaoTest.txt",
+      "bytes": 335,
+      "sha256": "7f1b07b5c78b7f311dcb8d7d8908e429e45ba40cd8c50b3d15f37a4b74b0fd07"
+    },
+    {
+      "arquivo": "surefire-reports/br.edu.cefetmg.scoa.dominio.BaseAcademicaTest.txt",
+      "bytes": 344,
+      "sha256": "5f0daead0fafc269844f02034a8e108a25e1d3d9132a1ba66073c20826c459e1"
+    },
+    {
+      "arquivo": "surefire-reports/br.edu.cefetmg.scoa.dominio.CadastroAcademicoTest.txt",
+      "bytes": 352,
+      "sha256": "ead10f60dbd4937483155ec0a0daa7a17ac44369eb24f5815fe80ee6ae67e4af"
+    },
+    {
+      "arquivo": "surefire-reports/br.edu.cefetmg.scoa.dominio.EquivalenciaTest.txt",
+      "bytes": 342,
+      "sha256": "15d7e8bfa7904bc18dcc245e8cf60b0d670fdc3311494edd97287deb66881488"
+    },
+    {
+      "arquivo": "surefire-reports/br.edu.cefetmg.scoa.dominio.InscricaoTest.txt",
+      "bytes": 337,
+      "sha256": "ea4d77d959eaea3ae64a33041aa85c64f10bd939bbeea8a734533927fe0531ac"
+    },
+    {
+      "arquivo": "surefire-reports/br.edu.cefetmg.scoa.dominio.MatriculaTest.txt",
+      "bytes": 336,
+      "sha256": "3b0b2a78e33a9815fdeacb617f7130e1140f063d652c257b1a6623f2a40b9dd8"
+    },
+    {
+      "arquivo": "surefire-reports/br.edu.cefetmg.scoa.dominio.ProfessoresDisciplinasTest.txt",
+      "bytes": 362,
+      "sha256": "43fbff1efa114e393e8d4b22acfa9cb38980c0c432ad1a6203d1b0031a0db1d2"
+    },
+    {
+      "arquivo": "surefire-reports/br.edu.cefetmg.scoa.dominio.SalaTest.txt",
+      "bytes": 327,
+      "sha256": "09974734ee82880b0de4824c7574c106093effcc3db37698e03374284f6fe57d"
+    },
+    {
+      "arquivo": "surefire-reports/TEST-br.edu.cefetmg.scoa.aplicacao.ServicoSalaTest.xml",
+      "bytes": 8969,
+      "sha256": "5f9d6d21abc29a446437ef096f562471d6650c15e54e8b01b7cc4a1b78adb045"
+    },
+    {
+      "arquivo": "surefire-reports/TEST-br.edu.cefetmg.scoa.dominio.AlocacaoTest.xml",
+      "bytes": 9499,
+      "sha256": "b91181b3a6a0211c6212708e163749e2578759cc3c0b14b3ee8c293de7928ced"
+    },
+    {
+      "arquivo": "surefire-reports/TEST-br.edu.cefetmg.scoa.dominio.BaseAcademicaTest.xml",
+      "bytes": 8847,
+      "sha256": "e17df572ab0e446204b0ac8869a1de491ef5ce45e54e2a79e51cf70f94e3e17e"
+    },
+    {
+      "arquivo": "surefire-reports/TEST-br.edu.cefetmg.scoa.dominio.CadastroAcademicoTest.xml",
+      "bytes": 8813,
+      "sha256": "01b93c054de407500f43dd6c87591a78e79e4db7c627d1cbea6d303916c2cea9"
+    },
+    {
+      "arquivo": "surefire-reports/TEST-br.edu.cefetmg.scoa.dominio.EquivalenciaTest.xml",
+      "bytes": 8395,
+      "sha256": "a85e93360e7b9a26df833747a9be7c9bc75c023648ecabcea9b27e6ef6a5b992"
+    },
+    {
+      "arquivo": "surefire-reports/TEST-br.edu.cefetmg.scoa.dominio.InscricaoTest.xml",
+      "bytes": 10109,
+      "sha256": "fc78043feb4c5d9c1e97c622471f36d4e9e4bfc8d7441c84828b6c9d8cd9f7c6"
+    },
+    {
+      "arquivo": "surefire-reports/TEST-br.edu.cefetmg.scoa.dominio.MatriculaTest.xml",
+      "bytes": 8039,
+      "sha256": "50d11a1e5fed779212553bed493fd4d7f1dfaaebd02c2a74fc2109688bcd5b7e"
+    },
+    {
+      "arquivo": "surefire-reports/TEST-br.edu.cefetmg.scoa.dominio.ProfessoresDisciplinasTest.xml",
+      "bytes": 8982,
+      "sha256": "3d510fbcf95ea9fd4a5ab8a1f91568ae7c1a699e08149869e2438f10dd9bb2d1"
+    },
+    {
+      "arquivo": "surefire-reports/TEST-br.edu.cefetmg.scoa.dominio.SalaTest.xml",
+      "bytes": 10517,
+      "sha256": "90d0b6a46ff480c793eabfcece4accb33b35cd5a76b202d4309d22f9879e8353"
+    }
+  ],
+  "selecao_publica": [
+    {
+      "arquivo": "capturas/v0.8 - Testes funcionais manuais.pdf",
+      "bytes": 167227,
+      "sha256": "3b93141d2e8e6bc4b1c65ab76fcaf310691851a4d38d6f8ab6f6e1c17d653f06"
+    },
+    {
+      "arquivo": "capturas/v0.8 - Testes unitários e de integração.pdf",
+      "bytes": 63415,
+      "sha256": "e30a24e5341fb1e7dee2eb2be600c1e4840704ec47ff893e44f3e4caa0415bb6"
+    },
+    {
+      "arquivo": "capturas/V08MAN-81a42485d6f0_01_pedidos_matricula73.csv",
+      "bytes": 1392,
+      "sha256": "e3def1753a832712e41a860e3cdecb2b771caf2513f8e8c64e1958287f45c10e"
+    },
+    {
+      "arquivo": "capturas/V08MAN-81a42485d6f0_02_vinculo_matricula73.csv",
+      "bytes": 104,
+      "sha256": "c2c51c75fe60ae692b115ce440eb65729e109ad42f0f022b12f43ea85a0b8f93"
+    },
+    {
+      "arquivo": "capturas/V08MAN-81a42485d6f0_03_inscricoes_matricula73.csv",
+      "bytes": 115,
+      "sha256": "c171db5e3a901f14c790667474d1acbb60daf749caac4be9a7a8725ef692ae34"
+    },
+    {
+      "arquivo": "capturas/V08MAN-81a42485d6f0_04_contagem_resultados_matricula73.csv",
+      "bytes": 77,
+      "sha256": "416d589d302cf285d9fbac4c2d1c222039330dd3a4cdf6e98968fa81e362b88d"
+    }
+  ]
+}

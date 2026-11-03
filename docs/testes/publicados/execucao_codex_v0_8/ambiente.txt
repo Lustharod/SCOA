@@ -1,0 +1,7 @@
+Execução isolada do Codex; não ambiente do autor.
+Windows; OpenJDK 25.0.1; Maven 3.9.11; JUnit Jupiter 6.0.1; Surefire/Failsafe 3.5.4; Connector/J 26.7.0.
+MySQL 8.0.46 exclusivo, ligado a 127.0.0.1 na porta 33318; schema scoa_java_teste.
+verify -Pmysql-it offline: 01/11/2026 23:35:10 UTC-03:00; duração 01:31 min; BUILD SUCCESS.
+103 unitárias e 130 integração; zero falhas/erros/ignorados; 233 execuções.
+Instância temporária encerrada após preservar resultados. Nenhum banco do autor foi usado.
+DDL v7.5 e V006/V007/V008 aplicados na instância isolada: 76 tabelas.

@@ -18,6 +18,8 @@ A manutenção de turmas associa disciplina, professor, período e capacidade, a
 
 A entrega avança RF-MA-02, RF-MA-04, RF-MA-06, RF-MA-07 e RF-MA-08 na interface de console. Autenticação, autorização, interface web e os demais cadastros e módulos permanecem em desenvolvimento. A opção 12 do menu principal acessa professores, disciplinas e pré-requisitos; a opção 11 mantém períodos e turmas.
 
+A v0.8 foi validada pelo autor em 02/11/2026 com 103 execuções unitárias e 130 de integração, sem falhas, erros ou ignorados. Consulte o [relatório e limites da validação](docs/testes/publicados/execucao_autor_v0_8/RELATORIO.md) e o [ambiente identificado](docs/testes/publicados/execucao_autor_v0_8/ambiente.txt). A validação em scoa_java_teste não implica migração de scoa.
+
 ## Tecnologias
 
 | Componente | Versão |

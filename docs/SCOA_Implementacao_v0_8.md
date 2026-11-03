@@ -43,3 +43,10 @@ Chaves estrangeiras preservam referências. A unicidade do destino em uso impede
 Consultar docs/testes/publicados/execucao_codex_v0_8/RELATORIO.md para execução efetiva. A proposta inicial antecedeu a implementação; contratos detalhados e testes concretos foram elaborados durante o desenvolvimento. Não se afirma que todos os testes antecederam o código.
 
 Validação do autor e atualização acadêmica do Word permanecem etapas separadas. Word v7.10, evidências v0.7 e bancos do autor não foram usados como ambiente de teste. Distribuição do plano por períodos, combinações de origens/destinos, conciliação importadora do legado, revisão/revogação, retificação de notas, rematrícula automática, transferência de estrutura, integralização, autenticação/autorização, web e recuperação de conexão continuam pendentes.
+
+
+## Fechamento da validação do autor
+
+O autor concluiu verify -Pmysql-it em 02/11/2026 às 16:22:06 UTC−03:00, duração 48.069 s: 103 unitárias e 130 de integração, sem falhas, erros ou ignorados. Os 17 XMLs corroboram as 233 execuções, com os mesmos métodos/parametrizações do Codex. O manual de sete páginas e os quatro CSVs demonstram pedido 17 indeferido, pedido 18 deferido, inscrição 38 ATIVO, matrícula 73/estrutura 80, A 412 RECONHECIDA e B 413 EM_ANDAMENTO, sem resultado final da matrícula. Recusas de redecisão/duplicidade e saída normal são demonstradas. Linhas longas estão cortadas à direita; os originais foram preservados, sem reconstrução.
+
+O commit 8793cabb06464dfd2457a1e2ee18e070da8d99da identifica retrospectivamente as fontes validadas, sem alteração de código no fechamento. Os 41 originais permanecem privados; relatório, ambiente e manifestos com seis cópias revisadas ficam em docs/testes/publicados/execucao_autor_v0_8. O autor utiliza scoa_java_teste; a migração de scoa fica para uma etapa posterior. O Word v7.11 incorpora esta validação em revisão própria, preservando a v7.10. Consulte o relatório do autor para horários e limites; não houve nova execução de testes ou migração do banco do autor neste fechamento.

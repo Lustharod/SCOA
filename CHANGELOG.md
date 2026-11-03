@@ -6,7 +6,7 @@
 - Histórico acadêmico distingue resultados, pedidos e decisões; plano básico é derivado da estrutura vinculada e das evidências formais, com situação atual da matrícula.
 - Reconhecimento formal pode cumprir pré-requisitos na mesma matrícula; inscrições e resultados anteriores permanecem preservados. Casos com impacto e legados não conciliados são recusados explicitamente.
 - Migração aditiva V008 acrescenta pedido_equivalencia, sem alterar ou promover dados legados. Distribuição por períodos, revisão/revogação, autenticação e demais limites constam da nota técnica.
-- Validação isolada do Codex e validação do autor são registros distintos; consultar o relatório da v0.8 para resultados efetivos.
+- Validação do autor em 02/11/2026 às 16:22:06 UTC−03:00: 103 unitárias e 130 de integração aprovadas; 233 execuções, zero falhas/erros/ignorados. Relatório, ambiente, manifestos e seis cópias revisadas preservam a separação da execução do Codex. Fechamento documental em revisão Word v7.11, privada.
 
 ## 0.7.0-SNAPSHOT
 
