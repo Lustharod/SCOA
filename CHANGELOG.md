@@ -1,5 +1,13 @@
 # Alterações do SCOA
 
+## 0.8.0-SNAPSHOT
+
+- Menu 16: pedido de equivalência com uma origem documental e um destino, decisão manual do funcionário administrativo e preservação da decisão final.
+- Histórico acadêmico distingue resultados, pedidos e decisões; plano básico é derivado da estrutura vinculada e das evidências formais, com situação atual da matrícula.
+- Reconhecimento formal pode cumprir pré-requisitos na mesma matrícula; inscrições e resultados anteriores permanecem preservados. Casos com impacto e legados não conciliados são recusados explicitamente.
+- Migração aditiva V008 acrescenta pedido_equivalencia, sem alterar ou promover dados legados. Distribuição por períodos, revisão/revogação, autenticação e demais limites constam da nota técnica.
+- Validação isolada do Codex e validação do autor são registros distintos; consultar o relatório da v0.8 para resultados efetivos.
+
 ## 0.7.0-SNAPSHOT
 
 - Menu 15: inscrição com confirmação, contexto curricular explícito, janela [início−14 dias, início−7 dias), horários, pré-requisitos por resultado formal, duplicidade e vagas.

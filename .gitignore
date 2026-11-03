@@ -162,3 +162,11 @@ Thumbs.db
 !/docs/testes/publicados/execucao_autor_v0_7/FONTES_SHA256.json
 !/docs/testes/publicados/execucao_autor_v0_7/ambiente.txt
 !/docs/testes/publicados/execucao_autor_v0_7/capturas/
+
+# Incremento v0.8: somente notas e resultados revisados; guias e originais privados
+!/docs/SCOA_Implementacao_v0_8.md
+!/docs/testes/SCOA_P08_Implementado_v0_8.md
+!/docs/testes/publicados/execucao_codex_v0_8/
+/docs/testes/publicados/execucao_codex_v0_8/*
+!/docs/testes/publicados/execucao_codex_v0_8/RELATORIO.md
+!/docs/testes/publicados/execucao_codex_v0_8/FONTES_SHA256.json

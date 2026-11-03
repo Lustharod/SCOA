@@ -32,6 +32,11 @@ final class ApoioJdbc {
                 resultado.next();
                 if (resultado.getInt(1) != 2) throw new IllegalStateException("Aplique uma vez a migração V006__matricula_periodo_historico.sql em scoa_java_teste antes dos testes v0.6. Não recrie o DDL.");
             }
+            try (var consulta = conexao.prepareStatement("SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='pedido_equivalencia' AND ENGINE='InnoDB'");
+                 var resultado = consulta.executeQuery()) {
+                resultado.next();
+                if (resultado.getInt(1) != 1) throw new IllegalStateException("Aplique uma vez V008__equivalencia_manual.sql na instância de teste selecionada, após V007.");
+            }
             return conexao;
         } catch (SQLException | RuntimeException erro) {
             conexao.close();

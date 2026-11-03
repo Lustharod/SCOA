@@ -4,7 +4,11 @@ Projeto acadêmico desenvolvido para a disciplina de Engenharia de Software do C
 
 ## Estado da implementação
 
-A versão 0.7.0-SNAPSHOT acrescenta inscrição em disciplinas no menu 15, com janela anterior às aulas, vínculo curricular explícito, verificação de matrícula, pré-requisitos por resultados finais, horários, duplicidade e vagas, revalidando na confirmação. Inclui primeiro fechamento de resultado com P1/P2/PF e frequência mínima de 75%. Gestão de equivalências, geração de plano e retificação permanecem pendentes; casos dependentes de equivalência ainda não integrada são recusados. Antes de usar, aplique uma vez V006 e depois database/migrations/V007__inscricao_resultado_contexto.sql, com backup e seleção explícita da base. Consulte [as regras e limites da v0.7](docs/SCOA_Implementacao_v0_7.md).
+A versão 0.8.0-SNAPSHOT acrescenta o menu 16: pedido e decisão manual de equivalência de uma origem para um destino, histórico acadêmico e plano básico derivado da estrutura, dos resultados formais e dos reconhecimentos. O funcionário administrativo informa o parecer e o responsável declarado; o sistema não decide compatibilidade por ementa ou carga horária. O reconhecimento válido pode cumprir pré-requisitos na mesma matrícula. Legados exigem conciliação e não são reconhecidos automaticamente. Consulte [as regras e limites da v0.8](docs/SCOA_Implementacao_v0_8.md).
+
+Antes de usar, faça backup, confira o schema selecionado e o estado de cada migração. Em base v0.7 já preparada, aplique uma vez `database/migrations/V008__equivalencia_manual.sql`; em base anterior, respeite DDL v7.5, V006, V007 e V008 nessa ordem. Não recrie bases existentes nem reaplique migrações parcialmente executadas. Não há migração automática.
+
+O menu 15 preserva inscrição com contexto curricular, janela, horários, pré-requisitos, duplicidade e vagas, revalidando na confirmação, e o primeiro fechamento de resultado P1/P2/PF com frequência mínima de 75%. Consulte [o recorte da v0.7](docs/SCOA_Implementacao_v0_7.md). Distribuição automática do plano por períodos, revisão de decisões, retificação de notas, autenticação/autorização e web continuam pendentes.
 
 O cadastro permite incluir, consultar, listar, atualizar e inativar salas. A alocação verifica capacidade, situação da sala, sobreposição de horários e períodos letivos, incluindo conflitos da própria turma. Horários adjacentes são permitidos. A disponibilidade é revalidada no momento da gravação.
 

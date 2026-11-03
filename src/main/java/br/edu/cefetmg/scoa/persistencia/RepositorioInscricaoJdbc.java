@@ -83,10 +83,12 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
                 +"JOIN turma t ON t.id_turma=i.id_turma JOIN periodo_letivo p ON p.id_periodo=t.id_periodo "
                 +"WHERE i.id_matricula=? AND t.id_disciplina=? FOR SHARE",r->new Object[]{r.getString(1),r.getDate(2).toLocalDate()},matricula,disciplina);
         for(var r:resultados) if("APROVADO".equals(r[0]) && ((LocalDate)r[1]).isBefore(data)) return true;
+        if(!q("SELECT id_pedido FROM pedido_equivalencia WHERE id_matricula=? AND id_disciplina_destino=? AND situacao='DEFERIDO' "
+                +"AND decidido_em<=CURRENT_TIMESTAMP(6) AND id_estrutura=(SELECT id_estrutura FROM vinculo_curricular_matricula WHERE id_matricula=?) FOR SHARE",
+                r->r.getLong(1),matricula,disciplina,matricula).isEmpty()) return true;
         var decisoes=q("SELECT decisao,data FROM aproveitamento_equivalencia WHERE id_matricula=? AND id_disciplina_destino=? FOR SHARE",
                 r->new Object[]{r.getString(1),r.getDate(2).toLocalDate()},matricula,disciplina);
-        // Sem produtor formal de equivalências neste incremento, nenhuma linha legada é presumida reconhecida.
-        // O contrato de importação/decisão e seus efeitos em plano e histórico ainda precisam ser implementados.
+        // Somente o produtor formal v0.8 autoriza reconhecimento; o legado não é promovido.
         if(!decisoes.isEmpty()) throw new IllegalArgumentException("Há processo de equivalência: reconhecimento requer integração formal ainda não implementada.");
         return false;
     }
@@ -97,6 +99,9 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
         HorarioAula.validarId(alvo);
         Vinculo m=matricula(id);
         List<String> motivos=new ArrayList<>();
+        if(!q("SELECT id_pedido FROM pedido_equivalencia WHERE id_matricula=? AND id_disciplina_destino="
+                +"(SELECT id_disciplina FROM turma WHERE id_turma=?) AND situacao='DEFERIDO' FOR SHARE",
+                r->r.getLong(1),id,alvo).isEmpty()) motivos.add("Disciplina já reconhecida por equivalência; análise de impacto necessária para cursá-la.");
         if(!"ATIVO".equals(m.situacao())) motivos.add("Matrícula deve estar ativa.");
         ativo("curso","id_curso",m.curso());
         // Grafo e disciplinas sob a mesma ordem usada pelo escritor de pré-requisitos.
