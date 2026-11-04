@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.edu.cefetmg</groupId>
     <artifactId>scoa</artifactId>
-    <version>0.8.0-SNAPSHOT</version>
+    <version>0.9.0-SNAPSHOT</version>
     <name>SCOA</name>
     <description>Inscrição em disciplinas, elegibilidade, resultados finais e matrícula institucional.</description>
     <properties>
