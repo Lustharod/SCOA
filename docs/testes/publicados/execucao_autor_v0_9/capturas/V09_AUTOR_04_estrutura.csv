@@ -1,0 +1,5 @@
+etiqueta,id_disciplina,nome,carga_horaria,situacao
+V09MAN-8691c049d7e3,563,"V09MAN-8691c049d7e3 Origem curricular",60,ATIVO
+V09MAN-8691c049d7e3,564,"V09MAN-8691c049d7e3 Dependente",60,ATIVO
+V09MAN-8691c049d7e3,565,"V09MAN-8691c049d7e3 Concorrente de horário",60,ATIVO
+V09MAN-8691c049d7e3,566,"V09MAN-8691c049d7e3 Sem oferta",60,ATIVO

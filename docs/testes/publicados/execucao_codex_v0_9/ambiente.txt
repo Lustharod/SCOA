@@ -1,0 +1,6 @@
+Execução exclusiva do Codex, separada do autor.
+SCOA 0.9.0-SNAPSHOT; OpenJDK 25.0.1; Maven 3.9.11; JUnit 6.0.1; Surefire/Failsafe 3.5.4; Connector/J 26.7.0.
+MySQL 8.0.46 em 127.0.0.1:33319, schema scoa_java_teste, 76 tabelas; instância encerrada.
+Final: 02/11/2026 22:26:15 UTC-03:00; duração 49.626 s; BUILD SUCCESS.
+113 unitárias + 144 integração = 257; zero falhas/erros/ignorados.
+Não houve nova execução no fechamento documental.

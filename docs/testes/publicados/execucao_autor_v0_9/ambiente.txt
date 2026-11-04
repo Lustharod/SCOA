@@ -1,0 +1,12 @@
+Registro derivado das evidências; não nova medição ou acesso direto ao banco.
+Software: SCOA 0.9.0-SNAPSHOT. Java OpenJDK 25.0.1; Maven 3.9.11; IntelliJ IDEA 2025.3.
+JUnit Jupiter 6.0.1; Surefire/Failsafe 3.5.4; MySQL Connector/J 26.7.0.
+MySQL do autor: 8.0.46, conforme CSV V09_AUTOR_00_conexao.csv privado; porta 3306; schema scoa_java_teste; 76 tabelas conforme CSV 02.
+Console automatizado: IBM850. Console manual: UTF-8.
+Execução final: 03/11/2026 21:57:27 UTC-03:00; duração 17.900 s; BUILD SUCCESS.
+113 unitárias e 144 integração; 257 execuções; zero falhas/erros/ignorados, conforme 19 XMLs.
+PDF automatizado anterior: encerramento 03/11/2026 21:16:36 UTC-03:00, duração 01:50 min; emissão 21:17:51.
+PDF final verify: emissão 03/11/2026 21:59:04 UTC-03:00. Emissão não é horário de execução.
+Manual: PDFs emitidos 21:37:09, 21:52:08, 21:54:21 e 21:56:41 em 03/11/2026 UTC-03:00.
+Codex: execução separada em 02/11/2026 22:26:15 UTC-03:00, duração 49.626 s, instância isolada 33319, encerrada.
+O autor mantém scoa separado. Este fechamento não acessou nem migrou bancos do autor.

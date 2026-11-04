@@ -1,0 +1,2 @@
+etiqueta,id_pedido,id_matricula,id_estrutura,id_disciplina_destino,situacao,carga_horaria_origem,carga_horaria_destino,registrado_em,decidido_em
+V09MAN-8691c049d7e3,43,134,137,563,DEFERIDO,60,60,"2026-11-03 21:43:35.754550","2026-11-03 21:45:32.288395"

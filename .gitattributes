@@ -13,3 +13,7 @@ docs/testes/publicados/execucao_codex_v0_6/** -text whitespace=cr-at-eol
 
 # Preservar os bytes das evidências revisadas da v0.8
 /docs/testes/publicados/execucao_autor_v0_8/** -text whitespace=cr-at-eol
+
+# Preservar bytes da seleção revisada da v0.9
+/docs/testes/publicados/execucao_autor_v0_9/** -text whitespace=cr-at-eol
+/docs/testes/publicados/execucao_codex_v0_9/** -text whitespace=cr-at-eol

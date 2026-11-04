@@ -1,0 +1,4 @@
+etiqueta,id_turma,id_disciplina,id_periodo,capacidade,situacao,dia_semana,hora_inicio,hora_fim
+V09MAN-8691c049d7e3,309,563,409,2,ATIVO,1,08:00:00,09:00:00
+V09MAN-8691c049d7e3,310,564,410,2,ATIVO,1,09:00:00,10:00:00
+V09MAN-8691c049d7e3,311,565,409,2,ATIVO,1,08:00:00,09:00:00

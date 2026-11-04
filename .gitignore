@@ -184,3 +184,19 @@ Thumbs.db
 /docs/testes/publicados/execucao_autor_v0_8/capturas/*
 !/docs/testes/publicados/execucao_autor_v0_8/capturas/*.pdf
 !/docs/testes/publicados/execucao_autor_v0_8/capturas/*.csv
+
+# Fechamento v0.9: apenas notas e seleção revisada; guias, Word e XMLs privados
+!/docs/SCOA_Implementacao_v0_9.md
+!/docs/testes/publicados/execucao_autor_v0_9/
+/docs/testes/publicados/execucao_autor_v0_9/*
+!/docs/testes/publicados/execucao_autor_v0_9/RELATORIO.md
+!/docs/testes/publicados/execucao_autor_v0_9/ambiente.txt
+!/docs/testes/publicados/execucao_autor_v0_9/MANIFESTO.md
+!/docs/testes/publicados/execucao_autor_v0_9/MANIFESTO_SHA256.json
+!/docs/testes/publicados/execucao_autor_v0_9/FONTES_SHA256.json
+!/docs/testes/publicados/execucao_autor_v0_9/capturas/
+!/docs/testes/publicados/execucao_codex_v0_9/
+/docs/testes/publicados/execucao_codex_v0_9/*
+!/docs/testes/publicados/execucao_codex_v0_9/RELATORIO.md
+!/docs/testes/publicados/execucao_codex_v0_9/ambiente.txt
+!/docs/testes/publicados/execucao_codex_v0_9/FONTES_SHA256.json

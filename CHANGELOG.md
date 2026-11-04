@@ -1,5 +1,12 @@
 # Alterações do SCOA
 
+## 0.9.0-SNAPSHOT
+
+- Menu 17: simulação com períodos e ofertas cadastrados, prioridade explícita, pré-requisitos já cumpridos, diagnóstico de conflitos/vagas e soma das horas sugeridas.
+- Consulta sem persistir plano ou inscrição; sugestões e andamento não liberam dependentes. Sem migração nova, créditos, limite institucional ou reserva de vagas.
+- Autor: verify encerrado em 03/11/2026 21:57:27 UTC−03:00, duração 17.900 s; 113 unitárias e 144 integração aprovadas. Codex separado em 02/11/2026. 62 originais preservados; seleção pública revisada com seis PDFs e 15 CSVs.
+- Word v7.12 privado acrescenta seção 9.14 e Quadros 43/44, preservando a v7.11. Código validado identificado retrospectivamente por b0a3930; fontes preservadas no fechamento.
+
 ## 0.8.0-SNAPSHOT
 
 - Menu 16: pedido de equivalência com uma origem documental e um destino, decisão manual do funcionário administrativo e preservação da decisão final.
