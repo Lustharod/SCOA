@@ -1,0 +1,102 @@
+[
+  {
+    "arquivo": "ambiente.txt",
+    "bytes": 211,
+    "sha256": "00d1b1d32efe173816ca6b17c4dca355c660142d635d927a060a54681a4e44db"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_04_tabelas_apos.csv",
+    "bytes": 11,
+    "sha256": "99cf48c16079899dfad6ff18670d4bb184c77a53f8bdee9b78af0c7429d01672"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_14_contagens_iniciais.csv",
+    "bytes": 128,
+    "sha256": "a0d24b082f11d91c38a90f685006666e572eaf1bd95898fd426ffa0d30a783a4"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_27_contagens_conciliacao.csv",
+    "bytes": 128,
+    "sha256": "5588e06175de4f65fd7d068f094d8a77d2d54a5e169443519d26c1e0af0f17ae"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_28_inscricoes_e_provas.csv",
+    "bytes": 222,
+    "sha256": "1e406f266cf3bfba0b152a366f8b79ee71fd675eb5500d6462a9505c3cf34141"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_34_contagens_revisao.csv",
+    "bytes": 128,
+    "sha256": "902ec0bcdce19bd52051c373e565c8c51dcdcb3c5283bacbb509671438329e40"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_35_36_historico_encaminhamentos.csv",
+    "bytes": 1387,
+    "sha256": "b02ae35f3684002485c1ba5951cc4158024552b0d75266c6776c6d53a2c809cc"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_37_rejeicao.csv",
+    "bytes": 182,
+    "sha256": "4b8bc53cd5fb52a49b1739dcfb00ea0dfd7f691e26bc6e5af3d26b9c77e0c0c0"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_42_revisoes_finais.csv",
+    "bytes": 331,
+    "sha256": "87a30962d9d51ffe72f82cd31651a201539f41204c8625c547ba35cf5098ba09"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_43_inscricoes_preservadas.csv",
+    "bytes": 148,
+    "sha256": "4dcd44db3ca1a7b6a03261f5a054257c9a3a3ecf713de3f89df3aa946b1da1ec"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_44_inscricoes_finais.csv",
+    "bytes": 150,
+    "sha256": "05c7ca663338fc0fb6d6910d864553f80a165a1e060f0b4778810bef8a7c79fe"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_45_decisao_original_preservada.csv",
+    "bytes": 207,
+    "sha256": "c7d650f67a9e6b0fea0d147c7bb557a433a8d7a314a03ccd8126303fc9ae39e3"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_47_ausencia_resultados.csv",
+    "bytes": 13,
+    "sha256": "4881404ded66a62024147acd7f72d32bdeef0569dc82d6f8b35630951354441b"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_48_contagens_finais.csv",
+    "bytes": 128,
+    "sha256": "6cf95409a6d05d32dd3df90d9cfe70308b4c02f1e934dcedc6ed4d28914d7755"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_49_plano_legado_final.csv",
+    "bytes": 89,
+    "sha256": "c1a8027894ec94d8c76d1ca4e0cdff7c43235ec6072042b688b53376486cd5b2"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_50_item_legado_final.csv",
+    "bytes": 91,
+    "sha256": "2be3ce879dd47b00d12d1697392e12169ba914e0d422e0e88f907802fa27ac7e"
+  },
+  {
+    "arquivo": "capturas/V10_AUTOR_51_equivalencia_legada_final.csv",
+    "bytes": 188,
+    "sha256": "3c2d06044ea783bc35936102d3c7f9826b7861a219d426eb2cd5b613afa68d61"
+  },
+  {
+    "arquivo": "MANIFESTO.md",
+    "bytes": 185,
+    "sha256": "e06014eea3cd424d62e1fcf3a53c1839e6105887dd90d1c9334af033ea1b383c"
+  },
+  {
+    "arquivo": "RELATORIO.md",
+    "bytes": 3013,
+    "sha256": "f7926d27e4ed3cde4224df691df4c6eaf37b33577dcfa04d1c624e79184eb067"
+  },
+  {
+    "arquivo": "RESULTADOS.md",
+    "bytes": 911,
+    "sha256": "d61f110de2f80c75b6c587174ac44709e5a7e137b203765a659c2e3a7590d132"
+  }
+]

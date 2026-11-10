@@ -1,0 +1,4 @@
+Ambiente registrado nas evidências do autor.
+MySQL 8.0.46, porta 3306, schema scoa_java_teste.
+76 tabelas antes da V009 e 81 depois.
+verify -Pmysql-it: 08/11/2026 19:51:08 UTC−03:00, 37,729 s, BUILD SUCCESS.

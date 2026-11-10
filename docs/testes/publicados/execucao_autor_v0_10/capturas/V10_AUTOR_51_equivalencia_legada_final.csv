@@ -1,0 +1,2 @@
+id_aproveitamento,id_matricula,id_disciplina_origem,id_disciplina_destino,decisao,data,resultado
+13,385,NULL,1142,DEFERIDO,2025-11-08,"Legado sintético; falta análise documental formal"

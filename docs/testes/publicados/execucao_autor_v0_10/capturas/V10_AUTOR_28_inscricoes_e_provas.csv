@@ -1,0 +1,3 @@
+id_inscricao,id_matricula,id_turma,situacao,id_requisito,tipo,id_pedido,id_resultado,registrado_em
+108,385,616,CANCELADO,NULL,NULL,NULL,NULL,NULL
+109,385,615,ATIVO,1142,RECONHECIMENTO,110,NULL,"2026-11-08 23:59:28.709915"

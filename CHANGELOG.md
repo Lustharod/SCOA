@@ -1,11 +1,13 @@
 # Alterações do SCOA
 
-## 0.10.0-SNAPSHOT — validação do autor pendente
+## 0.10.0-SNAPSHOT
 
 - Menu 18: acesso autenticado, permissões técnicas, conciliação documental explícita de planos/equivalências e análise humana de revisão/revogação.
 - Suspensão de novos usos durante revisão; complemento e tratamento mantêm suspensão; rejeição restaura uso sujeito às demais validações; revogação preserva expressamente inscrições identificadas, sem cancelamento ou alteração de resultados.
 - Rastreabilidade dos pré-requisitos usados em novas inscrições. Histórico sem prova é apresentado como impacto potencial, sem causalidade inventada.
 - Migração aditiva V009 com cinco tabelas; decisões originais, legados e versões documentais anteriores preservados. Guias e evidências brutas privados. Sem migração de scoa ou acesso ao banco do autor.
+
+- Autor: 282 execuções automatizadas sem falhas, erros ou ignorados e validação manual concluída em 09/11/2026. Implementação validada: c7950be8f4c86cbc26e0616e86454adf3c7a083e.
 
 ## 0.9.0-SNAPSHOT
 
