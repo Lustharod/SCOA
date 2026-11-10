@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EquivalenciaJdbcIT {
+    @AfterAll static void limparAcesso() throws Exception { AcessoTeste.limpar(); }
     private Connection c;
     private RepositorioEquivalenciaJdbc repo;
     private RepositorioInscricaoJdbc inscricoes;
@@ -47,12 +48,13 @@ class EquivalenciaJdbcIT {
         sql("INSERT INTO disciplina_prerequisito(id_disciplina,id_disciplina_prerequisito) VALUES (?,?)",seguinte,destino);
         turma=sql("INSERT INTO turma(id_disciplina,id_professor,id_periodo,codigo,capacidade,situacao) VALUES (?,?,?,?,2,'ATIVO')",seguinte,professor,periodo,tag);
         sql("INSERT INTO horario_aula(id_turma,id_sala,dia_semana,hora_inicio,hora_fim) VALUES (?,?,1,'08:00','09:00')",turma,sala);
-        repo=new RepositorioEquivalenciaJdbc(c);
+        repo=new RepositorioEquivalenciaJdbc(c,AcessoTeste.sessao(c));
     }
     @AfterEach void limpar() throws Exception {
         if(c==null) return;
         try {
             if(!c.getAutoCommit()) c.rollback(); c.setAutoCommit(true);
+            sql("DELETE e FROM evidencia_requisito_inscricao e JOIN inscricao_disciplina i ON i.id_inscricao=e.id_inscricao WHERE i.id_matricula=?",matricula);
             sql("DELETE FROM pedido_equivalencia WHERE id_matricula IN (SELECT id_matricula FROM matricula_academica WHERE id_aluno=?)",aluno);
             sql("DELETE FROM aproveitamento_equivalencia WHERE id_matricula=?",matricula);
             sql("DELETE FROM item_plano_estudo WHERE id_plano IN (SELECT id_plano FROM plano_estudo WHERE id_matricula=?)",matricula);
@@ -157,7 +159,7 @@ class EquivalenciaJdbcIT {
                 return result;
             } catch(InvocationTargetException e) { throw e.getCause(); }
         });
-        assertThrows(PersistenciaException.class,()->new RepositorioEquivalenciaJdbc(proxy).decidir(p.id(),decisao(true)));
+        assertThrows(PersistenciaException.class,()->new RepositorioEquivalenciaJdbc(proxy,AcessoTeste.sessao(proxy)).decidir(p.id(),decisao(true)));
         assertEquals("EM_ANALISE",repo.listar(matricula).getFirst().situacao());
         assertEquals(1,repo.historico(matricula).size()); assertEquals("PENDENTE",repo.plano(matricula).itens().getFirst().situacao());
     }
@@ -165,7 +167,7 @@ class EquivalenciaJdbcIT {
         var p=repo.solicitar(pedido()); var inicio=new CountDownLatch(1);
         try(var executor=Executors.newFixedThreadPool(2)) {
             Callable<Boolean> tarefa=()->{ try(var outra=ApoioJdbc.abrir(false)) { inicio.await();
-                try { new RepositorioEquivalenciaJdbc(outra).decidir(p.id(),decisao(true)); return true; }
+                try { new RepositorioEquivalenciaJdbc(outra,AcessoTeste.sessao(outra)).decidir(p.id(),decisao(true)); return true; }
                 catch(IllegalArgumentException e) { return false; }
             }};
             var a=executor.submit(tarefa); var b=executor.submit(tarefa); inicio.countDown();
@@ -178,7 +180,7 @@ class EquivalenciaJdbcIT {
         var inicio=new CountDownLatch(1);
         try(var executor=Executors.newFixedThreadPool(2)) {
             var a=executor.submit(()->{ try(var outra=ApoioJdbc.abrir(false)) { inicio.await();
-                try { new RepositorioEquivalenciaJdbc(outra).decidir(p.id(),decisao(true)); return true; }
+                try { new RepositorioEquivalenciaJdbc(outra,AcessoTeste.sessao(outra)).decidir(p.id(),decisao(true)); return true; }
                 catch(IllegalArgumentException e) { return false; }
             }});
             var b=executor.submit(()->{ try(var outra=ApoioJdbc.abrir(false)) { inicio.await();

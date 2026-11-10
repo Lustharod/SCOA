@@ -59,7 +59,7 @@ public final class Planejamento {
                 if(!"ATIVO".equals(o.situacao())) motivos.add("Turma inativa.");
                 if(!"ATIVO".equals(o.periodo().situacao())) motivos.add("Período inativo ou encerrado.");
                 if(o.periodo().fim().isBefore(dados.hoje())) motivos.add("Período passado.");
-                for(long requisito:d.requisitos()) if(!cumpridas.contains(requisito)) motivos.add("Pré-requisito não cumprido formalmente: "+requisito+".");
+                for(long requisito:d.requisitos()) if(!cumpridas.contains(requisito)) motivos.add(porId.containsKey(requisito) && "SOB_REVISAO".equals(porId.get(requisito).situacao())?"Reconhecimento sob revisão para o pré-requisito "+requisito+"; novos usos suspensos.":"Pré-requisito não cumprido formalmente: "+requisito+".");
                 if(o.vagas()<=0) motivos.add("Turma sem vagas observadas.");
                 if(o.horarios().isEmpty()) motivos.add("Turma sem horários definidos.");
                 for(var ativa:ocupadas) {

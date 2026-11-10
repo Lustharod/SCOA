@@ -9,7 +9,9 @@ import br.edu.cefetmg.scoa.dominio.Equivalencia.*;
 /** Mesma coordenação conservadora da inscrição; consultas derivadas não duplicam decisões. */
 public final class RepositorioEquivalenciaJdbc implements RepositorioEquivalencia {
     private final Connection c;
-    public RepositorioEquivalenciaJdbc(Connection c) { this.c=Objects.requireNonNull(c); }
+    private final SegurancaJdbc.Sessao sessao;
+    public RepositorioEquivalenciaJdbc(Connection c) { this(c,null); }
+    public RepositorioEquivalenciaJdbc(Connection c,SegurancaJdbc.Sessao sessao) { this.c=Objects.requireNonNull(c); this.sessao=sessao; }
     @FunctionalInterface private interface Leitor<T> { T ler(ResultSet r) throws SQLException; }
     private <T> List<T> q(String sql, Leitor<T> leitor, Object... valores) throws SQLException {
         try(var s=c.prepareStatement(sql)) {
@@ -59,10 +61,7 @@ public final class RepositorioEquivalenciaJdbc implements RepositorioEquivalenci
     }
     private void exigirContextoConciliado(long matricula,Contexto ctx) throws SQLException {
         if(ctx.estrutura()==0) throw new IllegalArgumentException("Vincule explicitamente a estrutura curricular antes deste fluxo.");
-        if(!q("SELECT id_plano FROM plano_estudo WHERE id_matricula=? FOR SHARE",r->r.getLong(1),matricula).isEmpty())
-            throw new IllegalArgumentException("Plano legado requer conciliação explícita; nenhum item foi alterado.");
-        if(!q("SELECT id_aproveitamento FROM aproveitamento_equivalencia WHERE id_matricula=? FOR SHARE",r->r.getLong(1),matricula).isEmpty())
-            throw new IllegalArgumentException("Equivalência legada requer conciliação documental explícita; não foi reconhecida automaticamente.");
+        RepositorioProcessoAcademicoJdbc.exigirLegadosConciliados(c,matricula);
     }
     private int destino(long estrutura,long disciplina) throws SQLException {
         var d=q("SELECT d.carga_horaria,d.situacao FROM estrutura_disciplina e JOIN disciplina d ON d.id_disciplina=e.id_disciplina "
@@ -98,6 +97,7 @@ public final class RepositorioEquivalenciaJdbc implements RepositorioEquivalenci
     @Override public Registro solicitar(Pedido pedido) {
         Objects.requireNonNull(pedido);
         return TransacaoJdbc.executar(c,()->{
+            JdbcAcademico.controle(c); long autor=SegurancaJdbc.exigir(c,sessao,SegurancaJdbc.SOLICITAR);
             var ctx=contexto(pedido.matricula(),true); exigirContextoConciliado(pedido.matricula(),ctx);
             int carga=destino(ctx.estrutura(),pedido.destino());
             if(pedido.conclusao().isAfter(hoje())) throw new IllegalArgumentException("Conclusão de origem não pode ser futura.");
@@ -108,12 +108,14 @@ public final class RepositorioEquivalenciaJdbc implements RepositorioEquivalenci
                     +"carga_horaria_origem,ementa_origem,documentos,conclusao_origem,ementa_destino,carga_horaria_destino) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
                     pedido.matricula(),ctx.estrutura(),pedido.destino(),pedido.instituicao(),pedido.origem(),pedido.cargaOrigem(),
                     pedido.ementaOrigem(),pedido.documentos(),pedido.conclusao(),pedido.ementaDestino(),carga);
+            JdbcAcademico.evento(c,"PEDIDO",id,autor,"SOLICITAR",pedido.documentos());
             return buscar(id);
         });
     }
     @Override public Registro decidir(long id,Decisao decisao) {
         HorarioAula.validarId(id); Objects.requireNonNull(decisao);
         return TransacaoJdbc.executar(c,()->{
+            JdbcAcademico.controle(c); long autor=SegurancaJdbc.exigir(c,sessao,SegurancaJdbc.DECIDIR);
             var previa=q("SELECT id_matricula FROM pedido_equivalencia WHERE id_pedido=?",r->r.getLong(1),id);
             if(previa.isEmpty()) throw new IllegalArgumentException("Pedido não encontrado.");
             long matricula=previa.getFirst(); var ctx=contexto(matricula,true);
@@ -124,7 +126,8 @@ public final class RepositorioEquivalenciaJdbc implements RepositorioEquivalenci
             if(carga!=p.cargaDestino()) throw new IllegalArgumentException("Carga horária de destino mudou; análise de impacto necessária.");
             if(decisao.deferir()) semImpacto(matricula,p.pedido().destino());
             gravar("UPDATE pedido_equivalencia SET situacao=?,parecer=?,responsavel=?,decidido_em=CURRENT_TIMESTAMP(6) WHERE id_pedido=? AND situacao='EM_ANALISE'",
-                    decisao.deferir()?"DEFERIDO":"INDEFERIDO",decisao.parecer(),decisao.responsavel(),id);
+                    decisao.deferir()?"DEFERIDO":"INDEFERIDO",decisao.parecer(),"Usuário autenticado "+autor,id);
+            JdbcAcademico.evento(c,"PEDIDO",id,autor,"DECIDIR",decisao.parecer());
             return buscar(id);
         });
     }
@@ -156,6 +159,12 @@ public final class RepositorioEquivalenciaJdbc implements RepositorioEquivalenci
                 }
                 for(var p:reconhecimentos) if(p.pedido().destino()==id && "DEFERIDO".equals(p.situacao())) {
                     if(p.estrutura()!=ctx.estrutura()) throw new IllegalArgumentException("Reconhecimento em estrutura divergente; análise de impacto necessária.");
+                    String atual=RepositorioProcessoAcademicoJdbc.estado(c,p.id());
+                    if(!"VIGENTE".equals(atual)) {
+                        if("PENDENTE".equals(estado) && "SOB_REVISAO".equals(atual)) { estado="SOB_REVISAO"; evidencia="Reconhecimento sob revisão; novos usos suspensos. Pedido "+p.id(); }
+                        continue;
+                    }
+                    if("CONCLUIDA".equals(estado) || "EM_ANDAMENTO".equals(estado)) continue;
                     estado="RECONHECIDA"; evidencia="Pedido "+p.id()+"; origem "+p.pedido().origem()+"; decisão "+p.decididoEm();
                 }
                 itens.add(new ItemPlano(id,(String)d[1],estado,evidencia));
@@ -174,8 +183,16 @@ public final class RepositorioEquivalenciaJdbc implements RepositorioEquivalenci
                 if(p.decididoEm()!=null) eventos.add(new Evento("DECISAO",p.id(),p.pedido().destino(),p.situacao(),
                         "Responsável declarado: "+p.responsavel()+"; parecer: "+p.parecer(),p.decididoEm()));
             }
+            eventos.addAll(q("SELECT r.id_revisao,p.id_disciplina_destino,r.situacao,r.parecer,r.atualizado_em FROM revisao_reconhecimento r JOIN pedido_equivalencia p ON p.id_pedido=r.id_pedido WHERE p.id_matricula=? FOR SHARE",
+                r->new Evento("REVISAO",r.getLong(1),r.getLong(2),r.getString(3),Objects.toString(r.getString(4),"Aguardando análise humana"),r.getObject(5,LocalDateTime.class)),matricula));
+            eventos.addAll(q("SELECT c.id_conciliacao,c.situacao,c.parecer,c.registrado_em FROM conciliacao_legado c WHERE c.id_matricula=? FOR SHARE",
+                r->new Evento("CONCILIACAO",r.getLong(1),0,r.getString(2),Objects.toString(r.getString(3),"Aguardando análise humana"),r.getObject(4,LocalDateTime.class)),matricula));
             var legados=q("SELECT id_aproveitamento,id_disciplina_destino,decisao FROM aproveitamento_equivalencia WHERE id_matricula=? FOR SHARE",
-                    r->new Evento("LEGADO_NAO_CONCILIADO",r.getLong(1),r.getLong(2),r.getString(3),"Registro legado sem reconhecimento por este fluxo.",null),matricula);
+                    r->{
+                        var conciliacoes=q("SELECT origem_hash FROM conciliacao_legado WHERE tipo='EQUIVALENCIA' AND id_origem=? AND id_matricula=? AND situacao='APROVADA' FOR SHARE",x->x.getString(1),r.getLong(1),matricula);
+                        boolean conciliado=!conciliacoes.isEmpty() && conciliacoes.getFirst().equals(RepositorioProcessoAcademicoJdbc.origem(c,"EQUIVALENCIA",r.getLong(1),matricula));
+                        return new Evento(conciliado?"LEGADO_CONCILIADO":"LEGADO_NAO_CONCILIADO",r.getLong(1),r.getLong(2),r.getString(3),"Origem legada preservada; validade acadêmica depende do pedido formal e das revisões.",null);
+                    },matricula);
             eventos.addAll(legados);
             eventos.sort(Comparator.comparing(Evento::registradoEm,Comparator.nullsFirst(Comparator.naturalOrder()))
                     .thenComparing(Evento::tipo).thenComparingLong(Evento::referencia));

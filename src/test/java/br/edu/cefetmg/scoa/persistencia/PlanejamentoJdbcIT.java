@@ -10,6 +10,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlanejamentoJdbcIT {
+    @AfterAll static void limparAcesso() throws Exception { AcessoTeste.limpar(); }
     private Connection c;
     private RepositorioPlanejamentoJdbc repo;
     private long aluno,curso,matricula,estrutura,a,b,p,t,prof,sala;
@@ -50,7 +51,7 @@ class PlanejamentoJdbcIT {
     private Resultado sim() { return repo.simular(matricula,List.of(p),List.of()); }
     private Item item(Resultado r,long id) { return r.itens().stream().filter(i->i.disciplina().id()==id).findFirst().orElseThrow(); }
     private void reconhecer() throws Exception {
-        var eq=new RepositorioEquivalenciaJdbc(c);
+        var eq=new RepositorioEquivalenciaJdbc(c,AcessoTeste.sessao(c));
         var pedido=eq.solicitar(new Pedido(matricula,a,"Externa","Origem",60,"Ementa","Referências "+tag,hoje().minusYears(1),"Destino"));
         eq.decidir(pedido.id(),new Decisao(true,"Análise manual de carga e ementa","Responsável declarado"));
     }

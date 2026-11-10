@@ -45,8 +45,8 @@ public final class ConsoleEquivalencia {
                         if(pedidos.stream().noneMatch(p->p.id()==id)) throw new IllegalArgumentException("Pedido não pertence à matrícula consultada.");
                         String opcao=ler("Decisão manual (D=deferir / I=indeferir): ").toUpperCase(Locale.ROOT);
                         if(!Set.of("D","I").contains(opcao)) throw new IllegalArgumentException("Escolha D ou I.");
-                        var decisao=new Decisao("D".equals(opcao),ler("Parecer sobre ementa e carga horária: "),ler("Funcionário administrativo responsável: "));
-                        System.out.println("Responsável informado de forma declaratória. "+decisao);
+                        var decisao=new Decisao("D".equals(opcao),ler("Parecer sobre ementa e carga horária: "),"Identificado pela sessão autenticada");
+                        System.out.println("Responsável obtido da sessão autenticada. "+decisao);
                         System.out.println("Deferimento reflete no histórico e plano e pode cumprir pré-requisitos. Inscrições e resultados anteriores são preservados.");
                         if(confirmar()) System.out.println("Decisão registrada: "+servico.decidir(id,decisao));
                         else System.out.println("Decisão cancelada.");

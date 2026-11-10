@@ -37,6 +37,9 @@ final class ApoioJdbc {
                 resultado.next();
                 if (resultado.getInt(1) != 1) throw new IllegalStateException("Aplique uma vez V008__equivalencia_manual.sql na instância de teste selecionada, após V007.");
             }
+            try(var s=conexao.createStatement();var r=s.executeQuery("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=DATABASE() AND table_name IN ('revisao_reconhecimento','conciliacao_legado','evento_processo_academico','evidencia_requisito_inscricao','inscricao_preservada_revisao') AND engine='InnoDB'")) {
+                r.next(); if(r.getInt(1)!=5) throw new IllegalStateException("Aplique uma vez V009__conciliacao_revisao.sql em scoa_java_teste após V008 antes dos testes v0.10.");
+            }
             return conexao;
         } catch (SQLException | RuntimeException erro) {
             conexao.close();

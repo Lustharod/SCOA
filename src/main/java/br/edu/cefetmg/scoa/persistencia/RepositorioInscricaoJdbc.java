@@ -78,30 +78,35 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
         return q("SELECT dia_semana,hora_inicio,hora_fim FROM horario_aula WHERE id_turma=? ORDER BY id_horario FOR SHARE",
                 r->new Horario(r.getInt(1),r.getTime(2).toLocalTime(),r.getTime(3).toLocalTime()),turma);
     }
-    private boolean cumpriu(long matricula,long disciplina,LocalDate data) throws SQLException {
-        var resultados=q("SELECT r.situacao,p.data_fim FROM resultado_inscricao r JOIN inscricao_disciplina i ON i.id_inscricao=r.id_inscricao "
+    private boolean cumpriu(long matricula,long disciplina,LocalDate data) throws SQLException { return evidencia(matricula,disciplina,data)!=null; }
+    private record Prova(String tipo,Long pedido,Long resultado) { }
+    private Prova evidencia(long matricula,long disciplina,LocalDate data) throws SQLException {
+        var resultados=q("SELECT r.situacao,p.data_fim,r.id_inscricao FROM resultado_inscricao r JOIN inscricao_disciplina i ON i.id_inscricao=r.id_inscricao "
                 +"JOIN turma t ON t.id_turma=i.id_turma JOIN periodo_letivo p ON p.id_periodo=t.id_periodo "
-                +"WHERE i.id_matricula=? AND t.id_disciplina=? FOR SHARE",r->new Object[]{r.getString(1),r.getDate(2).toLocalDate()},matricula,disciplina);
-        for(var r:resultados) if("APROVADO".equals(r[0]) && ((LocalDate)r[1]).isBefore(data)) return true;
-        if(!q("SELECT id_pedido FROM pedido_equivalencia WHERE id_matricula=? AND id_disciplina_destino=? AND situacao='DEFERIDO' "
-                +"AND decidido_em<=CURRENT_TIMESTAMP(6) AND id_estrutura=(SELECT id_estrutura FROM vinculo_curricular_matricula WHERE id_matricula=?) FOR SHARE",
-                r->r.getLong(1),matricula,disciplina,matricula).isEmpty()) return true;
-        var decisoes=q("SELECT decisao,data FROM aproveitamento_equivalencia WHERE id_matricula=? AND id_disciplina_destino=? FOR SHARE",
-                r->new Object[]{r.getString(1),r.getDate(2).toLocalDate()},matricula,disciplina);
-        // Somente o produtor formal v0.8 autoriza reconhecimento; o legado não é promovido.
-        if(!decisoes.isEmpty()) throw new IllegalArgumentException("Há processo de equivalência: reconhecimento requer integração formal ainda não implementada.");
-        return false;
+                +"WHERE i.id_matricula=? AND t.id_disciplina=? FOR SHARE",r->new Object[]{r.getString(1),r.getDate(2).toLocalDate(),r.getLong(3)},matricula,disciplina);
+        for(var r:resultados) if("APROVADO".equals(r[0]) && ((LocalDate)r[1]).isBefore(data)) return new Prova("RESULTADO",null,(Long)r[2]);
+        var pedidos=q("SELECT id_pedido FROM pedido_equivalencia WHERE id_matricula=? AND id_disciplina_destino=? AND situacao='DEFERIDO' "
+                +"AND decidido_em<=CURRENT_TIMESTAMP(6) AND id_estrutura=(SELECT id_estrutura FROM vinculo_curricular_matricula WHERE id_matricula=?) ORDER BY id_pedido FOR SHARE",
+                r->r.getLong(1),matricula,disciplina,matricula);
+        for(long pedido:pedidos) if("VIGENTE".equals(RepositorioProcessoAcademicoJdbc.estado(c,pedido))) return new Prova("RECONHECIMENTO",pedido,null);
+        if(!pedidos.isEmpty()) return null;
+        RepositorioProcessoAcademicoJdbc.exigirLegadosConciliados(c,matricula);
+        return null;
     }
     private Elegibilidade avaliarBloqueada(long id,long alvo) throws SQLException {
         // Antes de qualquer leitura de intervalos vazios: evita deadlock de gap locks entre alunos.
         if(q("SELECT id FROM controle_inscricao WHERE id=1 FOR UPDATE",r->r.getInt(1)).isEmpty())
             throw new IllegalArgumentException("Controle de inscrição ausente. Confira a migração V007.");
         HorarioAula.validarId(alvo);
+        RepositorioProcessoAcademicoJdbc.exigirLegadosConciliados(c,id);
         Vinculo m=matricula(id);
         List<String> motivos=new ArrayList<>();
-        if(!q("SELECT id_pedido FROM pedido_equivalencia WHERE id_matricula=? AND id_disciplina_destino="
+        var reconhecimentosDestino=q("SELECT id_pedido FROM pedido_equivalencia WHERE id_matricula=? AND id_disciplina_destino="
                 +"(SELECT id_disciplina FROM turma WHERE id_turma=?) AND situacao='DEFERIDO' FOR SHARE",
-                r->r.getLong(1),id,alvo).isEmpty()) motivos.add("Disciplina já reconhecida por equivalência; análise de impacto necessária para cursá-la.");
+                r->r.getLong(1),id,alvo);
+        for(long pedido:reconhecimentosDestino) if(!"REVOGADA".equals(RepositorioProcessoAcademicoJdbc.estado(c,pedido))) {
+            motivos.add("Disciplina já reconhecida por equivalência ou sob revisão; análise de impacto necessária para cursá-la."); break;
+        }
         if(!"ATIVO".equals(m.situacao())) motivos.add("Matrícula deve estar ativa.");
         ativo("curso","id_curso",m.curso());
         // Grafo e disciplinas sob a mesma ordem usada pelo escritor de pré-requisitos.
@@ -145,7 +150,10 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
                     motivos.add("Conflito com turma "+i.turma()+".");
         }
         var requisitos=q("SELECT id_disciplina_prerequisito FROM disciplina_prerequisito WHERE id_disciplina=? ORDER BY id_disciplina_prerequisito FOR SHARE",r->r.getLong(1),o.disciplina());
-        for(long requisito:requisitos) if(!cumpriu(id,requisito,data)) motivos.add("Pré-requisito não cumprido: "+requisito+".");
+                for(long requisito:requisitos) if(!cumpriu(id,requisito,data)) {
+            var rev=q("SELECT p.id_pedido FROM pedido_equivalencia p JOIN revisao_reconhecimento r ON r.id_pedido=p.id_pedido WHERE p.id_matricula=? AND p.id_disciplina_destino=? AND r.situacao IN ('ABERTA','COMPLEMENTACAO','TRATAMENTO') FOR SHARE",x->x.getLong(1),id,requisito);
+            motivos.add(rev.isEmpty()?"Pré-requisito não cumprido: "+requisito+".":"Reconhecimento sob revisão para o pré-requisito "+requisito+"; novos usos suspensos.");
+        }
         return new Elegibilidade(motivos.stream().distinct().toList(),vagas,janela);
     }
     @Override public Elegibilidade avaliar(long matricula,long turma) {
@@ -156,6 +164,12 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
             var avaliacao=avaliarBloqueada(matricula,turma); avaliacao.exigir(); LocalDate data=hoje();
             if(!avaliacao.janela().permite(data)) throw new IllegalArgumentException("Janela encerrada durante a confirmação.");
             long id=gravar("INSERT INTO inscricao_disciplina(id_matricula,id_turma,data_inscricao,situacao) VALUES (?,?,?,'ATIVO')",matricula,turma,data);
+            long disciplina=turma(turma).disciplina();
+            for(long requisito:q("SELECT id_disciplina_prerequisito FROM disciplina_prerequisito WHERE id_disciplina=? ORDER BY id_disciplina_prerequisito FOR SHARE",r->r.getLong(1),disciplina)) {
+                var prova=evidencia(matricula,requisito,data);
+                if(prova==null) throw new IllegalArgumentException("Cumprimento alterado durante a inscrição.");
+                gravar("INSERT INTO evidencia_requisito_inscricao(id_inscricao,id_requisito,tipo,id_pedido,id_resultado) VALUES (?,?,?,?,?)",id,requisito,prova.tipo(),prova.pedido(),prova.resultado());
+            }
             return new Inscricao(id,matricula,turma,data,"ATIVO");
         });
     }

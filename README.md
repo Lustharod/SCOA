@@ -4,11 +4,17 @@ Projeto acadêmico desenvolvido para a disciplina de Engenharia de Software do C
 
 ## Estado da implementação
 
+A versão 0.10.0-SNAPSHOT acrescenta o menu 18 com autenticação e permissões para conciliação e revisão/revogação. A conciliação documental de planos e equivalências preserva as origens; plano legado não comprova conclusão. Revisão aberta suspende novos usos do reconhecimento em inscrições e simulações, com decisão humana autenticada e histórico separado da decisão original. A revogação preserva expressamente inscrições identificadas; não cancela inscrições ou altera resultados. Tratamento não resolvido permanece pendente. São comportamentos acordados para o protótipo, sem atribuição institucional.
+
+Antes do uso da v0.10, aplicar uma vez a migração aditiva `database/migrations/V009__conciliacao_revisao.sql`, após backup e V008. São 81 tabelas após V009. O acesso novo é inicializado explicitamente em ambiente local, sem credencial padrão; permissões protegem os processos e decisões de equivalência, sem estender autorização global aos demais menus legados. Guias, configurações, Word e relatórios brutos permanecem privados. A validação do autor da v0.10 está pendente; a validação anterior continua registrada abaixo.
+
+### Base funcional preservada da v0.9
+
 A versão 0.9.0-SNAPSHOT acrescenta o menu 17 para simular a distribuição do plano por períodos e ofertas cadastrados. O usuário escolhe períodos e prioridades; somente pré-requisitos já cumpridos formalmente liberam sugestões. O resultado explica impedimentos e soma horas sugeridas, sem gravar plano ou inscrição, reservar vagas ou presumir créditos e limites institucionais. Consulte [as regras e limites da v0.9](docs/SCOA_Implementacao_v0_9.md). O menu 16 mantém equivalência manual, histórico acadêmico e plano básico da [v0.8](docs/SCOA_Implementacao_v0_8.md).
 
 Antes de usar, faça backup, confira o schema selecionado e o estado de cada migração. Em base v0.7 já preparada, aplique uma vez `database/migrations/V008__equivalencia_manual.sql`; em base anterior, respeite DDL v7.5, V006, V007 e V008 nessa ordem. Não recrie bases existentes nem reaplique migrações parcialmente executadas. Não há migração automática.
 
-O menu 15 preserva inscrição com contexto curricular, janela, horários, pré-requisitos, duplicidade e vagas, revalidando na confirmação, e o primeiro fechamento de resultado P1/P2/PF com frequência mínima de 75%. Consulte [o recorte da v0.7](docs/SCOA_Implementacao_v0_7.md). Projeção condicionada de dependências futuras, revisão de decisões, retificação de notas, autenticação/autorização e web continuam pendentes.
+O menu 15 preserva inscrição com contexto curricular, janela, horários, pré-requisitos, duplicidade e vagas, revalidando na confirmação, e o primeiro fechamento de resultado P1/P2/PF com frequência mínima de 75%. Consulte [o recorte da v0.7](docs/SCOA_Implementacao_v0_7.md). Projeção condicionada de dependências futuras, retificação de notas, autorização global dos demais módulos e web continuam pendentes.
 
 O cadastro permite incluir, consultar, listar, atualizar e inativar salas. A alocação verifica capacidade, situação da sala, sobreposição de horários e períodos letivos, incluindo conflitos da própria turma. Horários adjacentes são permitidos. A disponibilidade é revalidada no momento da gravação.
 
@@ -16,7 +22,7 @@ As alterações concorrentes são coordenadas por transações e bloqueios de re
 
 A manutenção de turmas associa disciplina, professor, período e capacidade, avançando RF-MA-06 / UC-MA-06. Os horários são mantidos pela alocação. Disciplinas e professores devem estar previamente cadastrados e ativos. A implementação preserva os vínculos com inscrições existentes e impede mudanças incompatíveis com as alocações.
 
-A entrega avança RF-MA-02, RF-MA-04, RF-MA-06, RF-MA-07 e RF-MA-08 na interface de console. Autenticação, autorização, interface web e os demais cadastros e módulos permanecem em desenvolvimento. A opção 12 do menu principal acessa professores, disciplinas e pré-requisitos; a opção 11 mantém períodos e turmas.
+A entrega avança RF-MA-02, RF-MA-04, RF-MA-06, RF-MA-07 e RF-MA-08 na interface de console. A extensão da autenticação/autorização aos demais módulos, a interface web e os demais cadastros permanecem em desenvolvimento. A opção 12 do menu principal acessa professores, disciplinas e pré-requisitos; a opção 11 mantém períodos e turmas.
 
 A v0.8 foi validada pelo autor em 02/11/2026 com 103 execuções unitárias e 130 de integração, sem falhas, erros ou ignorados. Consulte o [relatório e limites da validação](docs/testes/publicados/execucao_autor_v0_8/RELATORIO.md) e o [ambiente identificado](docs/testes/publicados/execucao_autor_v0_8/ambiente.txt). A validação em scoa_java_teste não implica migração de scoa.
 
