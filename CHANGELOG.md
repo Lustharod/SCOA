@@ -1,5 +1,11 @@
 # Alterações do SCOA
 
+## 0.11.0-SNAPSHOT
+
+- O menu 17 encaminha listagem e simulação por `ServicoPlanejamento` e pelo contrato `RepositorioPlanejamento`.
+- O menu 18, opção 9, encaminha a consulta por `ServicoConsultaProcessosAcademicos`. A autorização integra a transação JDBC da consulta.
+- Autor e Codex aprovaram 283 testes em execuções independentes. O [relatório da v0.11](docs/testes/publicados/execucao_autor_v0_11/RELATORIO.md) registra o percurso manual e a cobertura do caso de período duplicado.
+
 ## 0.10.0-SNAPSHOT
 
 - Menu 18: acesso autenticado, permissões técnicas, conciliação documental explícita de planos/equivalências e análise humana de revisão/revogação.

@@ -200,3 +200,9 @@ Thumbs.db
 !/docs/testes/publicados/execucao_codex_v0_9/RELATORIO.md
 !/docs/testes/publicados/execucao_codex_v0_9/ambiente.txt
 !/docs/testes/publicados/execucao_codex_v0_9/FONTES_SHA256.json
+
+# Fechamento v0.11
+!/docs/testes/publicados/execucao_autor_v0_11/
+/docs/testes/publicados/execucao_autor_v0_11/*
+!/docs/testes/publicados/execucao_autor_v0_11/RELATORIO.md
+!/docs/testes/publicados/execucao_autor_v0_11/ambiente.txt

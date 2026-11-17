@@ -1,0 +1,4 @@
+Execução do autor, SCOA 0.11.0-SNAPSHOT.
+Windows 11 amd64, Java 25.0.1.
+MySQL 8.0.46, schema scoa_java_teste, 81 tabelas.
+verify -Pmysql-it: 10/11/2026 14:56:36 UTC−03:00, 29,790 s, BUILD SUCCESS.

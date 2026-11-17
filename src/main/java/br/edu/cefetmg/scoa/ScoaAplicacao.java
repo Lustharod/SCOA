@@ -17,6 +17,9 @@ import br.edu.cefetmg.scoa.persistencia.ConexaoMySql;
 import br.edu.cefetmg.scoa.persistencia.PersistenciaException;
 import br.edu.cefetmg.scoa.persistencia.RepositorioSalaJdbc;
 import br.edu.cefetmg.scoa.persistencia.RepositorioAlocacaoJdbc;
+import br.edu.cefetmg.scoa.aplicacao.ServicoPlanejamento;
+import br.edu.cefetmg.scoa.apresentacao.ConsolePlanejamento;
+import br.edu.cefetmg.scoa.persistencia.RepositorioPlanejamentoJdbc;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
@@ -99,7 +102,8 @@ public final class ScoaAplicacao {
                         case "12" -> new ConsoleProfessoresDisciplinas(entrada,
                                 new ServicoProfessoresDisciplinas(new RepositorioProfessoresDisciplinasJdbc(conexao))).executar();
                         case "18" -> sessao=new br.edu.cefetmg.scoa.apresentacao.ConsoleProcessoAcademico(entrada,conexao,sessao).executar();
-                        case "17" -> new br.edu.cefetmg.scoa.apresentacao.ConsolePlanejamento(entrada, new br.edu.cefetmg.scoa.persistencia.RepositorioPlanejamentoJdbc(conexao)).executar();
+                        case "17" -> new ConsolePlanejamento(entrada,
+                                new ServicoPlanejamento(new RepositorioPlanejamentoJdbc(conexao))).executar();
                         case "16" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleEquivalencia(entrada, new br.edu.cefetmg.scoa.aplicacao.ServicoEquivalencia(new br.edu.cefetmg.scoa.persistencia.RepositorioEquivalenciaJdbc(conexao,sessao))).executar();
                         case "15" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleInscricao(entrada, new br.edu.cefetmg.scoa.aplicacao.ServicoInscricao(new br.edu.cefetmg.scoa.persistencia.RepositorioInscricaoJdbc(conexao))).executar();
                         case "14" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleMatricula(entrada, new br.edu.cefetmg.scoa.aplicacao.ServicoMatricula(new br.edu.cefetmg.scoa.persistencia.RepositorioMatriculaJdbc(conexao))).executar();

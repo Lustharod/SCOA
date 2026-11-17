@@ -2,6 +2,7 @@ package br.edu.cefetmg.scoa.persistencia;
 
 import br.edu.cefetmg.scoa.dominio.Planejamento.*;
 import br.edu.cefetmg.scoa.dominio.Equivalencia.*;
+import br.edu.cefetmg.scoa.aplicacao.ServicoPlanejamento;
 import br.edu.cefetmg.scoa.apresentacao.ConsolePlanejamento;
 import java.sql.*;
 import java.time.*;
@@ -124,7 +125,7 @@ class PlanejamentoJdbcIT {
         reconhecer(); long antes=contar("inscricao_disciplina");
         var original=System.out; var bytes=new java.io.ByteArrayOutputStream();
         try(var saida=new java.io.PrintStream(bytes,true,java.nio.charset.StandardCharsets.UTF_8)) {
-            System.setOut(saida); new ConsolePlanejamento(new Scanner("2\n"+matricula+"\n"+p+"\n\n0\n"),repo).executar();
+            System.setOut(saida); new ConsolePlanejamento(new Scanner("2\n"+matricula+"\n"+p+"\n\n0\n"),new ServicoPlanejamento(repo)).executar();
         } finally { System.setOut(original); }
         assertTrue(bytes.toString(java.nio.charset.StandardCharsets.UTF_8).contains("SUGERIDA")); assertEquals(antes,contar("inscricao_disciplina"));
     }

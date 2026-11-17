@@ -3,6 +3,10 @@ package br.edu.cefetmg.scoa.persistencia;
 import static br.edu.cefetmg.scoa.persistencia.JdbcAcademico.*;
 import static org.junit.jupiter.api.Assertions.*;
 import br.edu.cefetmg.scoa.dominio.Equivalencia.*;
+import br.edu.cefetmg.scoa.apresentacao.ConsoleProcessoAcademico;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.*;
 import java.sql.*;
 import java.time.*;
@@ -79,6 +83,43 @@ class ProcessoAcademicoJdbcIT {
         g(c,"UPDATE usuario SET situacao='INATIVO' WHERE id_usuario=?",limitada.usuario());
         assertThrows(IllegalArgumentException.class,()->processos.solicitarConciliacao(limitada,"PLANO",1,m,e,"Docs"));
     }
+    @Test void consoleListaApenasComPermissaoESessaoAtiva() {
+        long pedido = reconhecer();
+        long revisao = abrir(pedido);
+        var seguranca = new SegurancaJdbc(c);
+        String login = tag + "U";
+        seguranca.criarConta(sessao, login, "Senha-fixture-01234".toCharArray(), "SOLICITANTE");
+        var solicitante = seguranca.entrar(login, "Senha-fixture-01234".toCharArray());
+        String linha = "REVISAO " + revisao + " pedido=" + pedido + " situação=ABERTA parecer=null";
+        String listar = "9\n" + m + "\n";
+
+        String semSessao = executarConsole(null, listar + "0\n");
+        assertTrue(semSessao.contains("Entre com uma sessão válida no menu 18."));
+        assertFalse(semSessao.contains(linha));
+        String negado = executarConsole(solicitante, listar + "0\n");
+        assertTrue(negado.contains("Sem permissão: SCOA_PROCESSO_DECIDIR"));
+        assertFalse(negado.contains(linha));
+
+        String autorizado = executarConsole(sessao, listar + "3\n" + listar + "0\n");
+        assertTrue(autorizado.contains(linha));
+        assertEquals(1, autorizado.lines().filter(l -> l.contains(linha)).count());
+        assertTrue(autorizado.indexOf("Entre com uma sessão válida no menu 18.")
+                > autorizado.indexOf("Sessão encerrada."));
+    }
+
+    private String executarConsole(SegurancaJdbc.Sessao sessaoInicial, String opcoes) {
+        var original = System.out;
+        var bytes = new ByteArrayOutputStream();
+        try (var saida = new PrintStream(bytes, true, StandardCharsets.UTF_8);
+             var entrada = new Scanner(opcoes)) {
+            System.setOut(saida);
+            new ConsoleProcessoAcademico(entrada, c, sessaoInicial).executar();
+        } finally {
+            System.setOut(original);
+        }
+        return bytes.toString(StandardCharsets.UTF_8);
+    }
+
     @Test void senhaErradaELegadoNaoAutenticam() {
         assertThrows(IllegalArgumentException.class,()->new SegurancaJdbc(c).entrar(tag,"Incorreta-012345".toCharArray()));
         assertThrows(IllegalArgumentException.class,()->new RepositorioEquivalenciaJdbc(c).solicitar(material()));

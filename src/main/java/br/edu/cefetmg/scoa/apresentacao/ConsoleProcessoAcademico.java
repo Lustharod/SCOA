@@ -3,6 +3,7 @@ package br.edu.cefetmg.scoa.apresentacao;
 import java.sql.Connection;
 import java.time.LocalDate;
 import java.util.*;
+import br.edu.cefetmg.scoa.aplicacao.ServicoConsultaProcessosAcademicos;
 import br.edu.cefetmg.scoa.persistencia.*;
 import br.edu.cefetmg.scoa.persistencia.SegurancaJdbc.Sessao;
 import br.edu.cefetmg.scoa.dominio.Equivalencia.Pedido;
@@ -23,6 +24,7 @@ public final class ConsoleProcessoAcademico {
     }
     public Sessao executar() {
         var seguranca=new SegurancaJdbc(c); var repo=new RepositorioProcessoAcademicoJdbc(c);
+        var consultaProcessos = new ServicoConsultaProcessosAcademicos(matricula -> repo.listar(sessao, matricula));
         while(true) try {
             System.out.println("\n18 Processos acadêmicos | 1 Inicializar acesso | 2 Entrar | 3 Sair da sessão | 4 Criar conta | 5 Solicitar conciliação | 6 Decidir conciliação | 7 Solicitar revisão | 8 Analisar revisão | 9 Listar processos | 10 Histórico do processo | 0 Voltar");
             switch(ler("Opção: ")) {
@@ -71,7 +73,7 @@ public final class ConsoleProcessoAcademico {
                     System.out.println("REVOGAR_PRESERVANDO identifica e preserva expressamente todas as inscrições da prévia; não cancela nenhuma.");
                     if(confirmar()) { repo.decidirRevisao(sessao,revisao,acao,parecer,previa.assinatura()); System.out.println("Encaminhamento registrado."); }
                 }
-                case "9" -> repo.listar(sessao,id("ID da matrícula: ")).forEach(System.out::println);
+                case "9" -> consultaProcessos.listar(id("ID da matrícula: ")).forEach(System.out::println);
                 case "10" -> repo.eventos(sessao,ler("Tipo (REVISAO/CONCILIACAO/PEDIDO): ").toUpperCase(Locale.ROOT),id("ID do processo: ")).forEach(System.out::println);
                 default -> System.out.println("Escolha uma opção do menu.");
             }

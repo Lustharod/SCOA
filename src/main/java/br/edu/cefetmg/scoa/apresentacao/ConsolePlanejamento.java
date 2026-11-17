@@ -1,13 +1,14 @@
 package br.edu.cefetmg.scoa.apresentacao;
 
-import br.edu.cefetmg.scoa.persistencia.*;
+import br.edu.cefetmg.scoa.aplicacao.ServicoPlanejamento;
+import br.edu.cefetmg.scoa.persistencia.PersistenciaException;
 import br.edu.cefetmg.scoa.dominio.JanelaInscricao;
 import java.util.*;
 
 public final class ConsolePlanejamento {
     private final Scanner entrada;
-    private final RepositorioPlanejamentoJdbc repo;
-    public ConsolePlanejamento(Scanner entrada,RepositorioPlanejamentoJdbc repo) { this.entrada=entrada; this.repo=repo; }
+    private final ServicoPlanejamento servico;
+    public ConsolePlanejamento(Scanner entrada,ServicoPlanejamento servico) { this.entrada=entrada; this.servico=servico; }
     private String ler(String texto) { System.out.print(texto); if(!entrada.hasNextLine()) throw new NoSuchElementException(); return entrada.nextLine().strip(); }
     private List<Long> ids(String texto,boolean vazio) {
         String linha=ler(texto); if(vazio && linha.isEmpty()) return List.of();
@@ -19,16 +20,16 @@ public final class ConsolePlanejamento {
             System.out.println("\nPlanejamento por ofertas | 1 Listar períodos | 2 Simular distribuição | 0 Voltar");
             switch(ler("Opção: ")) {
                 case "0" -> { return; }
-                case "1" -> repo.periodos().forEach(System.out::println);
+                case "1" -> servico.periodos().forEach(System.out::println);
                 case "2" -> {
                     long matricula;
                     try { matricula=Long.parseLong(ler("ID da matrícula: ")); }
                     catch(NumberFormatException e) { throw new IllegalArgumentException("Informe um ID inteiro."); }
-                    repo.periodos().forEach(System.out::println);
+                    servico.periodos().forEach(System.out::println);
                     var periodos=ids("IDs dos períodos (separados por vírgula): ",false);
                     System.out.println("A prioridade antecipa disciplinas; as demais seguem por ID. Não há teto de carga automático.");
                     var prioridade=ids("IDs das disciplinas em ordem de prioridade (Enter = ordem por ID): ",true);
-                    var resultado=repo.simular(matricula,periodos,prioridade);
+                    var resultado=servico.simular(matricula,periodos,prioridade);
                     System.out.printf("Simulação | matrícula %d | estrutura %d%n",resultado.matricula(),resultado.estrutura());
                     System.out.println("Somente pré-requisitos já cumpridos. Sugestões não liberam dependentes. Vagas observadas sem reserva; inscrição exige revalidação no menu 15.");
                     for(var item:resultado.itens()) {

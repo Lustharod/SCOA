@@ -1,5 +1,7 @@
 # SCOA — Sistema de Controle Acadêmico
 
+A v0.11 encaminha o planejamento por ofertas e a listagem de processos acadêmicos por serviços de aplicação. A regressão do autor registrou 116 testes unitários e 167 de integração aprovados. Consulte o [relatório de validação](docs/testes/publicados/execucao_autor_v0_11/RELATORIO.md) e o [ambiente](docs/testes/publicados/execucao_autor_v0_11/ambiente.txt).
+
 Projeto acadêmico desenvolvido para a disciplina de Engenharia de Software do CEFET-MG. O SCOA reúne a modelagem de processos acadêmicos e administrativos e sua implementação incremental em Java e MySQL.
 
 ## Estado da implementação

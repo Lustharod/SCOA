@@ -8,7 +8,7 @@ import java.time.*;
 import java.util.*;
 
 /** Leituras correntes sob o protocolo de coordenação existente; não grava dados acadêmicos. */
-public final class RepositorioPlanejamentoJdbc {
+public final class RepositorioPlanejamentoJdbc implements RepositorioPlanejamento {
     private final Connection c;
     public RepositorioPlanejamentoJdbc(Connection c) { this.c=Objects.requireNonNull(c); }
     @FunctionalInterface private interface Leitor<T> { T ler(ResultSet r) throws SQLException; }
@@ -21,6 +21,7 @@ public final class RepositorioPlanejamentoJdbc {
     private static Periodo periodo(ResultSet r) throws SQLException {
         return new Periodo(r.getLong("id_periodo"),r.getString("descricao"),r.getObject("data_inicio",LocalDate.class),r.getObject("data_fim",LocalDate.class),r.getString("situacao"));
     }
+    @Override
     public List<Periodo> periodos() {
         return TransacaoJdbc.executar(c,()->q("SELECT * FROM periodo_letivo ORDER BY data_inicio,id_periodo",RepositorioPlanejamentoJdbc::periodo));
     }
@@ -39,6 +40,7 @@ public final class RepositorioPlanejamentoJdbc {
         return new Oferta(turma,(long)linha[0],periodos.get((long)linha[1]),(String)linha[2],
                 Math.max(0,(int)linha[3]-(int)estados.stream().filter(s->!"CANCELADO".equals(s)).count()),horarios);
     }
+    @Override
     public Resultado simular(long matricula,List<Long> selecionados,List<Long> prioridade) {
         HorarioAula.validarId(matricula); Objects.requireNonNull(selecionados); Objects.requireNonNull(prioridade);
         if(selecionados.isEmpty() || new HashSet<>(selecionados).size()!=selecionados.size())
