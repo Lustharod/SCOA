@@ -83,11 +83,45 @@ public final class SegurancaJdbc {
             evento(c,"ACESSO",id,id,"INICIALIZAR","Primeira conta técnica criada por inicialização local explícita"); return id;
         }); } finally { if(senha!=null) Arrays.fill(senha,'\0'); }
     }
-    public long criarConta(Sessao sessao,String login,char[] senha,String papel) {
+    /** O conjunto técnico inicial é independente dos vínculos acadêmicos. */
+    public long criarConta(Sessao sessao,String login,char[] senha,String acessoTecnico) {
         try { return TransacaoJdbc.executar(c,()->{
-            controle(c); long autor=exigir(c,sessao,ADMIN); long id=criar(login,senha,papel);
-            evento(c,"ACESSO",id,autor,"CRIAR_CONTA",papel); return id;
+            controle(c); long autor=exigir(c,sessao,ADMIN); long id=criar(login,senha,acessoTecnico);
+            evento(c,"ACESSO",id,autor,"CRIAR_CONTA","Acesso técnico inicial: "+acessoTecnico); return id;
         }); } finally { if(senha!=null) Arrays.fill(senha,'\0'); }
+    }
+    public record VinculoAcademico(String tipo,long referencia,String identificacao,String situacao) { }
+    public record ContaAcesso(long idConta,String identificacao,String situacao,
+                              List<VinculoAcademico> vinculos,List<String> permissoesTecnicas) {
+        public ContaAcesso {
+            vinculos=List.copyOf(vinculos);
+            permissoesTecnicas=List.copyOf(permissoesTecnicas);
+        }
+    }
+    public ContaAcesso minhaConta(Sessao sessao) {
+        return TransacaoJdbc.executar(c,()->consultar(exigirSessao(c,sessao)));
+    }
+    public ContaAcesso consultarConta(Sessao sessao,long usuario) {
+        br.edu.cefetmg.scoa.dominio.HorarioAula.validarId(usuario);
+        return TransacaoJdbc.executar(c,()->{
+            exigir(c,sessao,ADMIN);
+            return consultar(usuario);
+        });
+    }
+    private ContaAcesso consultar(long usuario) throws SQLException {
+        var contas=q(c,"SELECT identificacao,situacao FROM usuario WHERE id_usuario=? FOR SHARE",
+                r->new String[]{r.getString(1),r.getString(2)},usuario);
+        if(contas.isEmpty()) throw new IllegalArgumentException("Conta não encontrada.");
+        var vinculos=new ArrayList<VinculoAcademico>();
+        vinculos.addAll(q(c,"SELECT id_aluno,identificacao,situacao FROM aluno WHERE id_usuario=? ORDER BY id_aluno FOR SHARE",
+                r->new VinculoAcademico("ALUNO",r.getLong(1),r.getString(2),r.getString(3)),usuario));
+        vinculos.addAll(q(c,"SELECT id_professor,identificacao,situacao FROM professor WHERE id_usuario=? ORDER BY id_professor FOR SHARE",
+                r->new VinculoAcademico("PROFESSOR",r.getLong(1),r.getString(2),r.getString(3)),usuario));
+        vinculos.addAll(q(c,"SELECT c.id_curso,c.nome,c.situacao FROM coordenacao_curso cc JOIN curso c ON c.id_curso=cc.id_curso WHERE cc.id_usuario=? ORDER BY c.id_curso FOR SHARE",
+                r->new VinculoAcademico("COORDENADOR",r.getLong(1),r.getString(2),r.getString(3)),usuario));
+        var permissoes=q(c,"SELECT DISTINCT p.codigo FROM usuario_perfil up JOIN perfil f ON f.id_perfil=up.id_perfil JOIN perfil_permissao fp ON fp.id_perfil=f.id_perfil JOIN permissao p ON p.id_permissao=fp.id_permissao WHERE up.id_usuario=? AND f.situacao='ATIVO' ORDER BY p.codigo FOR SHARE",
+                r->r.getString(1),usuario);
+        return new ContaAcesso(usuario,contas.getFirst()[0],contas.getFirst()[1],vinculos,permissoes);
     }
     public void vincularContaAcademica(Sessao sessao,long usuario,String tipo,long referencia) {
         br.edu.cefetmg.scoa.dominio.HorarioAula.validarId(usuario);
@@ -126,15 +160,16 @@ public final class SegurancaJdbc {
             return null;
         });
     }
-    private long criar(String login,char[] senha,String papel) throws SQLException {
+    private long criar(String login,char[] senha,String acessoTecnico) throws SQLException {
         login=Equivalencia.texto(login,"identificação",100);
-        if(!Set.of("ADMIN","SOLICITANTE","ANALISTA","BIBLIOTECARIO","ALUNO","PROFESSOR","COORDENADOR").contains(papel))
-            throw new IllegalArgumentException("Papel inválido.");
+        if(acessoTecnico==null || !Set.of("SEM_PERMISSOES","ADMIN","SOLICITANTE","ANALISTA","BIBLIOTECARIO").contains(acessoTecnico))
+            throw new IllegalArgumentException("Acesso técnico inválido. Papéis acadêmicos são obtidos dos vínculos no menu 18.11.");
         if(!q(c,"SELECT id_usuario FROM usuario WHERE identificacao=? FOR UPDATE",r->r.getLong(1),login).isEmpty()) throw new IllegalArgumentException("Identificação já existente.");
         long u=g(c,"INSERT INTO usuario(identificacao,credencial_hash,situacao) VALUES (?,?,'ATIVO')",login,codificar(senha));
-        long perfil=g(c,"INSERT INTO perfil(nome,descricao,situacao) VALUES (?,?,'ATIVO')","SCOA "+papel+" "+u,"Permissões técnicas do SCOA");
+        if("SEM_PERMISSOES".equals(acessoTecnico)) return u;
+        long perfil=g(c,"INSERT INTO perfil(nome,descricao,situacao) VALUES (?,?,'ATIVO')","SCOA "+acessoTecnico+" "+u,"Permissões técnicas do SCOA");
         g(c,"INSERT INTO usuario_perfil VALUES (?,?)",u,perfil);
-        var permissoes=switch(papel) {
+        var permissoes=switch(acessoTecnico) {
             case "ADMIN" -> List.of(ADMIN,SOLICITAR,DECIDIR);
             case "ANALISTA" -> List.of(DECIDIR);
             case "BIBLIOTECARIO" -> List.of(REGISTRAR_PENDENCIA);

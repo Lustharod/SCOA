@@ -26,7 +26,7 @@ public final class ConsoleProcessoAcademico {
         var seguranca=new SegurancaJdbc(c); var repo=new RepositorioProcessoAcademicoJdbc(c);
         var consultaProcessos = new ServicoConsultaProcessosAcademicos(matricula -> repo.listar(sessao, matricula));
         while(true) try {
-            System.out.println("\n18 Processos acadêmicos | 1 Inicializar acesso | 2 Entrar | 3 Sair da sessão | 4 Criar conta | 5 Solicitar conciliação | 6 Decidir conciliação | 7 Solicitar revisão | 8 Analisar revisão | 9 Listar processos | 10 Histórico do processo | 11 Vincular conta acadêmica | 0 Voltar");
+            System.out.println("\n18 Processos acadêmicos | 1 Inicializar acesso | 2 Entrar | 3 Sair da sessão | 4 Criar conta | 5 Solicitar conciliação | 6 Decidir conciliação | 7 Solicitar revisão | 8 Analisar revisão | 9 Listar processos | 10 Histórico do processo | 11 Vincular conta acadêmica | 12 Minha conta e vínculos | 13 Consultar conta (admin) | 0 Voltar");
             switch(ler("Opção: ")) {
                 case "0" -> { return sessao; }
                 case "1" -> {
@@ -36,12 +36,17 @@ public final class ConsoleProcessoAcademico {
                 case "2" -> {
                     String login=ler("Identificação: ");
                     if(sessao!=null) { sessao.encerrar(); sessao=null; }
-                    sessao=seguranca.entrar(login,senha("SCOA_SENHA_SESSAO")); System.out.println("Sessão iniciada; usuário "+sessao.usuario());
+                    sessao=seguranca.entrar(login,senha("SCOA_SENHA_SESSAO"));
+                    System.out.println("Sessão iniciada; ID da conta de acesso: "+sessao.usuario());
+                    exibirConta(seguranca.minhaConta(sessao));
                 }
                 case "3" -> { if(sessao!=null) sessao.encerrar(); sessao=null; System.out.println("Sessão encerrada."); }
                 case "4" -> {
-                    String login=ler("Identificação da nova conta: "),papel=ler("Papel (ADMIN/SOLICITANTE/ANALISTA/ALUNO/PROFESSOR/COORDENADOR/BIBLIOTECARIO): ").toUpperCase(Locale.ROOT);
-                    if(confirmar()) System.out.println("Conta criada: "+seguranca.criarConta(sessao,login,senha("SCOA_SENHA_NOVA_CONTA"),papel));
+                    String login=ler("Identificação da nova conta: ");
+                    System.out.println("Use uma única conta por pessoa. Os papéis acadêmicos serão obtidos dos vínculos em 18.11.");
+                    String tecnico=ler("Acesso técnico inicial (SEM_PERMISSOES/ADMIN/SOLICITANTE/ANALISTA/BIBLIOTECARIO; Enter = SEM_PERMISSOES): ").toUpperCase(Locale.ROOT);
+                    if(tecnico.isEmpty()) tecnico="SEM_PERMISSOES";
+                    if(confirmar()) System.out.println("Conta criada; ID da conta de acesso: "+seguranca.criarConta(sessao,login,senha("SCOA_SENHA_NOVA_CONTA"),tecnico));
                 }
                 case "5" -> {
                     String tipo=ler("Tipo (PLANO/EQUIVALENCIA): ").toUpperCase(Locale.ROOT);
@@ -76,19 +81,43 @@ public final class ConsoleProcessoAcademico {
                 case "9" -> consultaProcessos.listar(id("ID da matrícula: ")).forEach(System.out::println);
                 case "10" -> repo.eventos(sessao,ler("Tipo (REVISAO/CONCILIACAO/PEDIDO): ").toUpperCase(Locale.ROOT),id("ID do processo: ")).forEach(System.out::println);
                 case "11" -> {
-                    long usuario=id("ID da conta: ");
+                    long usuario=id("ID da conta de acesso (usuario.id_usuario): ");
+                    exibirConta(seguranca.consultarConta(sessao,usuario));
                     String tipo=ler("Tipo de vínculo (ALUNO/PROFESSOR/COORDENADOR): ").toUpperCase(Locale.ROOT);
-                    long referencia=id("ID do aluno, professor ou curso coordenado: ");
+                    String campo=switch(tipo) {
+                        case "ALUNO" -> "ID do cadastro de aluno (aluno.id_aluno): ";
+                        case "PROFESSOR" -> "ID do cadastro de professor (professor.id_professor): ";
+                        case "COORDENADOR" -> "ID do curso coordenado (curso.id_curso): ";
+                        default -> throw new IllegalArgumentException("Informe ALUNO, PROFESSOR ou COORDENADOR.");
+                    };
+                    long referencia=id(campo);
+                    System.out.println("Vincular conta de acesso "+usuario+" a "+tipo+" de referência "+referencia+". Confira se o cadastro pertence à mesma pessoa. Permissões técnicas são mantidas.");
                     if(confirmar()) {
                         seguranca.vincularContaAcademica(sessao,usuario,tipo,referencia);
                         System.out.println("Conta acadêmica vinculada.");
+                        exibirConta(seguranca.consultarConta(sessao,usuario));
                     }
                 }
+                case "12" -> exibirConta(seguranca.minhaConta(sessao));
+                case "13" -> exibirConta(seguranca.consultarConta(sessao,id("ID da conta de acesso (usuario.id_usuario): ")));
                 default -> System.out.println("Escolha uma opção do menu.");
             }
         } catch(NoSuchElementException e) { return sessao; }
         catch(java.time.DateTimeException e) { System.out.println("Informe uma data válida no formato AAAA-MM-DD."); }
         catch(IllegalArgumentException | PersistenciaException | ArithmeticException e) { System.out.println(e.getMessage()); }
+    }
+    private void exibirConta(SegurancaJdbc.ContaAcesso conta) {
+        System.out.println("Conta de acesso: ID="+conta.idConta()+" | identificação="+conta.identificacao()+" | situação="+conta.situacao());
+        System.out.println("Permissões técnicas concedidas: "+conta.permissoesTecnicas()+" (uso sujeito à conta ativa).");
+        if(conta.vinculos().isEmpty()) System.out.println("Sem vínculo acadêmico. Vincule a conta existente em 18.11.");
+        for(var vinculo:conta.vinculos()) {
+            String chave=switch(vinculo.tipo()) {
+                case "ALUNO" -> "aluno.id_aluno";
+                case "PROFESSOR" -> "professor.id_professor";
+                default -> "curso.id_curso";
+            };
+            System.out.println("Vínculo acadêmico: "+vinculo.tipo()+" | "+chave+"="+vinculo.referencia()+" | "+vinculo.identificacao()+" | situação do cadastro="+vinculo.situacao());
+        }
     }
     private Pedido material() {
         long m=id("ID da matrícula: "),d=id("ID da disciplina destino: ");

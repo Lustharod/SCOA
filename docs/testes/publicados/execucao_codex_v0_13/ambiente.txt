@@ -1,0 +1,14 @@
+SCOA 0.13.0-SNAPSHOT — execução Codex em 23/11/2026.
+Referência: America/Sao_Paulo (UTC-03:00).
+Windows amd64; Oracle OpenJDK 25.0.1; Apache Maven 3.9.11.
+JUnit Jupiter 6.0.1; Surefire/Failsafe 3.5.4; MySQL Connector/J 26.7.0.
+MySQL 8.0.46; schema scoa_java_teste; instância local nova e descartável, porta 33385.
+Base: DDL v7.5 e migrações V006 a V012; 87 tabelas; nenhuma nova migração.
+Comando: mvn -o -B verify -Pmysql-it.
+Resultado: BUILD SUCCESS; 130 unitários e 194 integrações; zero falhas, erros ou ignorados.
+Encerramento Maven: 2026-11-23T12:13:22-03:00. Duração Maven: 45.036 s.
+Fonte dos totais: XMLs Surefire e Failsafe da mesma execução.
+A instância foi encerrada pelo validador após a regressão.
+Schema scoa não usado ou migrado; instâncias e evidências anteriores preservadas.
+Execução automática do autor e validação manual v0.13 pendentes.
+Nenhum hash de senha, senha, configuração ou XML bruto integra esta seleção pública.

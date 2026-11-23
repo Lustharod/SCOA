@@ -190,7 +190,7 @@ class AjustesAcademicosJdbcIT {
                 :permissoes.getFirst();
         g(c,"INSERT INTO perfil_permissao VALUES (?,?)",perfil,permissao);
         g(c,"INSERT INTO usuario_perfil VALUES (?,?)",coordenador.id(),perfil);
-        long nova=seguranca.criarConta(coordenador.sessao(),tag+"-nova",SENHA.toCharArray(),"ALUNO");
+        long nova=seguranca.criarConta(coordenador.sessao(),tag+"-nova",SENHA.toCharArray(),"SEM_PERMISSOES");
         long idAluno=q(c,"SELECT id_aluno FROM matricula_academica WHERE id_matricula=?",r->r.getLong(1),matricula).getFirst();
         assertThrows(IllegalArgumentException.class,()->seguranca.vincularContaAcademica(aluno.sessao(),nova,"ALUNO",idAluno));
         assertThrows(IllegalArgumentException.class,()->seguranca.vincularContaAcademica(coordenador.sessao(),nova,"ALUNO",idAluno));
