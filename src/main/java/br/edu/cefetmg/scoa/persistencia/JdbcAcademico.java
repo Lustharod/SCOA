@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.*;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
+import java.time.*;
 
 /** Utilitários internos. Identificadores SQL nunca vêm de entradas do console. */
 final class JdbcAcademico {
@@ -31,5 +32,20 @@ final class JdbcAcademico {
     }
     static void evento(Connection c,String tipo,long id,long usuario,String acao,String descricao) throws SQLException {
         g(c,"INSERT INTO evento_processo_academico(tipo,id_processo,id_usuario,acao,descricao) VALUES (?,?,?,?,?)",tipo,id,usuario,acao,descricao);
+    }
+    static LocalDateTime agoraUtc(Connection c) throws SQLException {
+        return q(c,"SELECT UTC_TIMESTAMP(6)",r->r.getObject(1,LocalDateTime.class)).getFirst();
+    }
+    static LocalDate dataAcademica(LocalDateTime utc) {
+        return utc.atOffset(ZoneOffset.UTC).atZoneSameInstant(ZoneId.of("America/Sao_Paulo")).toLocalDate();
+    }
+    record Ocupacao(String situacao,boolean vagaRetida) {
+        boolean conhecida() { return Set.of("ATIVO","CANCELADO","APROVADO","REPROVADO").contains(situacao); }
+        boolean ocupa() { return vagaRetida || !"CANCELADO".equals(situacao); }
+    }
+    static List<Ocupacao> ocupacoes(Connection c,long turma) throws SQLException {
+        // O controle de inscrição e o bloqueio da turma coordenam as escritas.
+        return q(c,"SELECT situacao,vaga_retida FROM inscricao_disciplina WHERE id_turma=? FOR SHARE",
+                r->new Ocupacao(r.getString(1),r.getBoolean(2)),turma);
     }
 }

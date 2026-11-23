@@ -18,8 +18,14 @@ import br.edu.cefetmg.scoa.persistencia.PersistenciaException;
 import br.edu.cefetmg.scoa.persistencia.RepositorioSalaJdbc;
 import br.edu.cefetmg.scoa.persistencia.RepositorioAlocacaoJdbc;
 import br.edu.cefetmg.scoa.aplicacao.ServicoPlanejamento;
+import br.edu.cefetmg.scoa.aplicacao.ServicoInscricao;
+import br.edu.cefetmg.scoa.apresentacao.ConsoleInscricao;
 import br.edu.cefetmg.scoa.apresentacao.ConsolePlanejamento;
 import br.edu.cefetmg.scoa.persistencia.RepositorioPlanejamentoJdbc;
+import br.edu.cefetmg.scoa.apresentacao.ConsoleConsultasAluno;
+import br.edu.cefetmg.scoa.apresentacao.ConsoleAjustesAcademicos;
+import br.edu.cefetmg.scoa.persistencia.RepositorioConsultasAlunoJdbc;
+import br.edu.cefetmg.scoa.persistencia.RepositorioInscricaoJdbc;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
@@ -42,6 +48,7 @@ public final class ScoaAplicacao {
                 System.out.println("13 Alunos, cursos e estrutura curricular | 14 Matrícula institucional | 15 Inscrição em disciplinas");
                 System.out.println("18 Acesso, conciliação e revisão de reconhecimentos");
                 System.out.println("16 Equivalência manual, plano básico e histórico acadêmico | 17 Planejamento por ofertas");
+                System.out.println("19 Consultas do aluno | 20 Ajustes acadêmicos");
                 String opcao = ler(entrada, "Opção: ");
                 try {
                     switch (opcao) {
@@ -102,10 +109,18 @@ public final class ScoaAplicacao {
                         case "12" -> new ConsoleProfessoresDisciplinas(entrada,
                                 new ServicoProfessoresDisciplinas(new RepositorioProfessoresDisciplinasJdbc(conexao))).executar();
                         case "18" -> sessao=new br.edu.cefetmg.scoa.apresentacao.ConsoleProcessoAcademico(entrada,conexao,sessao).executar();
+                        case "19" -> new ConsoleConsultasAluno(entrada,
+                                new RepositorioConsultasAlunoJdbc(conexao, sessao)).executar();
+                        case "20" -> new ConsoleAjustesAcademicos(entrada,conexao,sessao).executar();
                         case "17" -> new ConsolePlanejamento(entrada,
                                 new ServicoPlanejamento(new RepositorioPlanejamentoJdbc(conexao))).executar();
                         case "16" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleEquivalencia(entrada, new br.edu.cefetmg.scoa.aplicacao.ServicoEquivalencia(new br.edu.cefetmg.scoa.persistencia.RepositorioEquivalenciaJdbc(conexao,sessao))).executar();
-                        case "15" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleInscricao(entrada, new br.edu.cefetmg.scoa.aplicacao.ServicoInscricao(new br.edu.cefetmg.scoa.persistencia.RepositorioInscricaoJdbc(conexao))).executar();
+                        case "15" -> {
+                            var repo=new RepositorioInscricaoJdbc(conexao);
+                            var sessaoAtual=sessao;
+                            new ConsoleInscricao(entrada,new ServicoInscricao(repo),
+                                    (matricula,turma)->repo.inscreverComoAluno(sessaoAtual,matricula,turma)).executar();
+                        }
                         case "14" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleMatricula(entrada, new br.edu.cefetmg.scoa.aplicacao.ServicoMatricula(new br.edu.cefetmg.scoa.persistencia.RepositorioMatriculaJdbc(conexao))).executar();
                         case "13" -> new ConsoleBaseAcademica(entrada,
                                 new ServicoBaseAcademica(new RepositorioBaseAcademicaJdbc(conexao))).executar();

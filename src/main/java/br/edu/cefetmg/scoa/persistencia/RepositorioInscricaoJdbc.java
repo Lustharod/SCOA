@@ -26,8 +26,7 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
         }
     }
     private LocalDate hoje() throws SQLException {
-        return q("SELECT UTC_TIMESTAMP(6)",r->r.getObject(1,LocalDateTime.class)
-                .atZone(ZoneOffset.UTC).withZoneSameInstant(ZoneId.of("America/Sao_Paulo")).toLocalDate()).getFirst();
+        return JdbcAcademico.dataAcademica(JdbcAcademico.agoraUtc(c));
     }
     private record Vinculo(long aluno,long curso,String situacao) { }
     private Vinculo matricula(long id) throws SQLException {
@@ -67,6 +66,23 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
     private static Inscricao ler(ResultSet r) throws SQLException {
         return new Inscricao(r.getLong("id_inscricao"),r.getLong("id_matricula"),r.getLong("id_turma"),
                 r.getDate("data_inscricao").toLocalDate(),r.getString("situacao"));
+    }
+    record ContextoInscricao(Inscricao inscricao,long aluno,long curso,long professor,
+                             long periodo,LocalDate inicio,LocalDate fim) { }
+
+    ContextoInscricao bloquearInscricao(long id) throws SQLException {
+        HorarioAula.validarId(id);
+        var previa=q("SELECT id_matricula FROM inscricao_disciplina WHERE id_inscricao=?",r->r.getLong(1),id);
+        if(previa.isEmpty()) throw new IllegalArgumentException("Inscrição não encontrada.");
+        var m=matricula(previa.getFirst(),false);
+        var atual=q("SELECT * FROM inscricao_disciplina WHERE id_inscricao=? FOR UPDATE",RepositorioInscricaoJdbc::ler,id);
+        if(atual.isEmpty() || atual.getFirst().matricula()!=previa.getFirst())
+            throw new IllegalArgumentException("Inscrição alterada. Consulte novamente.");
+        var i=atual.getFirst();
+        var oferta=turma(i.turma());
+        var p=periodo(oferta.periodo());
+        long professor=q("SELECT id_professor FROM turma WHERE id_turma=? FOR SHARE",r->r.getLong(1),i.turma()).getFirst();
+        return new ContextoInscricao(i,m.aluno(),m.curso(),professor,oferta.periodo(),p.inicio(),p.fim());
     }
     @Override public List<Inscricao> listar(long id) {
         HorarioAula.validarId(id);
@@ -114,13 +130,15 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
         var inscricoes=q("SELECT i.* FROM inscricao_disciplina i JOIN matricula_academica m ON m.id_matricula=i.id_matricula "
                 +"WHERE m.id_aluno=? ORDER BY i.id_inscricao FOR UPDATE",RepositorioInscricaoJdbc::ler,m.aluno());
         SortedSet<Long> turmas=new TreeSet<>(); turmas.add(alvo);
-        for(var i:inscricoes) if("ATIVO".equals(i.situacao())) turmas.add(i.turma());
+        for(var i:inscricoes) if(Set.of("ATIVO","CANCELADO").contains(i.situacao())) turmas.add(i.turma());
         Map<Long,Oferta> ofertas=new HashMap<>(); for(long t:turmas) ofertas.put(t,turma(t));
         Oferta o=ofertas.get(alvo); Periodo p=periodo(o.periodo()); LocalDate data=hoje();
         JanelaInscricao janela=JanelaInscricao.doPeriodo(p.inicio());
+        JanelaInscricao segundaFase=JanelaInscricao.segundaFase(p.inicio());
         if(!"ATIVO".equals(o.situacao()) || !"ATIVO".equals(p.situacao())) motivos.add("Turma e período devem estar ativos.");
         ativo("disciplina","id_disciplina",o.disciplina());
-        if(!janela.permite(data)) motivos.add("Fora da janela: "+janela.abertura()+" a "+janela.fimExclusivo().minusDays(1)+".");
+        if(!(janela.permite(data) || segundaFase.permite(data)) || data.isAfter(p.fim()))
+            motivos.add("Fora da janela de inscrição: primeira fase "+janela+", segunda fase "+segundaFase+".");
         var estruturas=q("SELECT id_estrutura FROM vinculo_curricular_matricula WHERE id_matricula=? FOR SHARE",r->r.getLong(1),id);
         if(estruturas.isEmpty()) motivos.add("Vincule explicitamente a estrutura curricular da matrícula.");
         else {
@@ -131,11 +149,15 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
         for(var i:inscricoes) {
             if(!Set.of("ATIVO","CANCELADO","APROVADO","REPROVADO").contains(i.situacao())) motivos.add("Situação de inscrição desconhecida: "+i.id()+".");
             if(i.turma()==alvo && "ATIVO".equals(i.situacao())) motivos.add("Inscrição vigente já existente: "+i.id()+".");
+            if("CANCELADO".equals(i.situacao())) {
+                var anterior=ofertas.get(i.turma());
+                if(anterior.disciplina()==o.disciplina() && anterior.periodo()==o.periodo())
+                    motivos.add("Disciplina cancelada pelo aluno neste período. Reinscrição indisponível.");
+            }
         }
-        var ocupacoes=q("SELECT situacao FROM inscricao_disciplina WHERE id_turma=? FOR UPDATE",r->r.getString(1),alvo);
-        if(ocupacoes.stream().anyMatch(s->!Set.of("ATIVO","CANCELADO","APROVADO","REPROVADO").contains(s))) motivos.add("Turma possui inscrição com situação desconhecida.");
-        // Encerramentos continuam ocupando o registro da oferta; só cancelamento libera vaga.
-        int vagas=Math.max(0,o.capacidade()-(int)ocupacoes.stream().filter(s->!"CANCELADO".equals(s)).count());
+        var ocupacoes=JdbcAcademico.ocupacoes(c,alvo);
+        if(ocupacoes.stream().anyMatch(s->!s.conhecida())) motivos.add("Turma possui inscrição com situação desconhecida.");
+        int vagas=Math.max(0,o.capacidade()-(int)ocupacoes.stream().filter(JdbcAcademico.Ocupacao::ocupa).count());
         if(vagas==0) motivos.add("Turma sem vagas.");
         var horarios=horarios(alvo);
         if(horarios.isEmpty()) motivos.add("Turma sem horários definidos.");
@@ -154,23 +176,41 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
             var rev=q("SELECT p.id_pedido FROM pedido_equivalencia p JOIN revisao_reconhecimento r ON r.id_pedido=p.id_pedido WHERE p.id_matricula=? AND p.id_disciplina_destino=? AND r.situacao IN ('ABERTA','COMPLEMENTACAO','TRATAMENTO') FOR SHARE",x->x.getLong(1),id,requisito);
             motivos.add(rev.isEmpty()?"Pré-requisito não cumprido: "+requisito+".":"Reconhecimento sob revisão para o pré-requisito "+requisito+"; novos usos suspensos.");
         }
-        return new Elegibilidade(motivos.stream().distinct().toList(),vagas,janela);
+        return new Elegibilidade(motivos.stream().distinct().toList(),vagas,janela,segundaFase);
     }
     @Override public Elegibilidade avaliar(long matricula,long turma) {
         return TransacaoJdbc.executar(c,()->avaliarBloqueada(matricula,turma));
     }
     @Override public Inscricao inscrever(long matricula,long turma) {
-        return TransacaoJdbc.executar(c,()->{
+        return TransacaoJdbc.executar(c,()->inscreverBloqueada(matricula,turma,false));
+    }
+    private Inscricao inscreverBloqueada(long matricula,long turma,boolean exigirRenovacao) throws SQLException {
             var avaliacao=avaliarBloqueada(matricula,turma); avaliacao.exigir(); LocalDate data=hoje();
-            if(!avaliacao.janela().permite(data)) throw new IllegalArgumentException("Janela encerrada durante a confirmação.");
+            var oferta=turma(turma);
+            if(!avaliacao.dentroDaJanela(data) || data.isAfter(periodo(oferta.periodo()).fim()))
+                throw new IllegalArgumentException("Janela encerrada durante a confirmação.");
+            if(exigirRenovacao && q("""
+                    SELECT m.id_matricula FROM matricula_academica m
+                    LEFT JOIN rematricula_academica r ON r.id_matricula=m.id_matricula AND r.id_periodo=?
+                    WHERE m.id_matricula=? AND (m.id_periodo_ingresso=? OR r.id_matricula IS NOT NULL) FOR SHARE
+                    """,r->r.getLong(1),oferta.periodo(),matricula,oferta.periodo()).isEmpty())
+                throw new IllegalArgumentException("Renove primeiro a matrícula institucional para esse período.");
             long id=gravar("INSERT INTO inscricao_disciplina(id_matricula,id_turma,data_inscricao,situacao) VALUES (?,?,?,'ATIVO')",matricula,turma,data);
-            long disciplina=turma(turma).disciplina();
+            long disciplina=oferta.disciplina();
             for(long requisito:q("SELECT id_disciplina_prerequisito FROM disciplina_prerequisito WHERE id_disciplina=? ORDER BY id_disciplina_prerequisito FOR SHARE",r->r.getLong(1),disciplina)) {
                 var prova=evidencia(matricula,requisito,data);
                 if(prova==null) throw new IllegalArgumentException("Cumprimento alterado durante a inscrição.");
                 gravar("INSERT INTO evidencia_requisito_inscricao(id_inscricao,id_requisito,tipo,id_pedido,id_resultado) VALUES (?,?,?,?,?)",id,requisito,prova.tipo(),prova.pedido(),prova.resultado());
             }
             return new Inscricao(id,matricula,turma,data,"ATIVO");
+    }
+    public Inscricao inscreverComoAluno(SegurancaJdbc.Sessao sessao,long matricula,long turma) {
+        return TransacaoJdbc.executar(c,()->{
+            JdbcAcademico.controle(c);
+            long usuario=SegurancaJdbc.exigirSessao(c,sessao);
+            long aluno=matricula(matricula).aluno();
+            SegurancaJdbc.exigirAluno(c,usuario,aluno);
+            return inscreverBloqueada(matricula,turma,true);
         });
     }
     @Override public void vincularEstrutura(long id,long estrutura) {
@@ -194,14 +234,12 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
         var resultado=RegraResultado.calcular(p1,p2,pf,total,presentes);
         if("AGUARDA_PF".equals(resultado.situacao())) throw new IllegalArgumentException("PF pendente; resultado não encerrado.");
         return TransacaoJdbc.executar(c,()->{
-            var previa=q("SELECT id_matricula FROM inscricao_disciplina WHERE id_inscricao=?",r->r.getLong(1),inscricao);
-            if(previa.isEmpty()) throw new IllegalArgumentException("Inscrição não encontrada.");
-            matricula(previa.getFirst(),false);
-            var i=q("SELECT * FROM inscricao_disciplina WHERE id_inscricao=? FOR UPDATE",RepositorioInscricaoJdbc::ler,inscricao).getFirst();
-            if(i.matricula()!=previa.getFirst()) throw new IllegalArgumentException("Vínculo alterado. Consulte novamente.");
-            if(!"ATIVO".equals(i.situacao())) throw new IllegalArgumentException("Somente inscrição ativa admite primeiro fechamento.");
-            var o=turma(i.turma());
-            if(!periodo(o.periodo()).fim().isBefore(hoje())) throw new IllegalArgumentException("Aguarde o encerramento do período antes de registrar o resultado final.");
+            JdbcAcademico.controle(c);
+            var contexto=bloquearInscricao(inscricao);
+            if(!"ATIVO".equals(contexto.inscricao().situacao()))
+                throw new IllegalArgumentException("Somente inscrição ativa admite primeiro fechamento.");
+            if(!contexto.fim().isBefore(hoje()))
+                throw new IllegalArgumentException("Aguarde o encerramento do período antes de registrar o resultado final.");
             gravar("INSERT INTO resultado_inscricao(id_inscricao,p1,p2,pf,total_minutos,presentes_minutos,media_inicial,media_final,situacao,motivo) VALUES (?,?,?,?,?,?,?,?,?,?)",
                     inscricao,p1,p2,pf,total,presentes,resultado.mediaInicial(),resultado.mediaFinal(),resultado.situacao(),razao);
             gravar("UPDATE inscricao_disciplina SET situacao=? WHERE id_inscricao=?",resultado.situacao(),inscricao);

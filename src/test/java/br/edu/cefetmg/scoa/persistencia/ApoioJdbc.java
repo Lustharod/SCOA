@@ -40,6 +40,15 @@ final class ApoioJdbc {
             try(var s=conexao.createStatement();var r=s.executeQuery("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=DATABASE() AND table_name IN ('revisao_reconhecimento','conciliacao_legado','evento_processo_academico','evidencia_requisito_inscricao','inscricao_preservada_revisao') AND engine='InnoDB'")) {
                 r.next(); if(r.getInt(1)!=5) throw new IllegalStateException("Aplique uma vez V009__conciliacao_revisao.sql em scoa_java_teste após V008 antes dos testes v0.10.");
             }
+            try(var s=conexao.createStatement();var r=s.executeQuery("""
+                    SELECT COUNT(*) FROM information_schema.tables
+                    WHERE table_schema=DATABASE() AND engine='InnoDB'
+                      AND table_name IN ('coordenacao_curso','cancelamento_inscricao','sucessao_periodo_curso',
+                                         'retificacao_resultado','rematricula_academica','controle_calendario')
+                    """)) {
+                r.next();
+                if(r.getInt(1)!=6) throw new IllegalStateException("Aplique V010, V011 e V012 em scoa_java_teste após V009.");
+            }
             return conexao;
         } catch (SQLException | RuntimeException erro) {
             conexao.close();

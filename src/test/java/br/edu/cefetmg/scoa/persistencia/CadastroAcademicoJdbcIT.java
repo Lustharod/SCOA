@@ -33,7 +33,7 @@ class CadastroAcademicoJdbcIT {
     private Turma turma;
     private final List<Long> periodos=new ArrayList<>(), turmas=new ArrayList<>();
     private String etiqueta;
-    private static final LocalDate INICIO=LocalDate.of(LocalDate.now().getYear()+1,2,1), FIM=INICIO.plusMonths(5);
+    private LocalDate inicio,fim;
 
     @BeforeEach void preparar() throws Exception {
         c=ApoioJdbc.abrir(false); c.setAutoCommit(false);
@@ -42,6 +42,12 @@ class CadastroAcademicoJdbcIT {
         disciplina=inserir("INSERT INTO disciplina (codigo,nome,carga_horaria,situacao) VALUES (?,?,60,'ATIVO')",etiqueta,etiqueta);
         servico=new ServicoCadastroAcademico(new RepositorioCadastroAcademicoJdbc(c));
         alocacao=new ServicoAlocacao(new RepositorioAlocacaoJdbc(c));
+        try(var s=c.createStatement();var r=s.executeQuery("SELECT MAX(data_fim) FROM periodo_letivo")) {
+            r.next();
+            var ultima=r.getObject(1,LocalDate.class);
+            inicio=(ultima==null?LocalDate.now():ultima).plusYears(1);
+            fim=inicio.plusMonths(5);
+        }
         periodo=novoPeriodo(); turma=novaTurma(periodo.id());
         sala=new RepositorioSalaJdbc(c).salvar(Sala.nova(etiqueta,"Bloco teste",40)).getId();
     }
@@ -70,16 +76,47 @@ class CadastroAcademicoJdbcIT {
     @Test void atualizaEInativaPeriodoSemTurmas() {
         var p=novoPeriodo();
         assertTrue(servico.listarPeriodos().contains(p));
-        var novo=servico.atualizarPeriodo(p.id(),"Novo semestre",INICIO.plusDays(2),FIM);
-        assertEquals(INICIO.plusDays(2),servico.buscarPeriodo(p.id()).datas().inicio());
+        var novo=servico.atualizarPeriodo(p.id(),"Novo semestre",p.datas().inicio().plusDays(2),p.datas().fim());
+        assertEquals(p.datas().inicio().plusDays(2),servico.buscarPeriodo(p.id()).datas().inicio());
         assertEquals("INATIVO",servico.inativarPeriodo(novo.id()).situacao());
         assertThrows(IllegalArgumentException.class,() -> servico.cadastrarTurma(disciplina,professor,p.id(),"T",30));
     }
     @Test void periodoVinculadoPreservaDatasESituacaoMasPermiteDescricao() {
-        assertThrows(IllegalArgumentException.class,() -> servico.atualizarPeriodo(periodo.id(),"P",INICIO.plusDays(1),FIM));
+        assertThrows(IllegalArgumentException.class,() -> servico.atualizarPeriodo(periodo.id(),"P",inicio.plusDays(1),fim));
         assertThrows(IllegalArgumentException.class,() -> servico.inativarPeriodo(periodo.id()));
         assertEquals(periodo,servico.buscarPeriodo(periodo.id()));
-        assertEquals("Outra descrição",servico.atualizarPeriodo(periodo.id(),"Outra descrição",INICIO,FIM).descricao());
+        assertEquals("Outra descrição",servico.atualizarPeriodo(periodo.id(),"Outra descrição",inicio,fim).descricao());
+    }
+    @Test void rejeitaSobreposicaoEmCriacaoEAtualizacaoAceitaPeriodoAdjacente() {
+        assertThrows(IllegalArgumentException.class,()->servico.cadastrarPeriodo(etiqueta,inicio,fim));
+        assertThrows(IllegalArgumentException.class,()->servico.cadastrarPeriodo(etiqueta,inicio.minusDays(1),inicio));
+        assertThrows(IllegalArgumentException.class,()->servico.cadastrarPeriodo(etiqueta,fim,fim.plusDays(10)));
+        var adjacente=servico.cadastrarPeriodo(etiqueta,fim.plusDays(1),fim.plusDays(30));
+        periodos.add(adjacente.id());
+        assertThrows(IllegalArgumentException.class,
+                ()->servico.atualizarPeriodo(adjacente.id(),etiqueta,fim,fim.plusDays(30)));
+        assertEquals(fim.plusDays(1),servico.buscarPeriodo(adjacente.id()).datas().inicio());
+    }
+    @Test void duasCriacoesConcorrentesNaoSobrepoemCalendario() throws Exception {
+        confirmar();
+        c.setAutoCommit(false);
+        var reservado=novoPeriodo();
+        var iniciou=new CountDownLatch(1);
+        try(var executor=Executors.newSingleThreadExecutor()) {
+            var tentativa=executor.submit(()->{
+                try(var outra=ApoioJdbc.abrir(false)) {
+                    iniciou.countDown();
+                    return new ServicoCadastroAcademico(new RepositorioCadastroAcademicoJdbc(outra))
+                            .cadastrarPeriodo(etiqueta,reservado.datas().inicio(),reservado.datas().fim());
+                }
+            });
+            try {
+                assertTrue(iniciou.await(5,TimeUnit.SECONDS));
+                assertThrows(TimeoutException.class,()->tentativa.get(200,TimeUnit.MILLISECONDS));
+            } finally { c.commit(); }
+            assertInstanceOf(IllegalArgumentException.class,
+                    assertThrows(ExecutionException.class,()->tentativa.get(10,TimeUnit.SECONDS)).getCause());
+        }
     }
     @Test void rejeitaVinculosInexistentesOuInativosSemCriarTurma() throws Exception {
         int antes=servico.listarTurmas().size();
@@ -142,14 +179,14 @@ class CadastroAcademicoJdbcIT {
                 try (var outra=ApoioJdbc.abrir(false)) {
                     iniciou.countDown();
                     return new ServicoCadastroAcademico(new RepositorioCadastroAcademicoJdbc(outra))
-                            .atualizarPeriodo(livre.id(),"P",INICIO.plusDays(1),FIM);
+                            .atualizarPeriodo(livre.id(),"P",livre.datas().inicio().plusDays(1),livre.datas().fim());
                 }
             });
             try { assertTrue(iniciou.await(5,TimeUnit.SECONDS)); assertThrows(TimeoutException.class,() -> futura.get(200,TimeUnit.MILLISECONDS)); }
             finally { c.commit(); }
             assertInstanceOf(IllegalArgumentException.class,assertThrows(ExecutionException.class,() -> futura.get(10,TimeUnit.SECONDS)).getCause());
         }
-        c.setAutoCommit(true); assertEquals(INICIO,servico.buscarPeriodo(livre.id()).datas().inicio());
+        c.setAutoCommit(true); assertEquals(livre.datas().inicio(),servico.buscarPeriodo(livre.id()).datas().inicio());
     }
     @ParameterizedTest @ValueSource(booleans={false,true})
     void capacidadeEAlocacaoConcorrentesNaoQuebramLimiteDaSala(boolean alterarPrimeiro) throws Exception {
@@ -176,7 +213,9 @@ class CadastroAcademicoJdbcIT {
         assertEquals(alterarPrimeiro?0:1,alocacao.listarHorarios(turma.id()).size());
     }
     private CadastroPeriodoLetivo novoPeriodo() {
-        var novo=servico.cadastrarPeriodo(etiqueta,INICIO,FIM); periodos.add(novo.id()); return novo;
+        var deslocamento=periodos.size()*365L;
+        var novo=servico.cadastrarPeriodo(etiqueta,inicio.plusDays(deslocamento),fim.plusDays(deslocamento));
+        periodos.add(novo.id()); return novo;
     }
     private Turma novaTurma(long idPeriodo) {
         var nova=servico.cadastrarTurma(disciplina,professor,idPeriodo,etiqueta,30); turmas.add(nova.id()); return nova;

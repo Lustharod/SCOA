@@ -1,12 +1,16 @@
 # SCOA — Sistema de Controle Acadêmico
 
+A v0.12 está concluída para o recorte de console: consultas do próprio aluno, duas fases de inscrição, confirmação de turmas, cancelamento, retificação, renovação institucional e pendência bibliotecária. A regressão do autor aprovou **128 testes unitários e 179 de integração**; as três rodadas manuais obrigatórias foram concluídas. A rechecagem do fechamento aprovou 128 unitários. Consulte o [relatório](docs/testes/publicados/execucao_autor_v0_12/RELATORIO.md), o [ambiente](docs/testes/publicados/execucao_autor_v0_12/ambiente.txt) e as [regras e limites](docs/SCOA_Implementacao_v0_12.md).
+
+Para validar, use o schema `scoa_java_teste` com o DDL v7.5 e V006 a V012, na ordem e sem reaplicar migrações. O menu 18.11 vincula contas aos cadastros acadêmicos e ao curso coordenado. A repetição da escolha do papel acadêmico foi registrada como OC-V12-01, com correção adiada pelo autor para a próxima iteração. O fechamento não migrou o schema `scoa`.
+
 A v0.11 encaminha o planejamento por ofertas e a listagem de processos acadêmicos por serviços de aplicação. A regressão do autor registrou 116 testes unitários e 167 de integração aprovados. Consulte o [relatório de validação](docs/testes/publicados/execucao_autor_v0_11/RELATORIO.md) e o [ambiente](docs/testes/publicados/execucao_autor_v0_11/ambiente.txt).
 
 Projeto acadêmico desenvolvido para a disciplina de Engenharia de Software do CEFET-MG. O SCOA reúne a modelagem de processos acadêmicos e administrativos e sua implementação incremental em Java e MySQL.
 
 ## Estado da implementação
 
-A versão 0.10.0-SNAPSHOT acrescenta o menu 18 com autenticação e permissões para conciliação e revisão/revogação. A conciliação documental de planos e equivalências preserva as origens; plano legado não comprova conclusão. Revisão aberta suspende novos usos do reconhecimento em inscrições e simulações, com decisão humana autenticada e histórico separado da decisão original. A revogação preserva expressamente inscrições identificadas; não cancela inscrições ou altera resultados. Tratamento não resolvido permanece pendente. São comportamentos acordados para o protótipo, sem atribuição institucional.
+Como histórico, a versão 0.10.0-SNAPSHOT acrescentou o menu 18 com autenticação e permissões para conciliação e revisão/revogação. A conciliação documental de planos e equivalências preserva as origens; plano legado não comprova conclusão. Revisão aberta suspende novos usos do reconhecimento em inscrições e simulações, com decisão humana autenticada e histórico separado da decisão original. A revogação preserva expressamente inscrições identificadas; não cancela inscrições ou altera resultados. Tratamento não resolvido permanece pendente. São comportamentos acordados para o protótipo, sem atribuição institucional.
 
 Antes do uso da v0.10, aplicar uma vez a migração aditiva `database/migrations/V009__conciliacao_revisao.sql`, após backup e V008. São 81 tabelas após V009. O acesso novo é inicializado explicitamente em ambiente local, sem credencial padrão; permissões protegem os processos e decisões de equivalência, sem estender autorização global aos demais menus legados. Guias, configurações, Word e relatórios brutos permanecem privados. O autor validou 116 testes unitários e 166 de integração, com zero falhas, erros ou ignorados. Consulte as evidências separadas do [autor](docs/testes/publicados/execucao_autor_v0_10/RELATORIO.md) e do [Codex](docs/testes/publicados/execucao_codex_v0_10/RELATORIO.md).
 
@@ -16,7 +20,7 @@ A versão 0.9.0-SNAPSHOT acrescenta o menu 17 para simular a distribuição do p
 
 Antes de usar, faça backup, confira o schema selecionado e o estado de cada migração. Em base v0.7 já preparada, aplique uma vez `database/migrations/V008__equivalencia_manual.sql`; em base anterior, respeite DDL v7.5, V006, V007 e V008 nessa ordem. Não recrie bases existentes nem reaplique migrações parcialmente executadas. Não há migração automática.
 
-O menu 15 preserva inscrição com contexto curricular, janela, horários, pré-requisitos, duplicidade e vagas, revalidando na confirmação, e o primeiro fechamento de resultado P1/P2/PF com frequência mínima de 75%. Consulte [o recorte da v0.7](docs/SCOA_Implementacao_v0_7.md). Projeção condicionada de dependências futuras, retificação de notas, autorização global dos demais módulos e web continuam pendentes.
+O menu 15 preserva inscrição com contexto curricular, janela, horários, pré-requisitos, duplicidade e vagas, revalidando na confirmação, e o primeiro fechamento de resultado P1/P2/PF com frequência mínima de 75%. Consulte [o recorte da v0.7](docs/SCOA_Implementacao_v0_7.md). Projeção condicionada de dependências futuras, autorização global dos demais módulos e web continuam pendentes. A retificação de resultados foi acrescentada na v0.12.
 
 O cadastro permite incluir, consultar, listar, atualizar e inativar salas. A alocação verifica capacidade, situação da sala, sobreposição de horários e períodos letivos, incluindo conflitos da própria turma. Horários adjacentes são permitidos. A disponibilidade é revalidada no momento da gravação.
 

@@ -15,9 +15,17 @@ public final class Planejamento {
     public record Oferta(long turma, long disciplina, Periodo periodo, String situacao, int vagas, List<FaixaHorario> horarios) {
         public Oferta { horarios=List.copyOf(horarios); }
     }
+    public record DisciplinaNoPeriodo(long disciplina,long periodo) { }
     public record Dados(long matricula, long estrutura, LocalDate hoje, List<Disciplina> disciplinas,
-                        List<Oferta> ofertas, List<Oferta> inscricoesAtivas) {
-        public Dados { disciplinas=List.copyOf(disciplinas); ofertas=List.copyOf(ofertas); inscricoesAtivas=List.copyOf(inscricoesAtivas); }
+                        List<Oferta> ofertas, List<Oferta> inscricoesAtivas, Set<DisciplinaNoPeriodo> cancelamentos) {
+        public Dados(long matricula, long estrutura, LocalDate hoje, List<Disciplina> disciplinas,
+                     List<Oferta> ofertas, List<Oferta> inscricoesAtivas) {
+            this(matricula,estrutura,hoje,disciplinas,ofertas,inscricoesAtivas,Set.of());
+        }
+        public Dados {
+            disciplinas=List.copyOf(disciplinas); ofertas=List.copyOf(ofertas); inscricoesAtivas=List.copyOf(inscricoesAtivas);
+            cancelamentos=Set.copyOf(cancelamentos);
+        }
     }
     public record Tentativa(Oferta oferta, List<String> impedimentos) {
         public Tentativa { impedimentos=List.copyOf(impedimentos); }
@@ -59,6 +67,8 @@ public final class Planejamento {
                 if(!"ATIVO".equals(o.situacao())) motivos.add("Turma inativa.");
                 if(!"ATIVO".equals(o.periodo().situacao())) motivos.add("Período inativo ou encerrado.");
                 if(o.periodo().fim().isBefore(dados.hoje())) motivos.add("Período passado.");
+                if(dados.cancelamentos().contains(new DisciplinaNoPeriodo(o.disciplina(),o.periodo().id())))
+                    motivos.add("Disciplina cancelada pelo aluno neste período.");
                 for(long requisito:d.requisitos()) if(!cumpridas.contains(requisito)) motivos.add(porId.containsKey(requisito) && "SOB_REVISAO".equals(porId.get(requisito).situacao())?"Reconhecimento sob revisão para o pré-requisito "+requisito+"; novos usos suspensos.":"Pré-requisito não cumprido formalmente: "+requisito+".");
                 if(o.vagas()<=0) motivos.add("Turma sem vagas observadas.");
                 if(o.horarios().isEmpty()) motivos.add("Turma sem horários definidos.");

@@ -130,16 +130,48 @@ public final class RepositorioMatriculaJdbc implements RepositorioMatricula {
         HorarioAula.validarId(aluno);
         return TransacaoJdbc.executar(c,()->{ bloquearAluno(aluno,false); return biblioteca(aluno); });
     }
+    public void rematricular(SegurancaJdbc.Sessao sessao,long matricula,long periodo) {
+        HorarioAula.validarId(matricula);
+        HorarioAula.validarId(periodo);
+        TransacaoJdbc.executar(c,()->{
+            JdbcAcademico.controle(c);
+            long usuario=SegurancaJdbc.exigirSessao(c,sessao);
+            var vinculo=bloquear(matricula,true);
+            SegurancaJdbc.exigirAluno(c,usuario,vinculo.idAluno());
+            if(!"ATIVO".equals(vinculo.situacao()))
+                throw new IllegalArgumentException("A rematrícula exige vínculo institucional ativo.");
+            if(vinculo.idPeriodoIngresso()==null)
+                throw new IllegalArgumentException("A matrícula precisa ter um período de ingresso registrado.");
+            cursoAtivo(vinculo.idCurso());
+            var datas=consulta("""
+                    SELECT destino.data_inicio,destino.data_fim,ingresso.data_inicio
+                    FROM periodo_letivo destino JOIN periodo_letivo ingresso ON ingresso.id_periodo=?
+                    WHERE destino.id_periodo=? AND destino.situacao='ATIVO' FOR SHARE
+                    """,r->new LocalDate[]{r.getObject(1,LocalDate.class),r.getObject(2,LocalDate.class),
+                    r.getObject(3,LocalDate.class)},vinculo.idPeriodoIngresso(),periodo);
+            var agora=JdbcAcademico.agoraUtc(c);
+            if(datas.isEmpty() || !datas.getFirst()[0].isAfter(datas.getFirst()[2]) ||
+                    JdbcAcademico.dataAcademica(agora).isAfter(datas.getFirst()[1]))
+                throw new IllegalArgumentException("Selecione um período ativo posterior ao ingresso e ainda não encerrado.");
+            if(!consulta("SELECT id_periodo FROM rematricula_academica WHERE id_matricula=? AND id_periodo=? FOR UPDATE",
+                    r->r.getLong(1),matricula,periodo).isEmpty())
+                throw new IllegalArgumentException("Matrícula já renovada para esse período.");
+            biblioteca(vinculo.idAluno()).exigirRegular();
+            executar("INSERT INTO rematricula_academica(id_matricula,id_periodo,id_usuario,registrado_em) VALUES (?,?,?,?)",
+                    matricula,periodo,usuario,agora);
+            return null;
+        });
+    }
     private SituacaoBiblioteca biblioteca(long aluno) {
         // FOR UPDATE usa leitura corrente mesmo sob REPEATABLE READ.
         var usuarios=consulta("SELECT b.id_usuario_biblioteca,b.situacao FROM aluno a JOIN usuario_biblioteca b ON b.id_usuario=a.id_usuario WHERE a.id_aluno=? FOR UPDATE",
                 r->new Object[]{r.getLong(1),r.getString(2)},aluno);
         if(usuarios.isEmpty() || !"ATIVO".equals(usuarios.getFirst()[1]))
             return new SituacaoBiblioteca(Estado.INDISPONIVEL,"identificação bibliotecária ausente ou inativa.");
-        var pendencias=consulta("SELECT p.id_pendencia,p.situacao,p.impeditiva FROM emprestimo e JOIN pendencia_biblioteca p ON p.id_emprestimo=e.id_emprestimo WHERE e.id_usuario_biblioteca=? FOR UPDATE",
-                r->new Object[]{r.getLong(1),r.getString(2),r.getBoolean(3)},usuarios.getFirst()[0]);
+        var pendencias=consulta("SELECT p.id_pendencia,p.situacao FROM emprestimo e JOIN pendencia_biblioteca p ON p.id_emprestimo=e.id_emprestimo WHERE e.id_usuario_biblioteca=? FOR UPDATE",
+                r->new Object[]{r.getLong(1),r.getString(2)},usuarios.getFirst()[0]);
         for(var p:pendencias) {
-            if("ATIVO".equals(p[1]) && Boolean.TRUE.equals(p[2]))
+            if("ATIVO".equals(p[1]))
                 return new SituacaoBiblioteca(Estado.IMPEDITIVA,"pendência impeditiva " + p[0] + " no Módulo Biblioteca.");
         }
         for(var p:pendencias) if(!Set.of("ATIVO","REGULARIZADO","LIBERADO").contains(p[1]))

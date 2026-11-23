@@ -26,7 +26,7 @@ public final class ConsoleProcessoAcademico {
         var seguranca=new SegurancaJdbc(c); var repo=new RepositorioProcessoAcademicoJdbc(c);
         var consultaProcessos = new ServicoConsultaProcessosAcademicos(matricula -> repo.listar(sessao, matricula));
         while(true) try {
-            System.out.println("\n18 Processos acadêmicos | 1 Inicializar acesso | 2 Entrar | 3 Sair da sessão | 4 Criar conta | 5 Solicitar conciliação | 6 Decidir conciliação | 7 Solicitar revisão | 8 Analisar revisão | 9 Listar processos | 10 Histórico do processo | 0 Voltar");
+            System.out.println("\n18 Processos acadêmicos | 1 Inicializar acesso | 2 Entrar | 3 Sair da sessão | 4 Criar conta | 5 Solicitar conciliação | 6 Decidir conciliação | 7 Solicitar revisão | 8 Analisar revisão | 9 Listar processos | 10 Histórico do processo | 11 Vincular conta acadêmica | 0 Voltar");
             switch(ler("Opção: ")) {
                 case "0" -> { return sessao; }
                 case "1" -> {
@@ -40,7 +40,7 @@ public final class ConsoleProcessoAcademico {
                 }
                 case "3" -> { if(sessao!=null) sessao.encerrar(); sessao=null; System.out.println("Sessão encerrada."); }
                 case "4" -> {
-                    String login=ler("Identificação da nova conta: "),papel=ler("Papel técnico (ADMIN/SOLICITANTE/ANALISTA): ").toUpperCase(Locale.ROOT);
+                    String login=ler("Identificação da nova conta: "),papel=ler("Papel (ADMIN/SOLICITANTE/ANALISTA/ALUNO/PROFESSOR/COORDENADOR/BIBLIOTECARIO): ").toUpperCase(Locale.ROOT);
                     if(confirmar()) System.out.println("Conta criada: "+seguranca.criarConta(sessao,login,senha("SCOA_SENHA_NOVA_CONTA"),papel));
                 }
                 case "5" -> {
@@ -75,6 +75,15 @@ public final class ConsoleProcessoAcademico {
                 }
                 case "9" -> consultaProcessos.listar(id("ID da matrícula: ")).forEach(System.out::println);
                 case "10" -> repo.eventos(sessao,ler("Tipo (REVISAO/CONCILIACAO/PEDIDO): ").toUpperCase(Locale.ROOT),id("ID do processo: ")).forEach(System.out::println);
+                case "11" -> {
+                    long usuario=id("ID da conta: ");
+                    String tipo=ler("Tipo de vínculo (ALUNO/PROFESSOR/COORDENADOR): ").toUpperCase(Locale.ROOT);
+                    long referencia=id("ID do aluno, professor ou curso coordenado: ");
+                    if(confirmar()) {
+                        seguranca.vincularContaAcademica(sessao,usuario,tipo,referencia);
+                        System.out.println("Conta acadêmica vinculada.");
+                    }
+                }
                 default -> System.out.println("Escolha uma opção do menu.");
             }
         } catch(NoSuchElementException e) { return sessao; }

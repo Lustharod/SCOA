@@ -56,4 +56,17 @@ class PlanejamentoTest {
         assertThrows(IllegalArgumentException.class,()->sim(List.of(d(1,"PENDENTE")),List.of(),List.of(),2L));
         assertThrows(IllegalArgumentException.class,()->sim(List.of(d(1,"PENDENTE")),List.of(),List.of(),1L,1L));
     }
+    @Test void cancelamentoImpedeTodasAsTurmasDoPeriodoEPermiteOfertaSeguinte() {
+        var atual=periodo(1,10);
+        var seguinte=periodo(2,100);
+        var ofertas=List.of(o(10,1,atual,8),o(11,1,atual,9),o(20,1,seguinte,8));
+        var dados=new Dados(1,2,hoje,List.of(d(1,"PENDENTE")),ofertas,List.of(),
+                Set.of(new DisciplinaNoPeriodo(1,atual.id())));
+        var item=Planejamento.distribuir(dados,List.of()).itens().getFirst();
+        assertEquals(20,item.sugestao().turma());
+        assertEquals(3,item.tentativas().size());
+        for(var tentativa:item.tentativas().subList(0,2))
+            assertTrue(tentativa.impedimentos().contains("Disciplina cancelada pelo aluno neste período."));
+        assertTrue(item.tentativas().getLast().impedimentos().isEmpty());
+    }
 }

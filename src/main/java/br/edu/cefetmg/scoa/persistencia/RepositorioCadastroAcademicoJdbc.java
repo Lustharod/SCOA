@@ -53,6 +53,8 @@ public final class RepositorioCadastroAcademicoJdbc implements RepositorioCadast
         Objects.requireNonNull(p);
         if (p.id()!=null) throw new IllegalArgumentException("O período novo não deve ter ID.");
         return TransacaoJdbc.executar(conexao,() -> {
+            bloquearCalendario();
+            validarDatasDisponiveis(p);
             long id=inserir("INSERT INTO periodo_letivo (descricao,data_inicio,data_fim,situacao) VALUES (?,?,?,?)",
                     p.descricao(),Date.valueOf(p.datas().inicio()),Date.valueOf(p.datas().fim()),p.situacao());
             return new CadastroPeriodoLetivo(id,p.descricao(),p.datas(),p.situacao());
@@ -68,18 +70,44 @@ public final class RepositorioCadastroAcademicoJdbc implements RepositorioCadast
     @Override public CadastroPeriodoLetivo alterarPeriodo(long id,UnaryOperator<CadastroPeriodoLetivo> alteracao) {
         HorarioAula.validarId(id); Objects.requireNonNull(alteracao);
         return TransacaoJdbc.executar(conexao,() -> {
+            bloquearCalendario();
             var atual=consultar("SELECT * FROM periodo_letivo WHERE id_periodo=? FOR UPDATE",RepositorioCadastroAcademicoJdbc::lerPeriodo,id)
                     .stream().findFirst().orElseThrow(() -> new IllegalArgumentException("Período letivo não encontrado."));
             var novo=Objects.requireNonNull(alteracao.apply(atual));
             if (!Long.valueOf(id).equals(novo.id())) throw new IllegalArgumentException("Preserve o ID do período.");
             if (!atual.datas().equals(novo.datas()) || !atual.situacao().equals(novo.situacao())) {
-                if (!consultar("SELECT id_turma FROM turma WHERE id_periodo=? LIMIT 1 FOR UPDATE",r -> r.getLong(1),id).isEmpty() || !consultar("SELECT id_matricula FROM matricula_academica WHERE id_periodo_ingresso=? LIMIT 1 FOR UPDATE",r -> r.getLong(1),id).isEmpty())
+                if (periodoUtilizado(id))
                     throw new IllegalArgumentException("Este período possui turmas ou matrículas. Nesta etapa, apenas sua descrição pode ser alterada.");
+                validarDatasDisponiveis(novo);
             }
             executar("UPDATE periodo_letivo SET descricao=?,data_inicio=?,data_fim=?,situacao=? WHERE id_periodo=?",
                     novo.descricao(),Date.valueOf(novo.datas().inicio()),Date.valueOf(novo.datas().fim()),novo.situacao(),id);
             return novo;
         });
+    }
+    private void bloquearCalendario() {
+        if(consultar("SELECT id FROM controle_calendario WHERE id=1 FOR UPDATE",r->r.getInt(1)).isEmpty())
+            throw new IllegalArgumentException("Confira a migração V012 do calendário.");
+    }
+
+    private void validarDatasDisponiveis(CadastroPeriodoLetivo periodo) {
+        var conflitos=consultar("""
+                SELECT id_periodo FROM periodo_letivo
+                WHERE (? IS NULL OR id_periodo<>?) AND data_inicio<=? AND data_fim>=?
+                ORDER BY id_periodo FOR SHARE
+                """,r->r.getLong(1),periodo.id(),periodo.id(),periodo.datas().fim(),periodo.datas().inicio());
+        if(!conflitos.isEmpty())
+            throw new IllegalArgumentException("As datas se sobrepõem a períodos já cadastrados: "+conflitos+".");
+    }
+
+    private boolean periodoUtilizado(long id) {
+        return !consultar("SELECT id_turma FROM turma WHERE id_periodo=? LIMIT 1 FOR SHARE",r->r.getLong(1),id).isEmpty()
+                || !consultar("SELECT id_matricula FROM matricula_academica WHERE id_periodo_ingresso=? LIMIT 1 FOR SHARE",
+                        r->r.getLong(1),id).isEmpty()
+                || !consultar("SELECT id_matricula FROM rematricula_academica WHERE id_periodo=? LIMIT 1 FOR SHARE",
+                        r->r.getLong(1),id).isEmpty()
+                || !consultar("SELECT id_curso FROM sucessao_periodo_curso WHERE id_periodo=? OR id_sucessor=? LIMIT 1 FOR SHARE",
+                        r->r.getLong(1),id,id).isEmpty();
     }
     @Override public Turma inserirTurma(Turma turma) {
         Objects.requireNonNull(turma);

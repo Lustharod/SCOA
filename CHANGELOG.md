@@ -1,5 +1,18 @@
 # Alterações do SCOA
 
+## 0.12.0-SNAPSHOT
+
+- Fechamento em 23/11/2026: autor aprovou 128 testes unitários e 179 de integração e concluiu as rodadas manuais SEGUNDA_FASE, TARDIO e RETIFICACAO. A rechecagem Codex aprovou 128 unitários. Relatório, ambiente, resultados por classe e manifestos identificam a entrega; Word v7.16 e guias permanecem privados. PRIMEIRA_FASE foi opcional e não executada manualmente.
+- Achado OC-V12-01, identificado pelo autor durante a validação manual em 21/11/2026: repetição da escolha de ALUNO/PROFESSOR/COORDENADOR na criação da conta e no vínculo acadêmico, sem verificação de correspondência entre essas escolhas, confirmada por inspeção do código. Decidido concluir a rodada atual e corrigir o provisionamento na próxima iteração, junto da próxima implementação.
+- Menu 19 do console apresenta horários das inscrições ativas e notas e frequência do resultado final registrado. A consulta usa o vínculo entre a conta autenticada e o aluno e funciona com o schema da v0.11.
+- A primeira fase de inscrição vai de D−14 a D−8 e a segunda de D+7 a D+13, sendo D o início das aulas. Desistência automática até D+13 libera vaga; deferimento posterior pela coordenação mantém a vaga ociosa. O histórico preserva solicitação e decisão. Cancelar impede nova inscrição na mesma disciplina e no mesmo período.
+- Menu 20 reúne confirmação independente de turmas, cancelamento, retificação, rematrícula institucional e registro de pendência bibliotecária. A retificação mantém o resultado anterior no histórico e usa a primeira fase do período sucessor do curso como limite para deferimento. A renovação preserva o número da matrícula e a inscrição em turma exige confirmação em separado.
+- V010 e V011 acrescentam dados e restrições das operações. O schema v7.5 e as migrações anteriores continuam como base da instalação em `scoa_java_teste`.
+- V012 coordena o cadastro do calendário. Criação e alteração de datas recusam sobreposição. Todas as turmas usam as datas do período associado e a retificação encontra automaticamente o primeiro período ativo posterior.
+- Menu 18.11 vincula contas a alunos, professores e cursos coordenados com autorização administrativa e histórico. Os papéis ALUNO, PROFESSOR e COORDENADOR podem ser criados pelo mesmo submenu.
+- Corrigida a gravação da renovação institucional para a chave composta de matrícula e período.
+- Atualizada a regressão do planejamento para verificar a vaga liberada, o bloqueio de reinscrição do aluno no mesmo período e a oferta permitida em período posterior.
+
 ## 0.11.0-SNAPSHOT
 
 - O menu 17 encaminha listagem e simulação por `ServicoPlanejamento` e pelo contrato `RepositorioPlanejamento`.

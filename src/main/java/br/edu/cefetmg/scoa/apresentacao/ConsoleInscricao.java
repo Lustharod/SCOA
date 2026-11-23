@@ -1,14 +1,22 @@
 package br.edu.cefetmg.scoa.apresentacao;
 
 import br.edu.cefetmg.scoa.aplicacao.ServicoInscricao;
+import br.edu.cefetmg.scoa.dominio.Inscricao;
 import br.edu.cefetmg.scoa.persistencia.PersistenciaException;
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.function.BiFunction;
 
 public final class ConsoleInscricao {
     private final Scanner entrada;
     private final ServicoInscricao servico;
-    public ConsoleInscricao(Scanner entrada,ServicoInscricao servico) { this.entrada=entrada; this.servico=servico; }
+    private final BiFunction<Long,Long,Inscricao> confirmarInscricao;
+    public ConsoleInscricao(Scanner entrada,ServicoInscricao servico) {
+        this(entrada,servico,servico::confirmar);
+    }
+    public ConsoleInscricao(Scanner entrada,ServicoInscricao servico,BiFunction<Long,Long,Inscricao> confirmarInscricao) {
+        this.entrada=entrada; this.servico=servico; this.confirmarInscricao=confirmarInscricao;
+    }
     private String ler(String texto) {
         System.out.print(texto);
         if(!entrada.hasNextLine()) throw new NoSuchElementException();
@@ -32,9 +40,10 @@ public final class ConsoleInscricao {
                     case "1" -> {
                         long matricula=id("ID da matrícula: "),turma=id("ID da turma: ");
                         var e=servico.propor(matricula,turma);
-                        System.out.printf("Matrícula %d | turma %d | vagas %d | janela %s a %s%n",matricula,turma,e.vagas(),e.janela().abertura(),e.janela().fimExclusivo().minusDays(1));
+                        System.out.printf("Matrícula %d | turma %d | vagas %d | 1ª fase %s | 2ª fase %s%n",
+                                matricula,turma,e.vagas(),e.janela(),e.segundaFase());
                         if(!e.permite()) { e.motivos().forEach(System.out::println); break; }
-                        if(confirmar()) System.out.println("Inscrição registrada: "+servico.confirmar(matricula,turma));
+                        if(confirmar()) System.out.println("Inscrição registrada: "+confirmarInscricao.apply(matricula,turma));
                         else System.out.println("Operação cancelada.");
                     }
                     case "2" -> {

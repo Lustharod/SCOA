@@ -1,0 +1,20 @@
+Execução do autor, SCOA 0.12.0-SNAPSHOT — fechamento em 23/11/2026.
+Referência temporal: America/Sao_Paulo (UTC-03:00).
+Windows 11 amd64; Oracle OpenJDK 25.0.1+8-27; Apache Maven 3.9.11.
+JUnit Jupiter 6.0.1; Surefire/Failsafe 3.5.4; MySQL Connector/J 26.7.0.
+MySQL 8.0.46; schema scoa_java_teste; 87 tabelas; instâncias locais descartáveis na porta 33384.
+Base: DDL v7.5 e migrações V006 a V012. Sem migração do schema scoa neste fechamento.
+Regressão do autor: verify -Pmysql-it, encerrada em 18/11/2026 18:54:07 UTC-03:00.
+Duração registrada pelo Maven: 02:08 min. BUILD SUCCESS.
+128 testes unitários e 179 de integração; 307 execuções, zero falhas, erros ou ignorados.
+Tentativa anterior automatico_2026-11-18_1846 preservada separadamente; a contagem aprovada é da rodada 1854.
+Percurso manual obrigatório concluído: SEGUNDA_FASE, TARDIO e RETIFICACAO.
+Datas da execução manual: 18 a 23/11/2026, com finalização informada pelo autor em 23/11/2026.
+Datas UTC dos pedidos podem corresponder ao dia anterior em America/Sao_Paulo.
+PRIMEIRA_FASE: roteiro opcional, não executado manualmente; testes unitários incluem as janelas.
+Rechecagem Codex: mvn -o -B test, encerrada em 23/11/2026 00:52:01 UTC-03:00, duração 22.847 s.
+Rechecagem: 128 unitários aprovados, zero falhas, erros ou ignorados; integração não repetida nesta rechecagem.
+Conferência documental: CSVs lidos; capturas PDF inventariadas com SHA-256, sem inspeção visual de seu conteúdo.
+Exportação Workbench: o JSON de resultado anterior exigiu normalização de aspas somente na leitura; originais preservados.
+Pendência aceita OC-V12-01: papéis acadêmicos repetidos na criação e vinculação; corrigir na próxima iteração.
+Fontes entregues identificadas no fechamento por FONTES_SHA256.json; dados de conexão e credenciais permanecem privados.

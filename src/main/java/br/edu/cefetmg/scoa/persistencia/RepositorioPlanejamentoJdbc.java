@@ -32,13 +32,13 @@ public final class RepositorioPlanejamentoJdbc implements RepositorioPlanejament
     private Oferta oferta(long turma,Map<Long,Periodo> periodos) throws SQLException {
         var linha=q("SELECT id_disciplina,id_periodo,situacao,capacidade FROM turma WHERE id_turma=? FOR SHARE",
                 r->new Object[]{r.getLong(1),r.getLong(2),r.getString(3),r.getInt(4)},turma).getFirst();
-        var estados=q("SELECT situacao FROM inscricao_disciplina WHERE id_turma=? ORDER BY id_inscricao FOR SHARE",r->r.getString(1),turma);
-        if(estados.stream().anyMatch(s->!Set.of("ATIVO","CANCELADO","APROVADO","REPROVADO").contains(s)))
+        var estados=JdbcAcademico.ocupacoes(c,turma);
+        if(estados.stream().anyMatch(s->!s.conhecida()))
             throw new IllegalArgumentException("Turma "+turma+" com situação de inscrição desconhecida; conciliação necessária.");
         var horarios=q("SELECT dia_semana,hora_inicio,hora_fim FROM horario_aula WHERE id_turma=? ORDER BY id_horario FOR SHARE",
                 r->new FaixaHorario(r.getInt(1),r.getTime(2).toLocalTime(),r.getTime(3).toLocalTime()),turma);
         return new Oferta(turma,(long)linha[0],periodos.get((long)linha[1]),(String)linha[2],
-                Math.max(0,(int)linha[3]-(int)estados.stream().filter(s->!"CANCELADO".equals(s)).count()),horarios);
+                Math.max(0,(int)linha[3]-(int)estados.stream().filter(JdbcAcademico.Ocupacao::ocupa).count()),horarios);
     }
     @Override
     public Resultado simular(long matricula,List<Long> selecionados,List<Long> prioridade) {
@@ -79,8 +79,15 @@ public final class RepositorioPlanejamentoJdbc implements RepositorioPlanejament
                 var meta=q("SELECT id_disciplina,id_periodo FROM turma WHERE id_turma=? FOR SHARE",r->new long[]{r.getLong(1),r.getLong(2)},id).getFirst();
                 if(idsDisciplinas.contains(meta[0]) && selecionados.contains(meta[1])) ofertas.add(oferta(id,periodos));
             }
-            LocalDate hoje=q("SELECT UTC_TIMESTAMP(6)",r->r.getObject(1,LocalDateTime.class).atZone(ZoneOffset.UTC).withZoneSameInstant(ZoneId.of("America/Sao_Paulo")).toLocalDate()).getFirst();
-            return Planejamento.distribuir(new Dados(matricula,plano.estrutura(),hoje,disciplinas,ofertas,ativas),prioridade);
+            var cancelamentos=q("""
+                    SELECT DISTINCT t.id_disciplina,t.id_periodo FROM inscricao_disciplina i
+                    JOIN matricula_academica m ON m.id_matricula=i.id_matricula
+                    JOIN turma t ON t.id_turma=i.id_turma
+                    WHERE m.id_aluno=? AND i.situacao='CANCELADO' FOR SHARE
+                    """, r->new DisciplinaNoPeriodo(r.getLong(1),r.getLong(2)), contexto[0]);
+            LocalDate hoje=JdbcAcademico.dataAcademica(JdbcAcademico.agoraUtc(c));
+            return Planejamento.distribuir(new Dados(matricula,plano.estrutura(),hoje,disciplinas,ofertas,ativas,
+                    Set.copyOf(cancelamentos)),prioridade);
         });
     }
 }

@@ -76,10 +76,18 @@ class PlanejamentoJdbcIT {
         long ta=turma(a,p,"08:00"); sql("INSERT INTO inscricao_disciplina(id_matricula,id_turma,data_inscricao,situacao) VALUES (?,?,CURRENT_DATE,'ATIVO')",outra,ta);
         assertNull(item(sim(),b).sugestao()); assertTrue(item(sim(),b).tentativas().getFirst().impedimentos().stream().anyMatch(s->s.contains("Conflito")));
     }
-    @Test void cancelamentoNaoOcupaVagaEFinalSemResultadoExigeConciliacao() throws Exception {
+    @Test void cancelamentoLiberaVagaBloqueiaMesmoPeriodoEFinalSemResultadoExigeConciliacao() throws Exception {
         reconhecer(); sql("UPDATE turma SET capacidade=1 WHERE id_turma=?",t);
         sql("INSERT INTO inscricao_disciplina(id_matricula,id_turma,data_inscricao,situacao) VALUES (?,?,CURRENT_DATE,'CANCELADO')",matricula,t);
-        assertNotNull(item(sim(),b).sugestao());
+        var cancelada=item(sim(),b);
+        assertNull(cancelada.sugestao());
+        assertEquals(1,cancelada.tentativas().getFirst().oferta().vagas());
+        assertTrue(cancelada.tentativas().getFirst().impedimentos()
+                .contains("Disciplina cancelada pelo aluno neste período."));
+        long seguinte=sql("INSERT INTO periodo_letivo(descricao,data_inicio,data_fim,situacao) VALUES (?,?,?,'ATIVO')",
+                tag+" seguinte",hoje().plusDays(200),hoje().plusDays(260));
+        long turmaSeguinte=turma(b,seguinte,"08:00");
+        assertEquals(turmaSeguinte,item(repo.simular(matricula,List.of(seguinte),List.of()),b).sugestao().turma());
         sql("UPDATE inscricao_disciplina SET situacao='REPROVADO' WHERE id_matricula=?",matricula);
         sql("DELETE FROM horario_aula WHERE id_turma=?",t);
         // Situação final sem resultado deve ser diagnosticada antes de sugerir.
@@ -92,6 +100,7 @@ class PlanejamentoJdbcIT {
         sql("INSERT INTO inscricao_disciplina(id_matricula,id_turma,data_inscricao,situacao) VALUES (?,?,CURRENT_DATE,'ATIVO')",outra,t);
         var bloqueada=item(sim(),b); assertNull(bloqueada.sugestao()); assertTrue(bloqueada.tentativas().getFirst().impedimentos().contains("Turma sem vagas observadas."));
         sql("UPDATE inscricao_disciplina SET situacao='CANCELADO' WHERE id_matricula=?",outra);
+        assertEquals(t,item(sim(),b).sugestao().turma());
         sql("DELETE FROM horario_aula WHERE id_turma=?",t);
         assertTrue(item(sim(),b).tentativas().getFirst().impedimentos().contains("Turma sem horários definidos."));
     }

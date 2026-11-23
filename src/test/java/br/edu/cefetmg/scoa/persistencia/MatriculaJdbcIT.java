@@ -62,7 +62,11 @@ class MatriculaJdbcIT {
         if("ATIVO".equals(situacao)) { assertThrows(IllegalArgumentException.class,this::criar); assertTrue(s.listar(aluno).isEmpty()); }
         else assertEquals("ATIVO",criar().situacao());
     }
-    @Test void p0603NaoImpeditiva() throws Exception { pendencia("ATIVO",false); assertEquals("ATIVO",criar().situacao()); }
+    @Test void pendenciaAtivaBloqueiaMesmoComMarcacaoLegadaNaoImpeditiva() throws Exception {
+        pendencia("ATIVO",false);
+        assertThrows(IllegalArgumentException.class,this::criar);
+        assertTrue(s.listar(aluno).isEmpty());
+    }
     @ParameterizedTest @ValueSource(strings={"SEM_CONTA","SEM_BIBLIOTECA","INATIVO","DESCONHECIDA"})
     void p0604IdentificacaoOuSituacaoIndisponivel(String caso) throws Exception {
         switch(caso) {

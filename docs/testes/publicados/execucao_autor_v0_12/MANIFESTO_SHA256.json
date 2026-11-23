@@ -1,0 +1,599 @@
+{
+  "gerado_em_utc": "2026-11-23T03:59:06.982648+00:00",
+  "originais_publicados": false,
+  "quantidades_por_cenario": {
+    "SEGUNDA_FASE": 44,
+    "TARDIO": 29,
+    "RETIFICACAO": 25
+  },
+  "arquivos": [
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_00_conexao_PRIVADO.csv",
+      "bytes": 67,
+      "sha256": "FF9CE874355F94C2603F2D783DA662035E228D280B45F73B584DC74C4E2BC506"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_01_tabelas.csv",
+      "bytes": 11,
+      "sha256": "B1744E02F694BABB4AD8677D076F1449BF406129F78261F5A3D31C863174B94C"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_02_migracoes.csv",
+      "bytes": 139,
+      "sha256": "A0B5A4DEC3DFDF68DD7C531614E01460E5C6A85DB9BFFB78559A4F8BEFA3C8DF"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_03_acesso_alunoA.pdf",
+      "bytes": 110947,
+      "sha256": "D2EE4B913862E62B2CA02DF8111CA7246CBA55024905BA835079CA58B7499991"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_04_acesso_alunoB.pdf",
+      "bytes": 111788,
+      "sha256": "5119D516229B53278D34AFFFE5F5B6832063E142BEA99C0396408833E262C477"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_05_acesso_professor.pdf",
+      "bytes": 110749,
+      "sha256": "5A4AE2FE8CF6F650290326181C41BD078EFE9A113609CA8F1604AB4083C07348"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_05_contas.csv",
+      "bytes": 221,
+      "sha256": "D45F3A7710C41240B2763DC8EAB9C05F386550ADEA8DC51C8420A69BFB00A97E"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_06_acesso_coordenador.pdf",
+      "bytes": 110756,
+      "sha256": "05B2DA20BDD25EA8355E06AA7AEB58ACDB34233E51EC4186C4CB92C007D2362E"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_06_vinculos_alunos.csv",
+      "bytes": 99,
+      "sha256": "049CAF36D77899E0CBB8E9D6CA0775263C72803476E0EA8E37AFA3ADC9DB3128"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_06_vinculos_professor_coordenador.csv",
+      "bytes": 70,
+      "sha256": "9BF573689D3D5599D89440E39A0EBCEBA942BE7C01F6AF0B85877838358D65FA"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_07_acesso_bibliotecario.pdf",
+      "bytes": 110386,
+      "sha256": "7438B163F151587879EF63C81FC06E97BFB2E2065EB8287A13484F9D2C3FB199"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_08_acesso_negado_alunoA.pdf",
+      "bytes": 110374,
+      "sha256": "660493E432A321F39B83D47947AC9CBC920854E5A92C32C0A03A28F9080CA327"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_09_vinculos_apos_recusa.csv",
+      "bytes": 99,
+      "sha256": "049CAF36D77899E0CBB8E9D6CA0775263C72803476E0EA8E37AFA3ADC9DB3128"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_10_emprestimo.csv",
+      "bytes": 109,
+      "sha256": "3B932284A2EA6CD0A1418C808545D3DFFCD3932495E954C9B3577C9888C11E95"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_11_sem_sessao.pdf",
+      "bytes": 113981,
+      "sha256": "09B3370462AA26E9EAF7678B2693CBE13BE9639D7900D91A6141A40F4AB93DD0"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_12_inscricao_apos_recusa.csv",
+      "bytes": 55,
+      "sha256": "D18317725D3698794BCF03047FD63B4D9CDDBA82656E6CB5D7284CCBD5ECFA18"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_13_consultas_alunoA.pdf",
+      "bytes": 116389,
+      "sha256": "B58486B8E22357820ACDABEB8FCFB1B4CD4D0EEAF4C0128316C791CB2AEBF7EB"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_14_pendencia_biblioteca.pdf",
+      "bytes": 111213,
+      "sha256": "0B4B28E069313713481FF8CABCBE830510A9F4EFDB4640B8F3AE0805C01D2AE7"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_15_pendencia.csv",
+      "bytes": 93,
+      "sha256": "C2C8B183EB858D8A44116AB9071E65E132CBB41217B4DBC32AFA6646535F670F"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_16_bloqueios_biblioteca.pdf",
+      "bytes": 111632,
+      "sha256": "75FA58019EC33EE227D4F73720067EB1A1663F8A01FDFF522E48454378A167CE"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_17_estado_apos_bloqueios.csv",
+      "bytes": 56,
+      "sha256": "C6155C4BE52547E922A5D8EF8A408551E4C0B616DE164C2C0658BC08907A28F7"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_18_regularizacao.csv",
+      "bytes": 56,
+      "sha256": "4DEE322610757D6400BDA8ABC49ED38A8A49E958605C34D5A615AB4DA32DC7E3"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_19_rematricula_alunoA.pdf",
+      "bytes": 113002,
+      "sha256": "2A3C210A9371F1D5FA0EE0227EA3030EB40AF61A87F2E5173532922B62E88E5B"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_20_rematricula_alunoA.csv",
+      "bytes": 72,
+      "sha256": "8D2DEC68039CF7EB88D992D18AA94F17B6DDBFE07AAC8D91CB31E9267E96BD74"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_21_rematricula_turmas_alunoB.pdf",
+      "bytes": 113560,
+      "sha256": "616C14EA10E9B7A2D363F97DDB0C94CB644FF47D38D5C5EB691B440EB673BE6F"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_22_renovacoes.csv",
+      "bytes": 57,
+      "sha256": "2052FD4BAE20D30E84B14ACEEC768DA25AC58456AEEE234256D8CA0B4468D200"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_23_inscricoes.csv",
+      "bytes": 78,
+      "sha256": "E2DC649656605343F3B8AE7A5AF71C49DD610766DAD94AE4BEED2F8DAA361BF7"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_24_cancelamento_negado_alunoB.pdf",
+      "bytes": 114036,
+      "sha256": "20C5D5E696D964E19512929CD7B8EDF326921938A070CB8CE54666CD399B55EB"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_25_cancelamento_confirmado.pdf",
+      "bytes": 111816,
+      "sha256": "5B760EB759F75FFD5D4D6A6AEDF59B6F541DE9CD0FCFEAEEFF5090F70501635D"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_26_cancelamento_efetivado.csv",
+      "bytes": 263,
+      "sha256": "C154A2756DC2D603CF7F3B961F3C6C640A18E71980A5895A57105D2C234B83F7"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_27_vagas_apos_cancelamento.csv",
+      "bytes": 69,
+      "sha256": "32A7633035B90BCB415D2F27AFEE3A0C3B833AAC2427777C6A0B5C6C6C17AFCC"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_28_reinscricao_alunoA.pdf",
+      "bytes": 113271,
+      "sha256": "799DE6BE580E8D4C7C6B5216F2602A39A71CFF4AADA79CB77F77BEB0413790FA"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_29_estado_apos_reinscricao.csv",
+      "bytes": 110,
+      "sha256": "E3627F74ABD5C59D7F4ADF501C9F3F5F9F8E71598F5CD32D4841CACFEAC3A7B8"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_30_cancelamento_nao_confirmado_alunoB.pdf",
+      "bytes": 111268,
+      "sha256": "06FF0A4456FE2D31FC923C001B02D773A3768F63EA448ADD55D091FC02491BAC"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_31_inscricao_preservada.csv",
+      "bytes": 85,
+      "sha256": "71A25A71AEC6E95614D40E6949777F8C30B046F2EB9BCD746E5741E64D1576C5"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_32_reaproveitamento_vaga_alunoB.pdf",
+      "bytes": 118188,
+      "sha256": "AA8891CA355B91EF2AC3506D09A6567298A26394194DE709A314F04453ACCCDF"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_33_inscricoes_finais.csv",
+      "bytes": 117,
+      "sha256": "2E43894E921BF668263AE3C1C2429E40810F9F3BAD1E5205D1041F386734540C"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_34_vagas_finais.csv",
+      "bytes": 69,
+      "sha256": "2F3E64DB12F83052E1F39BB0B8AEC68F9F07CB0B05507E30FA246D70971F7B24"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_35_entradas_logout.pdf",
+      "bytes": 123065,
+      "sha256": "E0F9D3FD70D054093BB52B98524D0F4A6FA6076387207ED4F46C90C9D9D9C5B2"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_36_estado_apos_logout.csv",
+      "bytes": 131,
+      "sha256": "13A082F840CA508B0C2AB23ABBB57B06E8789DCC13517A9CDB3C01C09D0979D2"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_37_calendario_antes.csv",
+      "bytes": 231,
+      "sha256": "04900DD1253715F92FD4F3A7DC66DBA4C9693D193E7055BA04D10B4B69247F52"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_38_calendario.pdf",
+      "bytes": 126485,
+      "sha256": "6DF52A2F08E77FC29BE73D494DF15B51CEFBF60DF6AEEAD701FC3777233BD4F1"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_39_calendario_apos.csv",
+      "bytes": 231,
+      "sha256": "04900DD1253715F92FD4F3A7DC66DBA4C9693D193E7055BA04D10B4B69247F52"
+    },
+    {
+      "cenario": "SEGUNDA_FASE",
+      "arquivo": "SEGUNDA FASE/V12_SF_40_sobreposicoes.csv",
+      "bytes": 16,
+      "sha256": "6DD58482D099CFB4CDC2C4CCD38567DDE31A613E49D0CD28831AC33599B37FFD"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/Teste sintético de cancelamento tardio.pdf",
+      "bytes": 112067,
+      "sha256": "85887B21030A6E4BF97B0646F243CB2A9A87EA0AF5A57592A77D0A605B2E3A8E"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_00_conexao_PRIVADO.csv",
+      "bytes": 47,
+      "sha256": "F6749B4D96E03CBC917355EF763C0C1239DB6125E2B038A8FEDFEF92CD107213"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_01_tabelas.csv",
+      "bytes": 11,
+      "sha256": "B1744E02F694BABB4AD8677D076F1449BF406129F78261F5A3D31C863174B94C"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_02_periodo.csv",
+      "bytes": 107,
+      "sha256": "A587A1D933871F3BF2D47B85D74ABA3044686FD392265DA097F2492AA287FD86"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_03_acesso_admin.pdf",
+      "bytes": 109945,
+      "sha256": "68A11EF2A704EB0C0D0F8D85668C59E8BF5B3173638B4F36245C6625CF8B7B5E"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_04_ids_preparacao.tsv",
+      "bytes": 577,
+      "sha256": "7496BDB81419958A62E461AE82AB84C984257E540E20CA381B875CA9A8A2F136"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_05_acesso_alunoA.pdf",
+      "bytes": 111766,
+      "sha256": "AB136C27259748B0447F52539B240E7AAE1643DC1D2F8BD52C079EE824CF5D0B"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_06_acesso_coordenador.pdf",
+      "bytes": 110737,
+      "sha256": "7187CFA006D5AF14468D124306CE1CE375F80BFE9A82559885BABAF693CC5BCE"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_07_acesso_professor.pdf",
+      "bytes": 110732,
+      "sha256": "B1154FF1903445A3173F195B35AC377FADE9C5373910B092C0466E77E23BC414"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_08_contas_vinculos.csv",
+      "bytes": 247,
+      "sha256": "D4C0520CC6DB19262BCE9C2A652454F18DBC0064A8413066657213069C84D559"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_22_pedido.pdf",
+      "bytes": 111489,
+      "sha256": "B39F1471F9EFE57A616ABFFEAA7EA2A4DA8E6972D8EF2D88F54E032FEDF08E21"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_23a_decisao_negada_aluno.pdf",
+      "bytes": 114533,
+      "sha256": "0E467E766569049CEF4F17633B5A0F8E97B0A76D113D91BEC045B3E85AF8EF7B"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_23b_estado_apos_recusa.csv",
+      "bytes": 152,
+      "sha256": "55396B5B2CDF0B3B793B4F9962EFBABE82478EE1E80C3D9B3C4EF32FFB6B0A0B"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_23c_indeferimento_coordenador.pdf",
+      "bytes": 111949,
+      "sha256": "18F98D9D222CC9D0BCCC25E053974848E92CE868DCBF768B316FC4EC991BE9BC"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_23d_inscricoes.csv",
+      "bytes": 173,
+      "sha256": "9768BB00208B06F0BB645AE9565A0412E60CF37E9827247D6E62F74A2DFBC89D"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_23e_cancelamentos.csv",
+      "bytes": 297,
+      "sha256": "4E09D838B18409957B056A70DBF0F4E42CE05A1FF6C03F3C157E7F7D4F0048DB"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_23f_resultados.csv",
+      "bytes": 212,
+      "sha256": "122E56317891EFDF8C8245A88C814B40DA962ED2F0EE226E0A4AF47373212F81"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_23g_renovacoes.csv",
+      "bytes": 49,
+      "sha256": "5D0415988600655D94E0ABCC757A33FB79E35A72CD66960AE086F6239DA723EF"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_24a_novo_pedido_aluno.pdf",
+      "bytes": 111529,
+      "sha256": "9F5EFFE69752BD402E0E6C848E188D470FC61A25D627F2AAD7DF11EC57EFEBB8"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_24b_deferimento_coordenador.pdf",
+      "bytes": 112199,
+      "sha256": "6FAC64EF594886A73B079DAA374FA00359891FBB034B647723A69F0C3EF9F3A3"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_24c_inscricoes.csv",
+      "bytes": 177,
+      "sha256": "46C30D079888E473EDD244652F4AC96541EDC9DCBC6BAAEE2EE3644FBA1DF678"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_24d_cancelamentos.csv",
+      "bytes": 472,
+      "sha256": "B73F16D6AC89DBD976959FB9DD8A7F615C8C2F2740DFD7EA5D81AF70EB909873"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_24e_resultados.csv",
+      "bytes": 212,
+      "sha256": "122E56317891EFDF8C8245A88C814B40DA962ED2F0EE226E0A4AF47373212F81"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_24f_renovacoes.csv",
+      "bytes": 49,
+      "sha256": "5D0415988600655D94E0ABCC757A33FB79E35A72CD66960AE086F6239DA723EF"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_25_vagas.csv",
+      "bytes": 132,
+      "sha256": "A3A7EA0DD473A150C3D0636B0446DCF1ED3B1EF02111B0EDFFF14DBE6B2843E7"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_26_planejamento_vaga_retida.pdf",
+      "bytes": 118197,
+      "sha256": "0F9C94EE566D6ABA972D0EB126521AE4A3878B8602BF9AB0665BD5C25BD95CB2"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_27_retificacao_fora_prazo.pdf",
+      "bytes": 111974,
+      "sha256": "4D7F7A68D4CFB291B88C99338745D0A81FE7674AAE76186C54D68474BD26CDAC"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_28_resultado_preservado.csv",
+      "bytes": 251,
+      "sha256": "0882B24633F5774AC1F5A711D8C749A5642E8504E2CCE6973385BA0EF55BD32D"
+    },
+    {
+      "cenario": "TARDIO",
+      "arquivo": "TARDIO/V12_TA_29_retificacoes.csv",
+      "bytes": 161,
+      "sha256": "C1B7D20F0C2008ED879D3298DEAEBDC0B8466248CDB72C261416D04D36FDC0EF"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_00_conexao_PRIVADO.csv",
+      "bytes": 47,
+      "sha256": "F6749B4D96E03CBC917355EF763C0C1239DB6125E2B038A8FEDFEF92CD107213"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_01_tabelas.csv",
+      "bytes": 11,
+      "sha256": "B1744E02F694BABB4AD8677D076F1449BF406129F78261F5A3D31C863174B94C"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_02_periodos.csv",
+      "bytes": 225,
+      "sha256": "F3EC4D26B852108A8698C29F4A14FAA18C92AA32BD237DDA319F4397F729425D"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_03_acesso_admin.pdf",
+      "bytes": 109941,
+      "sha256": "D55B21902173D717FEEB3FDD4EA5939E13C065D589868BCC976E2375C207459A"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_04_ids_preparacao.tsv",
+      "bytes": 585,
+      "sha256": "1139504D0D20482ADAB7C0DD30FFA3ABE4F87CEB4C75F50F6B27D5CF9FF9988A"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_05_acessos.pdf",
+      "bytes": 113088,
+      "sha256": "4F343CF79D9B34EE6607EC775000282BEBBA65B6977F25FAEC36CAAC3107A547"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_06_contas_vinculos.csv",
+      "bytes": 247,
+      "sha256": "627172C8F850E6D695FA3E060D3B47EFC2B6010796B88532EA479D0580D74FFC"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_07_aluno_sem_permissao.pdf",
+      "bytes": 111694,
+      "sha256": "A242DAF7916015701357672B6D3DB6AF002DCBCAB0796881C1AB7727AE668C0C"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_08_retificacoes_vazias.csv",
+      "bytes": 161,
+      "sha256": "C1B7D20F0C2008ED879D3298DEAEBDC0B8466248CDB72C261416D04D36FDC0EF"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_09_resultado_preservado.csv",
+      "bytes": 241,
+      "sha256": "579C9A08B15396165B485C11BE01EB42D5D4B6A9983D9F5C3C250202587DB56B"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_10a_sem_confirmacao.pdf",
+      "bytes": 113797,
+      "sha256": "1EA5ED3F8BEFCFECEB745B091ADE4410E6555455007336E86FC828B39599E80A"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_10b_pedido_professor.pdf",
+      "bytes": 115855,
+      "sha256": "16DD7CF154A4B59B06C4DE7F37EB9F3B0A85228A720FF1338142B626F24CC977"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_11_professor_sem_coordenacao.pdf",
+      "bytes": 117067,
+      "sha256": "103039BC2C8ACD37956EC67BD6613C0826969D0E76307DC243A386EEEE89D03E"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_12_deferimento.pdf",
+      "bytes": 112847,
+      "sha256": "501B0D3C97B44372772DF6597ACBBC26084F28253C420E908C9550E64737E7C2"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_13_notas_corrigidas.pdf",
+      "bytes": 110426,
+      "sha256": "4186D4A2AD88839C00BEE9935A166ECD954DE4BFE78EEF6C6D84145C1836C052"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_14_plano_corrigido.pdf",
+      "bytes": 116005,
+      "sha256": "ABA3D585123F35FFED731243F481BCF87EB5DDF79F58329C2CFD6BDDFBFACB91"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_15_segundo_pedido.pdf",
+      "bytes": 111684,
+      "sha256": "1CBDA2E72A52A5BBC1C838A57220582B7043E0F21EE8A13592D5803086AA02FC"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_16_indeferimento.pdf",
+      "bytes": 113430,
+      "sha256": "4909DEAF4FAA64192A14F0461225578A84E8BEEDC5F6B20A2E84192845A98B52"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_17_sucessor_coordenador.pdf",
+      "bytes": 114780,
+      "sha256": "C83CB839E2B1B010B8856E9F0861A6F50ED28B242D01DE60FD60D2A9152D21FC"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_18_sucessor_negado_aluno.pdf",
+      "bytes": 111358,
+      "sha256": "D7481C44503DC0FEE6E80FF3C2D1568CADE544CF1B81FA6FFA37150FAA746B76"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_26_pedido.csv",
+      "bytes": 1067,
+      "sha256": "9E9F347D9476758619C23EF4C2163F92B45099B6268AFFD5B95E18C90117AEB4"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_27_deferimento.csv",
+      "bytes": 1176,
+      "sha256": "1274F78703F1E9880C20E159D42ECBDC18347F6691E7A77CAB0BC2320A537E84"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_27b_apos_plano.csv",
+      "bytes": 1176,
+      "sha256": "1274F78703F1E9880C20E159D42ECBDC18347F6691E7A77CAB0BC2320A537E84"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_28_indeferimento.csv",
+      "bytes": 1849,
+      "sha256": "DE3C221B6ED53E624CA9F03082A8F21DEA638A1658F884ACACB3BA32E25FA2CB"
+    },
+    {
+      "cenario": "RETIFICACAO",
+      "arquivo": "RETIFICACAO/V12_RT_29_sucessor.csv",
+      "bytes": 38,
+      "sha256": "3F8B04018C99E8BB0442032A1740FEB9396E799B73BB9334BDCF69E8A1E26DAC"
+    }
+  ]
+}

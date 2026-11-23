@@ -36,4 +36,26 @@ class InscricaoTest {
         var j=JanelaInscricao.doPeriodo(LocalDate.of(2028,3,7));
         assertEquals(LocalDate.of(2028,2,22),j.abertura()); assertEquals(LocalDate.of(2028,2,29),j.fimExclusivo());
     }
+    @ParameterizedTest @CsvSource({"6,false","7,true","13,true","14,false"})
+    void segundaFaseDuraSeteDias(int deslocamento,boolean aberta) {
+        var inicio=LocalDate.of(2027,2,16);
+        assertEquals(aberta,JanelaInscricao.segundaFase(inicio).permite(inicio.plusDays(deslocamento)));
+    }
+    @ParameterizedTest @CsvSource({"13,true,true","14,false,true","45,false,true","46,false,false"})
+    void cancelamentoTrocaDeFluxoNoDiaQuatorzeEAdmitePedidoAteDiaQuarentaECinco(
+            int dia,boolean imediato,boolean admitePedido) {
+        var inicio=LocalDate.of(2027,2,16);
+        assertEquals(imediato,CancelamentoInscricao.imediato(inicio,inicio.plusDays(dia)));
+        assertEquals(admitePedido,CancelamentoInscricao.permitePedido(inicio,inicio.plusDays(90),inicio.plusDays(dia)));
+    }
+    @Test void retificacaoRespeitaSeteDiasEInicioDaPrimeiraFase() {
+        var fim=LocalDate.of(2027,6,20);
+        assertFalse(RetificacaoResultado.noPrazoDoProfessor(fim,fim));
+        assertTrue(RetificacaoResultado.noPrazoDoProfessor(fim,fim.plusDays(1)));
+        assertTrue(RetificacaoResultado.noPrazoDoProfessor(fim,fim.plusDays(7)));
+        assertFalse(RetificacaoResultado.noPrazoDoProfessor(fim,fim.plusDays(8)));
+        var seguinte=fim.plusDays(30);
+        assertTrue(RetificacaoResultado.antesDaInscricaoSeguinte(seguinte,seguinte.minusDays(15)));
+        assertFalse(RetificacaoResultado.antesDaInscricaoSeguinte(seguinte,seguinte.minusDays(14)));
+    }
 }
