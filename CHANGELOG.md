@@ -1,5 +1,14 @@
 # Alterações do SCOA
 
+## 0.14.0-SNAPSHOT — em desenvolvimento
+
+- Protegidos os serviços usados pelos menus acadêmicos legados com sessão e permissões técnicas de consulta/manutenção, separadas dos vínculos acadêmicos. Primeiro fechamento de resultado exige o professor responsável pela turma; auditoria integra a transação.
+- Menu 21: histórico próprio com matrículas, disciplinas, resultados, reconhecimentos e legados, além de sugestões/reclamações com autoria. V013 preserva autores desconhecidos das manifestações antigas.
+- Menu 22: transferência interna efetiva, matrícula de origem preservada como TRANSFERIDO, novo vínculo no destino, cancelamentos até D+45 e regra de vagas D+13/D+14. Aproveitamento automático exige mesma disciplina cadastrada e aprovação formal; V014 preserva origem e fundamento. Retificação com impacto no aproveitamento exige análise.
+- Grade de domínio com tempos de 50 minutos (6 manhã, 6 tarde, 5 noite), intervalos excluídos e tolerância inclusiva de 15 minutos. A integração com aulas e frequência ainda está pendente.
+- Menu 23: solicitação própria de declaração de matrícula/histórico escolar e atendimento da secretaria com concessões específicas, parecer, referência de entrega, versão e histórico. V015 preserva solicitações legadas. Geração/assinatura oficial não implementadas.
+- Esta atualização ainda não é fechamento do módulo acadêmico nem da v0.14. A base estável anterior é a v0.13; os novos incrementos aguardam validação manual do autor.
+
 ## 0.13.0-SNAPSHOT
 
 - Corrigida OC-V12-01: criação de conta escolhe apenas acesso técnico, com SEM_PERMISSOES como padrão. Aluno, professor e coordenação são obtidos dos vínculos; uma conta pode reunir vínculos legítimos sem ganhar concessões técnicas.

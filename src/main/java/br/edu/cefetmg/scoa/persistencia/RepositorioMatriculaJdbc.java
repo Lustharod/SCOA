@@ -65,7 +65,7 @@ public final class RepositorioMatriculaJdbc implements RepositorioMatricula {
         var lista=consulta("SELECT * FROM matricula_academica WHERE id_aluno=? AND id_curso=? FOR UPDATE",RepositorioMatriculaJdbc::ler,aluno,curso);
         for(var m:lista) {
             if(Objects.equals(m.id(),exceto)) continue;
-            if(!Set.of("CANCELADO","CONCLUIDO").contains(m.situacao()))
+            if(!Set.of("CANCELADO","CONCLUIDO","TRANSFERIDO").contains(m.situacao()))
                 throw new IllegalArgumentException("Vínculo já existente: matrícula " + m.id() + ". Consulte-o antes de criar ou retornar.");
         }
     }

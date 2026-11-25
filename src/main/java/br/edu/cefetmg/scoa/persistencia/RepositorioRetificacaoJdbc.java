@@ -128,6 +128,9 @@ public final class RepositorioRetificacaoJdbc {
     }
 
     private void exigirSemDependencia(RepositorioInscricaoJdbc.ContextoInscricao contexto) throws SQLException {
+        if(!q(conexao,"SELECT id_pedido FROM aproveitamento_transferencia WHERE id_inscricao_origem=? FOR SHARE",
+                r->r.getLong(1),contexto.inscricao().id()).isEmpty())
+            throw new IllegalArgumentException("O resultado fundamentou aproveitamento por transferência. A correção exige análise de impacto.");
         var dependentes=q(conexao,"""
                 SELECT i.id_inscricao FROM inscricao_disciplina i
                 JOIN evidencia_requisito_inscricao e ON e.id_inscricao=i.id_inscricao

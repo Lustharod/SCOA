@@ -1,0 +1,20 @@
+SCOA v0.14.0-SNAPSHOT — incremento em desenvolvimento
+Executor: Codex; aprovação manual do autor ainda pendente
+Data/hora do término: 25/11/2026 08:42:18 UTC-03:00 (America/Sao_Paulo)
+Comando Maven: mvn -o -B verify -Pmysql-it
+Resultado observado no terminal: BUILD SUCCESS
+Duração exibida pelo Maven: 01:09 min
+Java: 25.0.1+8-27
+Maven: 3.9.11, distribuição em cache
+MySQL: 8.0.46
+Sistema: Windows 11; arquitetura amd64
+Schema: scoa_java_teste, instância descartável nova, sem acessar scoa
+Porta: 33386; escuta local 127.0.0.1; instância encerrada ao fim
+Base: DDL de testes v7.5 + V006 a V015, na ordem
+Tabelas esperadas pelo DDL: 89 (a contagem pós-migração não foi exportada nesta execução)
+Unitários: 159; falhas 0; erros 0; ignorados 0
+Integração: 241; falhas 0; erros 0; ignorados 0
+Evidências públicas: RELATORIO.md, RESULTADOS.md, ambiente.txt, FONTES_SHA256.json
+Originais privados: XML/TXT Surefire e Failsafe recuperados de target após reinício, com manifesto SHA-256
+O log bruto completo do terminal temporário não foi recuperado; não foi reconstruído
+Preparações e restaurações SQL dos testes são fixtures transacionais, não operações auditadas do console

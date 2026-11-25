@@ -244,3 +244,12 @@ Thumbs.db
 !/docs/testes/publicados/execucao_autor_v0_13/dados/
 /docs/testes/publicados/execucao_autor_v0_13/dados/*
 !/docs/testes/publicados/execucao_autor_v0_13/dados/*.csv
+
+# Atualização acadêmica em desenvolvimento: notas e resultados revisados; originais privados
+!/docs/SCOA_Implementacao_v0_14.md
+!/docs/testes/publicados/execucao_codex_v0_14/
+/docs/testes/publicados/execucao_codex_v0_14/*
+!/docs/testes/publicados/execucao_codex_v0_14/RELATORIO.md
+!/docs/testes/publicados/execucao_codex_v0_14/RESULTADOS.md
+!/docs/testes/publicados/execucao_codex_v0_14/ambiente.txt
+!/docs/testes/publicados/execucao_codex_v0_14/FONTES_SHA256.json

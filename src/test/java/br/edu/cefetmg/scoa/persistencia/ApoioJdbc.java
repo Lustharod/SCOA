@@ -49,6 +49,15 @@ final class ApoioJdbc {
                 r.next();
                 if(r.getInt(1)!=6) throw new IllegalStateException("Aplique V010, V011 e V012 em scoa_java_teste após V009.");
             }
+            try(var s=conexao.createStatement();var r=s.executeQuery("SELECT COUNT(*) FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='manifestacao_aluno' AND column_name='id_usuario_autor'")) {
+                r.next(); if(r.getInt(1)!=1) throw new IllegalStateException("Aplique uma vez V013__autoria_manifestacao.sql em scoa_java_teste após V012.");
+            }
+            try(var s=conexao.createStatement();var r=s.executeQuery("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=DATABASE() AND table_name='aproveitamento_transferencia' AND engine='InnoDB'")) {
+                r.next(); if(r.getInt(1)!=1) throw new IllegalStateException("Aplique uma vez V014__transferencia_interna.sql em scoa_java_teste após V013.");
+            }
+            try(var s=conexao.createStatement();var r=s.executeQuery("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=DATABASE() AND table_name='andamento_documento' AND engine='InnoDB'")) {
+                r.next(); if(r.getInt(1)!=1) throw new IllegalStateException("Aplique uma vez V015__solicitacao_documento.sql em scoa_java_teste após V014.");
+            }
             return conexao;
         } catch (SQLException | RuntimeException erro) {
             conexao.close();

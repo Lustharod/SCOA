@@ -1,6 +1,8 @@
 # Documentação e evidências do SCOA
 
-**Estado atual: v0.13 fechada em 24/11/2026.** Este índice apresenta o que foi implementado, como foi verificado e onde encontrar as evidências públicas.
+**Neste ramo: v0.14 em desenvolvimento. Última versão fechada: v0.13, em 24/11/2026.** As [notas da atualização acadêmica](SCOA_Implementacao_v0_14.md) identificam os incrementos implementados e os blocos pendentes. Os testes manuais do autor da v0.14 ainda não foram realizados.
+
+O [relatório Codex da v0.14](testes/publicados/execucao_codex_v0_14/RELATORIO.md) registra 159 unitários e 241 integrações aprovados em 25/11/2026, com contagens por classe, ambiente e hashes das fontes.
 
 ## Comece pela entrega atual
 

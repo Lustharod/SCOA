@@ -137,7 +137,7 @@ public final class RepositorioEquivalenciaJdbc implements RepositorioEquivalenci
     @Override public PlanoBasico plano(long matricula) {
         return TransacaoJdbc.executar(c,()->{
             var ctx=contexto(matricula,false); exigirContextoConciliado(matricula,ctx);
-            if(!Set.of("ATIVO","TRANCADO","CANCELADO").contains(ctx.situacao()))
+            if(!Set.of("ATIVO","TRANCADO","CANCELADO","TRANSFERIDO").contains(ctx.situacao()))
                 throw new IllegalArgumentException("Situação da matrícula desconhecida; conciliação necessária.");
             var disciplinas=q("SELECT d.id_disciplina,d.nome FROM estrutura_disciplina e JOIN disciplina d ON d.id_disciplina=e.id_disciplina "
                     +"WHERE e.id_estrutura=? ORDER BY d.id_disciplina FOR SHARE",r->new Object[]{r.getLong(1),r.getString(2)},ctx.estrutura());
