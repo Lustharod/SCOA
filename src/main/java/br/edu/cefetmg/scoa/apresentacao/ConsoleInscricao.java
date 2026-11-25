@@ -64,8 +64,7 @@ public final class ConsoleInscricao {
                         BigDecimal pf=texto.isEmpty()?null:new BigDecimal(texto.replace(',','.'));
                         long total=id("Total de minutos letivos efetivamente apurados: "),presentes=id("Minutos de presença: ");
                         String motivo=ler("Referência da apuração e motivo do fechamento: ");
-                        var resultado=br.edu.cefetmg.scoa.dominio.RegraResultado.calcular(p1,p2,pf,total,presentes);
-                        System.out.println("Inscrição "+inscricao+" | "+resultado+" | presença "+presentes+"/"+total+" minutos | "+motivo);
+                        System.out.println("Inscrição "+inscricao+" | P1 "+p1+" | P2 "+p2+" | PF "+pf+" | presença "+presentes+"/"+total+" minutos | "+motivo);
                         if(confirmar()) System.out.println("Resultado registrado: "+servico.registrarResultado(inscricao,p1,p2,pf,total,presentes,motivo));
                         else System.out.println("Operação cancelada.");
                     }

@@ -6,7 +6,12 @@ import java.util.*;
 /** Simulação determinística; nenhuma sugestão é evidência de cumprimento. */
 public final class Planejamento {
     private Planejamento() { }
-    public record Periodo(long id, String descricao, LocalDate inicio, LocalDate fim, String situacao) {
+    public record Periodo(long id, String descricao, LocalDate inicio, LocalDate fim, String situacao,
+            Long versaoParametros,ParametrosAcademicos.Regras regras) {
+        public Periodo(long id,String descricao,LocalDate inicio,LocalDate fim,String situacao) {
+            this(id,descricao,inicio,fim,situacao,null,ParametrosAcademicos.Regras.baseAprovada());
+        }
+        public Periodo { Objects.requireNonNull(regras); }
         public PeriodoLetivo intervalo() { return new PeriodoLetivo(inicio,fim); }
     }
     public record Disciplina(long id, String nome, int horas, String situacao, String cadastro, List<Long> requisitos) {

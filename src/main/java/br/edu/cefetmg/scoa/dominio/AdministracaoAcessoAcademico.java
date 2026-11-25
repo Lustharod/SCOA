@@ -14,7 +14,8 @@ public final class AdministracaoAcessoAcademico {
         DECIDIR("SCOA_PROCESSO_DECIDIR","Analisar conciliação/revisão acadêmica"),
         DOCUMENTOS_CONSULTAR("SCOA_DOCUMENTOS_CONSULTAR","Consultar fila de documentos acadêmicos"),
         DOCUMENTOS_ATENDER("SCOA_DOCUMENTOS_ATENDER","Atender documentos acadêmicos na secretaria"),
-        RELATORIOS("SCOA_RELATORIOS_GERAR","Conferir, gerar e consultar demonstrativos acadêmicos MEC");
+        RELATORIOS("SCOA_RELATORIOS_GERAR","Conferir, gerar e consultar demonstrativos acadêmicos MEC"),
+        PARAMETROS("SCOA_PARAMETROS_MANTER","Criar versões de regras e selecionar sua vigência em períodos futuros");
         private final String codigo,descricao;
         Codigo(String codigo,String descricao) { this.codigo=codigo; this.descricao=descricao; }
         public String codigo() { return codigo; }

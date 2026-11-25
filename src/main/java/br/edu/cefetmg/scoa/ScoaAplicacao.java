@@ -59,6 +59,7 @@ public final class ScoaAplicacao {
                 System.out.println("29 Horários da turma antes da sala e alocação posterior");
                 System.out.println("30 Relatórios acadêmicos e exportações PDF/XLSX");
                 System.out.println("31 Administração de perfis e permissões técnicas acadêmicas");
+                System.out.println("32 Regras acadêmicas versionadas e vigência em períodos futuros");
                 String opcao = ler(entrada, "Opção: ");
                 try {
                     switch (opcao) {
@@ -122,6 +123,9 @@ public final class ScoaAplicacao {
                         case "19" -> new ConsoleConsultasAluno(entrada,
                                 new RepositorioConsultasAlunoJdbc(conexao, sessao)).executar();
                         case "20" -> new ConsoleAjustesAcademicos(entrada,conexao,sessao).executar();
+                        case "32" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleParametrosAcademicos(entrada,
+                                new br.edu.cefetmg.scoa.aplicacao.ServicoParametrosAcademicos(
+                                    new br.edu.cefetmg.scoa.persistencia.RepositorioParametrosAcademicosJdbc(conexao,sessao))).executar();
                         case "31" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleAdministracaoAcessoAcademico(entrada,
                                 new br.edu.cefetmg.scoa.aplicacao.ServicoAdministracaoAcessoAcademico(
                                     new br.edu.cefetmg.scoa.persistencia.RepositorioAdministracaoAcessoAcademicoJdbc(conexao,sessao))).executar();

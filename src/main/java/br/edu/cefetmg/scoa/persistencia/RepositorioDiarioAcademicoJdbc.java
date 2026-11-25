@@ -207,7 +207,8 @@ public final class RepositorioDiarioAcademicoJdbc implements RepositorioDiarioAc
         RegraResultado.Resultado previa=null;
         if(pendencias.isEmpty()) {
             try {
-                previa=RegraResultado.calcular(valores.get(Prova.P1),valores.get(Prova.P2),valores.get(Prova.PF),considerados,presentes);
+                previa=RegraResultado.calcular(valores.get(Prova.P1),valores.get(Prova.P2),valores.get(Prova.PF),considerados,presentes,
+                        ParametroPeriodoJdbc.porTurma(c,insc.turma()).regras());
                 if("AGUARDA_PF".equals(previa.situacao())) pendencias.add("PF pendente.");
             } catch(IllegalArgumentException e) { pendencias.add(e.getMessage()); }
         }
@@ -253,7 +254,7 @@ public final class RepositorioDiarioAcademicoJdbc implements RepositorioDiarioAc
             return new Processamento(e.chave(),"REPETIDO","Evento já processado; não acrescentou presença nem carga.");
         }
         if(!e.instante().toLocalDate().equals(aula.data())) throw new IllegalArgumentException("A chegada deve corresponder à data da aula.");
-        var p=tempo(aula).presencaPorChegada(e.instante().toLocalTime());
+        var p=tempo(aula).presencaPorChegada(e.instante().toLocalTime(),ParametroPeriodoJdbc.porTurma(c,aula.turma()).regras().toleranciaAtraso());
         // O adaptador não sobrescreve frequência manual ou outro evento anteriormente aceito.
         frequencia(new LancarFrequencia(e.aula(),e.inscricao(),p,-1,"Evento simulado "+e.origem()+"/"+e.chave()),"SIMULADO");
         g(c,"INSERT INTO evento_acesso_simulado VALUES (?,?,?,?,?,?,?)",e.origem(),e.chave(),e.aula(),e.inscricao(),e.instante(),ctx.autor(),agoraUtc(c));

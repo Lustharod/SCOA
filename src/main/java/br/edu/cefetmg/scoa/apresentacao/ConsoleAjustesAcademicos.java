@@ -118,7 +118,7 @@ public final class ConsoleAjustesAcademicos {
         long presentes=inteiro(ler("Minutos de presença: "));
         String motivo=ler("Justificativa da retificação: ");
         var proposta=new RetificacaoResultado(p1,p2,pf,total,presentes);
-        System.out.println("Resultado proposto: "+proposta.calcular());
+        System.out.println("Resultado proposto conforme as regras do período: "+retificacoes.preparar(inscricao,proposta));
         if(confirmar()) System.out.println("Pedido registrado: "+retificacoes.solicitar(inscricao,proposta,motivo));
     }
 

@@ -32,13 +32,14 @@ public final class RepositorioCancelamentoJdbc {
             exigirAtiva(contexto);
             var agora=agoraUtc(conexao);
             var hoje=dataAcademica(agora);
-            if(!CancelamentoInscricao.permitePedido(contexto.inicio(),contexto.fim(),hoje))
+            var regras=ParametroPeriodoJdbc.porTurma(conexao,contexto.inscricao().turma()).regras();
+            if(!regras.permiteCancelamento(contexto.inicio(),contexto.fim(),hoje))
                 throw new IllegalArgumentException("Prazo para solicitar cancelamento encerrado.");
             if(!q(conexao,"SELECT id_pedido FROM cancelamento_inscricao WHERE pedido_aberto=? FOR UPDATE",
                     r->r.getLong(1),inscricao).isEmpty())
                 throw new IllegalArgumentException("Já existe um pedido pendente para esta inscrição.");
 
-            boolean imediato=CancelamentoInscricao.imediato(contexto.inicio(),hoje);
+            boolean imediato=regras.cancelamentoImediato(contexto.inicio(),hoje);
             String situacao=imediato?"AUTOMATICO":"PENDENTE";
             long id=g(conexao,"""
                     INSERT INTO cancelamento_inscricao(id_inscricao,solicitante,justificativa,solicitado_em,situacao,decidido_em)

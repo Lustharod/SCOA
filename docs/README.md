@@ -2,7 +2,7 @@
 
 **Neste ramo: v0.14 em desenvolvimento. Última versão fechada: v0.13, em 24/11/2026.** As [notas da atualização acadêmica](SCOA_Implementacao_v0_14.md) identificam os incrementos implementados e os blocos pendentes. Os testes manuais do autor da v0.14 ainda não foram realizados.
 
-O [relatório Codex da v0.14](testes/publicados/execucao_codex_v0_14/RELATORIO.md) registra 190 unitários e 390 integrações aprovados em 25/11/2026, incluindo diário, plano institucional versionado, rematrícula em lote, gestão acadêmica, transferências externas, horários antes da sala, relatórios PDF/XLSX e administração de acesso. Contém contagens por classe, ambiente e hashes das fontes. A rodada manual integrada do autor será realizada ao fim dos blocos. Duas [amostras visuais](testes/publicados/execucao_codex_v0_14/AMOSTRAS.md) mostram o PDF sintético gerado e verificado automaticamente pelo Codex; não são capturas manuais do autor.
+O [relatório Codex da v0.14](testes/publicados/execucao_codex_v0_14/RELATORIO.md) registra 197 unitários e 411 integrações aprovados em 25/11/2026, incluindo diário, plano institucional versionado, rematrícula em lote, gestão acadêmica, transferências externas, horários antes da sala, relatórios PDF/XLSX e administração de acesso, além de regras versionadas por período. Contém contagens por classe, ambiente e hashes das fontes. A rodada manual integrada do autor será realizada ao fim dos blocos. Duas [amostras visuais](testes/publicados/execucao_codex_v0_14/AMOSTRAS.md) mostram o PDF sintético gerado e verificado automaticamente pelo Codex; não são capturas manuais do autor.
 
 ## Comece pela entrega atual
 

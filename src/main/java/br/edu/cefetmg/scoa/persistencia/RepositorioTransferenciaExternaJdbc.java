@@ -103,8 +103,8 @@ public final class RepositorioTransferenciaExternaJdbc implements RepositorioTra
     private void periodoNoPrazo(long periodo,LocalDate hoje) throws SQLException {
         var datas=q(c,"SELECT data_inicio,data_fim FROM periodo_letivo WHERE id_periodo=? AND situacao='ATIVO' FOR SHARE",
                 r->new LocalDate[]{r.getObject(1,LocalDate.class),r.getObject(2,LocalDate.class)},periodo);
-        if(datas.isEmpty() || !TransferenciaInterna.noPrazo(datas.getFirst()[0],datas.getFirst()[1],hoje))
-            throw new IllegalArgumentException("Transferência exige período ativo, até D+45 e sem ultrapassar seu fim.");
+        if(datas.isEmpty() || !ParametroPeriodoJdbc.porPeriodo(c,periodo).regras().permiteTransferencia(datas.getFirst()[0],datas.getFirst()[1],hoje))
+            throw new IllegalArgumentException("Transferência exige período ativo e prazo configurado, sem ultrapassar seu fim.");
     }
     private long[] entrada(Processo p,long autor,LocalDateTime agora,LocalDate hoje) throws SQLException {
         estrutura(p.curso(),p.estrutura());
@@ -138,7 +138,7 @@ public final class RepositorioTransferenciaExternaJdbc implements RepositorioTra
                 WHERE i.id_matricula=? AND i.situacao='ATIVO' ORDER BY i.id_inscricao FOR UPDATE
                 """,r->new Object[]{r.getLong(1),r.getLong(2),r.getObject(3,LocalDate.class),r.getObject(4,LocalDate.class)},p.origem());
         for(var i:ativas) {
-            if(!TransferenciaInterna.noPrazo((LocalDate)i[2],(LocalDate)i[3],hoje))
+            if(!ParametroPeriodoJdbc.porTurma(c,(long)i[1]).regras().permiteTransferencia((LocalDate)i[2],(LocalDate)i[3],hoje))
                 throw new IllegalArgumentException("Há inscrição ativa fora do prazo de transferência; resolva a pendência acadêmica.");
             if(!q(c,"SELECT id_inscricao FROM resultado_inscricao WHERE id_inscricao=? FOR SHARE",r->r.getLong(1),i[0]).isEmpty())
                 throw new IllegalArgumentException("Inscrição ativa com resultado exige conferência antes da transferência.");
@@ -146,7 +146,7 @@ public final class RepositorioTransferenciaExternaJdbc implements RepositorioTra
                 throw new IllegalArgumentException("Conclua o pedido de cancelamento pendente antes da transferência.");
         }
         for(var i:ativas) g(c,"UPDATE inscricao_disciplina SET situacao='CANCELADO',vaga_retida=? WHERE id_inscricao=?",
-                !CancelamentoInscricao.imediato((LocalDate)i[2],hoje),i[0]);
+                !ParametroPeriodoJdbc.porTurma(c,(long)i[1]).regras().cancelamentoImediato((LocalDate)i[2],hoje),i[0]);
         g(c,"UPDATE matricula_academica SET situacao='TRANSFERIDO' WHERE id_matricula=?",p.origem());
         g(c,"""
                 INSERT INTO historico_matricula(id_matricula,operacao,motivo,situacao_anterior,situacao_nova,

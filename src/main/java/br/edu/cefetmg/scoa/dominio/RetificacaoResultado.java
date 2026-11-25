@@ -5,7 +5,10 @@ import java.time.LocalDate;
 
 public record RetificacaoResultado(BigDecimal p1,BigDecimal p2,BigDecimal pf,long total,long presentes) {
     public RegraResultado.Resultado calcular() {
-        var apuracao=RegraResultado.calcular(p1,p2,pf,total,presentes);
+        return calcular(ParametrosAcademicos.Regras.baseAprovada());
+    }
+    public RegraResultado.Resultado calcular(ParametrosAcademicos.Regras regras) {
+        var apuracao=RegraResultado.calcular(p1,p2,pf,total,presentes,regras);
         if("AGUARDA_PF".equals(apuracao.situacao()))
             throw new IllegalArgumentException("PF pendente. Informe uma apuração final completa.");
         return apuracao;

@@ -2,6 +2,8 @@
 
 ## 0.14.0-SNAPSHOT — em desenvolvimento
 
+- Menu 32 e V024: parâmetros acadêmicos em versões imutáveis, selecionadas explicitamente somente para períodos futuros. Prazos de inscrição/cancelamento/transferência/retificação, tolerância de atraso, frequência mínima e médias usam a seleção do período. Resultados e retificações novos registram a origem das regras; dados anteriores não são recalculados. Regressão Codex: 197 unitários e 411 integrações aprovados; manual integrado pendente.
+
 - Menu 31 e V023: administração de perfis técnicos e concessões por conta, permissões atuais nas sessões, versões e histórico de mudanças. Perfis compartilhados exibem contas afetadas; último administrador ativo protegido. Conta inativa bloqueia acesso e revoga a sessão antiga mesmo após reativação, preservando credenciais e vínculos. Catálogo acadêmico conserva permissões de outros módulos. Regressão Codex: 190 unitários e 390 integrações aprovados.
 
 - Menu 30 e V022: relatórios Censo/ENADE demonstrativos, diário completo dos registros por docente/gestão, histórico e plano próprios; prévia e confirmação, revalidação e arquivos reais PDF/XLSX arquivados com autoria e SHA-256. Repetição não duplica; revogação impede acesso inclusive ao arquivo anterior; amostras visuais sintéticas identificadas. Sem estimativa de aptidão/conclusão de curso ou assinatura oficial. Regressão Codex: 188 unitários e 370 integrações aprovados; manual integrado pendente.

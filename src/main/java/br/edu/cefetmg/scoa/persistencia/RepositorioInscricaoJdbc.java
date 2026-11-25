@@ -133,8 +133,9 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
         for(var i:inscricoes) if(Set.of("ATIVO","CANCELADO").contains(i.situacao())) turmas.add(i.turma());
         Map<Long,Oferta> ofertas=new HashMap<>(); for(long t:turmas) ofertas.put(t,turma(t));
         Oferta o=ofertas.get(alvo); Periodo p=periodo(o.periodo()); LocalDate data=hoje();
-        JanelaInscricao janela=JanelaInscricao.doPeriodo(p.inicio());
-        JanelaInscricao segundaFase=JanelaInscricao.segundaFase(p.inicio());
+        var regras=ParametroPeriodoJdbc.porPeriodo(c,o.periodo()).regras();
+        JanelaInscricao janela=regras.primeiraFase(p.inicio());
+        JanelaInscricao segundaFase=regras.segundaFase(p.inicio());
         if(!"ATIVO".equals(o.situacao()) || !"ATIVO".equals(p.situacao())) motivos.add("Turma e período devem estar ativos.");
         ativo("disciplina","id_disciplina",o.disciplina());
         if(!(janela.permite(data) || segundaFase.permite(data)) || data.isAfter(p.fim()))
@@ -231,17 +232,18 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
     }
     @Override public RegraResultado.Resultado registrarResultado(long inscricao,BigDecimal p1,BigDecimal p2,BigDecimal pf,long total,long presentes,String motivo) {
         HorarioAula.validarId(inscricao); String razao=Matricula.validarMotivo(motivo);
-        var resultado=RegraResultado.calcular(p1,p2,pf,total,presentes);
-        if("AGUARDA_PF".equals(resultado.situacao())) throw new IllegalArgumentException("PF pendente; resultado não encerrado.");
         return TransacaoJdbc.executar(c,()->{
             JdbcAcademico.controle(c);
             var contexto=bloquearInscricao(inscricao);
+            var parametros=ParametroPeriodoJdbc.porTurma(c,contexto.inscricao().turma());
+            var resultado=RegraResultado.calcular(p1,p2,pf,total,presentes,parametros.regras());
+            if("AGUARDA_PF".equals(resultado.situacao())) throw new IllegalArgumentException("PF pendente; resultado não encerrado.");
             if(!"ATIVO".equals(contexto.inscricao().situacao()))
                 throw new IllegalArgumentException("Somente inscrição ativa admite primeiro fechamento.");
             if(!contexto.fim().isBefore(hoje()))
                 throw new IllegalArgumentException("Aguarde o encerramento do período antes de registrar o resultado final.");
-            gravar("INSERT INTO resultado_inscricao(id_inscricao,p1,p2,pf,total_minutos,presentes_minutos,media_inicial,media_final,situacao,motivo) VALUES (?,?,?,?,?,?,?,?,?,?)",
-                    inscricao,p1,p2,pf,total,presentes,resultado.mediaInicial(),resultado.mediaFinal(),resultado.situacao(),razao);
+            gravar("INSERT INTO resultado_inscricao(id_inscricao,p1,p2,pf,total_minutos,presentes_minutos,media_inicial,media_final,situacao,motivo,id_versao_parametros,fonte_parametros) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+                    inscricao,p1,p2,pf,total,presentes,resultado.mediaInicial(),resultado.mediaFinal(),resultado.situacao(),razao,parametros.versao(),parametros.fonte());
             gravar("UPDATE inscricao_disciplina SET situacao=? WHERE id_inscricao=?",resultado.situacao(),inscricao);
             return resultado;
         });

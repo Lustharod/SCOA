@@ -35,10 +35,10 @@ public final class ConsolePlanejamento {
                     for(var item:resultado.itens()) {
                         System.out.printf("Disciplina %d | %s | %dh | %s | %s%n",item.disciplina().id(),item.disciplina().nome(),item.disciplina().horas(),item.disciplina().situacao(),item.motivo());
                         for(var tentativa:item.tentativas()) {
-                            var o=tentativa.oferta(); var janela=JanelaInscricao.doPeriodo(o.periodo().inicio());
+                            var o=tentativa.oferta(); var janela=o.periodo().regras().primeiraFase(o.periodo().inicio());
                             System.out.printf("  Turma %d | período %d (%s, %s a %s) | vagas observadas %d | horários %s | 1ª fase %s | 2ª fase %s%n",
                                     o.turma(),o.periodo().id(),o.periodo().descricao(),o.periodo().inicio(),o.periodo().fim(),
-                                    o.vagas(),o.horarios(),janela,JanelaInscricao.segundaFase(o.periodo().inicio()));
+                                    o.vagas(),o.horarios(),janela,o.periodo().regras().segundaFase(o.periodo().inicio()));
                             System.out.println("  "+(tentativa.impedimentos().isEmpty()?"SUGERIDA; janela não é avaliada como autorização atual.":String.join(" ",tentativa.impedimentos())));
                         }
                     }

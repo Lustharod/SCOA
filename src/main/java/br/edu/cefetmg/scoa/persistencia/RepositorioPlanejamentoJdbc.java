@@ -18,12 +18,13 @@ public final class RepositorioPlanejamentoJdbc implements RepositorioPlanejament
             try(var r=s.executeQuery()) { var itens=new ArrayList<T>(); while(r.next()) itens.add(leitor.ler(r)); return List.copyOf(itens); }
         }
     }
-    private static Periodo periodo(ResultSet r) throws SQLException {
-        return new Periodo(r.getLong("id_periodo"),r.getString("descricao"),r.getObject("data_inicio",LocalDate.class),r.getObject("data_fim",LocalDate.class),r.getString("situacao"));
+    private Periodo periodo(ResultSet r) throws SQLException {
+        var parametros=ParametroPeriodoJdbc.porPeriodo(c,r.getLong("id_periodo"));
+        return new Periodo(r.getLong("id_periodo"),r.getString("descricao"),r.getObject("data_inicio",LocalDate.class),r.getObject("data_fim",LocalDate.class),r.getString("situacao"),parametros.versao(),parametros.regras());
     }
     @Override
     public List<Periodo> periodos() {
-        return TransacaoJdbc.executar(c,()->q("SELECT * FROM periodo_letivo ORDER BY data_inicio,id_periodo",RepositorioPlanejamentoJdbc::periodo));
+        return TransacaoJdbc.executar(c,()->q("SELECT * FROM periodo_letivo ORDER BY data_inicio,id_periodo",this::periodo));
     }
     private void ativo(String tabela,String chave,long id) throws SQLException {
         var lista=q("SELECT situacao FROM "+tabela+" WHERE "+chave+"=? FOR SHARE",r->r.getString(1),id);
@@ -58,7 +59,7 @@ public final class RepositorioPlanejamentoJdbc implements RepositorioPlanejament
             // Bloqueia ofertas antes dos períodos, como o fluxo de inscrição. Consulta conservadora.
             var turmas=q("SELECT id_turma FROM turma ORDER BY id_turma FOR SHARE",r->r.getLong(1));
             var periodos=new LinkedHashMap<Long,Periodo>();
-            q("SELECT * FROM periodo_letivo ORDER BY id_periodo FOR SHARE",RepositorioPlanejamentoJdbc::periodo).forEach(p->periodos.put(p.id(),p));
+            q("SELECT * FROM periodo_letivo ORDER BY id_periodo FOR SHARE",this::periodo).forEach(p->periodos.put(p.id(),p));
             if(!periodos.keySet().containsAll(selecionados)) throw new IllegalArgumentException("Período selecionado não encontrado.");
             var disciplinas=new ArrayList<Disciplina>();
             for(var item:plano.itens()) {

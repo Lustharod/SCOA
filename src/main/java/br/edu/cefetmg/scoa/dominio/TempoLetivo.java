@@ -30,8 +30,12 @@ public enum TempoLetivo {
     public int minutos() { return 50; }
     /** A chegada informada é avaliada para este tempo, não para o turno inteiro. */
     public Presenca presencaPorChegada(LocalTime chegada) {
+        return presencaPorChegada(chegada,15);
+    }
+    public Presenca presencaPorChegada(LocalTime chegada,int tolerancia) {
+        if(tolerancia<0 || tolerancia>=50) throw new IllegalArgumentException("Confira a tolerância de atraso.");
         if(chegada==null) return Presenca.SEM_REGISTRO;
-        return chegada.isAfter(inicio.plusMinutes(15))?Presenca.FALTA:Presenca.PRESENTE;
+        return chegada.isAfter(inicio.plusMinutes(tolerancia))?Presenca.FALTA:Presenca.PRESENTE;
     }
     public static List<TempoLetivo> doTurno(Turno turno) {
         if(turno==null) throw new IllegalArgumentException("Informe o turno.");

@@ -14,19 +14,23 @@ public final class RegraResultado {
         return valor;
     }
     public static Resultado calcular(BigDecimal p1, BigDecimal p2, BigDecimal pf, long total, long presentes) {
+        return calcular(p1,p2,pf,total,presentes,ParametrosAcademicos.Regras.baseAprovada());
+    }
+    public static Resultado calcular(BigDecimal p1, BigDecimal p2, BigDecimal pf, long total, long presentes,ParametrosAcademicos.Regras regras) {
+        java.util.Objects.requireNonNull(regras);
         nota(p1); nota(p2); if (pf != null) nota(pf);
         if (total <= 0 || presentes < 0 || presentes > total)
             throw new IllegalArgumentException("Frequência: informe minutos totais positivos e presentes entre zero e o total.");
         BigDecimal inicial = p1.add(p2).divide(BigDecimal.valueOf(2), 1, RoundingMode.HALF_UP);
-        if (inicial.compareTo(BigDecimal.valueOf(7)) >= 0 && pf != null)
+        if (inicial.compareTo(regras.mediaDispensaPf()) >= 0 && pf != null)
             throw new IllegalArgumentException("A média inicial dispensa PF. Preserve somente as provas aplicáveis.");
         boolean frequencia = BigDecimal.valueOf(presentes).multiply(BigDecimal.valueOf(100))
-                .compareTo(BigDecimal.valueOf(total).multiply(BigDecimal.valueOf(75))) >= 0;
-        BigDecimal finalMedia = inicial.compareTo(BigDecimal.valueOf(7)) >= 0 ? inicial
+                .compareTo(BigDecimal.valueOf(total).multiply(regras.frequenciaPercentual())) >= 0;
+        BigDecimal finalMedia = inicial.compareTo(regras.mediaDispensaPf()) >= 0 ? inicial
                 : pf == null ? null : inicial.add(pf).divide(BigDecimal.valueOf(2), 1, RoundingMode.HALF_UP);
         String situacao = !frequencia ? "REPROVADO" : finalMedia == null ? "AGUARDA_PF"
-                : finalMedia.compareTo(inicial.compareTo(BigDecimal.valueOf(7)) >= 0
-                    ? BigDecimal.valueOf(7) : BigDecimal.valueOf(5)) >= 0 ? "APROVADO" : "REPROVADO";
+                : finalMedia.compareTo(inicial.compareTo(regras.mediaDispensaPf()) >= 0
+                    ? regras.mediaDispensaPf() : regras.mediaFinalMinima()) >= 0 ? "APROVADO" : "REPROVADO";
         return new Resultado(inicial, finalMedia, situacao);
     }
 }

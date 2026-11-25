@@ -15,6 +15,7 @@ public final class AcessoAcademicoJdbc {
     public static final String DOCUMENTOS_CONSULTAR="SCOA_DOCUMENTOS_CONSULTAR";
     public static final String DOCUMENTOS_ATENDER="SCOA_DOCUMENTOS_ATENDER";
     public static final String RELATORIOS_GERAR="SCOA_RELATORIOS_GERAR";
+    public static final String PARAMETROS_MANTER="SCOA_PARAMETROS_MANTER";
     private final Connection c;
     private final SegurancaJdbc.Sessao sessao;
 
@@ -45,6 +46,12 @@ public final class AcessoAcademicoJdbc {
     }
     public <T> T consultarRelatorios(Supplier<T> operacao) {
         return consultarComPermissao(RELATORIOS_GERAR,operacao);
+    }
+    public <T> T consultarParametros(Supplier<T> operacao) {
+        return consultarComPermissao(PARAMETROS_MANTER,operacao);
+    }
+    public <T> T manterParametros(String acao,long periodo,Supplier<T> operacao) {
+        return manterComPermissao(PARAMETROS_MANTER,"PARAMETROS_ACADEMICOS",acao,periodo,operacao);
     }
     private <T> T consultarComPermissao(String permissao,Supplier<T> operacao) {
         return TransacaoJdbc.executar(c,()->{
@@ -125,6 +132,7 @@ public final class AcessoAcademicoJdbc {
             case Inscricao i -> i.id();
             case TransferenciaExterna.Processo p -> p.id();
             case HorarioAcademico.Registro h -> h.horario().id();
+            case ParametrosAcademicos.Versao v -> v.id();
             default -> 0;
         };
     }

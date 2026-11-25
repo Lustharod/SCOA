@@ -29,17 +29,18 @@ public final class RepositorioRetificacaoJdbc {
 
     public long solicitar(long inscricao,RetificacaoResultado proposta,String motivo) {
         String justificativa=Matricula.validarMotivo(motivo);
-        proposta.calcular();
         return TransacaoJdbc.executar(conexao,()->{
             controle(conexao);
             long usuario=SegurancaJdbc.exigirSessao(conexao,sessao);
             var contexto=inscricoes.bloquearInscricao(inscricao);
             if(!professorDaTurma(usuario,contexto.professor()))
                 throw new IllegalArgumentException("Somente o professor da turma pode solicitar retificação.");
+            var parametros=ParametroPeriodoJdbc.porTurma(conexao,contexto.inscricao().turma());
+            proposta.calcular(parametros.regras());
             var agora=agoraUtc(conexao);
             var hoje=dataAcademica(agora);
-            if(!RetificacaoResultado.noPrazoDoProfessor(contexto.fim(),hoje))
-                throw new IllegalArgumentException("O professor pode solicitar nos sete dias seguintes ao fim do período.");
+            if(!parametros.regras().permiteRetificacao(contexto.fim(),hoje))
+                throw new IllegalArgumentException("Prazo docente de retificação encerrado conforme as regras do período de origem.");
             exigirAntesDaInscricaoSeguinte(contexto,hoje);
             if(!q(conexao,"SELECT id_pedido FROM retificacao_resultado WHERE pedido_aberto=? FOR UPDATE",
                     r->r.getLong(1),inscricao).isEmpty())
@@ -47,10 +48,19 @@ public final class RepositorioRetificacaoJdbc {
             String anterior=snapshot(contexto);
             return g(conexao,"""
                     INSERT INTO retificacao_resultado
-                        (id_inscricao,solicitante,motivo,solicitado_em,anterior,p1,p2,pf,total_minutos,presentes_minutos)
-                    VALUES (?,?,?,?,CAST(? AS JSON),?,?,?,?,?)
+                        (id_inscricao,solicitante,motivo,solicitado_em,anterior,p1,p2,pf,total_minutos,presentes_minutos,id_versao_parametros,fonte_parametros)
+                    VALUES (?,?,?,?,CAST(? AS JSON),?,?,?,?,?,?,?)
                     """,inscricao,usuario,justificativa,agora,anterior,proposta.p1(),proposta.p2(),proposta.pf(),
-                    proposta.total(),proposta.presentes());
+                    proposta.total(),proposta.presentes(),parametros.versao(),parametros.fonte());
+        });
+    }
+
+    public br.edu.cefetmg.scoa.dominio.RegraResultado.Resultado preparar(long inscricao,RetificacaoResultado proposta) {
+        return TransacaoJdbc.executar(conexao,()->{
+            controle(conexao); long usuario=SegurancaJdbc.exigirSessao(conexao,sessao);
+            var contexto=inscricoes.bloquearInscricao(inscricao);
+            if(!professorDaTurma(usuario,contexto.professor())) throw new IllegalArgumentException("Somente o professor da turma pode preparar retificação.");
+            return proposta.calcular(ParametroPeriodoJdbc.porTurma(conexao,contexto.inscricao().turma()).regras());
         });
     }
 
@@ -115,15 +125,16 @@ public final class RepositorioRetificacaoJdbc {
         if(!q(conexao,"SELECT CAST(? AS JSON)=CAST(? AS JSON)",r->r.getBoolean(1),snapshot(contexto),pedido.anterior()).getFirst())
             throw new IllegalArgumentException("O resultado mudou desde o pedido. Confira os valores atuais.");
         var nova=pedido.proposta();
-        var apuracao=nova.calcular();
+        var parametros=ParametroPeriodoJdbc.porTurma(conexao,contexto.inscricao().turma());
+        var apuracao=nova.calcular(parametros.regras());
         if("APROVADO".equals(contexto.inscricao().situacao()) && "REPROVADO".equals(apuracao.situacao()))
             exigirSemDependencia(contexto);
         g(conexao,"""
                 UPDATE resultado_inscricao
-                SET p1=?,p2=?,pf=?,total_minutos=?,presentes_minutos=?,media_inicial=?,media_final=?,situacao=?,motivo=?
+                SET p1=?,p2=?,pf=?,total_minutos=?,presentes_minutos=?,media_inicial=?,media_final=?,situacao=?,motivo=?,id_versao_parametros=?,fonte_parametros=?
                 WHERE id_inscricao=?
                 """,nova.p1(),nova.p2(),nova.pf(),nova.total(),nova.presentes(),apuracao.mediaInicial(),apuracao.mediaFinal(),
-                apuracao.situacao(),pedido.motivo(),pedido.inscricao());
+                apuracao.situacao(),pedido.motivo(),parametros.versao(),parametros.fonte(),pedido.inscricao());
         g(conexao,"UPDATE inscricao_disciplina SET situacao=? WHERE id_inscricao=?",apuracao.situacao(),pedido.inscricao());
     }
 
@@ -152,7 +163,7 @@ public final class RepositorioRetificacaoJdbc {
 
     private void exigirAntesDaInscricaoSeguinte(RepositorioInscricaoJdbc.ContextoInscricao contexto,LocalDate hoje) throws SQLException {
         var seguinte=proximoPeriodo(contexto.fim());
-        if(!RetificacaoResultado.antesDaInscricaoSeguinte(seguinte.inicio(),hoje))
+        if(!hoje.isBefore(ParametroPeriodoJdbc.porPeriodo(conexao,seguinte.id()).regras().primeiraFase(seguinte.inicio()).abertura()))
             throw new IllegalArgumentException("A primeira fase de inscrição do próximo período já começou.");
     }
 

@@ -62,8 +62,8 @@ public final class RepositorioTransferenciaInternaJdbc implements RepositorioTra
         var datas=q(c,"SELECT data_inicio,data_fim FROM periodo_letivo WHERE id_periodo=? AND situacao='ATIVO' FOR SHARE",
                 r->new LocalDate[]{r.getObject(1,LocalDate.class),r.getObject(2,LocalDate.class)},pedido.periodo());
         var agora=agoraUtc(c); var hoje=dataAcademica(agora);
-        if(datas.isEmpty() || !TransferenciaInterna.noPrazo(datas.getFirst()[0],datas.getFirst()[1],hoje))
-            throw new IllegalArgumentException("A transferência exige período ativo e prazo até D+45, sem ultrapassar seu fim.");
+        if(datas.isEmpty() || !ParametroPeriodoJdbc.porPeriodo(c,pedido.periodo()).regras().permiteTransferencia(datas.getFirst()[0],datas.getFirst()[1],hoje))
+            throw new IllegalArgumentException("A transferência exige período ativo e prazo configurado, sem ultrapassar seu fim.");
         var ativos=q(c,"""
                 SELECT i.id_inscricao,t.id_turma,p.data_inicio,p.data_fim
                 FROM inscricao_disciplina i JOIN turma t ON t.id_turma=i.id_turma
@@ -71,7 +71,7 @@ public final class RepositorioTransferenciaInternaJdbc implements RepositorioTra
                 WHERE i.id_matricula=? AND i.situacao='ATIVO' ORDER BY i.id_inscricao FOR UPDATE
                 """,r->new Object[]{r.getLong(1),r.getLong(2),r.getObject(3,LocalDate.class),r.getObject(4,LocalDate.class)},pedido.origem());
         for(var i:ativos) {
-            if(!TransferenciaInterna.noPrazo((LocalDate)i[2],(LocalDate)i[3],hoje))
+            if(!ParametroPeriodoJdbc.porTurma(c,(long)i[1]).regras().permiteTransferencia((LocalDate)i[2],(LocalDate)i[3],hoje))
                 throw new IllegalArgumentException("Há inscrição ativa fora do prazo de cancelamento da transferência; resolva a pendência acadêmica.");
             if(!q(c,"SELECT id_inscricao FROM resultado_inscricao WHERE id_inscricao=? FOR SHARE",r->r.getLong(1),i[0]).isEmpty())
                 throw new IllegalArgumentException("Há inscrição ativa com resultado divergente; conferência acadêmica necessária.");
@@ -87,7 +87,7 @@ public final class RepositorioTransferenciaInternaJdbc implements RepositorioTra
                 VALUES (?,'INTERNA',?,'EFETIVADA','Em efetivação transacional',?,?,?,?,?,?,?)
                 """,pedido.origem(),hoje,destino.id(),pedido.cursoDestino(),pedido.estruturaDestino(),pedido.periodo(),autor,pedido.motivo(),agora);
         for(var i:ativos) {
-            boolean reter=!CancelamentoInscricao.imediato((LocalDate)i[2],hoje);
+            boolean reter=!ParametroPeriodoJdbc.porTurma(c,(long)i[1]).regras().cancelamentoImediato((LocalDate)i[2],hoje);
             g(c,"UPDATE inscricao_disciplina SET situacao='CANCELADO',vaga_retida=? WHERE id_inscricao=?",reter,i[0]);
         }
         g(c,"UPDATE matricula_academica SET situacao='TRANSFERIDO' WHERE id_matricula=?",pedido.origem());
