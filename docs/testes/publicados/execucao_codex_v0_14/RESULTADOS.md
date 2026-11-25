@@ -1,17 +1,19 @@
 # Resultados automáticos do incremento v0.14
 
-Execução Codex de 25/11/2026, concluída às 08:42:18 UTC-03:00. Não é execução manual nem aprovação do autor.
+Execução Codex concluída em 2026-11-25T10:16:12-03:00. Validação manual do autor ainda pendente.
 
 | Bateria | Classe | Testes | Falhas | Erros | Ignorados |
 | --- | --- | ---: | ---: | ---: | ---: |
 | Unitários | `ServicoSalaTest` | 9 | 0 | 0 | 0 |
 | Unitários | `ConsoleAtendimentoAlunoTest` | 4 | 0 | 0 | 0 |
 | Unitários | `ConsoleConsultasAlunoTest` | 2 | 0 | 0 | 0 |
+| Unitários | `ConsoleDiarioAcademicoTest` | 3 | 0 | 0 | 0 |
 | Unitários | `ConsoleProcessoAcademicoTest` | 2 | 0 | 0 | 0 |
 | Unitários | `AlocacaoTest` | 15 | 0 | 0 | 0 |
 | Unitários | `AtendimentoAlunoTest` | 3 | 0 | 0 | 0 |
 | Unitários | `BaseAcademicaTest` | 9 | 0 | 0 | 0 |
 | Unitários | `CadastroAcademicoTest` | 9 | 0 | 0 | 0 |
+| Unitários | `DiarioAcademicoTest` | 4 | 0 | 0 | 0 |
 | Unitários | `DocumentoAcademicoTest` | 2 | 0 | 0 | 0 |
 | Unitários | `EquivalenciaTest` | 6 | 0 | 0 | 0 |
 | Unitários | `InscricaoTest` | 29 | 0 | 0 | 0 |
@@ -21,7 +23,7 @@ Execução Codex de 25/11/2026, concluída às 08:42:18 UTC-03:00. Não é execu
 | Unitários | `SalaTest` | 23 | 0 | 0 | 0 |
 | Unitários | `SegurancaTest` | 3 | 0 | 0 | 0 |
 | Unitários | `TempoLetivoTest` | 20 | 0 | 0 | 0 |
-| **Unitários — total** | | **159** | **0** | **0** | **0** |
+| **Unitários — total** | | **166** | **0** | **0** | **0** |
 | Integração | `AcessoAcademicoJdbcIT` | 10 | 0 | 0 | 0 |
 | Integração | `AjustesAcademicosJdbcIT` | 7 | 0 | 0 | 0 |
 | Integração | `AlocacaoJdbcIT` | 17 | 0 | 0 | 0 |
@@ -29,6 +31,7 @@ Execução Codex de 25/11/2026, concluída às 08:42:18 UTC-03:00. Não é execu
 | Integração | `BaseAcademicaJdbcIT` | 17 | 0 | 0 | 0 |
 | Integração | `CadastroAcademicoJdbcIT` | 14 | 0 | 0 | 0 |
 | Integração | `ConsultasAlunoJdbcIT` | 3 | 0 | 0 | 0 |
+| Integração | `DiarioAcademicoJdbcIT` | 21 | 0 | 0 | 0 |
 | Integração | `DocumentoAcademicoJdbcIT` | 12 | 0 | 0 | 0 |
 | Integração | `EquivalenciaJdbcIT` | 21 | 0 | 0 | 0 |
 | Integração | `InscricaoJdbcIT` | 14 | 0 | 0 | 0 |
@@ -39,4 +42,4 @@ Execução Codex de 25/11/2026, concluída às 08:42:18 UTC-03:00. Não é execu
 | Integração | `SalaJdbcIT` | 6 | 0 | 0 | 0 |
 | Integração | `SegurancaAcademicaJdbcIT` | 15 | 0 | 0 | 0 |
 | Integração | `TransferenciaInternaJdbcIT` | 14 | 0 | 0 | 0 |
-| **Integração — total** | | **241** | **0** | **0** | **0** |
+| **Integração — total** | | **262** | **0** | **0** | **0** |

@@ -1,20 +1,17 @@
-SCOA v0.14.0-SNAPSHOT — incremento em desenvolvimento
-Executor: Codex; aprovação manual do autor ainda pendente
-Data/hora do término: 25/11/2026 08:42:18 UTC-03:00 (America/Sao_Paulo)
-Comando Maven: mvn -o -B verify -Pmysql-it
-Resultado observado no terminal: BUILD SUCCESS
-Duração exibida pelo Maven: 01:09 min
+SCOA v0.14.0-SNAPSHOT — diário em desenvolvimento
+Executor: Codex; validação manual do autor pendente
+Término: 2026-11-25T10:16:12-03:00 (America/Sao_Paulo)
+Maven: 3.9.11; comando mvn -o -B verify -Pmysql-it
+Resultado: BUILD SUCCESS; duração exibida: 01:11 min
 Java: 25.0.1+8-27
-Maven: 3.9.11, distribuição em cache
-MySQL: 8.0.46
 Sistema: Windows 11; arquitetura amd64
-Schema: scoa_java_teste, instância descartável nova, sem acessar scoa
-Porta: 33386; escuta local 127.0.0.1; instância encerrada ao fim
-Base: DDL de testes v7.5 + V006 a V015, na ordem
-Tabelas esperadas pelo DDL: 89 (a contagem pós-migração não foi exportada nesta execução)
-Unitários: 159; falhas 0; erros 0; ignorados 0
-Integração: 241; falhas 0; erros 0; ignorados 0
+MySQL: 8.0.46; schema scoa_java_teste; porta 33386; instância nova encerrada ao fim
+Base: DDL de testes v7.5 + migrações V006 a V016
+Tabelas previstas pelo DDL: 90; a contagem SQL pós-migração não foi exportada nesta rodada
+Unitários: 166; integração: 262; falhas/erros/ignorados: zero
 Evidências públicas: RELATORIO.md, RESULTADOS.md, ambiente.txt, FONTES_SHA256.json
-Originais privados: XML/TXT Surefire e Failsafe recuperados de target após reinício, com manifesto SHA-256
-O log bruto completo do terminal temporário não foi recuperado; não foi reconstruído
-Preparações e restaurações SQL dos testes são fixtures transacionais, não operações auditadas do console
+Originais privados: verify-privado.txt, mysql.log, XML/TXT Surefire/Failsafe e manifesto SHA-256
+Carga horária: 60 h = 3600 min = 72 tempos de 50 min; carga cadastrada preservada
+Segunda fase: tempos anteriores à inscrição excluídos da frequência individual
+Fixtures SQL: preparação/restauração, sem atribuição a operações auditadas do console
+Não houve migração do schema scoa nem uso de equipamento físico

@@ -118,7 +118,17 @@ public final class RepositoriosAcademicosAutorizados {
             @Override public List<Inscricao> listar(long matricula) { return acesso.consultarMatricula(matricula,() -> repo.listar(matricula)); }
             @Override public void vincularEstrutura(long matricula, long estrutura) { acesso.manter("RepositorioInscricao","vincularEstrutura",matricula,() -> { repo.vincularEstrutura(matricula,estrutura); return null; }); }
             @Override public RegraResultado.Resultado registrarResultado(long inscricao, BigDecimal p1, BigDecimal p2,
-            BigDecimal pf, long totalMinutos, long presentesMinutos, String motivo) { return acesso.fecharResultado(inscricao,() -> repo.registrarResultado(inscricao,p1,p2,pf,totalMinutos,presentesMinutos,motivo)); }
+            BigDecimal pf, long totalMinutos, long presentesMinutos, String motivo) {
+                return acesso.fecharResultado(inscricao,() -> TransacaoJdbc.executar(c,()->{
+                    var diario=JdbcAcademico.q(c,"""
+                            SELECT i.id_turma FROM inscricao_disciplina i WHERE i.id_inscricao=? AND (
+                              EXISTS(SELECT 1 FROM aula a WHERE a.id_turma=i.id_turma AND a.tempo_letivo IS NOT NULL)
+                              OR EXISTS(SELECT 1 FROM avaliacao a WHERE a.id_turma=i.id_turma AND a.tipo_prova IS NOT NULL)) FOR SHARE
+                            """,r->r.getLong(1),inscricao);
+                    if(!diario.isEmpty()) throw new IllegalArgumentException("Esta turma usa o diário por tempos. Confira e encerre pelo menu 24, a partir dos lançamentos.");
+                    return repo.registrarResultado(inscricao,p1,p2,pf,totalMinutos,presentesMinutos,motivo);
+                }));
+            }
         };
     }
 

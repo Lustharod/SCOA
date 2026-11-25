@@ -2,6 +2,9 @@
 
 ## 0.14.0-SNAPSHOT — em desenvolvimento
 
+- Menu 24: diário operacional por tempos, pauta/conteúdo, avaliações P1/P2/PF separadas, notas versionadas, retirada de nota com histórico e frequência manual/simulada. A carga usa horas de 60 minutos (60 h = 72 tempos); tempos anteriores à inscrição ficam fora dos 75%. Eventos fictícios não duplicam presença nem sobrescrevem chamada. Fechamento docente usa os lançamentos, preservando o cálculo anterior e a retificação posterior. V016 conserva o legado sem autoria/tipo/tempo presumidos.
+- Regressão Codex do incremento com diário aprovada em 25/11/2026: 166 unitários e 262 integrações, sem falhas, erros ou ignorados. Relatórios e hashes atualizados; validação manual do autor ainda pendente.
+
 - Protegidos os serviços usados pelos menus acadêmicos legados com sessão e permissões técnicas de consulta/manutenção, separadas dos vínculos acadêmicos. Primeiro fechamento de resultado exige o professor responsável pela turma; auditoria integra a transação.
 - Menu 21: histórico próprio com matrículas, disciplinas, resultados, reconhecimentos e legados, além de sugestões/reclamações com autoria. V013 preserva autores desconhecidos das manifestações antigas.
 - Menu 22: transferência interna efetiva, matrícula de origem preservada como TRANSFERIDO, novo vínculo no destino, cancelamentos até D+45 e regra de vagas D+13/D+14. Aproveitamento automático exige mesma disciplina cadastrada e aprovação formal; V014 preserva origem e fundamento. Retificação com impacto no aproveitamento exige análise.

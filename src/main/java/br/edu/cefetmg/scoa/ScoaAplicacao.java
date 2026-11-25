@@ -51,6 +51,7 @@ public final class ScoaAplicacao {
                 System.out.println("16 Equivalência manual, plano básico e histórico acadêmico | 17 Planejamento por ofertas");
                 System.out.println("19 Consultas do aluno | 20 Ajustes acadêmicos | 21 Histórico escolar e manifestações | 22 Transferência interna");
                 System.out.println("23 Solicitações de documentos e atendimento da secretaria");
+                System.out.println("24 Diário: aulas por tempo, avaliações, notas e frequência");
                 String opcao = ler(entrada, "Opção: ");
                 try {
                     switch (opcao) {
@@ -114,6 +115,9 @@ public final class ScoaAplicacao {
                         case "19" -> new ConsoleConsultasAluno(entrada,
                                 new RepositorioConsultasAlunoJdbc(conexao, sessao)).executar();
                         case "20" -> new ConsoleAjustesAcademicos(entrada,conexao,sessao).executar();
+                        case "24" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleDiarioAcademico(entrada,
+                                new br.edu.cefetmg.scoa.aplicacao.ServicoDiarioAcademico(
+                                    new br.edu.cefetmg.scoa.persistencia.RepositorioDiarioAcademicoJdbc(conexao,sessao))).executar();
                         case "23" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleDocumentoAcademico(entrada,
                                 new br.edu.cefetmg.scoa.aplicacao.ServicoDocumentoAcademico(
                                     new br.edu.cefetmg.scoa.persistencia.RepositorioDocumentoAcademicoJdbc(conexao,sessao))).executar();
