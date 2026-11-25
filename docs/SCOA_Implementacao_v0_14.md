@@ -19,7 +19,17 @@ A transferência está limitada a D+45 e ao fim do período. Cancelamentos por t
 
 Foi aprovada pelo autor a regra de aproveitar automaticamente disciplinas idênticas. A implementação usa identidade pelo mesmo `id_disciplina`, aprovação formal APROVADO na origem e período encerrado, com componente ativo na estrutura de destino. Igualdade de nome ou código não basta. Um pedido formal identificado como automático e uma ligação ao resultado original preservam fundamento e instantâneo; não se trata de análise manual inventada. Equivalências entre disciplinas distintas mantêm seu fluxo existente. Uma retificação que derrube resultado usado nessa transferência exige análise de impacto.
 
-A V014 preserva transferências legadas sem reconstruir destino/autor, acrescenta os campos do novo fluxo e a ligação de aproveitamento. A origem permanece consultável, inclusive quando transferida. Transferências externas e demais situações institucionais ainda dependem de especificação e implementação.
+A V014 preserva transferências legadas sem reconstruir destino/autor, acrescenta os campos do novo fluxo e a ligação de aproveitamento. A origem permanece consultável, inclusive quando transferida. Transferências externas possuem processo próprio descrito abaixo; outras situações institucionais não são presumidas.
+
+## Transferências externas
+
+O menu 28 registra entrada ou saída com referência única, aluno/curso ou matrícula de origem, período, instituição externa, documentos e fundamento. A saída obtém pessoa e curso da matrícula, sem pedir IDs independentes incompatíveis. O registro abre EM_ANALISE; acompanhamentos preservam documentos anteriores, observação, autor e instante UTC. A secretaria confirma explicitamente EFETIVADA, INDEFERIDA ou CANCELADA, usando a versão consultada. Estados terminais não são reabertos.
+
+Na entrada efetivada, o sistema abre matrícula e vínculo curricular no destino para o aluno já cadastrado, preservando sua conta e vínculos legítimos. Não cria credenciais nem aproveita disciplinas externas por nome/código; o reconhecimento depende da equivalência formal existente. Na saída, a matrícula de origem fica TRANSFERIDO, inscrições ativas são canceladas e a regra de vagas D+13/D+14 é mantida. Resultados anteriores e histórico continuam consultáveis; não é aberta uma matrícula fictícia para outra instituição dentro do SCOA.
+
+A efetivação exige período ativo, até D+45 e sem ultrapassar o fim do período; inscrições ativas também são conferidas. A saída bloqueia até regularizar a biblioteca, como definiu o autor, e mantém a pendência preservada. Biblioteca ausente/inválida, contexto alterado, destino já ativo ou cancelamento pendente impedem efeitos sem concluir o processo. Registro e consulta não efetuam transferência. Não há comunicação com instituição externa.
+
+A V020 mantém os registros legados e acrescenta processo e andamento externos. Repetir a mesma referência e pedido retorna o protocolo; uma colisão é recusada. Repetir a mesma decisão não duplica matrícula, transferência ou histórico. Processo, efeitos acadêmicos, andamento e auditoria são transacionais; uma falha desfaz o conjunto. São 99 tabelas previstas após V020.
 
 ## Documentos acadêmicos
 
@@ -77,10 +87,10 @@ O monitoramento informa situação curricular, inscrições e atualidade do plan
 
 ## Limites e próximos blocos
 
-Validação Codex do incremento com gestão acadêmica em 25/11/2026: **175 unitários e 307 integrações aprovados**, sem falhas, erros ou ignorados, em instância nova de scoa_java_teste. O [relatório](testes/publicados/execucao_codex_v0_14/RELATORIO.md) detalha cobertura e rastreabilidade. A pedido do autor, a rodada manual será integrada ao fim dos blocos; os testes automáticos continuam durante a implementação.
+Validação Codex do incremento com transferências externas em 25/11/2026: **178 unitários e 330 integrações aprovados**, sem falhas, erros ou ignorados, em instância nova de scoa_java_teste. O [relatório](testes/publicados/execucao_codex_v0_14/RELATORIO.md) detalha cobertura e rastreabilidade. A pedido do autor, a rodada manual será integrada ao fim dos blocos; os testes automáticos continuam durante a implementação.
 
-Continuam em desenvolvimento: emissão/exportação do diário institucional completo; transferências externas; relatórios demonstrativos MEC; horários definidos antes da sala; administração operacional de concessões; parametrização e interface web. Geração/assinatura oficial de documentos não está implementada; o fluxo aprovado atual é solicitação/acompanhamento e atendimento. O console ainda não é o portal web previsto no Word.
+Continuam em desenvolvimento: emissão/exportação do diário institucional completo; relatórios demonstrativos MEC; horários definidos antes da sala; administração operacional de concessões; parametrização e interface web. Geração/assinatura oficial de documentos não está implementada; o fluxo aprovado atual é solicitação/acompanhamento e atendimento. O console ainda não é o portal web previsto no Word.
 
 As camadas JDBC básicas mantêm as regras de persistência e são usadas pelas fixtures e pela regressão legada. Os serviços de entrada do executável usam `RepositoriosAcademicosAutorizados` ou repositórios que já exigem a sessão. Qualquer futura interface web deve reutilizar essa fronteira, sem expor diretamente os repositórios básicos.
 
-Desenvolvimento e testes usam exclusivamente `scoa_java_teste`, em instância nova. As migrações V013 a V019 não devem ser aplicadas automaticamente à base do autor ou ao schema `scoa`. Word editável, decisões detalhadas, guias, configurações, credenciais e evidências brutas permanecem privados.
+Desenvolvimento e testes usam exclusivamente `scoa_java_teste`, em instância nova. As migrações V013 a V020 não devem ser aplicadas automaticamente à base do autor ou ao schema `scoa`. Word editável, decisões detalhadas, guias, configurações, credenciais e evidências brutas permanecem privados.

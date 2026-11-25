@@ -119,6 +119,7 @@ public final class AcessoAcademicoJdbc {
             case HorarioAula h -> h.id();
             case Matricula m -> m.id();
             case Inscricao i -> i.id();
+            case TransferenciaExterna.Processo p -> p.id();
             default -> 0;
         };
     }

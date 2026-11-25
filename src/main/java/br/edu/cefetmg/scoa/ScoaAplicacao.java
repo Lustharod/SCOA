@@ -55,6 +55,7 @@ public final class ScoaAplicacao {
                 System.out.println("25 Plano de estudo institucional e versões");
                 System.out.println("26 Rematrícula institucional em lote");
                 System.out.println("27 Gestão acadêmica: metas, auditoria, avaliações e monitoramento");
+                System.out.println("28 Transferências externas: entrada, saída e acompanhamento");
                 String opcao = ler(entrada, "Opção: ");
                 try {
                     switch (opcao) {
@@ -118,6 +119,9 @@ public final class ScoaAplicacao {
                         case "19" -> new ConsoleConsultasAluno(entrada,
                                 new RepositorioConsultasAlunoJdbc(conexao, sessao)).executar();
                         case "20" -> new ConsoleAjustesAcademicos(entrada,conexao,sessao).executar();
+                        case "28" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleTransferenciaExterna(entrada,
+                                new br.edu.cefetmg.scoa.aplicacao.ServicoTransferenciaExterna(
+                                    new br.edu.cefetmg.scoa.persistencia.RepositorioTransferenciaExternaJdbc(conexao,sessao))).executar();
                         case "27" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleGestaoAcademica(entrada,
                                 new br.edu.cefetmg.scoa.aplicacao.ServicoGestaoAcademica(
                                     new br.edu.cefetmg.scoa.persistencia.RepositorioGestaoAcademicaJdbc(conexao,sessao))).executar();
