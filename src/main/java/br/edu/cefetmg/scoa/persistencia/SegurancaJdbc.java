@@ -119,6 +119,8 @@ public final class SegurancaJdbc {
                 r->new VinculoAcademico("PROFESSOR",r.getLong(1),r.getString(2),r.getString(3)),usuario));
         vinculos.addAll(q(c,"SELECT c.id_curso,c.nome,c.situacao FROM coordenacao_curso cc JOIN curso c ON c.id_curso=cc.id_curso WHERE cc.id_usuario=? ORDER BY c.id_curso FOR SHARE",
                 r->new VinculoAcademico("COORDENADOR",r.getLong(1),r.getString(2),r.getString(3)),usuario));
+        vinculos.addAll(q(c,"SELECT id_gestor,situacao FROM gestao_academica WHERE id_usuario=? FOR SHARE",
+                r->new VinculoAcademico("GESTOR",r.getLong(1),"Gestão acadêmica institucional — todos os cursos",r.getString(2)),usuario));
         var permissoes=q(c,"SELECT DISTINCT p.codigo FROM usuario_perfil up JOIN perfil f ON f.id_perfil=up.id_perfil JOIN perfil_permissao fp ON fp.id_perfil=f.id_perfil JOIN permissao p ON p.id_permissao=fp.id_permissao WHERE up.id_usuario=? AND f.situacao='ATIVO' ORDER BY p.codigo FOR SHARE",
                 r->r.getString(1),usuario);
         return new ContaAcesso(usuario,contas.getFirst()[0],contas.getFirst()[1],vinculos,permissoes);
@@ -156,6 +158,39 @@ public final class SegurancaJdbc {
                     g(c,"UPDATE "+tabela+" SET id_usuario=? WHERE "+chave+"=?",usuario,referencia);
                     evento(c,"ACESSO",usuario,autor,"VINCULAR_"+tipo,"Cadastro "+referencia);
                 }
+            }
+            return null;
+        });
+    }
+    public long vincularGestorAcademico(Sessao sessao,long usuario) {
+        br.edu.cefetmg.scoa.dominio.HorarioAula.validarId(usuario);
+        return TransacaoJdbc.executar(c,()->{
+            controle(c); long autor=exigir(c,sessao,ADMIN);
+            if(q(c,"SELECT id_usuario FROM usuario WHERE id_usuario=? AND situacao='ATIVO' FOR UPDATE",r->r.getLong(1),usuario).isEmpty())
+                throw new IllegalArgumentException("Conta ausente ou inativa.");
+            var anteriores=q(c,"SELECT id_gestor,situacao FROM gestao_academica WHERE id_usuario=? FOR UPDATE",r->new Object[]{r.getLong(1),r.getString(2)},usuario);
+            if(!anteriores.isEmpty()) {
+                if(!"ATIVO".equals(anteriores.getFirst()[1])) throw new IllegalArgumentException("Vínculo de gestor inativo. Use a manutenção de situação.");
+                return (long)anteriores.getFirst()[0];
+            }
+            long id=g(c,"INSERT INTO gestao_academica(id_usuario,situacao,id_usuario_autor,registrado_em_utc) VALUES (?,'ATIVO',?,?)",usuario,autor,agoraUtc(c));
+            evento(c,"GESTAO_ACESSO",id,autor,"VINCULAR_GESTOR","Conta "+usuario+" vinculada à gestão institucional; permissões técnicas preservadas.");
+            g(c,"INSERT INTO auditoria(id_usuario,modulo,entidade,id_registro,acao,data_hora,detalhes) VALUES (?,'ACADEMICO','GESTAO_ACADEMICA',?,'VINCULAR',?,'Vínculo acadêmico institucional explícito.')",autor,id,agoraUtc(c));
+            return id;
+        });
+    }
+    public void definirSituacaoGestor(Sessao sessao,long usuario,String situacao) {
+        br.edu.cefetmg.scoa.dominio.HorarioAula.validarId(usuario);
+        if(!Set.of("ATIVO","INATIVO").contains(Objects.toString(situacao,""))) throw new IllegalArgumentException("Informe ATIVO ou INATIVO.");
+        TransacaoJdbc.executar(c,()->{
+            controle(c); long autor=exigir(c,sessao,ADMIN);
+            var atuais=q(c,"SELECT id_gestor,situacao FROM gestao_academica WHERE id_usuario=? FOR UPDATE",r->new Object[]{r.getLong(1),r.getString(2)},usuario);
+            if(atuais.isEmpty()) throw new IllegalArgumentException("Vínculo de gestor não encontrado.");
+            var atual=atuais.getFirst();
+            if(!situacao.equals(atual[1])) {
+                g(c,"UPDATE gestao_academica SET situacao=? WHERE id_gestor=?",situacao,atual[0]);
+                evento(c,"GESTAO_ACESSO",(long)atual[0],autor,"SITUACAO_GESTOR",atual[1]+" -> "+situacao);
+                g(c,"INSERT INTO auditoria(id_usuario,modulo,entidade,id_registro,acao,data_hora,detalhes) VALUES (?,'ACADEMICO','GESTAO_ACADEMICA',?,'ALTERAR_SITUACAO',?,?)",autor,atual[0],agoraUtc(c),atual[1]+" -> "+situacao);
             }
             return null;
         });

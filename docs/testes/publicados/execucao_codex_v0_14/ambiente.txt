@@ -1,16 +1,15 @@
-SCOA v0.14.0-SNAPSHOT — plano institucional e lote em desenvolvimento
+SCOA v0.14.0-SNAPSHOT - gestão acadêmica e auditoria docente em desenvolvimento
 Executor: Codex; rodada manual do autor prevista para o final dos blocos
-Fim: 2026-11-25T10:40:46-03:00 (America/Sao_Paulo)
+Fim: 2026-11-25T11:03:44-03:00 (America/Sao_Paulo)
 Comando: mvn -o -B verify -Pmysql-it
-Resultado: BUILD SUCCESS; duração exibida: 01:14 min
+Resultado: BUILD SUCCESS; duração exibida: 01:24 min
 Java: 25.0.1+8-27; Maven 3.9.11
 Sistema: Windows 11; arquitetura amd64
 MySQL 8.0.46; schema scoa_java_teste; porta 33386; instância nova encerrada ao fim
-Base: DDL de testes v7.5 + V006 a V018
-Tabelas previstas pelo DDL: 95; contagem SQL pós-migração não exportada nesta rodada
-Unitários 172; integração 289; falhas/erros/ignorados zero
+Base: DDL de testes v7.5 + V006 a V019
+Tabelas previstas pelo DDL: 97; contagem SQL pós-migração não exportada nesta rodada
+Unitários 175; integração 307; falhas/erros/ignorados zero
 Evidências públicas: RELATORIO.md, RESULTADOS.md, ambiente.txt, FONTES_SHA256.json
 Originais privados: verify-privado.txt, mysql.log, XML/TXT e manifesto SHA-256
 Fixtures SQL são preparação/restauração; não operações auditadas executadas por pessoa no console
-Planos preservam versões; lote não inscreve em turmas; sem oferta disponível encaminha toda a rematrícula para análise manual
 Nenhuma migração de scoa; Word v7.17 preservado

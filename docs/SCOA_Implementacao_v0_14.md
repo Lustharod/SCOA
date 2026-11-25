@@ -29,7 +29,7 @@ O atendimento e a consulta da fila exigem permissões técnicas próprias (`SCOA
 
 A V015 acrescenta autoria, instantes UTC, versão e histórico de andamento. Solicitações legadas mantêm seus tipos e situações originais, autoria desconhecida e ausência de histórico detalhado; não são promovidas automaticamente ao novo fluxo. O aluno continua podendo solicitar histórico de seu vínculo transferido. Solicitar um documento não reativa nem altera matrícula.
 
-O autor também definiu relatórios MEC como demonstrativos do protótipo e alcance do gestor acadêmico sobre todos os cursos da instituição, mantendo a coordenação por curso. Essas definições orientam os próximos blocos; relatórios e funções do gestor ainda não foram implementados.
+O autor também definiu relatórios MEC como demonstrativos do protótipo e alcance do gestor acadêmico sobre todos os cursos da instituição, mantendo a coordenação por curso. A gestão está implementada abaixo; os relatórios demonstrativos seguem pendentes.
 
 ## Diário, avaliações e frequência por tempo
 
@@ -45,7 +45,7 @@ O professor pode conferir os lançamentos e fechar o resultado a partir deles ap
 
 O contrato de chegada simulada recebe origem, chave única, aula, inscrição e instante local. A importação fictícia aplica o limite inclusivo de 15 minutos, recusa colisões de chave e não duplica carga ou presença ao receber um evento novamente. Uma frequência manual ou já registrada não é sobrescrita pelo importador. Recusas de dados são identificadas por evento e o lote continua; falhas de persistência interrompem o processamento. Não há conexão com equipamento real.
 
-A V016 mantém aulas/avaliações antigas sem tempo/tipo/autoria presumidos, acrescenta versões e autoria de lançamentos e guarda a deduplicação dos eventos simulados. O diário aponta dados legados para conferência, sem reinterpretá-los como lançamentos novos. Este fluxo operacional ainda não é a emissão e assinatura do diário institucional completo, nem substitui a gestão/auditoria docente prevista para os próximos blocos.
+A V016 mantém aulas/avaliações antigas sem tempo/tipo/autoria presumidos, acrescenta versões e autoria de lançamentos e guarda a deduplicação dos eventos simulados. O diário aponta dados legados para conferência, sem reinterpretá-los como lançamentos novos. Este fluxo operacional ainda não é a emissão e assinatura do diário institucional completo; a consulta e auditoria da gestão estão descritas abaixo.
 
 ## Plano institucional versionado
 
@@ -63,12 +63,24 @@ O lote renova os mesmos vínculos institucionais e guarda propostas e ocorrênci
 
 Repetir a mesma chave com os mesmos dados retorna o lote existente. Outro processamento reconhece as renovações já feitas e não as duplica. Colisão de chave ou mudança de dados desde a prévia exige conferência. Lote, renovações, propostas, histórico e auditoria integram a transação; uma falha de persistência/auditoria desfaz o processamento. A V018 acrescenta os três registros de lote, candidatos e propostas. A validação individual de rematrícula foi reutilizada, preservando o caminho do próprio aluno.
 
+## Gestão acadêmica e auditoria docente
+
+O menu 27 permite acompanhar metas/prazos docentes, avaliações, diário e trajetória discente. O gestor acadêmico possui vínculo explícito em `gestao_academica`, com alcance sobre todos os cursos. O coordenador continua restrito aos cursos que coordena. ADMIN técnico, professor ou aluno não recebem esse alcance por sua permissão ou papel isolado. Conta, vínculo e alcance são revalidados em cada operação.
+
+No provisionamento 18 → 11, GESTOR vincula a conta existente diretamente, sem pedir ID de aluno, professor ou curso. A referência exibida é `gestao_academica.id_gestor`. A opção 18 → 14 altera a atividade desse vínculo, preservando sua identidade, conta, credenciais, permissões e demais vínculos. Nenhuma permissão técnica é criada por vincular gestor.
+
+Metas e prazos identificam curso, professor, período opcional, tipo, descrição, vencimento e situação. Cada alteração exige versão consultada e motivo, conserva valores anteriores, autoria e instante UTC. Conclusões e cancelamentos não são reabertos por esse fluxo. A indicação de atraso é calculada na consulta, sem mudar automaticamente a situação. Metas legadas sem curso/autoria permanecem preservadas para conciliação.
+
+As consultas de avaliações e diários aceitam filtros de curso, período, disciplina e turma. Em turmas compartilhadas, aulas e avaliações pertencem à turma, mas notas, chamadas e resultados de alunos são limitados ao curso selecionado. O diário distingue lançamentos originais do resultado vigente após retificação. A auditoria exige prévia conferida, conclusão e observação; revalida a assinatura dos dados e guarda o retrato consultado, autor e instante. Ela não muda notas, frequência ou resultado e não encerra o diário acadêmico.
+
+O monitoramento informa situação curricular, inscrições e atualidade do plano. Dados insuficientes são apontados sem substituir contagens desconhecidas por zero, criar plano ou declarar conclusão de curso. A V019 acrescenta o vínculo de gestor e o histórico de metas, estende metas/auditorias existentes com campos opcionais para preservar registros anteriores e leva a 97 tabelas previstas no DDL.
+
 ## Limites e próximos blocos
 
-Validação Codex do incremento com plano e lote em 25/11/2026: **172 unitários e 289 integrações aprovados**, sem falhas, erros ou ignorados, em instância nova de scoa_java_teste. O [relatório](testes/publicados/execucao_codex_v0_14/RELATORIO.md) detalha cobertura e rastreabilidade. A pedido do autor, a rodada manual será integrada ao fim dos blocos; os testes automáticos continuam durante a implementação.
+Validação Codex do incremento com gestão acadêmica em 25/11/2026: **175 unitários e 307 integrações aprovados**, sem falhas, erros ou ignorados, em instância nova de scoa_java_teste. O [relatório](testes/publicados/execucao_codex_v0_14/RELATORIO.md) detalha cobertura e rastreabilidade. A pedido do autor, a rodada manual será integrada ao fim dos blocos; os testes automáticos continuam durante a implementação.
 
-Continuam em desenvolvimento: emissão/exportação do diário institucional completo e gestão/auditoria docente; transferências externas; relatórios demonstrativos MEC; horários definidos antes da sala; administração operacional de concessões; parametrização e interface web. Geração/assinatura oficial de documentos não está implementada; o fluxo aprovado atual é solicitação/acompanhamento e atendimento. O console ainda não é o portal web previsto no Word.
+Continuam em desenvolvimento: emissão/exportação do diário institucional completo; transferências externas; relatórios demonstrativos MEC; horários definidos antes da sala; administração operacional de concessões; parametrização e interface web. Geração/assinatura oficial de documentos não está implementada; o fluxo aprovado atual é solicitação/acompanhamento e atendimento. O console ainda não é o portal web previsto no Word.
 
 As camadas JDBC básicas mantêm as regras de persistência e são usadas pelas fixtures e pela regressão legada. Os serviços de entrada do executável usam `RepositoriosAcademicosAutorizados` ou repositórios que já exigem a sessão. Qualquer futura interface web deve reutilizar essa fronteira, sem expor diretamente os repositórios básicos.
 
-Desenvolvimento e testes usam exclusivamente `scoa_java_teste`, em instância nova. As migrações V013 a V018 não devem ser aplicadas automaticamente à base do autor ou ao schema `scoa`. Word editável, decisões detalhadas, guias, configurações, credenciais e evidências brutas permanecem privados.
+Desenvolvimento e testes usam exclusivamente `scoa_java_teste`, em instância nova. As migrações V013 a V019 não devem ser aplicadas automaticamente à base do autor ou ao schema `scoa`. Word editável, decisões detalhadas, guias, configurações, credenciais e evidências brutas permanecem privados.

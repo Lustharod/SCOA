@@ -2,7 +2,7 @@
 
 Protótipo acadêmico em **Java e MySQL**, desenvolvido para Engenharia de Software no Bacharelado em Sistemas de Informação do CEFET/RJ, campus Maria da Graça. O projeto reúne requisitos, modelos de software e uma implementação incremental dos processos acadêmicos em console.
 
-**Neste ramo: v0.14 em desenvolvimento, atualização exclusiva do módulo acadêmico.** Inclui proteção dos menus acadêmicos, histórico próprio/manifestações, transferência interna efetiva, documentos/secretaria, diário por tempos, plano institucional versionado e rematrícula em lote. Consulte as [notas da implementação](docs/SCOA_Implementacao_v0_14.md) para conhecer regras e limites. A rodada manual integrada dos novos incrementos será feita ao final dos blocos.
+**Neste ramo: v0.14 em desenvolvimento, atualização exclusiva do módulo acadêmico.** Inclui proteção dos menus acadêmicos, histórico próprio/manifestações, transferência interna efetiva, documentos/secretaria, diário por tempos, plano institucional versionado, rematrícula em lote e gestão acadêmica. Consulte as [notas da implementação](docs/SCOA_Implementacao_v0_14.md) para conhecer regras e limites. A rodada manual integrada dos novos incrementos será feita ao final dos blocos.
 
 **Última entrega fechada: v0.13, em 24/11/2026.** O autor aprovou **130 testes unitários, 194 de integração e seis casos manuais** dessa versão. O módulo acadêmico completo e a interface web continuam em desenvolvimento.
 
@@ -21,6 +21,7 @@ Protótipo acadêmico em **Java e MySQL**, desenvolvido para Engenharia de Softw
 | Incrementos v0.14 | Histórico próprio/manifestações (21), transferência interna (22), solicitação e atendimento de documentos (23), autorização dos menus legados e primeiro fechamento docente. |
 | Diário por tempos (24) | Aulas, pauta/conteúdo, notas por avaliação, frequência manual/simulada, consulta própria e fechamento docente a partir dos lançamentos. 60 horas correspondem a 72 tempos de 50 minutos; tempos anteriores à inscrição ficam fora da frequência individual. |
 | Plano institucional e lote (25–26) | Versões preservadas, consulta própria sem atualização automática, conferência de mudanças e processamento com propostas/ocorrências. A inscrição nas turmas exige confirmação separada; sem oferta disponível, a rematrícula segue para análise manual. |
+| Gestão acadêmica (27) | Metas e prazos docentes com versões, avaliações, consulta e auditoria do diário e monitoramento do discente. Gestor acompanha todos os cursos; coordenador acompanha seus cursos. Auditoria não altera notas, frequência ou resultados. |
 
 ## O que mudou na v0.13
 
@@ -34,7 +35,7 @@ A escolha repetida de ALUNO/PROFESSOR/COORDENADOR na criação de conta foi elim
 
 | Execução independente | Unitários | Integração | Resultado |
 | --- | ---: | ---: | --- |
-| Codex, incremento v0.14 com plano e lote, 25/11/2026 | 172 | 289 | BUILD SUCCESS; zero falhas, erros ou ignorados. Rodada manual integrada pendente. |
+| Codex, incremento v0.14 com gestão acadêmica, 25/11/2026 | 175 | 307 | BUILD SUCCESS; zero falhas, erros ou ignorados. Rodada manual integrada pendente. |
 | Autor, 23/11/2026 | 130 | 194 | BUILD SUCCESS; zero falhas, erros ou ignorados. |
 | Codex, 23/11/2026 | 130 | 194 | BUILD SUCCESS; zero falhas, erros ou ignorados. |
 | Casos manuais do autor, 23 e 24/11 | — | — | Seis casos concluídos; 26 CSVs e oito PDFs preservados. |
@@ -53,7 +54,7 @@ O projeto utiliza Java 25, Maven 3.9.11, JUnit Jupiter 6.0.1, MySQL Connector/J 
 .\mvnw.cmd verify -Pmysql-it
 ```
 
-Os testes JDBC exigem `SCOA_TEST_DB_URL`, `SCOA_TEST_DB_USUARIO` e `SCOA_TEST_DB_SENHA`, configurados localmente, apontando exclusivamente para **scoa_java_teste**. Neste ramo, a base usa o [DDL de testes v7.5](database/tests/SCOA_MySQL8_schema_v7_5_java_teste.sql) e as [migrações V006 a V018](database/migrations), nessa ordem: 95 tabelas após V018. A v0.13 estável usava V012 e 87 tabelas. Bases existentes precisam de conferência e backup; não recriar ou reaplicar migrações automaticamente. O schema `scoa` não foi migrado.
+Os testes JDBC exigem `SCOA_TEST_DB_URL`, `SCOA_TEST_DB_USUARIO` e `SCOA_TEST_DB_SENHA`, configurados localmente, apontando exclusivamente para **scoa_java_teste**. Neste ramo, a base usa o [DDL de testes v7.5](database/tests/SCOA_MySQL8_schema_v7_5_java_teste.sql) e as [migrações V006 a V019](database/migrations), nessa ordem: 97 tabelas previstas após V019. A v0.13 estável usava V012 e 87 tabelas. Bases existentes precisam de conferência e backup; não recriar ou reaplicar migrações automaticamente. O schema `scoa` não foi migrado.
 
 Para o console, execute `br.edu.cefetmg.scoa.ScoaAplicacao` com `SCOA_DB_URL`, `SCOA_DB_USUARIO` e `SCOA_DB_SENHA`. A inicialização da primeira conta é local e explícita, sem senha padrão. Dados de conexão, senhas e guias operacionais são privados.
 
@@ -61,6 +62,6 @@ Para o console, execute `br.edu.cefetmg.scoa.ScoaAplicacao` com `SCOA_DB_URL`, `
 
 `src/main/java` contém domínio, aplicação, persistência e apresentação; `src/test/java` reúne os testes. `database` contém DDL e migrações. O [índice de docs](docs/README.md) separa a modelagem de referência, as notas de implementação e as evidências por versão.
 
-Emissão/exportação do diário completo, transferências externas, gestão docente, relatórios demonstrativos MEC, horários sem sala, administração operacional de concessões, parametrização e interface web continuam pendentes. A apresentação está prevista para **30/11/2026** e a entrega para **07/12/2026**. As [notas da v0.14](docs/SCOA_Implementacao_v0_14.md) registram o avanço sobre o plano anterior; o conjunto não inclui emissão oficial de diploma ou conclusão presumida de curso.
+Emissão/exportação do diário completo, transferências externas, relatórios demonstrativos MEC, horários sem sala, administração operacional de concessões, parametrização e interface web continuam pendentes. A apresentação está prevista para **30/11/2026** e a entrega para **07/12/2026**. As [notas da v0.14](docs/SCOA_Implementacao_v0_14.md) registram o avanço sobre o plano anterior; o conjunto não inclui emissão oficial de diploma ou conclusão presumida de curso.
 
 O PDF v7.5 em `docs` é a base histórica de requisitos e modelagem. Para saber o que está implementado neste ramo, consulte as [notas da v0.14](docs/SCOA_Implementacao_v0_14.md). O [relatório da v0.13](docs/testes/publicados/execucao_autor_v0_13/RELATORIO.md) documenta a última entrega fechada.

@@ -67,6 +67,9 @@ final class ApoioJdbc {
             try(var s=conexao.createStatement();var r=s.executeQuery("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=DATABASE() AND table_name='lote_rematricula' AND engine='InnoDB'")) {
                 r.next(); if(r.getInt(1)!=1) throw new IllegalStateException("Aplique uma vez V018__rematricula_lote.sql em scoa_java_teste após V017.");
             }
+            try(var s=conexao.createStatement();var r=s.executeQuery("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=DATABASE() AND table_name='gestao_academica' AND engine='InnoDB'")) {
+                r.next(); if(r.getInt(1)!=1) throw new IllegalStateException("Aplique uma vez V019__gestao_academica.sql em scoa_java_teste após V018.");
+            }
             return conexao;
         } catch (SQLException | RuntimeException erro) {
             conexao.close();

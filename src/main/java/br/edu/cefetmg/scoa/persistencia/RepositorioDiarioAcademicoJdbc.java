@@ -213,6 +213,14 @@ public final class RepositorioDiarioAcademicoJdbc implements RepositorioDiarioAc
         }
         return new Boletim(insc.id(),insc.turma(),previstos,registrados,considerados,presentes,notas,frequencias,pendencias.stream().distinct().toList(),previa,encerrado(insc.id()));
     }
+    Boletim consultarGestao(long curso,long inscricao) {
+        return TransacaoJdbc.executar(c,()->{
+            controle(c); new AcessoGestaoAcademicaJdbc(c,sessao).curso(curso);
+            var ctx=new RepositorioInscricaoJdbc(c).bloquearInscricao(inscricao);
+            if(ctx.curso()!=curso) throw new IllegalArgumentException("Inscrição fora do curso autorizado.");
+            return boletim(ctx.inscricao());
+        });
+    }
     @Override public RegraResultado.Resultado fechar(long inscricao,String motivo) {
         String razao=Matricula.validarMotivo(motivo);
         return new AcessoAcademicoJdbc(c,sessao).fecharResultado(inscricao,()->TransacaoJdbc.executar(c,()->{

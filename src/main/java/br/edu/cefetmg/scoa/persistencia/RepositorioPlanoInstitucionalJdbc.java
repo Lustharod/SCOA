@@ -91,6 +91,14 @@ public final class RepositorioPlanoInstitucionalJdbc implements RepositorioPlano
                 r->r.getLong(1),matricula,usuario).isEmpty())
             throw new IllegalArgumentException("Matrícula não encontrada ou não autorizada.");
     }
+    Optional<Consulta> atualGestao(long curso,long matricula) {
+        return TransacaoJdbc.executar(c,()->{
+            controle(c); new AcessoGestaoAcademicaJdbc(c,sessao).curso(curso); HorarioAula.validarId(matricula);
+            if(q(c,"SELECT id_matricula FROM matricula_academica WHERE id_matricula=? AND id_curso=? FOR SHARE",r->r.getLong(1),matricula,curso).isEmpty())
+                throw new IllegalArgumentException("Matrícula fora do curso autorizado.");
+            return atual(matricula);
+        });
+    }
     private Optional<Consulta> atual(long matricula) throws SQLException {
         var ids=q(c,"SELECT id_plano FROM plano_institucional WHERE id_matricula=? ORDER BY versao DESC LIMIT 1 FOR SHARE",r->r.getLong(1),matricula);
         if(ids.isEmpty()) return Optional.empty();

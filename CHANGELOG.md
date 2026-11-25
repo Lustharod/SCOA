@@ -2,6 +2,7 @@
 
 ## 0.14.0-SNAPSHOT — em desenvolvimento
 
+- Menu 27: metas/prazos docentes com autoria, versões e histórico; avaliações filtradas; consulta e auditoria do diário com retrato imutável; monitoramento do discente sem conclusão presumida. Gestor explícito acompanha todos os cursos, coordenação somente seus cursos; turmas compartilhadas preservam o alcance por curso. ADMIN técnico não substitui o vínculo de gestor. V019 preserva dados legados e separa vínculo, metas e auditoria. Regressão Codex: 175 unitários e 307 integrações, zero falhas/erros/ignorados; testes manuais integrados pendentes.
 - Menu 25: plano institucional registrado por versões, com prévia, revalidação, autoria e retrato dos componentes/ofertas. Consulta própria não cria nem atualiza plano; informa alteração posterior ou inconsistência. V017 preserva planos legados e conciliações.
 - Menu 26: rematrícula institucional em lote por curso/períodos/seleção de matrículas, com propostas, ocorrências, repetição segura e preservação dos mesmos vínculos. Nenhuma inscrição automática; sem turma sugerida disponível, toda a rematrícula do candidato é encaminhada para análise manual. V018 registra lotes e propostas, reutilizando validações da renovação individual.
 - Regressão Codex do incremento com plano e lote: 172 unitários e 289 integrações aprovados em 25/11/2026. A rodada manual do autor será integrada ao final dos blocos; testes automáticos continuam durante o desenvolvimento.

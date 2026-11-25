@@ -26,7 +26,7 @@ public final class ConsoleProcessoAcademico {
         var seguranca=new SegurancaJdbc(c); var repo=new RepositorioProcessoAcademicoJdbc(c);
         var consultaProcessos = new ServicoConsultaProcessosAcademicos(matricula -> repo.listar(sessao, matricula));
         while(true) try {
-            System.out.println("\n18 Processos acadêmicos | 1 Inicializar acesso | 2 Entrar | 3 Sair da sessão | 4 Criar conta | 5 Solicitar conciliação | 6 Decidir conciliação | 7 Solicitar revisão | 8 Analisar revisão | 9 Listar processos | 10 Histórico do processo | 11 Vincular conta acadêmica | 12 Minha conta e vínculos | 13 Consultar conta (admin) | 0 Voltar");
+            System.out.println("\n18 Processos acadêmicos | 1 Inicializar acesso | 2 Entrar | 3 Sair da sessão | 4 Criar conta | 5 Solicitar conciliação | 6 Decidir conciliação | 7 Solicitar revisão | 8 Analisar revisão | 9 Listar processos | 10 Histórico do processo | 11 Vincular conta acadêmica | 12 Minha conta e vínculos | 13 Consultar conta (admin) | 14 Situação do vínculo de gestor (admin) | 0 Voltar");
             switch(ler("Opção: ")) {
                 case "0" -> { return sessao; }
                 case "1" -> {
@@ -83,7 +83,12 @@ public final class ConsoleProcessoAcademico {
                 case "11" -> {
                     long usuario=id("ID da conta de acesso (usuario.id_usuario): ");
                     exibirConta(seguranca.consultarConta(sessao,usuario));
-                    String tipo=ler("Tipo de vínculo (ALUNO/PROFESSOR/COORDENADOR): ").toUpperCase(Locale.ROOT);
+                    String tipo=ler("Tipo de vínculo (ALUNO/PROFESSOR/COORDENADOR/GESTOR): ").toUpperCase(Locale.ROOT);
+                    if("GESTOR".equals(tipo)) {
+                        System.out.println("Vincular a conta existente à gestão acadêmica de todos os cursos da instituição. Permissões técnicas permanecem separadas.");
+                        if(confirmar()) { seguranca.vincularGestorAcademico(sessao,usuario); exibirConta(seguranca.consultarConta(sessao,usuario)); }
+                        continue;
+                    }
                     String campo=switch(tipo) {
                         case "ALUNO" -> "ID do cadastro de aluno (aluno.id_aluno): ";
                         case "PROFESSOR" -> "ID do cadastro de professor (professor.id_professor): ";
@@ -100,6 +105,12 @@ public final class ConsoleProcessoAcademico {
                 }
                 case "12" -> exibirConta(seguranca.minhaConta(sessao));
                 case "13" -> exibirConta(seguranca.consultarConta(sessao,id("ID da conta de acesso (usuario.id_usuario): ")));
+                case "14" -> {
+                    long usuario=id("ID da conta de acesso do gestor (usuario.id_usuario): ");
+                    exibirConta(seguranca.consultarConta(sessao,usuario));
+                    String situacao=ler("Situação do vínculo acadêmico de gestor (ATIVO/INATIVO): ").toUpperCase(Locale.ROOT);
+                    if(confirmar()) { seguranca.definirSituacaoGestor(sessao,usuario,situacao); exibirConta(seguranca.consultarConta(sessao,usuario)); }
+                }
                 default -> System.out.println("Escolha uma opção do menu.");
             }
         } catch(NoSuchElementException e) { return sessao; }
@@ -114,6 +125,7 @@ public final class ConsoleProcessoAcademico {
             String chave=switch(vinculo.tipo()) {
                 case "ALUNO" -> "aluno.id_aluno";
                 case "PROFESSOR" -> "professor.id_professor";
+                case "GESTOR" -> "gestao_academica.id_gestor";
                 default -> "curso.id_curso";
             };
             System.out.println("Vínculo acadêmico: "+vinculo.tipo()+" | "+chave+"="+vinculo.referencia()+" | "+vinculo.identificacao()+" | situação do cadastro="+vinculo.situacao());
