@@ -44,6 +44,7 @@ public final class ConsoleProcessoAcademico {
                 case "4" -> {
                     String login=ler("Identificação da nova conta: ");
                     System.out.println("Use uma única conta por pessoa. Os papéis acadêmicos serão obtidos dos vínculos em 18.11.");
+                    System.out.println("Perfis e permissões técnicas podem ser administrados posteriormente no menu 31.");
                     String tecnico=ler("Acesso técnico inicial (SEM_PERMISSOES/ADMIN/SOLICITANTE/ANALISTA/BIBLIOTECARIO; Enter = SEM_PERMISSOES): ").toUpperCase(Locale.ROOT);
                     if(tecnico.isEmpty()) tecnico="SEM_PERMISSOES";
                     if(confirmar()) System.out.println("Conta criada; ID da conta de acesso: "+seguranca.criarConta(sessao,login,senha("SCOA_SENHA_NOVA_CONTA"),tecnico));

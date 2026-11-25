@@ -1,6 +1,6 @@
 # Resultados automáticos do incremento v0.14
 
-Execução Codex concluída em 2026-11-25T15:23:57-03:00. Rodada manual do autor prevista para o final dos blocos.
+Execução Codex concluída em 2026-11-25T15:41:01-03:00. Rodada manual do autor prevista para o final dos blocos.
 
 | Bateria | Classe | Testes | Falhas | Erros | Ignorados |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -11,6 +11,7 @@ Execução Codex concluída em 2026-11-25T15:23:57-03:00. Rodada manual do autor
 | Unitários | `ConsoleDiarioAcademicoTest` | 3 | 0 | 0 | 0 |
 | Unitários | `ConsolePlanoInstitucionalTest` | 2 | 0 | 0 | 0 |
 | Unitários | `ConsoleProcessoAcademicoTest` | 2 | 0 | 0 | 0 |
+| Unitários | `AdministracaoAcessoAcademicoTest` | 2 | 0 | 0 | 0 |
 | Unitários | `AlocacaoTest` | 15 | 0 | 0 | 0 |
 | Unitários | `AtendimentoAlunoTest` | 3 | 0 | 0 | 0 |
 | Unitários | `BaseAcademicaTest` | 9 | 0 | 0 | 0 |
@@ -31,8 +32,9 @@ Execução Codex concluída em 2026-11-25T15:23:57-03:00. Rodada manual do autor
 | Unitários | `SegurancaTest` | 3 | 0 | 0 | 0 |
 | Unitários | `TempoLetivoTest` | 20 | 0 | 0 | 0 |
 | Unitários | `TransferenciaExternaTest` | 3 | 0 | 0 | 0 |
-| **Unitários - total** | | **188** | **0** | **0** | **0** |
+| **Unitários - total** | | **190** | **0** | **0** | **0** |
 | Integração | `AcessoAcademicoJdbcIT` | 10 | 0 | 0 | 0 |
+| Integração | `AdministracaoAcessoAcademicoJdbcIT` | 20 | 0 | 0 | 0 |
 | Integração | `AjustesAcademicosJdbcIT` | 7 | 0 | 0 | 0 |
 | Integração | `AlocacaoJdbcIT` | 17 | 0 | 0 | 0 |
 | Integração | `AtendimentoAlunoJdbcIT` | 11 | 0 | 0 | 0 |
@@ -56,4 +58,4 @@ Execução Codex concluída em 2026-11-25T15:23:57-03:00. Rodada manual do autor
 | Integração | `SegurancaAcademicaJdbcIT` | 15 | 0 | 0 | 0 |
 | Integração | `TransferenciaExternaJdbcIT` | 23 | 0 | 0 | 0 |
 | Integração | `TransferenciaInternaJdbcIT` | 14 | 0 | 0 | 0 |
-| **Integração - total** | | **370** | **0** | **0** | **0** |
+| **Integração - total** | | **390** | **0** | **0** | **0** |

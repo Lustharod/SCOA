@@ -5,7 +5,7 @@ Base: v0.13 fechada em `f5107209c26aa80ca83ef7cf9b3f3477c5e1d899`. Esta atualiza
 ## Primeiro incremento implementado
 
 - Fronteira autenticada dos serviços usados pelos menus legados de salas, alocação, cadastros, matrícula, inscrição, equivalência e planejamento. As operações verificam sessão, atividade e permissão no acesso aos dados; a auditoria das novas manutenções integra a transação.
-- Permissões técnicas acadêmicas de consulta e manutenção separadas. ADMIN técnico pode executar esses cadastros; vínculo de aluno, docente ou coordenação não concede essas permissões. Nenhuma concessão existente foi alterada ou criada automaticamente. A administração completa das concessões ainda é trabalho pendente.
+- Permissões técnicas acadêmicas de consulta e manutenção separadas. ADMIN técnico pode executar esses cadastros; vínculo de aluno, docente ou coordenação não concede essas permissões. Nenhuma concessão existente foi alterada ou criada automaticamente. A administração operacional de perfis/concessões acadêmicos está descrita abaixo.
 - Primeiro fechamento de resultado exige o professor ativo responsável pela turma. ADMIN, aluno, coordenação ou outro professor não substituem esse vínculo. São preservados P1/P2/PF, minutos apurados, resultado único e retificação posterior. Turmas que usam o diário do menu 24 encerram a partir de seus lançamentos; o fechamento antigo com totais independentes fica bloqueado para elas.
 - Menu 21: histórico escolar do próprio aluno e registro/consulta de sugestões e reclamações. O histórico reúne matrículas, períodos, disciplinas, resultados, reconhecimentos e fontes legadas, sem presumir notas ausentes ou promover legado a reconhecimento. Revisão, revogação, contexto e datas limitam a indicação de vigência. Trata-se de consulta, não documento oficial.
 - Manifestações identificam aluno, conta autora e instante. O conteúdo fica no registro; a auditoria registra ação e referência, sem duplicar o texto privado. A V013 mantém autoria desconhecida nas manifestações antigas.
@@ -105,12 +105,22 @@ A V022 arquiva dados estruturados e os dois arquivos com autoria, referência e 
 
 Limites de formato são conferidos na prévia. A fonte PDF incorporada suporta o repertório de português verificado; símbolos sem glifo ou campos acima do limite do XLSX são apontados sem substituição/truncamento. Não se cria documento oficial assinado por exportar. As [amostras públicas](testes/publicados/execucao_codex_v0_14/AMOSTRAS.md) são selecionadas de dados sintéticos dos testes automáticos do Codex, sem atribuição a operações manuais do autor. São 101 tabelas previstas após V022.
 
+## Administração de perfis técnicos e concessões
+
+O menu 31 permite ao ADMIN técnico consultar/criar/atualizar perfis do catálogo acadêmico, consultar contas, conceder ou revogar perfil na conta existente e alterar sua atividade. O catálogo cobre consulta/manutenção acadêmica, processos, documentos, relatórios e administração de acesso. Um perfil criado não é atribuído automaticamente. Vínculos de aluno, professor, coordenação e gestor continuam independentes e não são criados por concessão técnica.
+
+Antes de alterar perfil compartilhado, a interface exibe permissões, versão e contas vinculadas. Mudanças exigem motivo e versão atual; conflitos impedem sobrescrever uma consulta antiga. Perfis com permissões de outro módulo/legado fora do catálogo são preservados para consulta neste fluxo. Códigos duplicados no legado não são escolhidos ou mesclados automaticamente. Concessões legítimas de outros perfis permanecem ao revogar um perfil específico.
+
+A V023 preserva contas, IDs, credenciais, perfis e concessões existentes; acrescenta versões e histórico com autoria/UTC, valores anteriores e posteriores e motivo. A operação e a auditoria são atômicas. Contas/perfis legados não recebem autoria ou histórico anteriores inventados. Pelo menos uma conta administrativa ativa com autenticação reconhecida deve ser preservada, inclusive contra revogação indireta por perfil.
+
+Inativar uma conta bloqueia seu acesso e invalida as sessões anteriores. Reativar mantém a mesma conta, credencial, vínculos e concessões, exigindo novo login; sessões antigas não voltam a valer. Perfis e permissões são revalidados a cada operação protegida. ADMIN técnico não substitui o professor da turma ou a responsabilidade acadêmica de coordenação/gestão. São 102 tabelas previstas após V023.
+
 ## Limites e próximos blocos
 
-Validação Codex do incremento com relatórios e exportações em 25/11/2026: **188 unitários e 370 integrações aprovados**, sem falhas, erros ou ignorados, em instância nova de scoa_java_teste. O [relatório](testes/publicados/execucao_codex_v0_14/RELATORIO.md) detalha cobertura e rastreabilidade. A pedido do autor, a rodada manual será integrada ao fim dos blocos; os testes automáticos continuam durante a implementação.
+Validação Codex do incremento com administração de acesso em 25/11/2026: **190 unitários e 390 integrações aprovados**, sem falhas, erros ou ignorados, em instância nova de scoa_java_teste. O [relatório](testes/publicados/execucao_codex_v0_14/RELATORIO.md) detalha cobertura e rastreabilidade. A pedido do autor, a rodada manual será integrada ao fim dos blocos; os testes automáticos continuam durante a implementação.
 
-Continuam em desenvolvimento: administração operacional de concessões; parametrização e interface web. Geração/assinatura oficial de documentos não está implementada; o fluxo aprovado atual é solicitação/acompanhamento e atendimento. O console ainda não é o portal web previsto no Word.
+Continuam em desenvolvimento: parametrização com vigência somente em períodos futuros e interface web. Geração/assinatura oficial de documentos não está implementada; o fluxo aprovado atual é solicitação/acompanhamento e atendimento. O console ainda não é o portal web previsto no Word.
 
 As camadas JDBC básicas mantêm as regras de persistência e são usadas pelas fixtures e pela regressão legada. Os serviços de entrada do executável usam `RepositoriosAcademicosAutorizados` ou repositórios que já exigem a sessão. Qualquer futura interface web deve reutilizar essa fronteira, sem expor diretamente os repositórios básicos.
 
-Desenvolvimento e testes usam exclusivamente `scoa_java_teste`, em instância nova. As migrações V013 a V022 não devem ser aplicadas automaticamente à base do autor ou ao schema `scoa`. Word editável, decisões detalhadas, guias, configurações, credenciais e evidências brutas permanecem privados.
+Desenvolvimento e testes usam exclusivamente `scoa_java_teste`, em instância nova. As migrações V013 a V023 não devem ser aplicadas automaticamente à base do autor ou ao schema `scoa`. Word editável, decisões detalhadas, guias, configurações, credenciais e evidências brutas permanecem privados.

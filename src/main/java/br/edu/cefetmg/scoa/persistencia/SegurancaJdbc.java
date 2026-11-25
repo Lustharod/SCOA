@@ -16,9 +16,9 @@ public final class SegurancaJdbc {
     private final Connection c;
     public SegurancaJdbc(Connection c) { this.c=Objects.requireNonNull(c); }
     public static final class Sessao {
-        private final long usuario; private final Connection conexao;
+        private final long usuario; private final Connection conexao; private final int geracao;
         private final Instant fim; private boolean encerrada;
-        private Sessao(long id,Connection c) { usuario=id; conexao=c; fim=Instant.now().plus(Duration.ofHours(2)); }
+        private Sessao(long id,Connection c,int geracao) { usuario=id; conexao=c; this.geracao=geracao; fim=Instant.now().plus(Duration.ofHours(2)); }
         public long usuario() { return usuario; }
         public void encerrar() { encerrada=true; }
     }
@@ -42,18 +42,19 @@ public final class SegurancaJdbc {
     }
     public Sessao entrar(String login,char[] senha) {
         try { return TransacaoJdbc.executar(c,()->{
-            var usuarios=q(c,"SELECT id_usuario,credencial_hash,situacao FROM usuario WHERE identificacao=? FOR SHARE",
-                r->new Object[]{r.getLong(1),r.getString(2),r.getString(3)},login);
+            var usuarios=q(c,"SELECT id_usuario,credencial_hash,situacao,geracao_sessao FROM usuario WHERE identificacao=? FOR SHARE",
+                r->new Object[]{r.getLong(1),r.getString(2),r.getString(3),r.getInt(4)},login);
             if(usuarios.size()!=1 || !"ATIVO".equals(usuarios.getFirst()[2]) || !confere(senha,(String)usuarios.getFirst()[1]))
                 throw new IllegalArgumentException("Identificação ou senha inválida, ambígua ou inativa.");
-            return new Sessao((long)usuarios.getFirst()[0],c);
+            return new Sessao((long)usuarios.getFirst()[0],c,(int)usuarios.getFirst()[3]);
         }); } finally { if(senha!=null) Arrays.fill(senha,'\0'); }
     }
     static long exigirSessao(Connection c,Sessao sessao) throws SQLException {
         if(sessao==null || sessao.conexao!=c || sessao.encerrada || !Instant.now().isBefore(sessao.fim))
             throw new IllegalArgumentException("Entre com uma sessão válida no menu 18.");
-        var u=q(c,"SELECT situacao FROM usuario WHERE id_usuario=? FOR SHARE",r->r.getString(1),sessao.usuario);
-        if(u.isEmpty() || !"ATIVO".equals(u.getFirst())) throw new IllegalArgumentException("Usuário inativo.");
+        var u=q(c,"SELECT situacao,geracao_sessao FROM usuario WHERE id_usuario=? FOR SHARE",r->new Object[]{r.getString(1),r.getInt(2)},sessao.usuario);
+        if(u.isEmpty() || !"ATIVO".equals(u.getFirst()[0])) throw new IllegalArgumentException("Usuário inativo.");
+        if((int)u.getFirst()[1]!=sessao.geracao) throw new IllegalArgumentException("Sessão revogada; entre novamente.");
         return sessao.usuario;
     }
     static long exigir(Connection c,Sessao sessao,String permissao) throws SQLException {
