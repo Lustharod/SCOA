@@ -1,0 +1,25 @@
+-- Aplicar UMA vez após V021. Sem formatos oficiais presumidos ou concessões automáticas.
+CREATE TABLE relatorio_academico (
+    id_relatorio INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    chave VARCHAR(100) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+    assinatura_pedido CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+    tipo VARCHAR(30) NOT NULL,
+    id_curso INT UNSIGNED NULL,
+    id_periodo INT UNSIGNED NULL,
+    id_turma INT UNSIGNED NULL,
+    id_matricula INT UNSIGNED NULL,
+    id_usuario_autor INT UNSIGNED NOT NULL,
+    gerado_em_utc DATETIME(6) NOT NULL,
+    assinatura_dados CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+    dados_xml LONGTEXT NOT NULL,
+    pdf LONGBLOB NOT NULL,
+    pdf_sha256 CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+    xlsx LONGBLOB NOT NULL,
+    xlsx_sha256 CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+    UNIQUE KEY uq_relatorio_academico_chave(chave),
+    FOREIGN KEY (id_curso) REFERENCES curso(id_curso) ON DELETE RESTRICT,
+    FOREIGN KEY (id_periodo) REFERENCES periodo_letivo(id_periodo) ON DELETE RESTRICT,
+    FOREIGN KEY (id_turma) REFERENCES turma(id_turma) ON DELETE RESTRICT,
+    FOREIGN KEY (id_matricula) REFERENCES matricula_academica(id_matricula) ON DELETE RESTRICT,
+    FOREIGN KEY (id_usuario_autor) REFERENCES usuario(id_usuario) ON DELETE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

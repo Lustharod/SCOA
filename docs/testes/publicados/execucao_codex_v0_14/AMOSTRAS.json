@@ -1,0 +1,17 @@
+{
+  "execution": "2026-11-25T15:23:57-03:00",
+  "category": "Teste automatizado sintético do Codex; não teste manual do autor",
+  "source_test": "ExportadorRelatorioAcademicoTest.pdfRealPreservaAcentosValoresEPaginasAteUltimoRegistro",
+  "selection": [
+    {
+      "path": "amostras/pdf_primeira.png",
+      "sha256": "c78946a35239202ee276acc6fc787b68bb91b7bd6c06184ba8d93461cefa3f2a",
+      "origin": "Página renderizada do PDF sintético privado desta execução; sem alteração de resultados"
+    },
+    {
+      "path": "amostras/pdf_ultima.png",
+      "sha256": "f9c6693da8673f857216cd950f8bb2cfd2e234be9d6cc93b8f507513561a0f06",
+      "origin": "Página renderizada do PDF sintético privado desta execução; sem alteração de resultados"
+    }
+  ]
+}

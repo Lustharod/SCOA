@@ -2,6 +2,8 @@
 
 ## 0.14.0-SNAPSHOT — em desenvolvimento
 
+- Menu 30 e V022: relatórios Censo/ENADE demonstrativos, diário completo dos registros por docente/gestão, histórico e plano próprios; prévia e confirmação, revalidação e arquivos reais PDF/XLSX arquivados com autoria e SHA-256. Repetição não duplica; revogação impede acesso inclusive ao arquivo anterior; amostras visuais sintéticas identificadas. Sem estimativa de aptidão/conclusão de curso ou assinatura oficial. Regressão Codex: 188 unitários e 370 integrações aprovados; manual integrado pendente.
+
 - Menu 29 e V021: horários por tempos oficiais podem existir sem sala; alocação/retirada posterior preserva dias, tempos e IDs. Versões, motivo e autoria no histórico; cancelamento sem exclusão. Elegibilidade, consulta do aluno, planejamento, diário e capacidade consideram horários ativos. Mudanças de tempos com inscrições/aulas são recusadas; sala pode ser mantida separadamente. Regressão Codex: 180 unitários e 348 integrações aprovados, manual integrado pendente.
 
 - Menu 28 e V020: processos externos de entrada e saída, acompanhamento documental, versões e decisões explícitas. Entrada abre vínculo na mesma pessoa/conta; saída preserva origem como TRANSFERIDO, cancela inscrições com retenção de vagas e bloqueia até regularizar a biblioteca. Repetições não duplicam efeitos; falhas desfazem toda a efetivação. Equivalências externas continuam no processo formal. Regressão Codex: 178 unitários e 330 integrações aprovados.

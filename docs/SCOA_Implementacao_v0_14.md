@@ -39,7 +39,7 @@ O atendimento e a consulta da fila exigem permissões técnicas próprias (`SCOA
 
 A V015 acrescenta autoria, instantes UTC, versão e histórico de andamento. Solicitações legadas mantêm seus tipos e situações originais, autoria desconhecida e ausência de histórico detalhado; não são promovidas automaticamente ao novo fluxo. O aluno continua podendo solicitar histórico de seu vínculo transferido. Solicitar um documento não reativa nem altera matrícula.
 
-O autor também definiu relatórios MEC como demonstrativos do protótipo e alcance do gestor acadêmico sobre todos os cursos da instituição, mantendo a coordenação por curso. A gestão está implementada abaixo; os relatórios demonstrativos seguem pendentes.
+O autor também definiu relatórios MEC como demonstrativos do protótipo e alcance do gestor acadêmico sobre todos os cursos da instituição, mantendo a coordenação por curso. A gestão está implementada abaixo; os relatórios demonstrativos estão descritos abaixo.
 
 ## Diário, avaliações e frequência por tempo
 
@@ -55,7 +55,7 @@ O professor pode conferir os lançamentos e fechar o resultado a partir deles ap
 
 O contrato de chegada simulada recebe origem, chave única, aula, inscrição e instante local. A importação fictícia aplica o limite inclusivo de 15 minutos, recusa colisões de chave e não duplica carga ou presença ao receber um evento novamente. Uma frequência manual ou já registrada não é sobrescrita pelo importador. Recusas de dados são identificadas por evento e o lote continua; falhas de persistência interrompem o processamento. Não há conexão com equipamento real.
 
-A V016 mantém aulas/avaliações antigas sem tempo/tipo/autoria presumidos, acrescenta versões e autoria de lançamentos e guarda a deduplicação dos eventos simulados. O diário aponta dados legados para conferência, sem reinterpretá-los como lançamentos novos. Este fluxo operacional ainda não é a emissão e assinatura do diário institucional completo; a consulta e auditoria da gestão estão descritas abaixo.
+A V016 mantém aulas/avaliações antigas sem tempo/tipo/autoria presumidos, acrescenta versões e autoria de lançamentos e guarda a deduplicação dos eventos simulados. O diário aponta dados legados para conferência, sem reinterpretá-los como lançamentos novos. A consulta e auditoria da gestão e a exportação dos registros completos do diário estão descritas abaixo; assinatura oficial não é presumida.
 
 ## Plano institucional versionado
 
@@ -93,12 +93,24 @@ A definição/cancelamento de tempos exige turma e período ativos ainda não en
 
 A V021 torna a sala opcional no registro existente, preserva IDs/associações e acrescenta atividade, versão, autoria/UTC e histórico. Cancelamento mantém o registro inativo, sem excluir ID. Consultas de aluno, elegibilidade, planejamento, diário e compromissos de salas desconsideram horários cancelados. O caminho autenticado antigo de alocação registra histórico; seu cancelamento de horário não deve ser confundido com retirar somente a sala, disponível no menu 29. Legado mantém autoria e instantes desconhecidos, sem eventos anteriores inventados. São 100 tabelas previstas após V021.
 
+## Relatórios e exportações PDF/XLSX
+
+O menu 30 prepara o relatório para conferência e exige confirmação antes de concluir a geração. Tipos disponíveis: Censo e ENADE demonstrativos, diário docente, diário da gestão limitado ao curso, histórico próprio e plano próprio. Os formatos são arquivos PDF e XLSX reais do mesmo retrato, com filtros, autoria, instante e hash dos dados. O PDF incorpora fonte; o XLSX mantém os valores como texto, inclusive IDs com zeros e conteúdo que pareça fórmula.
+
+Os demonstrativos MEC usam curso e período. A população reúne matrículas com ingresso, rematrícula ou inscrição registrada no período, sem duplicar matrícula. As situações são as atuais na extração, sem reconstrução histórica presumida. Resultados ausentes aparecem sem nota estimada; situações incoerentes impedem geração. O ENADE demonstra a trajetória curricular disponível, sem definir aptidão, concluinte, formação ou diploma. Não há formato oficial fornecido nem comunicação com o MEC.
+
+O professor exporta sua turma; coordenação/gestão revalidam o alcance por curso, inclusive para turmas compartilhadas. O diário inclui aulas, pauta/conteúdo, avaliações, resumo, notas e chamadas originais e resultados vigentes separados. Aluno exporta apenas seu histórico/plano, identificado pela sessão; consulta não cria/atualiza plano, nem substitui documento oficial solicitado à secretaria. Para MEC, exige-se a concessão técnica SCOA_RELATORIOS_GERAR ou ADMIN; gestor/professor/coordenador não ganham essa permissão implicitamente.
+
+A V022 arquiva dados estruturados e os dois arquivos com autoria, referência e hashes. Mudança da origem após a prévia exige nova conferência. Repetir a mesma geração retorna o protocolo sem duplicar; fontes alteradas depois não reescrevem o arquivo anterior. Acesso ao arquivo arquivado revalida conta/vínculo/permissão atual e sua integridade. Falha de formato ou auditoria não deixa relatório parcialmente concluído. A cópia local preserva arquivos existentes; pode ser retomada pelo protocolo sem gerar novamente. O destino padrão exportacoes é privado no Git.
+
+Limites de formato são conferidos na prévia. A fonte PDF incorporada suporta o repertório de português verificado; símbolos sem glifo ou campos acima do limite do XLSX são apontados sem substituição/truncamento. Não se cria documento oficial assinado por exportar. As [amostras públicas](testes/publicados/execucao_codex_v0_14/AMOSTRAS.md) são selecionadas de dados sintéticos dos testes automáticos do Codex, sem atribuição a operações manuais do autor. São 101 tabelas previstas após V022.
+
 ## Limites e próximos blocos
 
-Validação Codex do incremento com horários antes da sala em 25/11/2026: **180 unitários e 348 integrações aprovados**, sem falhas, erros ou ignorados, em instância nova de scoa_java_teste. O [relatório](testes/publicados/execucao_codex_v0_14/RELATORIO.md) detalha cobertura e rastreabilidade. A pedido do autor, a rodada manual será integrada ao fim dos blocos; os testes automáticos continuam durante a implementação.
+Validação Codex do incremento com relatórios e exportações em 25/11/2026: **188 unitários e 370 integrações aprovados**, sem falhas, erros ou ignorados, em instância nova de scoa_java_teste. O [relatório](testes/publicados/execucao_codex_v0_14/RELATORIO.md) detalha cobertura e rastreabilidade. A pedido do autor, a rodada manual será integrada ao fim dos blocos; os testes automáticos continuam durante a implementação.
 
-Continuam em desenvolvimento: emissão/exportação do diário institucional completo; relatórios demonstrativos MEC; administração operacional de concessões; parametrização e interface web. Geração/assinatura oficial de documentos não está implementada; o fluxo aprovado atual é solicitação/acompanhamento e atendimento. O console ainda não é o portal web previsto no Word.
+Continuam em desenvolvimento: administração operacional de concessões; parametrização e interface web. Geração/assinatura oficial de documentos não está implementada; o fluxo aprovado atual é solicitação/acompanhamento e atendimento. O console ainda não é o portal web previsto no Word.
 
 As camadas JDBC básicas mantêm as regras de persistência e são usadas pelas fixtures e pela regressão legada. Os serviços de entrada do executável usam `RepositoriosAcademicosAutorizados` ou repositórios que já exigem a sessão. Qualquer futura interface web deve reutilizar essa fronteira, sem expor diretamente os repositórios básicos.
 
-Desenvolvimento e testes usam exclusivamente `scoa_java_teste`, em instância nova. As migrações V013 a V021 não devem ser aplicadas automaticamente à base do autor ou ao schema `scoa`. Word editável, decisões detalhadas, guias, configurações, credenciais e evidências brutas permanecem privados.
+Desenvolvimento e testes usam exclusivamente `scoa_java_teste`, em instância nova. As migrações V013 a V022 não devem ser aplicadas automaticamente à base do autor ou ao schema `scoa`. Word editável, decisões detalhadas, guias, configurações, credenciais e evidências brutas permanecem privados.

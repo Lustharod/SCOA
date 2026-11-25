@@ -14,6 +14,7 @@ public final class AcessoAcademicoJdbc {
     public static final String MANTER="SCOA_ACADEMICO_MANTER";
     public static final String DOCUMENTOS_CONSULTAR="SCOA_DOCUMENTOS_CONSULTAR";
     public static final String DOCUMENTOS_ATENDER="SCOA_DOCUMENTOS_ATENDER";
+    public static final String RELATORIOS_GERAR="SCOA_RELATORIOS_GERAR";
     private final Connection c;
     private final SegurancaJdbc.Sessao sessao;
 
@@ -41,6 +42,9 @@ public final class AcessoAcademicoJdbc {
     }
     public <T> T consultarDocumentos(Supplier<T> operacao) {
         return consultarComPermissao(DOCUMENTOS_CONSULTAR,operacao);
+    }
+    public <T> T consultarRelatorios(Supplier<T> operacao) {
+        return consultarComPermissao(RELATORIOS_GERAR,operacao);
     }
     private <T> T consultarComPermissao(String permissao,Supplier<T> operacao) {
         return TransacaoJdbc.executar(c,()->{

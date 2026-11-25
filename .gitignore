@@ -1,5 +1,6 @@
 # Arquivos gerados e configurações locais
 /target/
+/exportacoes/
 /.idea/
 /.run/
 *.iml
@@ -253,3 +254,9 @@ Thumbs.db
 !/docs/testes/publicados/execucao_codex_v0_14/RESULTADOS.md
 !/docs/testes/publicados/execucao_codex_v0_14/ambiente.txt
 !/docs/testes/publicados/execucao_codex_v0_14/FONTES_SHA256.json
+!/docs/testes/publicados/execucao_codex_v0_14/AMOSTRAS.md
+!/docs/testes/publicados/execucao_codex_v0_14/AMOSTRAS.json
+!/docs/testes/publicados/execucao_codex_v0_14/amostras/
+/docs/testes/publicados/execucao_codex_v0_14/amostras/*
+!/docs/testes/publicados/execucao_codex_v0_14/amostras/pdf_primeira.png
+!/docs/testes/publicados/execucao_codex_v0_14/amostras/pdf_ultima.png
