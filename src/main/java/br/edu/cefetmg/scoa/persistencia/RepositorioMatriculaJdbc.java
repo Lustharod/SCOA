@@ -136,8 +136,20 @@ public final class RepositorioMatriculaJdbc implements RepositorioMatricula {
         TransacaoJdbc.executar(c,()->{
             JdbcAcademico.controle(c);
             long usuario=SegurancaJdbc.exigirSessao(c,sessao);
+            renovarBloqueado(usuario,matricula,periodo,true);
+            return null;
+        });
+    }
+    void rematricularPelaSecretaria(SegurancaJdbc.Sessao sessao,long matricula,long periodo) {
+        HorarioAula.validarId(matricula); HorarioAula.validarId(periodo);
+        new AcessoAcademicoJdbc(c,sessao).manter("REMATRICULA_MATRICULA","RENOVAR_LOTE",matricula,
+                ()->TransacaoJdbc.executar(c,()->{
+                    renovarBloqueado(SegurancaJdbc.exigirSessao(c,sessao),matricula,periodo,false); return null;
+                }));
+    }
+    private void renovarBloqueado(long usuario,long matricula,long periodo,boolean propria) throws SQLException {
             var vinculo=bloquear(matricula,true);
-            SegurancaJdbc.exigirAluno(c,usuario,vinculo.idAluno());
+            if(propria) SegurancaJdbc.exigirAluno(c,usuario,vinculo.idAluno());
             if(!"ATIVO".equals(vinculo.situacao()))
                 throw new IllegalArgumentException("A rematrícula exige vínculo institucional ativo.");
             if(vinculo.idPeriodoIngresso()==null)
@@ -159,8 +171,6 @@ public final class RepositorioMatriculaJdbc implements RepositorioMatricula {
             biblioteca(vinculo.idAluno()).exigirRegular();
             executar("INSERT INTO rematricula_academica(id_matricula,id_periodo,id_usuario,registrado_em) VALUES (?,?,?,?)",
                     matricula,periodo,usuario,agora);
-            return null;
-        });
     }
     private SituacaoBiblioteca biblioteca(long aluno) {
         // FOR UPDATE usa leitura corrente mesmo sob REPEATABLE READ.

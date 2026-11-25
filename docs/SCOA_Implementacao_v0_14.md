@@ -47,12 +47,28 @@ O contrato de chegada simulada recebe origem, chave única, aula, inscrição e 
 
 A V016 mantém aulas/avaliações antigas sem tempo/tipo/autoria presumidos, acrescenta versões e autoria de lançamentos e guarda a deduplicação dos eventos simulados. O diário aponta dados legados para conferência, sem reinterpretá-los como lançamentos novos. Este fluxo operacional ainda não é a emissão e assinatura do diário institucional completo, nem substitui a gestão/auditoria docente prevista para os próximos blocos.
 
+## Plano institucional versionado
+
+O menu 25 prepara e registra o plano por matrícula, estrutura, períodos selecionados e prioridades. Reutiliza o plano derivado e a simulação de ofertas, com resultados formais, reconhecimentos e pré-requisitos; uma disciplina sugerida não passa a ser concluída por isso. A secretaria confere a prévia antes de confirmar. Se os dados ou a versão mudarem nesse intervalo, o registro é recusado para nova conferência.
+
+Cada atualização cria uma versão com autoria, instante UTC, motivo e componentes preservados, incluindo nome, carga, situação, fundamento, requisitos e sugestão de oferta. Versões anteriores não são reescritas quando mudam nomes, resultados, reconhecimentos ou vagas. A consulta do aluno é restrita às próprias matrículas e não gera/atualiza plano automaticamente: mostra o registrado e informa ATUAL, PENDENTE_ATUALIZACAO ou INCONSISTENTE conforme a conferência possível.
+
+A V017 guarda as versões novas separadamente dos planos legados, que mantêm seu processo de conciliação. Estrutura ausente/vazia, legado não conciliado ou dados acadêmicos incoerentes impedem geração consistente. Um plano registra a situação conhecida e sugestões, sem reservar vaga ou efetivar inscrição.
+
+## Rematrícula institucional em lote
+
+O menu 26 prepara o processamento por curso, período anterior encerrado e período de destino ativo posterior. A secretaria seleciona matrículas explicitamente ou confere todas as ativas do curso. Cada candidato é avaliado quanto a ingresso, vínculo, resultados anteriores, retificação pendente, plano atual para o destino, biblioteca e elegibilidade das propostas. A confirmação revalida os dados da prévia.
+
+O lote renova os mesmos vínculos institucionais e guarda propostas e ocorrências. Não cria inscrições em turmas; cada confirmação posterior continua sujeita a elegibilidade e vagas reais. Se nenhuma turma sugerida estiver disponível, **toda a rematrícula daquele candidato segue para análise manual**, sem renovação automática, conforme decisão do autor. Plano ausente/desatualizado, dados insuficientes ou consulta bibliotecária inválida também geram ocorrência; os demais candidatos podem ser processados.
+
+Repetir a mesma chave com os mesmos dados retorna o lote existente. Outro processamento reconhece as renovações já feitas e não as duplica. Colisão de chave ou mudança de dados desde a prévia exige conferência. Lote, renovações, propostas, histórico e auditoria integram a transação; uma falha de persistência/auditoria desfaz o processamento. A V018 acrescenta os três registros de lote, candidatos e propostas. A validação individual de rematrícula foi reutilizada, preservando o caminho do próprio aluno.
+
 ## Limites e próximos blocos
 
-Validação Codex do incremento com diário em 25/11/2026: **166 unitários e 262 integrações aprovados**, sem falhas, erros ou ignorados, em instância nova de scoa_java_teste. O [relatório](testes/publicados/execucao_codex_v0_14/RELATORIO.md) detalha cobertura e rastreabilidade. A validação manual do autor da v0.14 ainda está pendente.
+Validação Codex do incremento com plano e lote em 25/11/2026: **172 unitários e 289 integrações aprovados**, sem falhas, erros ou ignorados, em instância nova de scoa_java_teste. O [relatório](testes/publicados/execucao_codex_v0_14/RELATORIO.md) detalha cobertura e rastreabilidade. A pedido do autor, a rodada manual será integrada ao fim dos blocos; os testes automáticos continuam durante a implementação.
 
-Continuam em desenvolvimento: emissão/exportação do diário institucional completo e gestão/auditoria docente; planos institucionais e processamento em lote; transferências externas; geração e assinatura de documentos; relatórios demonstrativos MEC; parametrização e interface web. O console ainda não é o portal web previsto no Word.
+Continuam em desenvolvimento: emissão/exportação do diário institucional completo e gestão/auditoria docente; transferências externas; relatórios demonstrativos MEC; horários definidos antes da sala; administração operacional de concessões; parametrização e interface web. Geração/assinatura oficial de documentos não está implementada; o fluxo aprovado atual é solicitação/acompanhamento e atendimento. O console ainda não é o portal web previsto no Word.
 
 As camadas JDBC básicas mantêm as regras de persistência e são usadas pelas fixtures e pela regressão legada. Os serviços de entrada do executável usam `RepositoriosAcademicosAutorizados` ou repositórios que já exigem a sessão. Qualquer futura interface web deve reutilizar essa fronteira, sem expor diretamente os repositórios básicos.
 
-Desenvolvimento e testes usam exclusivamente `scoa_java_teste`, em instância nova. As migrações V013 a V016 não devem ser aplicadas automaticamente à base do autor ou ao schema `scoa`. Word editável, decisões detalhadas, guias, configurações, credenciais e evidências brutas permanecem privados.
+Desenvolvimento e testes usam exclusivamente `scoa_java_teste`, em instância nova. As migrações V013 a V018 não devem ser aplicadas automaticamente à base do autor ou ao schema `scoa`. Word editável, decisões detalhadas, guias, configurações, credenciais e evidências brutas permanecem privados.

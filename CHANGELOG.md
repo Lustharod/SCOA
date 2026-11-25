@@ -2,6 +2,10 @@
 
 ## 0.14.0-SNAPSHOT — em desenvolvimento
 
+- Menu 25: plano institucional registrado por versões, com prévia, revalidação, autoria e retrato dos componentes/ofertas. Consulta própria não cria nem atualiza plano; informa alteração posterior ou inconsistência. V017 preserva planos legados e conciliações.
+- Menu 26: rematrícula institucional em lote por curso/períodos/seleção de matrículas, com propostas, ocorrências, repetição segura e preservação dos mesmos vínculos. Nenhuma inscrição automática; sem turma sugerida disponível, toda a rematrícula do candidato é encaminhada para análise manual. V018 registra lotes e propostas, reutilizando validações da renovação individual.
+- Regressão Codex do incremento com plano e lote: 172 unitários e 289 integrações aprovados em 25/11/2026. A rodada manual do autor será integrada ao final dos blocos; testes automáticos continuam durante o desenvolvimento.
+
 - Menu 24: diário operacional por tempos, pauta/conteúdo, avaliações P1/P2/PF separadas, notas versionadas, retirada de nota com histórico e frequência manual/simulada. A carga usa horas de 60 minutos (60 h = 72 tempos); tempos anteriores à inscrição ficam fora dos 75%. Eventos fictícios não duplicam presença nem sobrescrevem chamada. Fechamento docente usa os lançamentos, preservando o cálculo anterior e a retificação posterior. V016 conserva o legado sem autoria/tipo/tempo presumidos.
 - Regressão Codex do incremento com diário aprovada em 25/11/2026: 166 unitários e 262 integrações, sem falhas, erros ou ignorados. Relatórios e hashes atualizados; validação manual do autor ainda pendente.
 

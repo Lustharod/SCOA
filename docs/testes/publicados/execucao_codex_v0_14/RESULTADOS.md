@@ -1,6 +1,6 @@
 # Resultados automáticos do incremento v0.14
 
-Execução Codex concluída em 2026-11-25T10:16:12-03:00. Validação manual do autor ainda pendente.
+Execução Codex concluída em 2026-11-25T10:40:46-03:00. Validação manual do autor prevista para uma rodada integrada ao fim dos blocos.
 
 | Bateria | Classe | Testes | Falhas | Erros | Ignorados |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -8,6 +8,7 @@ Execução Codex concluída em 2026-11-25T10:16:12-03:00. Validação manual do 
 | Unitários | `ConsoleAtendimentoAlunoTest` | 4 | 0 | 0 | 0 |
 | Unitários | `ConsoleConsultasAlunoTest` | 2 | 0 | 0 | 0 |
 | Unitários | `ConsoleDiarioAcademicoTest` | 3 | 0 | 0 | 0 |
+| Unitários | `ConsolePlanoInstitucionalTest` | 2 | 0 | 0 | 0 |
 | Unitários | `ConsoleProcessoAcademicoTest` | 2 | 0 | 0 | 0 |
 | Unitários | `AlocacaoTest` | 15 | 0 | 0 | 0 |
 | Unitários | `AtendimentoAlunoTest` | 3 | 0 | 0 | 0 |
@@ -19,11 +20,13 @@ Execução Codex concluída em 2026-11-25T10:16:12-03:00. Validação manual do 
 | Unitários | `InscricaoTest` | 29 | 0 | 0 | 0 |
 | Unitários | `MatriculaTest` | 3 | 0 | 0 | 0 |
 | Unitários | `PlanejamentoTest` | 11 | 0 | 0 | 0 |
+| Unitários | `PlanoInstitucionalTest` | 2 | 0 | 0 | 0 |
 | Unitários | `ProfessoresDisciplinasTest` | 9 | 0 | 0 | 0 |
+| Unitários | `RematriculaLoteTest` | 2 | 0 | 0 | 0 |
 | Unitários | `SalaTest` | 23 | 0 | 0 | 0 |
 | Unitários | `SegurancaTest` | 3 | 0 | 0 | 0 |
 | Unitários | `TempoLetivoTest` | 20 | 0 | 0 | 0 |
-| **Unitários — total** | | **166** | **0** | **0** | **0** |
+| **Unitários — total** | | **172** | **0** | **0** | **0** |
 | Integração | `AcessoAcademicoJdbcIT` | 10 | 0 | 0 | 0 |
 | Integração | `AjustesAcademicosJdbcIT` | 7 | 0 | 0 | 0 |
 | Integração | `AlocacaoJdbcIT` | 17 | 0 | 0 | 0 |
@@ -37,9 +40,11 @@ Execução Codex concluída em 2026-11-25T10:16:12-03:00. Validação manual do 
 | Integração | `InscricaoJdbcIT` | 14 | 0 | 0 | 0 |
 | Integração | `MatriculaJdbcIT` | 29 | 0 | 0 | 0 |
 | Integração | `PlanejamentoJdbcIT` | 14 | 0 | 0 | 0 |
+| Integração | `PlanoInstitucionalJdbcIT` | 13 | 0 | 0 | 0 |
 | Integração | `ProcessoAcademicoJdbcIT` | 23 | 0 | 0 | 0 |
 | Integração | `ProfessoresDisciplinasJdbcIT` | 14 | 0 | 0 | 0 |
+| Integração | `RematriculaLoteJdbcIT` | 14 | 0 | 0 | 0 |
 | Integração | `SalaJdbcIT` | 6 | 0 | 0 | 0 |
 | Integração | `SegurancaAcademicaJdbcIT` | 15 | 0 | 0 | 0 |
 | Integração | `TransferenciaInternaJdbcIT` | 14 | 0 | 0 | 0 |
-| **Integração — total** | | **262** | **0** | **0** | **0** |
+| **Integração — total** | | **289** | **0** | **0** | **0** |

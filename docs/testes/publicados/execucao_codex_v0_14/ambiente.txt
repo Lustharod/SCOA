@@ -1,17 +1,16 @@
-SCOA v0.14.0-SNAPSHOT — diário em desenvolvimento
-Executor: Codex; validação manual do autor pendente
-Término: 2026-11-25T10:16:12-03:00 (America/Sao_Paulo)
-Maven: 3.9.11; comando mvn -o -B verify -Pmysql-it
-Resultado: BUILD SUCCESS; duração exibida: 01:11 min
-Java: 25.0.1+8-27
+SCOA v0.14.0-SNAPSHOT — plano institucional e lote em desenvolvimento
+Executor: Codex; rodada manual do autor prevista para o final dos blocos
+Fim: 2026-11-25T10:40:46-03:00 (America/Sao_Paulo)
+Comando: mvn -o -B verify -Pmysql-it
+Resultado: BUILD SUCCESS; duração exibida: 01:14 min
+Java: 25.0.1+8-27; Maven 3.9.11
 Sistema: Windows 11; arquitetura amd64
-MySQL: 8.0.46; schema scoa_java_teste; porta 33386; instância nova encerrada ao fim
-Base: DDL de testes v7.5 + migrações V006 a V016
-Tabelas previstas pelo DDL: 90; a contagem SQL pós-migração não foi exportada nesta rodada
-Unitários: 166; integração: 262; falhas/erros/ignorados: zero
+MySQL 8.0.46; schema scoa_java_teste; porta 33386; instância nova encerrada ao fim
+Base: DDL de testes v7.5 + V006 a V018
+Tabelas previstas pelo DDL: 95; contagem SQL pós-migração não exportada nesta rodada
+Unitários 172; integração 289; falhas/erros/ignorados zero
 Evidências públicas: RELATORIO.md, RESULTADOS.md, ambiente.txt, FONTES_SHA256.json
-Originais privados: verify-privado.txt, mysql.log, XML/TXT Surefire/Failsafe e manifesto SHA-256
-Carga horária: 60 h = 3600 min = 72 tempos de 50 min; carga cadastrada preservada
-Segunda fase: tempos anteriores à inscrição excluídos da frequência individual
-Fixtures SQL: preparação/restauração, sem atribuição a operações auditadas do console
-Não houve migração do schema scoa nem uso de equipamento físico
+Originais privados: verify-privado.txt, mysql.log, XML/TXT e manifesto SHA-256
+Fixtures SQL são preparação/restauração; não operações auditadas executadas por pessoa no console
+Planos preservam versões; lote não inscreve em turmas; sem oferta disponível encaminha toda a rematrícula para análise manual
+Nenhuma migração de scoa; Word v7.17 preservado

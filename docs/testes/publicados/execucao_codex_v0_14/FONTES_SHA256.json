@@ -44,6 +44,14 @@
     "sha256": "dd9fbf5ed9ceddbe2615ccb32a8cd3d9daac7b93cd78d77705f80d012fb39ef6"
   },
   {
+    "path": "database/migrations/V017__plano_institucional_versionado.sql",
+    "sha256": "a753b16c141a888427622e75cd0256f425a47fa33cedddc37a1b359449a8d569"
+  },
+  {
+    "path": "database/migrations/V018__rematricula_lote.sql",
+    "sha256": "d838491878246eff5d85c0073d9283559d658f80b10fa95c26779fdffcf77cef"
+  },
+  {
     "path": "database/SCOA_MySQL8_schema_v7_5.sql",
     "sha256": "76280f68d978637cd83f66700074482e57c15450331501d8ddcc35404e1523e4"
   },
@@ -112,8 +120,16 @@
     "sha256": "4ace79c429ab2b0d746dcd6332423242bd6fadf098a7027c4effaf2a2302b7ea"
   },
   {
+    "path": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoPlanoInstitucional.java",
+    "sha256": "690c1dfd890323d5553e10f0f2083519dd3ad2067fa1796ddaee397b22390abc"
+  },
+  {
     "path": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoProfessoresDisciplinas.java",
     "sha256": "4f9fdfddc45c836f6000c65e85a40519521f31a3720b4526ce3c72d56282d150"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoRematriculaLote.java",
+    "sha256": "e12f73bac5f19b819563fe7693efee676aadab66701b9fe7ff724d2d4186113a"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoSala.java",
@@ -168,12 +184,20 @@
     "sha256": "381a7a082def9eab3883b50dd4b53ead11b3d56c90cfb013e318a371937e970c"
   },
   {
+    "path": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsolePlanoInstitucional.java",
+    "sha256": "c25cdfe600bb92e8b88faa32d343763ec70dd074f0f8c28d786a21c18350ac1f"
+  },
+  {
     "path": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleProcessoAcademico.java",
     "sha256": "0961845e5e4e97d83d5f18ed09696d61e81ffb38de686f871f330ac6a4dfa4de"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleProfessoresDisciplinas.java",
     "sha256": "70373a7298bfb33d32e71aa829430fb5642bd98f26fab82b481d124fe27e28d3"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleRematriculaLote.java",
+    "sha256": "74553e6a5b6d063d2ed11f8bbb78bd695f10f04b827a17aee1f82ae61f4b131a"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleTransferenciaInterna.java",
@@ -264,6 +288,10 @@
     "sha256": "3cf9c2d593221ae79e3ef40b90ccb56e5bc7bfd710ea76a8e8f7a6520f2414b5"
   },
   {
+    "path": "src/main/java/br/edu/cefetmg/scoa/dominio/PlanoInstitucional.java",
+    "sha256": "5e4584ae9a010b1c062ba144791ab84582c53e422089042986ac36d74ae514b8"
+  },
+  {
     "path": "src/main/java/br/edu/cefetmg/scoa/dominio/Professor.java",
     "sha256": "9c47a74912e98dcd30fd55a05ae85b7717532abe566ba890e6b4351cd1b0ec8f"
   },
@@ -278,6 +306,10 @@
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/dominio/RegraResultado.java",
     "sha256": "cc456cbfa7e6d32f21fb87a399b7845e7b09cb6d5478d17b66b7222a031006f3"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/dominio/RematriculaLote.java",
+    "sha256": "1710d979ee6199aa061c0b87423d86e86553b6faf348bf42f0aa6c3381a13fb5"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioAlocacao.java",
@@ -320,8 +352,16 @@
     "sha256": "b0b091bc8994f37ff6d3d1bc03e722fb4b0e792424b9d9405d7f9b0982744c13"
   },
   {
+    "path": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioPlanoInstitucional.java",
+    "sha256": "7e4a7a3a74a746aa458cf97130559f1a9f96b44f644ff7efcace0b932dc42149"
+  },
+  {
     "path": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioProfessoresDisciplinas.java",
     "sha256": "4a736ffc2a90b7e5d520667fbf4a3a7172235a084b0446e9a76864c54dff8700"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioRematriculaLote.java",
+    "sha256": "ebec181b32752bfb532fec3396ef1a7271428e234fa05924dd3160fd1158661f"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioSala.java",
@@ -425,7 +465,7 @@
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioMatriculaJdbc.java",
-    "sha256": "d19e175d62d5f57ab462d9c8f28ebca5f6c7a17947ccd9147bfcb7723861dbb3"
+    "sha256": "ce73b9f8736ce7080a2e810cb7bbb5062b8d4684910503000d56e9f78e24010f"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioPendenciaBibliotecaJdbc.java",
@@ -436,12 +476,20 @@
     "sha256": "f33206c8a263a649f7257e1b50ea1d6963e518bf6bba6a28415efd5c0ff7eecd"
   },
   {
+    "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioPlanoInstitucionalJdbc.java",
+    "sha256": "c805663fc3c92bb50b7c172ef343dc6ef2f7c9d1cd1b74df840d8032df041048"
+  },
+  {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioProcessoAcademicoJdbc.java",
     "sha256": "df7ccfbb3665da38b60452f6564737b96a6999d60746a659d79510b780d47588"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioProfessoresDisciplinasJdbc.java",
     "sha256": "017b8d17e3a250a7c4d27532bd4c56fb65bb5d4ef053b294a5e6de0b5083f0c3"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioRematriculaLoteJdbc.java",
+    "sha256": "f176d271bd39f74adf9801d71d5f128bc0f88571bdc412718e7920ff9bd7f259"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioRetificacaoJdbc.java",
@@ -469,7 +517,7 @@
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/ScoaAplicacao.java",
-    "sha256": "4881be4b087f79950dbd6d33c944e6e0dd3ef918edcf53a0508f2683be2fa025"
+    "sha256": "722877c74e839e8039cbf9dcb505a75257e105ee212cc9564a22fa9c5428bd1a"
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/aplicacao/ServicoSalaTest.java",
@@ -486,6 +534,10 @@
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/apresentacao/ConsoleDiarioAcademicoTest.java",
     "sha256": "b0bdfc016c23eb3191745e1bb8f9d247ad42e422de98e16cdf1777826c9333e0"
+  },
+  {
+    "path": "src/test/java/br/edu/cefetmg/scoa/apresentacao/ConsolePlanoInstitucionalTest.java",
+    "sha256": "c6c18f090bc718add15539219ad22f136216500a4f7673082cdeef5b95f7cccd"
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/apresentacao/ConsoleProcessoAcademicoTest.java",
@@ -532,8 +584,16 @@
     "sha256": "6ba5a4bc14930bdfcc1ba3e62e75e285393ae19e2adcbbfa186485ffeccc20b2"
   },
   {
+    "path": "src/test/java/br/edu/cefetmg/scoa/dominio/PlanoInstitucionalTest.java",
+    "sha256": "96a69d8815077387af6670cced7f989a5df18a8bd6261ac473ace7a63d39c3f9"
+  },
+  {
     "path": "src/test/java/br/edu/cefetmg/scoa/dominio/ProfessoresDisciplinasTest.java",
     "sha256": "ceea3cac4fe9059ce237a279961715e275210eaf89233cf3909380e521e7cf1c"
+  },
+  {
+    "path": "src/test/java/br/edu/cefetmg/scoa/dominio/RematriculaLoteTest.java",
+    "sha256": "171bc1f79ff03e534b250c56a3c66dc9c383a89cff4c744ca59be344e9b7db31"
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/dominio/SalaTest.java",
@@ -565,7 +625,7 @@
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/ApoioJdbc.java",
-    "sha256": "c0df5a31bc68f952b514531e12b8fd8c4a3a55d679e6205a5b4a4a76e59bb995"
+    "sha256": "59d208cb28901b4d33c656d3065c7f789f7037ae55320aba8e04b2c844e349a5"
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/AtendimentoAlunoJdbcIT.java",
@@ -612,12 +672,20 @@
     "sha256": "d9ca5aa07f348b4ce50a98915e2b53c89f61c48f69859e06a01fea4222433330"
   },
   {
+    "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/PlanoInstitucionalJdbcIT.java",
+    "sha256": "18326f646f74bed163e5c04d1f96cc8769ffa92132d4fd0e7c18b0ff0afeeb1b"
+  },
+  {
     "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/ProcessoAcademicoJdbcIT.java",
     "sha256": "545868f27bfa877ae5063f7cbe77fd8fdad1d15520b7cf40fabe5822594bc8a1"
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/ProfessoresDisciplinasJdbcIT.java",
     "sha256": "f2161bc61224d31bead78341f7b0d28456c30afe68fa36edd61ace3792de5732"
+  },
+  {
+    "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/RematriculaLoteJdbcIT.java",
+    "sha256": "cc85568f16889169349ad226edc41144f69987a0fe5c34af12bba198ff9e231c"
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/SalaJdbcIT.java",

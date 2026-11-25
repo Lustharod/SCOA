@@ -52,6 +52,8 @@ public final class ScoaAplicacao {
                 System.out.println("19 Consultas do aluno | 20 Ajustes acadêmicos | 21 Histórico escolar e manifestações | 22 Transferência interna");
                 System.out.println("23 Solicitações de documentos e atendimento da secretaria");
                 System.out.println("24 Diário: aulas por tempo, avaliações, notas e frequência");
+                System.out.println("25 Plano de estudo institucional e versões");
+                System.out.println("26 Rematrícula institucional em lote");
                 String opcao = ler(entrada, "Opção: ");
                 try {
                     switch (opcao) {
@@ -115,6 +117,12 @@ public final class ScoaAplicacao {
                         case "19" -> new ConsoleConsultasAluno(entrada,
                                 new RepositorioConsultasAlunoJdbc(conexao, sessao)).executar();
                         case "20" -> new ConsoleAjustesAcademicos(entrada,conexao,sessao).executar();
+                        case "26" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleRematriculaLote(entrada,
+                                new br.edu.cefetmg.scoa.aplicacao.ServicoRematriculaLote(
+                                    new br.edu.cefetmg.scoa.persistencia.RepositorioRematriculaLoteJdbc(conexao,sessao))).executar();
+                        case "25" -> new br.edu.cefetmg.scoa.apresentacao.ConsolePlanoInstitucional(entrada,
+                                new br.edu.cefetmg.scoa.aplicacao.ServicoPlanoInstitucional(
+                                    new br.edu.cefetmg.scoa.persistencia.RepositorioPlanoInstitucionalJdbc(conexao,sessao))).executar();
                         case "24" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleDiarioAcademico(entrada,
                                 new br.edu.cefetmg.scoa.aplicacao.ServicoDiarioAcademico(
                                     new br.edu.cefetmg.scoa.persistencia.RepositorioDiarioAcademicoJdbc(conexao,sessao))).executar();

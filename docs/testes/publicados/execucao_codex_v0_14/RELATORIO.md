@@ -1,33 +1,32 @@
 # Validação Codex do incremento acadêmico v0.14
 
-Em 25/11/2026, o incremento com diário passou em **166 testes unitários e 262 testes de integração**, sem falhas, erros ou ignorados. O Maven exibiu BUILD SUCCESS às 10:16:12 UTC-03:00, com duração de 01:11 min. É execução Codex; a validação manual do autor da v0.14 continua pendente.
+Em 25/11/2026, o incremento com plano institucional e rematrícula em lote passou em **172 testes unitários e 289 testes de integração**, sem falhas, erros ou ignorados. O Maven exibiu BUILD SUCCESS às 10:40:46 UTC-03:00, com duração de 01:14 min. A rodada manual do autor será integrada ao final dos blocos; ainda não foi realizada na v0.14.
 
-## Incremento do diário verificado
+## Plano institucional
 
-- Carga de 60 horas preservada no cadastro e convertida em 72 tempos/3.600 minutos; fechamento real do resultado com esses totais.
-- Aulas por tempos oficiais cobertos pelos horários, pauta/conteúdo, grupo transacional, duplicidade, datas e dados legados sem interpretação presumida.
-- P1/P2/PF separadas, notas ausentes distintas de zero, edição com versão e histórico, retirada de PF indevida sem excluir ID/valor anterior e fechamento com a fórmula já aprovada.
-- Chamada por tempo, pendência sem falta automática, limite de 75% e exclusão dos tempos anteriores à data da inscrição, preservando a carga integral da disciplina.
-- Autoria do professor responsável revalidada; ADMIN não o substitui. Consulta própria do aluno e bloqueio de alterações após o fechamento, preservando a retificação existente. O fechamento antigo com totais independentes é recusado em turmas com novo diário.
-- Eventos fictícios de chegada: 15 minutos inclusive, duplicidade, colisão de chave, continuidade após recusas de dados e preservação de correções manuais. Nenhum equipamento real foi conectado.
-- Falha de auditoria desfaz lançamentos, histórico e evento simulado. O console exige confirmação e preserva a versão consultada.
+Treze casos JDBC verificam prévia/consulta sem gravação, autoria, contexto, componentes e requisitos, versões imutáveis, detecção de dados/versão alterados antes da confirmação, efeito de resultado formal e reconhecimento sob revisão, acesso próprio, permissões independentes, inconsistência curricular, legado/data futura, estrutura ausente/vazia, vínculo/conta revogados e rollback em falha de auditoria. Domínio e console verificam seleção, prévia, confirmação/cancelamento e ausência de geração automática pela consulta.
 
-## Regressão dos blocos anteriores
+O plano registra um retrato acadêmico e sugestões; não constitui reserva de vaga nem prova de conclusão de uma disciplina sugerida. Uma consulta mantém a versão existente e informa atualização necessária, quando os dados mudam.
 
-Permanecem aprovados os testes de acesso dos nove contratos acadêmicos, histórico próprio/manifestações, transferência interna com aproveitamento rastreável, documentos/secretaria e todos os fluxos anteriores. [Contagens por classe](RESULTADOS.md).
+## Rematrícula em lote
 
-| Execução Codex em 25/11/2026 | Unitários | Integração | Situação |
-| --- | ---: | ---: | --- |
-| Primeiro incremento, 08:42:18 UTC-03 | 159 | 241 | Aprovado; publicado em 457f159. |
-| Diário antes da retirada de nota, 10:12:37 UTC-03 | 163 | 261 | Aprovado. |
-| Incremento atual, 10:16:12 UTC-03 | 166 | 262 | Aprovado. |
+Catorze casos JDBC verificam prévia sem efeitos, renovação dos mesmos vínculos com autoria, propostas sem inscrição automática, encaminhamento integral para análise manual quando nenhuma oferta está disponível, biblioteca indisponível para um candidato sem interromper os demais, plano ausente/desatualizado e resultados pendentes, repetição de chave, novo processamento sem duplicidade, colisão de chave, prévia desatualizada, seleção de população, sessão/permissões revogadas, calendário e rollback integral em falha de auditoria.
 
-As contagens descrevem baterias de versões sucessivas; não devem ser somadas como testes distintos. A primeira tentativa do diário falhou na fixture de horários, por falta da referência de sala; essa preparação foi corrigida antes das rodadas aprovadas. Os relatórios dessa tentativa foram preservados privadamente.
+O caminho individual de rematrícula permanece protegido para o próprio aluno. O lote usa a mesma validação de vínculo, curso, período e biblioteca, com autorização da secretaria. A confirmação de cada turma continua separada e sujeita a nova elegibilidade.
 
-## Ambiente, evidências e limites
+## Regressão e rastreabilidade
 
-Instância nova de MySQL 8.0.46, schema scoa_java_teste, porta local 33386, DDL de testes v7.5 e migrações V006 a V016. O schema scoa não foi migrado. As fixtures SQL são preparação/restauração de teste, não atos auditados executados por uma pessoa no console.
+Todos os testes anteriores de acesso, cadastros, matrícula, inscrição, reconhecimento, planejamento, diário, transferências internas, documentos e atendimento permanecem na bateria. [Resultados por classe](RESULTADOS.md).
 
-O log completo e os XML/TXT desta execução foram preservados diretamente no projeto, em área privada, com manifesto SHA-256. Os [hashes das fontes](FONTES_SHA256.json) foram conferidos após a execução. [Ambiente e duração](ambiente.txt).
+| Ponto validado em 25/11/2026 | Unitários | Integração |
+| --- | ---: | ---: |
+| Primeiro incremento, 08:42:18 UTC-03 | 159 | 241 |
+| Diário, 10:16:12 UTC-03 | 166 | 262 |
+| Plano versionado, 10:33:22 UTC-03 | 170 | 275 |
+| Plano e lote, 10:40:46 UTC-03 | 172 | 289 |
 
-Este ponto amplia o ramo desenvolvimento/academico-completo sobre 457f159. Main permanece na v0.13 fechada. Não é fechamento da v0.14 nem conclusão de todo o módulo: emissão/exportação do diário completo, gestão/auditoria docente, planos/lote, transferências externas, relatórios, parametrização e web seguem pendentes. Consulte as [notas da implementação](../../../SCOA_Implementacao_v0_14.md).
+São baterias de versões sucessivas; não somar as contagens como casos distintos. Uma tentativa inicial do plano falhou na preparação de período com descrição acima do limite existente; a fixture foi corrigida, preservando o limite do banco. Os relatórios anteriores permanecem privados e identificados separadamente.
+
+Instância MySQL 8.0.46 nova, scoa_java_teste, porta local 33386; DDL de testes v7.5 e V006 a V018. Nenhuma migração de scoa. As fixtures SQL são preparação/restauração dos testes, sem atribuição a atos auditados do console. Log completo, XML/TXT e manifesto permanecem privados. Os [hashes das fontes](FONTES_SHA256.json) foram conferidos após a execução. [Ambiente](ambiente.txt).
+
+Esta entrega amplia o ramo desenvolvimento/academico-completo sobre 2cea6b4. Main permanece na v0.13 fechada. A v0.14 e o módulo acadêmico continuam em desenvolvimento; gestão/auditoria docente, transferências externas, relatórios/exportações, horários sem sala, acesso operacional, parametrização e web seguem pendentes. [Regras e limites](../../../SCOA_Implementacao_v0_14.md).
