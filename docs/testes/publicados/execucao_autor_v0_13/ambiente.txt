@@ -1,0 +1,23 @@
+Execução do autor — SCOA 0.13.0-SNAPSHOT, fechamento em 24/11/2026.
+Referência America/Sao_Paulo (UTC-03:00).
+Windows 11 amd64; Oracle OpenJDK 25.0.1+8-27; Apache Maven 3.9.11.
+JUnit Jupiter 6.0.1; Surefire/Failsafe 3.5.4; MySQL Connector/J 26.7.0.
+MySQL 8.0.46; scoa_java_teste; porta 33385; 87 tabelas.
+Base DDL v7.5 e V006 a V012. Sem migração V013 ou migração de scoa.
+Comando: mvn -o -B verify -Pmysql-it.
+BUILD SUCCESS em 23/11/2026 às 12:58:05 UTC-03:00; duração 46.485 s.
+130 unitários e 194 integrações; total 324; zero falhas, erros ou ignorados.
+Totais obtidos dos 26 XMLs TEST da execução do autor; XMLs brutos privados.
+Casos manuais V13 01 a V13 06 executados pelo autor em 23 e 24/11/2026.
+26 CSVs e oito PDFs (18 páginas de console), preservados por SHA-256.
+Conferência incluiu leitura dos CSVs e extração/renderização dos PDFs.
+Seleção pública: seis recortes de páginas reais e 20 CSVs com dados sintéticos.
+As imagens removem histórico repetido, margens e a linha inicial de execução local; os originais permanecem privados.
+Impressões originais limitam linhas extensas à largura da página; CSVs complementam os registros.
+V13 05: perfil legado incluído por SQL para preparação da fixture.
+V13 06: inativação e restauração da conta B realizadas por SQL de fixture.
+Essas preparações não são atribuídas a operações auditadas do console.
+Exportação final: contas A e B ativas, credenciais preservadas, eventos A=5/B=3.
+Encerramento MySQL confirmado no log em 24/11/2026 às 22:37:43 UTC-03:00.
+Execução Codex separada em 23/11/2026 às 12:13:22: mesmos totais, duração 45.036 s.
+Word editável, configurações, credenciais, guias e evidências brutas permanecem privados.

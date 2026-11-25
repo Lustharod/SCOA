@@ -1,0 +1,482 @@
+{
+  "identificadas_em_utc": "2026-11-25T01:55:00.101478+00:00",
+  "nota": "Fontes conferidas no fechamento; coincidem com a identificação Codex de 23/11/2026. O manifesto do fechamento não é atribuído retroativamente à execução do autor.",
+  "arquivos": [
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/ExemploSala.java",
+      "sha256": "56FE38102B9AB0ABCFBEEA7BE723E9758CB4CD192148D394EFC76199902DF4D5"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/ScoaAplicacao.java",
+      "sha256": "F7CF639434601DB6DC881845F4EE3157E26D437771799424FDCC1400198A1EF6"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoAlocacao.java",
+      "sha256": "ECFB0653258106ABDCAE317A75E8DBAC32A0318C1B7F4392507084747F317B95"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoBaseAcademica.java",
+      "sha256": "3C569C7937F894A6F93CF437A92A295665784FBC6C79D4D59394D03826467D22"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoCadastroAcademico.java",
+      "sha256": "E974F18A256A514444D4F8BF44803D9AC262C8BC5286211C24A44A4D212501DF"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoConsultaProcessosAcademicos.java",
+      "sha256": "CDA30508F3C0BB652EFF8E15B33A0A5A5060A576CC9BB60AA60EBF338D4909D6"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoEquivalencia.java",
+      "sha256": "B357AE6CA3E07F5E5AF4485118BB9A707993C64140CD7327DB6629A063A8E4D6"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoInscricao.java",
+      "sha256": "AA6754EFCEDD24927B43CC226C06445106E16B7FEBF94CD5506B8D414FFCF599"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoMatricula.java",
+      "sha256": "845DD32D8BB2BBF9BFCCD334F67666335D1F1985AA97EBA6D3F45BF1A17E0863"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoPlanejamento.java",
+      "sha256": "4ACE79C429AB2B0D746DCD6332423242BD6FADF098A7027C4EFFAF2A2302B7EA"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoProfessoresDisciplinas.java",
+      "sha256": "4F9FDFDDC45C836F6000C65E85A40519521F31A3720B4526CE3C72D56282D150"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoSala.java",
+      "sha256": "67A5D37F245D14416AA43D6922468F1401984CD23E9C01BB54EE60C297A62CA0"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleAjustesAcademicos.java",
+      "sha256": "53636FBCA7C241E4650ED4EF72DE73629347498A53C94FC93CD125F562D21A54"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleBaseAcademica.java",
+      "sha256": "2204B7754F9B5F74EEBA045E5132DBF92A3062D7CF76D8F5445D017D19D51A42"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleCadastrosAcademicos.java",
+      "sha256": "09C4AC96784EF85E9CA05DC08AFE3C3BA0EE5CADE8E86779543EC8B662C05B38"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleConsultasAluno.java",
+      "sha256": "2E223BC954FB334A018439D8A516DED8E89F04FD7EC5BD57DAEF0FACC337F629"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleEquivalencia.java",
+      "sha256": "64CE0DFA713737CA02D96831CE9C5B59CBC103F44C2C11F40965BE75E6EB51C7"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleInscricao.java",
+      "sha256": "F69E0FBB2B922DFF02B51732AC8B282574C5D613931B5A5AB1434FF9F78382F8"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleMatricula.java",
+      "sha256": "58574E6B5929EE46C4EA3571E51416E7AF97207A061900B5CE28687FBFF7C0A4"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsolePlanejamento.java",
+      "sha256": "381A7A082DEF9EAB3883B50DD4B53EAD11B3D56C90CFB013E318A371937E970C"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleProcessoAcademico.java",
+      "sha256": "0961845E5E4E97D83D5F18ED09696D61E81FFB38DE686F871F330AC6A4DFA4DE"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleProfessoresDisciplinas.java",
+      "sha256": "70373A7298BFB33D32E71AA829430FB5642BD98F26FAB82B481D124FE27E28D3"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/Aluno.java",
+      "sha256": "ABDE9771EB2B9C2EE99BD72FF5AE4C78DE27D6A9D34EE26C55FBDC0CEA0B3046"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/CadastroPeriodoLetivo.java",
+      "sha256": "964614ABB94AB6861243FB6996ED6D47E5528283017DE457BD7FDDD98CE329B3"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/CancelamentoInscricao.java",
+      "sha256": "F026E0F6BFAE7872DC6D8D794A7C811D9EE41DBF9D223417F6E6B5EBC9AB4BFD"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/ConsultasAluno.java",
+      "sha256": "C705A09DB58464AF414D9BE35B3A304B9EE369869328A44E06F618790C779F49"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/Curso.java",
+      "sha256": "0A23102218EA60651D9F6A665910DCA24DED14D831D94E07A6B1FFFFAFF7613F"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/DadosAcademicos.java",
+      "sha256": "11738C20D8172D1D250976FEDFF0B1174BEB1F624A9DC6FF753906F9585E5A0E"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/Disciplina.java",
+      "sha256": "F67F4DF5F8CA0FB303A4BBC1783BA6290C4C2AEDF703646877150CF2E7F49E7C"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/Elegibilidade.java",
+      "sha256": "07C2C93B4BA0DD2CB96913F4315A9F4CD513A66D3C3D133C047E7856093F1BB2"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/Equivalencia.java",
+      "sha256": "58D1CC82F4092349370276FC9A77937D4A4A11B667D8753C6AE5501843A1FA66"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/EstruturaCurricular.java",
+      "sha256": "8DCA7CBF02A17A9447968F7929F9D5522AD493DCCF3E62145A8F97DDF5666850"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/EventoMatricula.java",
+      "sha256": "B613C250CA59E7DF2DE87F7EE25A7D1AD8B632ACFED369758B806FC4BA8595CB"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/FaixaHorario.java",
+      "sha256": "89CECC55FBEC94E038089162D6999FAC7AD13ABFBE8C91F51C72795E781A6A31"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/HorarioAula.java",
+      "sha256": "636BD9F676DCB32C4B204FA57ADCED53EDD03397407A8C04DEF9F501487A6055"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/Inscricao.java",
+      "sha256": "D067023B24B038AA9CBEEFEBACB27D83983FEFA1C7691CC4070BBEA574166AF6"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/JanelaInscricao.java",
+      "sha256": "0C438695BA90AFBE400656B7005837AF357503E1EE5F242C561D41EF1D69CEBC"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/Matricula.java",
+      "sha256": "4A3B542A05F0A5B7D9557959879F1A9F93DD2CE389175A24E9588A53491EC54D"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/PeriodoLetivo.java",
+      "sha256": "731E41CC448B867E1EFC7546470A23025078646604114F079B311B77891E75E4"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/Planejamento.java",
+      "sha256": "3CF9C2D593221AE79E3EF40B90CCB56E5BC7BFD710EA76A8E8F7A6520F2414B5"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/Professor.java",
+      "sha256": "9C47A74912E98DCD30FD55A05AE85B7717532ABE566BA890E6B4351CD1B0EC8F"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/ReferenciaAcademica.java",
+      "sha256": "9F9CD095F800B2E2541B378523B21C0C03048CB1A3EFFB10BD376F237E27A6AC"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/RegraAlocacao.java",
+      "sha256": "6652E86EB3AE0CD4833B1B83DA38981BF1DA37FC2D83AED38339EFB5F4C818EE"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/RegraResultado.java",
+      "sha256": "CC456CBFA7E6D32F21FB87A399B7845E7B09CB6D5478D17B66B7222A031006F3"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioAlocacao.java",
+      "sha256": "2DD35F40F50296B9986DA8037EAD51A02BD6DFFC071DBF972ABFB7F2ADD509E8"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioBaseAcademica.java",
+      "sha256": "0BE2B245007CE1BC260A9562E06C2306CAA8148363F99EF4176D8ABFA2EC045F"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioCadastroAcademico.java",
+      "sha256": "3FA02CEB3E531DC7F3690012E35BB28F0E89C0218A7AD600F3BBB66E45F6A25D"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioEquivalencia.java",
+      "sha256": "1F674612F7B0D8C539195B2BE28BCCBDE4E31F985593EBB47D29D43F7A3EB58E"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioInscricao.java",
+      "sha256": "E245D7015939EC96A73AFD31EDB7F0F59CA70F2CA7F44523580AA63D4D70B8E6"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioMatricula.java",
+      "sha256": "C1922701EB2A6931781B61A0F06DBC5E74E53ED1233324347350831794201159"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioPlanejamento.java",
+      "sha256": "B0B091BC8994F37FF6D3D1BC03E722FB4B0E792424B9D9405D7F9B0982744C13"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioProfessoresDisciplinas.java",
+      "sha256": "4A736FFC2A90B7E5D520667FBF4A3A7172235A084B0446E9A76864C54DFF8700"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioSala.java",
+      "sha256": "137B2C0B800F8E8DA86C550FC3CB2A0B3F8CF6D1A1283DDC8E386FBAD98F4C52"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/RetificacaoResultado.java",
+      "sha256": "A515388CCC98407E5F1E54EB465AE675867B8A1937CCA43A409204A44514352E"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/Sala.java",
+      "sha256": "EA9C0252FE0E34CA0A13C0F0300078874B0F1C3A08A205D9EE976A0594E8F517"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/SalaNaoEncontradaException.java",
+      "sha256": "0D423208387D44C8D0E528E1B6D78186CC5B775B8B65B7209AC10B4BDB54BF4F"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/SituacaoBiblioteca.java",
+      "sha256": "FA4B143F31E47D8EEF8E98D50ACC45FE43BBB7EFB60431E0723DA5A84B40ED57"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/Turma.java",
+      "sha256": "665AC6F7EFAE0DD9FF8FE1CF330D6B739938FF582CEE37740ACC74BFDF805934"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/dominio/TurmaResumo.java",
+      "sha256": "55C68815CBA688B7629F64174C83291F6E69BB3FC1AF8BA8D8D0FCA2D6365FA7"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/ConexaoMySql.java",
+      "sha256": "7FA85961062B73F9F6EAEA1035787FA40DA060F660F2EE22A766B9C840F4D3AA"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/JdbcAcademico.java",
+      "sha256": "FB8BEC5B7701ECB8FBD5DD33E1A663E73F8A90F3F8CCE603C2BFB84F828CAECC"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/PersistenciaException.java",
+      "sha256": "5B2887E82E0A53D877ED0C1972AC01B047193DEAD244FFCA0BFC5FE5787F0084"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioAlocacaoJdbc.java",
+      "sha256": "9BD8A40E1E501D6E567AD40D825EEAE53C3A871AE80B1BB70636B8159A008EB6"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioBaseAcademicaJdbc.java",
+      "sha256": "50F9FFF67A403E11040FD43CC1E8F53C01D20A3C90C3377801C597D5233B591C"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioCadastroAcademicoJdbc.java",
+      "sha256": "C964A901B04B570E83174748A00209A36B4B57AE4BC63FFD4560D45FD49009C4"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioCancelamentoJdbc.java",
+      "sha256": "F4E5B196104359D1C016B3927FBBEF95F63FADAB2D660C8A98BE2D1003BC8BBD"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioConsultasAlunoJdbc.java",
+      "sha256": "E8AE8C4C42E4976F9F04FC8D21F57EE27F03810A3E7128F8D1AB33C8CAD145BA"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioEquivalenciaJdbc.java",
+      "sha256": "502F6C4E6D7FC9199814BF8463CE9837330378A1CDE5CC3E3E67263FF493EBF2"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioInscricaoJdbc.java",
+      "sha256": "EA5F7224E8EB92D17FA3920EDABE46672D94A3EE1FF021C5EEE712318B099381"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioMatriculaJdbc.java",
+      "sha256": "60CB19D777E36590987CC77BA2ED28D752F0C9171C200B2B8DD71337717BD138"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioPendenciaBibliotecaJdbc.java",
+      "sha256": "B27DAD65875B7FE27B586CBB1728D7A41431ABEC63F49356A20BEE51DEB33446"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioPlanejamentoJdbc.java",
+      "sha256": "F33206C8A263A649F7257E1B50EA1D6963E518BF6BBA6A28415EFD5C0FF7EECD"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioProcessoAcademicoJdbc.java",
+      "sha256": "DF7CCFBB3665DA38B60452F6564737B96A6999D60746A659D79510B780D47588"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioProfessoresDisciplinasJdbc.java",
+      "sha256": "017B8D17E3A250A7C4D27532BD4C56FB65BB5D4EF053B294A5E6DE0B5083F0C3"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioRetificacaoJdbc.java",
+      "sha256": "264EFDFD2E91EA7296FEE4B879BEB93B42A29C1C1CA02D10F70D94EF6E0B8E8B"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioSalaJdbc.java",
+      "sha256": "88FD1C19F369C5C6141B98A99F4B27318D786B874AE658A25A75148D8210F3E1"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/SegurancaJdbc.java",
+      "sha256": "3F83B088A8B46293389C7A0A6800D094E2124E6C74B41E72BD5AE0638E17DECB"
+    },
+    {
+      "arquivo": "src/main/java/br/edu/cefetmg/scoa/persistencia/TransacaoJdbc.java",
+      "sha256": "DB5240E1098637633EA39B646236802552B24D252DDC03350971B5A9C2F7EC42"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/aplicacao/ServicoSalaTest.java",
+      "sha256": "EA91CA922A297F9E1389669FDBB6D66C7A1A7CF13E8A39A1E3C3A30D199DA73E"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/apresentacao/ConsoleConsultasAlunoTest.java",
+      "sha256": "2F56572181637BC0DE49A29B65B5B3583715FADD435B0FA913A8FDD07FE860AF"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/apresentacao/ConsoleProcessoAcademicoTest.java",
+      "sha256": "E028A6A0C19B0BEF807FFAF3AF356CC0CCA8F93D09582166E22C015F1A6ECC9B"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/dominio/AlocacaoTest.java",
+      "sha256": "8D03BD559C0B7C3F3D884B6E34552DDBE06C2EE56BA8F165C4DC9CE4CEEE95E7"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/dominio/BaseAcademicaTest.java",
+      "sha256": "68E41C45A73A5094CA1855F99DD650DA41E0C6173E29FD9F19C231E159B24E06"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/dominio/CadastroAcademicoTest.java",
+      "sha256": "F65979B48DB4C5DB5A0B8105704216DD8A5B15EC3B5B5588035A42D35D6E3BEA"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/dominio/EquivalenciaTest.java",
+      "sha256": "F04BAC8C3171335BAB0FD5F5C69A3F6DF33E17D5B495708C2EDB0635A631F3E5"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/dominio/InscricaoTest.java",
+      "sha256": "EA100D8019B9CFADC7FD65A6CBF5C0A1981E10FAD2FF4EB5A71890CD1200F31D"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/dominio/MatriculaTest.java",
+      "sha256": "6B314F59083F0535AF8A89224A2851310C80EC58BAF395DBE2F466336C577415"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/dominio/PlanejamentoTest.java",
+      "sha256": "6BA5A4BC14930BDFCC1BA3E62E75E285393AE19E2ADCBBFA186485FFECCC20B2"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/dominio/ProfessoresDisciplinasTest.java",
+      "sha256": "CEEA3CAC4FE9059CE237A279961715E275210EAF89233CF3909380E521E7CF1C"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/dominio/SalaTest.java",
+      "sha256": "605D0B3110FAA681323871F3A6F64ABB06E9AE6835AC046FB12232CED38FCE41"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/dominio/SegurancaTest.java",
+      "sha256": "D1ED540EFA6A12ABFE704EEEEA95CA089F52F1986DDF967CA0480B39FE8E8D86"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/AcessoTeste.java",
+      "sha256": "C90E246155E4027D935AE7C860FEB174A2445762EAC510D784E4D8C07F15416C"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/AjustesAcademicosJdbcIT.java",
+      "sha256": "8C7F925C8B8FECB30362584DDADA2B7E89AB4A834C25AECE387A839CBD74E4D7"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/AlocacaoJdbcIT.java",
+      "sha256": "7896B557CF9B5569494A63C9E3EC0D3696B401AE446E91CC824003742BAED90C"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/ApoioJdbc.java",
+      "sha256": "146F5CD68498C860278B88CF12D95518FEE4CB4559372C364657EBA5B013B26E"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/BaseAcademicaJdbcIT.java",
+      "sha256": "B3B75BE7884ADFBFC06DADF189FBF0ABB646E618BD56336ED4F94AF76DAB7F50"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/CadastroAcademicoJdbcIT.java",
+      "sha256": "7922BF7F1A8827CE225485C74991E500099629378952A2BCD7B5D6A3F25E5AF5"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/ConsultasAlunoJdbcIT.java",
+      "sha256": "73D1C556C7A88D35A4ADCBC04921D7F5E55AF14F6F8970EC37D519C844438BDE"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/EquivalenciaJdbcIT.java",
+      "sha256": "69F527247CDF861391918084C4369D8B6C8FCE3C21895169782B1729D779A586"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/InscricaoJdbcIT.java",
+      "sha256": "A2627153CA3857353C715795884C4FC441B775C883FF54C493595CB78665043E"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/MatriculaJdbcIT.java",
+      "sha256": "9BB9BE4D53CD4A19B1DE503EE35CCDDD2EBE9A94A3FAEE9381FCF8235B196BED"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/PlanejamentoJdbcIT.java",
+      "sha256": "D9CA5AA07F348B4CE50A98915E2B53C89F61C48F69859E06A01FEA4222433330"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/ProcessoAcademicoJdbcIT.java",
+      "sha256": "545868F27BFA877AE5063F7CBE77FD8FDAD1D15520B7CF40FABE5822594BC8A1"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/ProfessoresDisciplinasJdbcIT.java",
+      "sha256": "F2161BC61224D31BEAD78341F7B0D28456C30AFE68FA36EDD61ACE3792DE5732"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/SalaJdbcIT.java",
+      "sha256": "2E2FA949E514E8CD80BBE140444BB9B5814A4293B4DAB2572870D17DB1E0B248"
+    },
+    {
+      "arquivo": "src/test/java/br/edu/cefetmg/scoa/persistencia/SegurancaAcademicaJdbcIT.java",
+      "sha256": "580337CEC5B62BA07EAF78824F9BBDF5AADF1A4DB83B878965655A0F77459F87"
+    },
+    {
+      "arquivo": "database/SCOA_MySQL8_schema_v7_5.sql",
+      "sha256": "76280F68D978637CD83F66700074482E57C15450331501D8DDCC35404E1523E4"
+    },
+    {
+      "arquivo": "database/migrations/V006__matricula_periodo_historico.sql",
+      "sha256": "F619DE9C117090B1D8A287DA7201B93C73A3B82C43AFFB9DCDC2AF5530E8BAF7"
+    },
+    {
+      "arquivo": "database/migrations/V007__inscricao_resultado_contexto.sql",
+      "sha256": "BD77DFB1BFFB28152E50E5750D346590619F50BBC520D45807A0497DA526D8C7"
+    },
+    {
+      "arquivo": "database/migrations/V008__equivalencia_manual.sql",
+      "sha256": "83603CEFC239FE5745398D248091FD5198E4F35719F1B3BE51F3215E7D84A9CD"
+    },
+    {
+      "arquivo": "database/migrations/V009__conciliacao_revisao.sql",
+      "sha256": "6CAA770116FCEFD08E11D2FAF38F3E39F1B4EBD56DF3D3907078F78C3CB4B4AC"
+    },
+    {
+      "arquivo": "database/migrations/V010__cancelamento_inscricao.sql",
+      "sha256": "C3C954B70F2991D80750E33A984387D46CD5BBA974C6EF4A74A5A47D1949041E"
+    },
+    {
+      "arquivo": "database/migrations/V011__retificacao_e_rematricula.sql",
+      "sha256": "669C4A5000FE0775CB74CB39D7A45DAB418378069F07DC13D1799BE37FD14F27"
+    },
+    {
+      "arquivo": "database/migrations/V012__controle_calendario.sql",
+      "sha256": "385A5E2C82D7D9412F171175AC763CAA102F3B6794BC6C00803E3E14ED24BE8D"
+    },
+    {
+      "arquivo": "database/tests/SCOA_MySQL8_dados_demo_alocacao_v0_2.sql",
+      "sha256": "AD41E4E15BA7638C7A7309581277D1CCEB17101B60A3A46DD350E6C24020E03E"
+    },
+    {
+      "arquivo": "database/tests/SCOA_MySQL8_schema_v7_5_java_teste.sql",
+      "sha256": "60DE6B53E377DCD47DEB9CD0649175179D3F6B2FF79918EE2496FAD13034C4C1"
+    },
+    {
+      "arquivo": "database/tests/SCOA_MySQL8_Teste de integração_v7_5.sql",
+      "sha256": "925A031DB2B97016E57A4E21B3978E38E95C742780082387619C6C5CD66E37DC"
+    },
+    {
+      "arquivo": "database/tests/SCOA_Testes_Integracao_BD_v7_5.sql",
+      "sha256": "A58A66448140D68CFC19D05C65144C7BE8DB5A6A8438075F93A9114C4158060D"
+    },
+    {
+      "arquivo": "pom.xml",
+      "sha256": "4128E4E4FF372B9BFE0FEA1929E8806D5144FB1641A2BF0804DA7589829C7A99"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "criterio": "Recortes visuais de páginas reais de console e CSVs com dados sintéticos; originais privados preservados. Recortes removem início de processo, margens e histórico repetido; o texto remanescente não foi alterado. Linhas extensas já estavam limitadas pela largura da impressão original.",
+  "arquivos": [
+    {
+      "publicado": "capturas/01_contas.png",
+      "origem_privada": "V13_01_contas_sem_vinculo.pdf",
+      "pagina": 1,
+      "recorte_pixels": [
+        150,
+        720,
+        1130,
+        1583
+      ],
+      "renderizacao_lado_maior_pixels": 1800,
+      "descricao": "Criação de contas e acesso técnico",
+      "sha256_original": "C6FB3479A3DA737A99BBB51CB94BDA729DFD9B7BAFC29D8938AC5FB44A2E0F38",
+      "sha256_publicado": "B4C505E0D7B6005A3F89283A8628D5F80AF934C2872442BCC69A6B7C9A01EF29"
+    },
+    {
+      "publicado": "capturas/02_vinculos.png",
+      "origem_privada": "V13_02_multiplos_vinculos.pdf",
+      "pagina": 2,
+      "recorte_pixels": [
+        150,
+        534,
+        1130,
+        718
+      ],
+      "renderizacao_lado_maior_pixels": 1800,
+      "descricao": "Quatro vínculos na conta A, sem permissões técnicas",
+      "sha256_original": "93A31C342181CE62E1002F71189034260DAA09D6D99FB9949F3671B451DF6873",
+      "sha256_publicado": "21E7ABD496AFD779542B630C19FE41A62912636D416A645470BB2BC4492FDA57"
+    },
+    {
+      "publicado": "capturas/03_recusas.png",
+      "origem_privada": "V13_03_identidade_e_recusas.pdf",
+      "pagina": 4,
+      "recorte_pixels": [
+        150,
+        78,
+        1130,
+        555
+      ],
+      "renderizacao_lado_maior_pixels": 1800,
+      "descricao": "Recusa administrativa e sessão encerrada",
+      "sha256_original": "1C1DEACD1F13A5C71B841EC8A13B038A0CC1F8D69BC5CB5A38692A2372421660",
+      "sha256_publicado": "1DA2C0717BB2F07FF03D545744DDFE35B03A520162A21D368ED7259B4D467A3E"
+    },
+    {
+      "publicado": "capturas/04_cadastros.png",
+      "origem_privada": "V13_04_protecao_e_acesso_tecnico.pdf",
+      "pagina": 2,
+      "recorte_pixels": [
+        150,
+        78,
+        1130,
+        1120
+      ],
+      "renderizacao_lado_maior_pixels": 1800,
+      "descricao": "Vínculos e permissões técnicas preservadas",
+      "sha256_original": "6746A8BC2E92CD0ABB1FB2248F386DD4D1D48D9AA0D5DF2C8843EB06582F4213",
+      "sha256_publicado": "C38F3E2EA0C256F341D66653A2CD37F1EFF029BFF6777DDED7DAEF5C5F5BB6BA"
+    },
+    {
+      "publicado": "capturas/05_legado.png",
+      "origem_privada": "V13_05_legado.pdf",
+      "pagina": 1,
+      "recorte_pixels": [
+        150,
+        391,
+        1130,
+        1554
+      ],
+      "renderizacao_lado_maior_pixels": 1800,
+      "descricao": "Identidade acadêmica derivada dos vínculos",
+      "sha256_original": "0E7BC455A69DB3A26302D85CA4FC6D6DB81E509A5772380B3BAAF8034A8AFC21",
+      "sha256_publicado": "09546327A05B2F7ECE93EAC2B2473B89338BC00D52AFDFEB5D3A8D988BA7CD04"
+    },
+    {
+      "publicado": "capturas/06_inativa_e_retorno.png",
+      "origem_privada": "V13_06_retorno_ativo.pdf",
+      "pagina": 2,
+      "recorte_pixels": [
+        150,
+        78,
+        1130,
+        1559
+      ],
+      "renderizacao_lado_maior_pixels": 1800,
+      "descricao": "Conta inativa recusada e retorno ao estado ativo",
+      "sha256_original": "7DA02821741B42287E65EE9C2A213E72992B7474A6B738D6E8B4706D074CC9DA",
+      "sha256_publicado": "7EE5EE35DDEB2656B88233F78A52CF17365E21BF09E919F75FE55BDCE7C29EFE"
+    },
+    {
+      "publicado": "dados/V13_01_ids.csv",
+      "origem_privada": "V13_01_ids.csv",
+      "sha256_original": "D22920208AF147D6E3CDD29F4C2ED1F299A87277978F0491DC5C6557055E325D",
+      "sha256_publicado": "D22920208AF147D6E3CDD29F4C2ED1F299A87277978F0491DC5C6557055E325D"
+    },
+    {
+      "publicado": "dados/V13_01_perfis.csv",
+      "origem_privada": "V13_01_perfis.csv",
+      "sha256_original": "6624D4C1C6BE8C458CC70A92E967BFB249B7C124CF76ED9C5C5C49DB8435F020",
+      "sha256_publicado": "6624D4C1C6BE8C458CC70A92E967BFB249B7C124CF76ED9C5C5C49DB8435F020"
+    },
+    {
+      "publicado": "dados/V13_01_permissoes.csv",
+      "origem_privada": "V13_01_permissoes.csv",
+      "sha256_original": "2935CA6EFA58DC33D05DAA13427C2773E9BD37AE779B55775031BFEA7FDD5866",
+      "sha256_publicado": "2935CA6EFA58DC33D05DAA13427C2773E9BD37AE779B55775031BFEA7FDD5866"
+    },
+    {
+      "publicado": "dados/V13_02_vinculos.csv",
+      "origem_privada": "V13_02_vinculos.csv",
+      "sha256_original": "EA8CB910A3514DDB7AB109CB5B6B36B24FACCE544F31883810EF4567925B3194",
+      "sha256_publicado": "EA8CB910A3514DDB7AB109CB5B6B36B24FACCE544F31883810EF4567925B3194"
+    },
+    {
+      "publicado": "dados/V13_02_eventos.csv",
+      "origem_privada": "V13_02_eventos.csv",
+      "sha256_original": "1896DB4C9B58FE2B9A949DD90745F3BAA6140E5290CB48D1A66D65E231C2DA9C",
+      "sha256_publicado": "1896DB4C9B58FE2B9A949DD90745F3BAA6140E5290CB48D1A66D65E231C2DA9C"
+    },
+    {
+      "publicado": "dados/V13_02_preservacao.csv",
+      "origem_privada": "V13_02_preservacao.csv",
+      "sha256_original": "9B4B1B66DD46A2172CE9F19DD6CE8C806A51BDC4117A4F95B9A27CAA278AFFB5",
+      "sha256_publicado": "9B4B1B66DD46A2172CE9F19DD6CE8C806A51BDC4117A4F95B9A27CAA278AFFB5"
+    },
+    {
+      "publicado": "dados/V13_03_recusas.csv",
+      "origem_privada": "V13_03_recusas.csv",
+      "sha256_original": "B0BEFB57CB0F0C126D92316055DDC0F814C654B48359AC9752C97417DE403DFD",
+      "sha256_publicado": "B0BEFB57CB0F0C126D92316055DDC0F814C654B48359AC9752C97417DE403DFD"
+    },
+    {
+      "publicado": "dados/V13_03_sem_concessoes.csv",
+      "origem_privada": "V13_03_sem_concessoes.csv",
+      "sha256_original": "F73D459EA8E8F6BF0E6A6B71704DA26DBDD43F2E7995C09B7D1C0E53197DC3E8",
+      "sha256_publicado": "F73D459EA8E8F6BF0E6A6B71704DA26DBDD43F2E7995C09B7D1C0E53197DC3E8"
+    },
+    {
+      "publicado": "dados/V13_04_alunos.csv",
+      "origem_privada": "V13_04_alunos.csv",
+      "sha256_original": "A638DCEA683560528B883092DDEFC45DE7B56F459385E7E8EBE2954710C262CE",
+      "sha256_publicado": "A638DCEA683560528B883092DDEFC45DE7B56F459385E7E8EBE2954710C262CE"
+    },
+    {
+      "publicado": "dados/V13_04_professores.csv",
+      "origem_privada": "V13_04_professores.csv",
+      "sha256_original": "A3508E75863D84F63FF5C0173370B684E78BDBB4B3FE89BDCC1EE798674EF439",
+      "sha256_publicado": "A3508E75863D84F63FF5C0173370B684E78BDBB4B3FE89BDCC1EE798674EF439"
+    },
+    {
+      "publicado": "dados/V13_04_permissoes.csv",
+      "origem_privada": "V13_04_permissoes.csv",
+      "sha256_original": "2935CA6EFA58DC33D05DAA13427C2773E9BD37AE779B55775031BFEA7FDD5866",
+      "sha256_publicado": "2935CA6EFA58DC33D05DAA13427C2773E9BD37AE779B55775031BFEA7FDD5866"
+    },
+    {
+      "publicado": "dados/V13_04_credenciais_preservadas.csv",
+      "origem_privada": "V13_04_credenciais_preservadas.csv",
+      "sha256_original": "84BD217222BEC2AA1AF2D8474C547C48864F2E1E5FB407206C5C6B140BA0A065",
+      "sha256_publicado": "84BD217222BEC2AA1AF2D8474C547C48864F2E1E5FB407206C5C6B140BA0A065"
+    },
+    {
+      "publicado": "dados/V13_04_eventos.csv",
+      "origem_privada": "V13_04_eventos.csv",
+      "sha256_original": "48D84AAB391B7AA51EDC49D90154B467B2F01A907DF91B8AE3C40ACEDEE35A55",
+      "sha256_publicado": "48D84AAB391B7AA51EDC49D90154B467B2F01A907DF91B8AE3C40ACEDEE35A55"
+    },
+    {
+      "publicado": "dados/V13_05_perfil_legado.csv",
+      "origem_privada": "V13_05_perfil_legado.csv",
+      "sha256_original": "DA260860135039D32701059C16004E9ED43D896ACA2EC95D808CA2FF00526033",
+      "sha256_publicado": "DA260860135039D32701059C16004E9ED43D896ACA2EC95D808CA2FF00526033"
+    },
+    {
+      "publicado": "dados/V13_05_sem_coordenacao.csv",
+      "origem_privada": "V13_05_sem_coordenacao.csv",
+      "sha256_original": "376701F356FDDB4C5CB6C5FC11C2899B16ACA14C1D4D4AB5EC829A2EEB51D635",
+      "sha256_publicado": "376701F356FDDB4C5CB6C5FC11C2899B16ACA14C1D4D4AB5EC829A2EEB51D635"
+    },
+    {
+      "publicado": "dados/V13_05_eventos_preservados.csv",
+      "origem_privada": "V13_05_eventos_preservados.csv",
+      "sha256_original": "A9336A967991C6402DA10E45BBC74529BA6EA44242829393DB2473F3609BE61C",
+      "sha256_publicado": "A9336A967991C6402DA10E45BBC74529BA6EA44242829393DB2473F3609BE61C"
+    },
+    {
+      "publicado": "dados/V13_06_contas_finais.csv",
+      "origem_privada": "V13_06_contas_finais.csv",
+      "sha256_original": "BE366A1FBBE2180622820CB74EF3368B640405C9A54BF4F8A9C08C7F1B1AB15D",
+      "sha256_publicado": "BE366A1FBBE2180622820CB74EF3368B640405C9A54BF4F8A9C08C7F1B1AB15D"
+    },
+    {
+      "publicado": "dados/V13_06_coordenacao_final.csv",
+      "origem_privada": "V13_06_coordenacao_final.csv",
+      "sha256_original": "D4B6D31256F99F4E17E39A8CC6E911E33D389E05A2C3CCB025EEE6BED3A7C4C2",
+      "sha256_publicado": "D4B6D31256F99F4E17E39A8CC6E911E33D389E05A2C3CCB025EEE6BED3A7C4C2"
+    },
+    {
+      "publicado": "dados/V13_06_preservacao_final.csv",
+      "origem_privada": "V13_06_preservacao_final.csv",
+      "sha256_original": "84BD217222BEC2AA1AF2D8474C547C48864F2E1E5FB407206C5C6B140BA0A065",
+      "sha256_publicado": "84BD217222BEC2AA1AF2D8474C547C48864F2E1E5FB407206C5C6B140BA0A065"
+    },
+    {
+      "publicado": "dados/V13_06_eventos_finais.csv",
+      "origem_privada": "V13_06_eventos_finais.csv",
+      "sha256_original": "A9336A967991C6402DA10E45BBC74529BA6EA44242829393DB2473F3609BE61C",
+      "sha256_publicado": "A9336A967991C6402DA10E45BBC74529BA6EA44242829393DB2473F3609BE61C"
+    }
+  ]
+}

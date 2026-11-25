@@ -1,0 +1,5 @@
+tipo,referencia,id_conta,identificacao,situacao
+ALUNO,163,103,"V13MAN-ac3c13e7e7 Pessoa A",ATIVO
+PROFESSOR,146,103,"V13MAN-ac3c13e7e7 Pessoa A",ATIVO
+COORDENADOR,166,103,"V13MAN-ac3c13e7e7 Curso A",ATIVO
+COORDENADOR,167,103,"V13MAN-ac3c13e7e7 Curso B",ATIVO

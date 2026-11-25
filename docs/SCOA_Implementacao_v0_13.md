@@ -1,6 +1,6 @@
 # Contas e vínculos acadêmicos na v0.13
 
-Em 23/11/2026, a correção OC-V12-01 foi implementada e verificada automaticamente. A validação manual do autor permanece pendente; esta nota não encerra a iteração nem declara o módulo acadêmico concluído. A base é a v0.12 publicada em `57255c89d50dfb30d6b2089bd84adff55163a67c`.
+A v0.13 foi fechada em 24/11/2026 após a regressão do autor e os seis casos manuais V13 01 a V13 06. OC-V12-01 foi corrigida e seus resultados conferidos; o módulo acadêmico integral continua em desenvolvimento. A base é a v0.12 publicada em `57255c89d50dfb30d6b2089bd84adff55163a67c`.
 
 ## Comportamento
 
@@ -18,7 +18,7 @@ Os nomes de perfis antigos não são usados como fonte de identidade acadêmica.
 
 Regressão Codex em instância descartável de `scoa_java_teste`, com DDL v7.5 e V006 a V012: **130 unitários e 194 de integração**, sem falhas, erros ou ignorados. `mvn -o -B verify -Pmysql-it` terminou com BUILD SUCCESS em 23/11/2026 às 12:13:22 UTC-03:00, duração 45.036 s. São dois testes unitários e quinze execuções de integração a mais que a base v0.12. Consulte o [relatório](testes/publicados/execucao_codex_v0_13/RELATORIO.md) e o [ambiente](testes/publicados/execucao_codex_v0_13/ambiente.txt).
 
-A cobertura nova inclui conta sem vínculo, rejeição de papel acadêmico independente, vários vínculos na mesma conta, concessões técnicas preservadas, perfis legados divergentes, referência pertencente a outra conta, limite por tipo de cadastro, repetição idempotente, autorização da consulta, revogação de permissão, conta inativa, sessão encerrada ou de outra conexão, rollback por falha de auditoria e distinção dos IDs no console. As demais integrações da v0.12 foram executadas junto desta rodada. Isso não substitui a validação manual do autor.
+A cobertura nova inclui conta sem vínculo, rejeição de papel acadêmico independente, vários vínculos na mesma conta, concessões técnicas preservadas, perfis legados divergentes, referência pertencente a outra conta, limite por tipo de cadastro, repetição idempotente, autorização da consulta, revogação de permissão, conta inativa, sessão encerrada ou de outra conexão, rollback por falha de auditoria e distinção dos IDs no console. As demais integrações da v0.12 foram executadas junto desta rodada. O autor também aprovou 130 unitários e 194 integrações em 23/11/2026 às 12:58:05 UTC-03:00, duração 46.485 s. Em 23 e 24/11, executou os seis casos manuais, com 26 CSVs e oito PDFs preservados. Consulte o [relatório do autor](testes/publicados/execucao_autor_v0_13/RELATORIO.md) e a [galeria](testes/publicados/execucao_autor_v0_13/CAPTURAS.md).
 
 ## Limites
 

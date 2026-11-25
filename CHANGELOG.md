@@ -1,11 +1,11 @@
 # Alterações do SCOA
 
-## 0.13.0-SNAPSHOT em validação
+## 0.13.0-SNAPSHOT
 
 - Corrigida OC-V12-01: criação de conta escolhe apenas acesso técnico, com SEM_PERMISSOES como padrão. Aluno, professor e coordenação são obtidos dos vínculos; uma conta pode reunir vínculos legítimos sem ganhar concessões técnicas.
 - Menus 18.12 e 18.13 consultam conta, vínculos e permissões técnicas, respectivamente para a própria pessoa e para administração. O provisionamento distingue ID da conta das referências de aluno, professor e curso.
 - Preservados perfis legados, credenciais, IDs, permissões e históricos, sem migração de dados. Login único e restrições dos cadastros continuam vigentes; a aplicação não funde pessoas automaticamente.
-- Regressão Codex aprovada em 23/11/2026: 130 unitários e 194 integrações. Rodada do autor e validação manual pendentes. Plano para 30/11 e 07/12 prioriza lançamento autenticado e propõe histórico próprio, sem declarar o módulo acadêmico concluído.
+- Regressão Codex aprovada em 23/11/2026: 130 unitários e 194 integrações. Fechamento em 24/11/2026: o autor aprovou os mesmos totais em execução independente e concluiu os seis casos manuais. Ambiente, relatório, 26 CSVs e oito PDFs conferidos; seis recortes e 20 CSVs sintéticos selecionados para publicação. README e índice de docs apresentam a entrega atual. O módulo acadêmico integral continua em desenvolvimento.
 
 ## 0.12.0-SNAPSHOT
 

@@ -1,85 +1,60 @@
 # SCOA — Sistema de Controle Acadêmico
 
-A v0.13 está **em validação**. OC-V12-01 foi corrigida: a conta recebe acesso técnico, e seus papéis acadêmicos vêm dos vínculos. Os menus 18.12/18.13 apresentam a própria conta ou uma conta consultada pela administração, com distinção entre IDs. A regressão Codex aprovou **130 unitários e 194 integrações** em uma nova instância de `scoa_java_teste`; validação do autor e rodada manual ainda estão pendentes. Não há migração nova. Consulte [implementação e limites](docs/SCOA_Implementacao_v0_13.md), [evidências automáticas](docs/testes/publicados/execucao_codex_v0_13/RELATORIO.md) e [prioridades para apresentação e entrega](docs/SCOA_Plano_Entrega_2026_11_23.md).
+Protótipo acadêmico em **Java e MySQL**, desenvolvido para Engenharia de Software no Bacharelado em Sistemas de Informação do CEFET/RJ, campus Maria da Graça. O projeto reúne requisitos, modelos de software e uma implementação incremental dos processos acadêmicos em console.
 
-A v0.12 está concluída para o recorte de console: consultas do próprio aluno, duas fases de inscrição, confirmação de turmas, cancelamento, retificação, renovação institucional e pendência bibliotecária. A regressão do autor aprovou **128 testes unitários e 179 de integração**; as três rodadas manuais obrigatórias foram concluídas. A rechecagem do fechamento aprovou 128 unitários. Consulte o [relatório](docs/testes/publicados/execucao_autor_v0_12/RELATORIO.md), o [ambiente](docs/testes/publicados/execucao_autor_v0_12/ambiente.txt) e as [regras e limites](docs/SCOA_Implementacao_v0_12.md).
+**Entrega atual: v0.13 validada e fechada em 24/11/2026.** O autor aprovou **130 testes unitários, 194 de integração e os seis casos manuais** desta iteração. O sistema mantém uma conta de acesso com vários vínculos acadêmicos legítimos e separa essa identidade das permissões técnicas. O módulo acadêmico completo e a interface web continuam em desenvolvimento.
 
-Para validar, use o schema `scoa_java_teste` com o DDL v7.5 e V006 a V012, na ordem e sem reaplicar migrações. O menu 18.11 vincula contas aos cadastros acadêmicos e ao curso coordenado. Na v0.12, a repetição da escolha do papel acadêmico foi registrada como OC-V12-01 e adiada; sua correção está implementada na v0.13 em validação. O fechamento não migrou o schema `scoa`.
+[Documentação atual](docs/README.md) · [Relatório da v0.13](docs/testes/publicados/execucao_autor_v0_13/RELATORIO.md) · [Capturas reais](docs/testes/publicados/execucao_autor_v0_13/CAPTURAS.md) · [Evolução por versão](CHANGELOG.md)
 
-A v0.11 encaminha o planejamento por ofertas e a listagem de processos acadêmicos por serviços de aplicação. A regressão do autor registrou 116 testes unitários e 167 de integração aprovados. Consulte o [relatório de validação](docs/testes/publicados/execucao_autor_v0_11/RELATORIO.md) e o [ambiente](docs/testes/publicados/execucao_autor_v0_11/ambiente.txt).
+## O que já funciona
 
-Projeto acadêmico desenvolvido para a disciplina de Engenharia de Software do CEFET-MG. O SCOA reúne a modelagem de processos acadêmicos e administrativos e sua implementação incremental em Java e MySQL.
+| Frente | Comportamento disponível no console |
+| --- | --- |
+| Base acadêmica | Alunos, professores, cursos, disciplinas, pré-requisitos, estrutura curricular, períodos e turmas. |
+| Salas e horários | Cadastro, disponibilidade e alocação com verificação de capacidade e conflitos. |
+| Matrícula e inscrição | Histórico institucional, elegibilidade, duas fases de inscrição, controle de vagas e confirmação do próprio aluno. |
+| Ajustes acadêmicos | Cancelamento automático ou por decisão da coordenação, renovação institucional e retificação de resultado com histórico. |
+| Reconhecimento e planejamento | Equivalência manual, conciliação de legado, revisão de reconhecimentos e simulação por ofertas. |
+| Acesso e consultas | Autenticação, permissões dos fluxos protegidos, vínculos acadêmicos e consulta dos próprios horários e resultados finais. |
 
-## Estado da implementação
+## O que mudou na v0.13
 
-Como histórico, a versão 0.10.0-SNAPSHOT acrescentou o menu 18 com autenticação e permissões para conciliação e revisão/revogação. A conciliação documental de planos e equivalências preserva as origens; plano legado não comprova conclusão. Revisão aberta suspende novos usos do reconhecimento em inscrições e simulações, com decisão humana autenticada e histórico separado da decisão original. A revogação preserva expressamente inscrições identificadas; não cancela inscrições ou altera resultados. Tratamento não resolvido permanece pendente. São comportamentos acordados para o protótipo, sem atribuição institucional.
+A escolha repetida de ALUNO/PROFESSOR/COORDENADOR na criação de conta foi eliminada. Esses papéis são obtidos dos vínculos; o acesso técnico é concedido separadamente. A mesma conta pode reunir aluno, professor e coordenação de vários cursos sem receber permissão administrativa por esse motivo. O provisionamento identifica claramente qual campo pede ID da conta, do aluno, do professor ou do curso.
 
-Antes do uso da v0.10, aplicar uma vez a migração aditiva `database/migrations/V009__conciliacao_revisao.sql`, após backup e V008. São 81 tabelas após V009. O acesso novo é inicializado explicitamente em ambiente local, sem credencial padrão; permissões protegem os processos e decisões de equivalência, sem estender autorização global aos demais menus legados. Guias, configurações, Word e relatórios brutos permanecem privados. O autor validou 116 testes unitários e 166 de integração, com zero falhas, erros ou ignorados. Consulte as evidências separadas do [autor](docs/testes/publicados/execucao_autor_v0_10/RELATORIO.md) e do [Codex](docs/testes/publicados/execucao_codex_v0_10/RELATORIO.md).
+![Conta sintética com quatro vínculos acadêmicos e permissões técnicas vazias](docs/testes/publicados/execucao_autor_v0_13/capturas/02_vinculos.png)
 
-### Base funcional preservada da v0.9
+*Recorte de uma execução real do autor, com dados sintéticos. A [galeria](docs/testes/publicados/execucao_autor_v0_13/CAPTURAS.md) reúne as demais verificações e os CSVs correspondentes.*
 
-A versão 0.9.0-SNAPSHOT acrescenta o menu 17 para simular a distribuição do plano por períodos e ofertas cadastrados. O usuário escolhe períodos e prioridades; somente pré-requisitos já cumpridos formalmente liberam sugestões. O resultado explica impedimentos e soma horas sugeridas, sem gravar plano ou inscrição, reservar vagas ou presumir créditos e limites institucionais. Consulte [as regras e limites da v0.9](docs/SCOA_Implementacao_v0_9.md). O menu 16 mantém equivalência manual, histórico acadêmico e plano básico da [v0.8](docs/SCOA_Implementacao_v0_8.md).
+## Como a entrega foi verificada
 
-Antes de usar, faça backup, confira o schema selecionado e o estado de cada migração. Em base v0.7 já preparada, aplique uma vez `database/migrations/V008__equivalencia_manual.sql`; em base anterior, respeite DDL v7.5, V006, V007 e V008 nessa ordem. Não recrie bases existentes nem reaplique migrações parcialmente executadas. Não há migração automática.
+| Execução independente | Unitários | Integração | Resultado |
+| --- | ---: | ---: | --- |
+| Autor, 23/11/2026 | 130 | 194 | BUILD SUCCESS; zero falhas, erros ou ignorados. |
+| Codex, 23/11/2026 | 130 | 194 | BUILD SUCCESS; zero falhas, erros ou ignorados. |
+| Casos manuais do autor, 23 e 24/11 | — | — | Seis casos concluídos; 26 CSVs e oito PDFs preservados. |
 
-O menu 15 preserva inscrição com contexto curricular, janela, horários, pré-requisitos, duplicidade e vagas, revalidando na confirmação, e o primeiro fechamento de resultado P1/P2/PF com frequência mínima de 75%. Consulte [o recorte da v0.7](docs/SCOA_Implementacao_v0_7.md). Projeção condicionada de dependências futuras, autorização global dos demais módulos e web continuam pendentes. A retificação de resultados foi acrescentada na v0.12.
+São duas execuções da mesma bateria, identificadas separadamente. A seleção pública da v0.13 contém **seis imagens de console e 20 CSVs sintéticos**, acompanhados de relatório, resultados por classe e manifestos. [Veja as evidências](docs/testes/publicados/execucao_autor_v0_13/CAPTURAS.md).
 
-O cadastro permite incluir, consultar, listar, atualizar e inativar salas. A alocação verifica capacidade, situação da sala, sobreposição de horários e períodos letivos, incluindo conflitos da própria turma. Horários adjacentes são permitidos. A disponibilidade é revalidada no momento da gravação.
+## Executar e testar
 
-As alterações concorrentes são coordenadas por transações e bloqueios de registros. Salas com alocações em períodos atuais ou futuros não podem ser inativadas nem ter a capacidade reduzida abaixo da capacidade das turmas comprometidas.
+O projeto utiliza Java 25, Maven 3.9.11, JUnit Jupiter 6.0.1, MySQL Connector/J 26.7.0 e MySQL 8.0. A execução validada usou MySQL 8.0.46.
 
-A manutenção de turmas associa disciplina, professor, período e capacidade, avançando RF-MA-06 / UC-MA-06. Os horários são mantidos pela alocação. Disciplinas e professores devem estar previamente cadastrados e ativos. A implementação preserva os vínculos com inscrições existentes e impede mudanças incompatíveis com as alocações.
+```powershell
+# Testes unitários
+.\mvnw.cmd test
 
-A entrega avança RF-MA-02, RF-MA-04, RF-MA-06, RF-MA-07 e RF-MA-08 na interface de console. A extensão da autenticação/autorização aos demais módulos, a interface web e os demais cadastros permanecem em desenvolvimento. A opção 12 do menu principal acessa professores, disciplinas e pré-requisitos; a opção 11 mantém períodos e turmas.
+# Regressão com MySQL, após preparar a conexão de testes
+.\mvnw.cmd verify -Pmysql-it
+```
 
-A v0.8 foi validada pelo autor em 02/11/2026 com 103 execuções unitárias e 130 de integração, sem falhas, erros ou ignorados. Consulte o [relatório e limites da validação](docs/testes/publicados/execucao_autor_v0_8/RELATORIO.md) e o [ambiente identificado](docs/testes/publicados/execucao_autor_v0_8/ambiente.txt). A validação em scoa_java_teste não implica migração de scoa.
+Os testes JDBC exigem `SCOA_TEST_DB_URL`, `SCOA_TEST_DB_USUARIO` e `SCOA_TEST_DB_SENHA`, configurados localmente, apontando exclusivamente para **scoa_java_teste**. A base usa o [DDL de testes v7.5](database/tests/SCOA_MySQL8_schema_v7_5_java_teste.sql) e as [migrações V006 a V012](database/migrations), nessa ordem. Bases existentes precisam de conferência e backup; não recriar ou reaplicar migrações automaticamente. São 87 tabelas após V012. A v0.13 não acrescenta migração e não migrou o schema `scoa`.
 
-A v0.9 foi validada pelo autor em 03/11/2026 às 21:57:27 UTC−03:00: 113 unitárias e 144 integração, zero falhas/erros/ignorados. Consulte o [relatório do autor](docs/testes/publicados/execucao_autor_v0_9/RELATORIO.md), o [ambiente](docs/testes/publicados/execucao_autor_v0_9/ambiente.txt) e a [execução separada do Codex](docs/testes/publicados/execucao_codex_v0_9/RELATORIO.md). Não há migração nova na v0.9; a validação em scoa_java_teste não implica migração de scoa. Word v7.12 e guias permanecem privados.
+Para o console, execute `br.edu.cefetmg.scoa.ScoaAplicacao` com `SCOA_DB_URL`, `SCOA_DB_USUARIO` e `SCOA_DB_SENHA`. A inicialização da primeira conta é local e explícita, sem senha padrão. Dados de conexão, senhas e guias operacionais são privados.
 
-## Tecnologias
+## Organização e limites
 
-| Componente | Versão |
-|---|---|
-| Java | 25 |
-| Maven | 3.9.11 |
-| JUnit Jupiter | 6.0.1 |
-| MySQL Connector/J | 26.7.0 |
-| Banco de dados de referência | MySQL 8.0.16 ou superior na série 8.0 |
+`src/main/java` contém domínio, aplicação, persistência e apresentação; `src/test/java` reúne os testes. `database` contém DDL e migrações. O [índice de docs](docs/README.md) separa a modelagem de referência, as notas de implementação e as evidências por versão.
 
-## Organização
+Autorização global dos menus legados, primeiro lançamento autenticado de resultados, avaliações e frequência por aula, diário de classe, transferências, integralização, histórico escolar próprio consolidado, interface web e os demais módulos continuam pendentes. A apresentação está prevista para **30/11/2026** e a entrega para **07/12/2026**; o [plano atual](docs/SCOA_Plano_Entrega_2026_11_23.md) identifica o recorte e as dependências.
 
-- `src/main/java`: implementação Java, organizada em domínio, aplicação e persistência.
-- `src/test/java`: testes unitários e de integração.
-- `database`: DDL e testes do banco de dados.
-- `docs`: documentação técnica em PDF e diagramas editáveis do projeto.
-- `pom.xml` e Maven Wrapper: definição das dependências e da compilação.
-
-## Documentação técnica
-
-A [documentação do SCOA v7.5](docs/SCOA%20-%20Sistema%20de%20Controle%20Acad%C3%AAmico%20v7.5.pdf) apresenta os requisitos, a modelagem e o escopo planejado do sistema. A implementação disponível nesta versão corresponde ao recorte executável descrito acima; o documento apresenta também funcionalidades futuras.
-
-Os arquivos `.drawio` em `docs` contêm as vistas editáveis dos casos de uso, classes, atividades, sequências e dos modelos conceitual, lógico e físico do banco de dados. As notas técnicas da [implementação v0.2](docs/SCOA_Implementacao_v0_2.md) e dos [cadastros v0.3](docs/SCOA_Implementacao_v0_3.md) descrevem as classes, regras e verificações incrementais. O [plano conceitual de testes da v0.3](docs/testes/SCOA_Plano_Conceitual_Testes_v0_3.pdf), também disponível em [texto](docs/testes/SCOA_Plano_Conceitual_Testes_v0_3.md), complementa a documentação v7.5 com 28 casos ligados aos requisitos e às evidências. Elaborado após a execução, registra essa origem e delimita a cobertura parcial dos casos de uso. Até a v0.5, o DDL v7.5 era suficiente sem alterações. A v0.6 exige a migração aditiva descrita acima; o arquivo original permanece preservado.
-
-A [nota técnica da v0.4](docs/SCOA_Implementacao_v0_4.md) descreve o incremento e seus limites. O [plano da v0.4](docs/testes/SCOA_Plano_Testes_Professores_Disciplinas_v0_4.pdf), preparado antes da codificação, complementa a documentação v7.5 com os casos de professores, disciplinas e pré-requisitos.
-
-A [nota da v0.5](docs/SCOA_Implementacao_v0_5.md) detalha o recorte e suas limitações. O [plano P05](docs/testes/SCOA_Plano_Testes_Base_Academica_v0_5.md) foi preparado antes da codificação e aprovado pelo autor quanto à prioridade das bases acadêmicas.
-
-## Verificação
-
-A v0.5 passou por 74 testes unitários e 66 de integração, sem falhas, erros ou ignorados, em instância MySQL isolada. Inclui as 114 regressões da v0.4. O [relatório do Codex](docs/testes/publicados/execucao_codex_v0_5/RELATORIO.md) relaciona os 14 casos aos testes e identifica as fontes executadas. A validação do autor da v0.5 foi concluída: 74 testes unitários e 66 de integração aprovados, encerramento em 31/10/2026 às 22:52:45 UTC−03:00; PDF manual de 12 páginas e seis CSVs do banco registrados em 01/11/2026. O [relatório do autor](docs/testes/publicados/execucao_autor_v0_5/RELATORIO.md) detalha a cobertura, os formatos e os horários. Código validado: dc1a6f3. A revisão Word v7.8 permanece privada e amplia o capítulo 9.
-
-A v0.4 foi verificada pelo Codex em instância MySQL isolada: 65 execuções unitárias e 49 de integração, sem falhas, erros ou ignorados, incluindo todas as regressões da v0.3 e os fluxos de console com conferência da persistência. Os 15 casos planejados foram executados e estão rastreados no [relatório da v0.4](docs/testes/publicados/execucao_codex_v0_4/RELATORIO.md). A validação do autor foi concluída em 31/10/2026: 65 testes unitários e 49 de integração aprovados, roteiro manual em PDF e estado final do banco em seis CSVs. O [relatório do autor da v0.4](docs/testes/publicados/execucao_autor_v0_4/RELATORIO.md) reúne os resultados e as evidências revisadas. Código validado: b714404.
-
-A implementação v0.3 foi verificada com 56 execuções unitárias e 35 de integração JDBC, sem falhas, erros ou testes ignorados. A bateria inclui as regressões de salas e alocação, manutenção de períodos e turmas e conexões simultâneas para as operações que afetam a disponibilidade. Os fluxos de cadastros e alocação também foram exercitados pelo console em uma instância MySQL isolada.
-
-Os testes de integração utilizam um schema próprio. Os cenários sequenciais usam rollback; os cenários concorrentes confirmam fixtures sintéticas para permitir sua leitura por conexões independentes e removem os registros pelos IDs ao final. As credenciais locais não fazem parte do código-fonte.
-
-A validação anterior do autor está documentada no [relatório da v0.3](docs/testes/publicados/execucao_autor_v0_3/RELATORIO.md), com ambiente, resultados por classe, rastreabilidade dos comportamentos verificados e capturas selecionadas do console e do banco.
-
-
-A [nota da v0.6](docs/SCOA_Implementacao_v0_6.md) descreve as decisões e limites. O [plano P06](docs/testes/SCOA_Plano_Testes_Matricula_v0_6.md) antecede a implementação. Validação do Codex: 77 testes unitários e 95 de integração aprovados em MySQL isolado. Validação do autor concluída em 01/11/2026 às 15:04:41 UTC−03:00, com os mesmos totais; dois PDFs manuais e sete CSVs preservados. O [relatório do autor da v0.6](docs/testes/publicados/execucao_autor_v0_6/RELATORIO.md) identifica a cobertura e as ocorrências. Word v7.9 atualiza o capítulo 9 e preserva a v7.8. Código validado: 87fb486.
-
-
-### Validação da v0.7
-
-Rodrigo Lustosa concluiu verify -Pmysql-it em 01/11/2026 às 21:07:52 UTC−03:00: **97 testes unitários e 109 de integração**, sem falhas, erros ou ignorados. O [relatório do autor](docs/testes/publicados/execucao_autor_v0_7/RELATORIO.md) registra os PDFs, CSVs, IDs reais e limites da cobertura manual. As evidências do Codex permanecem separadas. O fechamento não migra bancos do autor nem altera as fontes já validadas.
+O PDF v7.5 em `docs` é a base histórica de requisitos e modelagem. Para saber o que está implementado hoje, consulte este README, as [notas da v0.13](docs/SCOA_Implementacao_v0_13.md) e o [relatório atual](docs/testes/publicados/execucao_autor_v0_13/RELATORIO.md).
