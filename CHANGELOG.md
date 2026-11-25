@@ -2,6 +2,8 @@
 
 ## 0.14.0-SNAPSHOT — em desenvolvimento
 
+- Portal web local com áreas por vínculos e concessões: aluno, docência, secretaria, coordenação/gestão, relatórios e administração. Reutiliza autorização/regras existentes; confirmações não duplicam operações, downloads entregam os arquivos arquivados e sessões usam conexões separadas. Navegação por referências acadêmicas, boletim e diário completo em tela, preservação de legado desconhecido. Regressão Codex: 206 unitários e 434 integrações aprovados; rodada manual e fechamento pendentes.
+
 - Menu 32 e V024: parâmetros acadêmicos em versões imutáveis, selecionadas explicitamente somente para períodos futuros. Prazos de inscrição/cancelamento/transferência/retificação, tolerância de atraso, frequência mínima e médias usam a seleção do período. Resultados e retificações novos registram a origem das regras; dados anteriores não são recalculados. Regressão Codex: 197 unitários e 411 integrações aprovados; manual integrado pendente.
 
 - Menu 31 e V023: administração de perfis técnicos e concessões por conta, permissões atuais nas sessões, versões e histórico de mudanças. Perfis compartilhados exibem contas afetadas; último administrador ativo protegido. Conta inativa bloqueia acesso e revoga a sessão antiga mesmo após reativação, preservando credenciais e vínculos. Catálogo acadêmico conserva permissões de outros módulos. Regressão Codex: 190 unitários e 390 integrações aprovados.

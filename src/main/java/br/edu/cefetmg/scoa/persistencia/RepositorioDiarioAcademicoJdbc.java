@@ -243,6 +243,14 @@ public final class RepositorioDiarioAcademicoJdbc implements RepositorioDiarioAc
         }
         return List.copyOf(resultados);
     }
+    public RegraResultado.Resultado fecharConferido(long inscricao,Boletim esperado,String motivo) {
+        Objects.requireNonNull(esperado);
+        return TransacaoJdbc.executar(c,()->{
+            controle(c);
+            if(!esperado.equals(consultarDocente(inscricao))) throw new IllegalArgumentException("O diário mudou desde a conferência. Consulte os lançamentos novamente.");
+            return fechar(inscricao,motivo);
+        });
+    }
     private Processamento importar(Chegada e) throws SQLException {
         controle(c); var aula=aula(e.aula()); var ctx=professor(aula.turma());
         var anteriores=q(c,"SELECT id_aula,id_inscricao,chegada_local FROM evento_acesso_simulado WHERE origem=? AND chave=? FOR UPDATE",

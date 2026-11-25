@@ -1,8 +1,8 @@
 # SCOA — Sistema de Controle Acadêmico
 
-Protótipo acadêmico em **Java e MySQL**, desenvolvido para Engenharia de Software no Bacharelado em Sistemas de Informação do CEFET/RJ, campus Maria da Graça. O projeto reúne requisitos, modelos de software e uma implementação incremental dos processos acadêmicos em console.
+Protótipo acadêmico em **Java e MySQL**, desenvolvido para Engenharia de Software no Bacharelado em Sistemas de Informação do CEFET/RJ, campus Maria da Graça. O projeto reúne requisitos, modelos de software e uma implementação incremental dos processos acadêmicos em console e portal web local.
 
-**Neste ramo: v0.14 em desenvolvimento, atualização exclusiva do módulo acadêmico.** Inclui proteção dos menus acadêmicos, histórico próprio/manifestações, transferência interna efetiva, documentos/secretaria, diário por tempos, plano institucional versionado, rematrícula em lote, gestão acadêmica, transferências externas, horários antes da sala, relatórios PDF/XLSX e administração das concessões técnicas, além de regras versionadas por período. Consulte as [notas da implementação](docs/SCOA_Implementacao_v0_14.md) para conhecer regras e limites. A rodada manual integrada dos novos incrementos será feita ao final dos blocos.
+**Neste ramo: v0.14 em desenvolvimento, atualização exclusiva do módulo acadêmico.** Inclui proteção dos menus acadêmicos, histórico próprio/manifestações, transferência interna efetiva, documentos/secretaria, diário por tempos, plano institucional versionado, rematrícula em lote, gestão acadêmica, transferências externas, horários antes da sala, relatórios PDF/XLSX e administração das concessões técnicas, além de regras versionadas por período e portal web local. Consulte as [notas da implementação](docs/SCOA_Implementacao_v0_14.md) para conhecer regras e limites. A rodada manual integrada dos novos incrementos será feita ao final dos blocos.
 
 **Última entrega fechada: v0.13, em 24/11/2026.** O autor aprovou **130 testes unitários, 194 de integração e seis casos manuais** dessa versão. O módulo acadêmico completo e a interface web continuam em desenvolvimento.
 
@@ -10,7 +10,7 @@ Protótipo acadêmico em **Java e MySQL**, desenvolvido para Engenharia de Softw
 
 ## O que já funciona
 
-| Frente | Comportamento disponível no console |
+| Frente | Comportamento disponível no protótipo |
 | --- | --- |
 | Base acadêmica | Alunos, professores, cursos, disciplinas, pré-requisitos, estrutura curricular, períodos e turmas. |
 | Salas e horários | Cadastro, horários por tempos sem sala, alocação posterior com verificação de capacidade/conflitos e histórico de manutenção. |
@@ -26,6 +26,7 @@ Protótipo acadêmico em **Java e MySQL**, desenvolvido para Engenharia de Softw
 | Relatórios e exportações (30) | Censo/ENADE demonstrativos, diário do docente/gestão, histórico e plano próprios. Prévia confirmada, arquivos preservados com integridade e autorização revalidada. Sem classificação oficial presumida. |
 | Administração de acesso (31) | Perfis técnicos, concessão/revogação e atividade da conta com versões, autoria e histórico. Preserva credenciais/vínculos e o último administrador ativo; sessão antiga não retorna após reativação. |
 | Regras por período (32) | Versões imutáveis de prazos, percentuais e médias. Seleção explícita somente para períodos futuros; períodos iniciados preservam as regras e resultados anteriores. |
+| Portal acadêmico local | Áreas de aluno, professor, secretaria, coordenação/gestão e administração usando as mesmas regras e autorizações. Conferência antes de gravar, sessão por conta e arquivos PDF/XLSX arquivados. [Como acessar](docs/SCOA_Portal_Academico_v0_14.md). |
 | Gestão acadêmica (27) | Metas e prazos docentes com versões, avaliações, consulta e auditoria do diário e monitoramento do discente. Gestor acompanha todos os cursos; coordenador acompanha seus cursos. Auditoria não altera notas, frequência ou resultados. |
 
 ## O que mudou na v0.13
@@ -40,7 +41,7 @@ A escolha repetida de ALUNO/PROFESSOR/COORDENADOR na criação de conta foi elim
 
 | Execução independente | Unitários | Integração | Resultado |
 | --- | ---: | ---: | --- |
-| Codex, incremento v0.14 com regras por período, 25/11/2026 | 197 | 411 | BUILD SUCCESS; zero falhas, erros ou ignorados. Rodada manual integrada pendente. |
+| Codex, incremento v0.14 com portal web, 25/11/2026 | 206 | 434 | BUILD SUCCESS; zero falhas, erros ou ignorados. Rodada manual integrada pendente. |
 | Autor, 23/11/2026 | 130 | 194 | BUILD SUCCESS; zero falhas, erros ou ignorados. |
 | Codex, 23/11/2026 | 130 | 194 | BUILD SUCCESS; zero falhas, erros ou ignorados. |
 | Casos manuais do autor, 23 e 24/11 | — | — | Seis casos concluídos; 26 CSVs e oito PDFs preservados. |
@@ -67,6 +68,6 @@ Para o console, execute `br.edu.cefetmg.scoa.ScoaAplicacao` com `SCOA_DB_URL`, `
 
 `src/main/java` contém domínio, aplicação, persistência e apresentação; `src/test/java` reúne os testes. `database` contém DDL e migrações. O [índice de docs](docs/README.md) separa a modelagem de referência, as notas de implementação e as evidências por versão.
 
-A interface web continua pendente. A parametrização por período está implementada no console. Os relatórios demonstrativos e o diário operacional já podem ser exportados; emissão e assinatura oficiais de documentos não são presumidas. A apresentação está prevista para **30/11/2026** e a entrega para **07/12/2026**. As [notas da v0.14](docs/SCOA_Implementacao_v0_14.md) registram o avanço sobre o plano anterior; o conjunto não inclui emissão oficial de diploma ou conclusão presumida de curso.
+O portal web local e a parametrização por período estão implementados. A [matriz acadêmica](docs/SCOA_Matriz_Academica_v0_14.md) relaciona os 28 requisitos e 30 casos de uso aos percursos e testes; a aceitação manual integrada ainda está pendente. Os relatórios demonstrativos e o diário operacional já podem ser exportados; emissão e assinatura oficiais de documentos não são presumidas. A apresentação está prevista para **30/11/2026** e a entrega para **07/12/2026**. As [notas da v0.14](docs/SCOA_Implementacao_v0_14.md) registram o avanço sobre o plano anterior; o conjunto não inclui emissão oficial de diploma ou conclusão presumida de curso.
 
 O PDF v7.5 em `docs` é a base histórica de requisitos e modelagem. Para saber o que está implementado neste ramo, consulte as [notas da v0.14](docs/SCOA_Implementacao_v0_14.md). O [relatório da v0.13](docs/testes/publicados/execucao_autor_v0_13/RELATORIO.md) documenta a última entrega fechada.

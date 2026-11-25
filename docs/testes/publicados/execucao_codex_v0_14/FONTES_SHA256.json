@@ -593,7 +593,7 @@
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioDiarioAcademicoJdbc.java",
-    "sha256": "09345960d6b243956508beaa8dedf0ce198c4fc9726a5e19e560fb3de20d36a8"
+    "sha256": "6e70bfedf118a097b3c7013fc023929c52a437b638738e319ff697b5a66f4416"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioDocumentoAcademicoJdbc.java",
@@ -618,6 +618,10 @@
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioMatriculaJdbc.java",
     "sha256": "ce73b9f8736ce7080a2e810cb7bbb5062b8d4684910503000d56e9f78e24010f"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioNavegacaoAcademicaJdbc.java",
+    "sha256": "f0d4563629c89b53c1a0b0ccbe34082f1fc5d6cc5282c1947cfd72375642a186"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioParametrosAcademicosJdbc.java",
@@ -681,7 +685,35 @@
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/ScoaAplicacao.java",
-    "sha256": "d2afe3f5c460a9d1c13a090db795f1184de9ca7ed619fc48c14ff6aa8830699d"
+    "sha256": "65e31ccb631dac8658a570e9a5c3256164b263400bad089793c965501a22e2c0"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/web/AcoesAcademicasWeb.java",
+    "sha256": "d490f4346ff5e8f4a295c0b628fb9d0f754ca275cc58b65ef5d1bcdb3723d608"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/web/AcoesAlunoDocenteWeb.java",
+    "sha256": "a8b6711ca3bff185b48437699a34cd23008d5e130855072da5f7e47c20044293"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/web/AcoesGestaoAdministracaoWeb.java",
+    "sha256": "458d13613e6874b61ebec2f17323af04bdf752853c503bf0c381bc565e3296c1"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/web/AcoesSecretariaWeb.java",
+    "sha256": "a52792dc7aa762bea2927caf18e4bd53d223b47a3b250638f0530de13bfacab1"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/web/FormularioWeb.java",
+    "sha256": "ab1212ad08c081dfcb250f7e35bcff5002981bfc19bd789b0a11cbbf2d73b539"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/web/HtmlAcademico.java",
+    "sha256": "a93c319b63b393edd77793802a5131c554d1c2b37d9017cea4af90bfd12ca11a"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/web/PortalAcademico.java",
+    "sha256": "d1b2bfb86caa121f1aeefe5426e117436795637df825112699f9814baf41ffe1"
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/aplicacao/ExportadorRelatorioAcademicoTest.java",
@@ -884,6 +916,14 @@
     "sha256": "18326f646f74bed163e5c04d1f96cc8769ffa92132d4fd0e7c18b0ff0afeeb1b"
   },
   {
+    "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/PortalAcademicoJdbcIT.java",
+    "sha256": "9708ee15ac007fc46be9133701fff8218e856919f21e5514a6640000928182b4"
+  },
+  {
+    "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/PortalSessoesJdbcIT.java",
+    "sha256": "09449d82c8b297fcd871684f3ac229d11af6aaa4451db23bbc9f943bf360c05a"
+  },
+  {
     "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/ProcessoAcademicoJdbcIT.java",
     "sha256": "545868f27bfa877ae5063f7cbe77fd8fdad1d15520b7cf40fabe5822594bc8a1"
   },
@@ -914,5 +954,9 @@
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/TransferenciaInternaJdbcIT.java",
     "sha256": "08d5af7c6a4cd4483b469458f6dd075649951206d0a59b4354fe96d1469e5652"
+  },
+  {
+    "path": "src/test/java/br/edu/cefetmg/scoa/web/ApresentacaoWebTest.java",
+    "sha256": "9e77a94e2f9f30b163091b0f4f7f14622990064208e54d337d96607184a36ab7"
   }
 ]

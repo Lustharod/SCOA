@@ -1,14 +1,14 @@
-SCOA v0.14.0-SNAPSHOT - regras acadêmicas versionadas por período em desenvolvimento
+SCOA v0.14.0-SNAPSHOT - portal web acadêmico local em desenvolvimento
 Executor: Codex; rodada manual do autor prevista para o final dos blocos
-Fim: 2026-11-25T16:13:35-03:00 (America/Sao_Paulo)
+Fim: 2026-11-25T16:56:19-03:00 (America/Sao_Paulo)
 Comando: mvn -o -B verify -Pmysql-it
-Resultado: BUILD SUCCESS; duração exibida: 02:44 min
+Resultado: BUILD SUCCESS; duração exibida: 02:53 min
 Java: 25.0.1+8-27; Maven 3.9.11
 Sistema: Windows 11; arquitetura amd64
 MySQL 8.0.46; schema scoa_java_teste; porta 33386; instância nova encerrada ao fim
 Base: DDL de testes v7.5 + V006 a V024
 Tabelas previstas pelo DDL: 104; contagem SQL pós-migração não exportada nesta rodada
-Unitários 197; integração 411; falhas/erros/ignorados zero
+Unitários 206; integração 434; falhas/erros/ignorados zero
 Evidências públicas: RELATORIO.md, RESULTADOS.md, ambiente.txt, FONTES_SHA256.json
 Originais privados: verify-privado.txt, mysql.log, XML/TXT e manifesto SHA-256
 Fixtures SQL são preparação/restauração; não operações auditadas executadas por pessoa no console

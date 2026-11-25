@@ -13,5 +13,49 @@
       "sha256": "f9c6693da8673f857216cd950f8bb2cfd2e234be9d6cc93b8f507513561a0f06",
       "origin": "Página renderizada do PDF sintético privado desta execução; sem alteração de resultados"
     }
+  ],
+  "portal_selection": [
+    {
+      "path": "amostras/portal_entrada.png",
+      "sha256": "3d7b2036e0969c04378b153d4dcbf0da92b7447ea6662282bb14a4cd83ed8152",
+      "execution": "2026-11-25T16:56:19-03:00",
+      "source_test": "PortalAcademicoJdbcIT.paginaDeEntradaTemProtecoesESemDadosAcademicosAnonimos",
+      "rendered_at": "2026-11-25T17:01:44.808942-03:00",
+      "browser": "Microsoft Edge, modo headless com dimensões de viewport explícitas via CDP",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "verified_no_horizontal_overflow": true,
+      "origin": "HTML sintético retornado pelos testes HTTP; renderização visual, sem atribuição à execução manual do autor"
+    },
+    {
+      "path": "amostras/portal_aluno_mobile.png",
+      "sha256": "f0a5950afdec26694c70bbd13ef469afd8655f21dada9df6a6b5d0a198743922",
+      "execution": "2026-11-25T16:56:19-03:00",
+      "source_test": "PortalAcademicoJdbcIT.alunoVeSomenteSuasAtividadesEServidorRejeitaRotaAdministrativaDireta",
+      "rendered_at": "2026-11-25T17:01:45.506924-03:00",
+      "browser": "Microsoft Edge, modo headless com dimensões de viewport explícitas via CDP",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "verified_no_horizontal_overflow": true,
+      "origin": "HTML sintético retornado pelos testes HTTP; renderização visual, sem atribuição à execução manual do autor"
+    },
+    {
+      "path": "amostras/portal_nota.png",
+      "sha256": "f8a2c37f4cb232083f9d3071a21cc311486d2def430bec401300f9f591a7b0d0",
+      "execution": "2026-11-25T16:56:19-03:00",
+      "source_test": "PortalAcademicoJdbcIT.professorCadastraAvaliacaoPeloFluxoDeConferencia",
+      "rendered_at": "2026-11-25T17:01:46.219840-03:00",
+      "browser": "Microsoft Edge, modo headless com dimensões de viewport explícitas via CDP",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "verified_no_horizontal_overflow": true,
+      "origin": "HTML sintético retornado pelos testes HTTP; renderização visual, sem atribuição à execução manual do autor"
+    }
   ]
 }

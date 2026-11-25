@@ -37,6 +37,11 @@ public final class ScoaAplicacao {
     private ScoaAplicacao() { }
 
     public static void main(String[] args) {
+        if(args.length>0 && "--web".equals(args[0])) {
+            try { br.edu.cefetmg.scoa.web.PortalAcademico.main(args); }
+            catch(Exception e) { System.out.println("Não foi possível iniciar o portal acadêmico. Confira SCOA_DB_URL, credenciais e porta HTTP da instância de scoa_java_teste."); }
+            return;
+        }
         try (var conexao = ConexaoMySql.abrir(); var entrada = new Scanner(System.in)) {
             br.edu.cefetmg.scoa.persistencia.SegurancaJdbc.Sessao sessao=null;
             while (true) {
