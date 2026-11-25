@@ -16,6 +16,7 @@ import static br.edu.cefetmg.scoa.persistencia.JdbcAcademico.*;
 
 /** HTTP real e regras JDBC reais; a fixture transacional é desfeita por caso.
  * A conexão emprestada não é fechada pelo portal de teste. Isolamento entre conexões é testado separadamente. */
+@Timeout(value=45,threadMode=Timeout.ThreadMode.SEPARATE_THREAD)
 class PortalAcademicoJdbcIT {
     private CenarioAcademicoTeste f;
     private PortalAcademico portal;
@@ -33,13 +34,13 @@ class PortalAcademicoJdbcIT {
         }));portal.iniciar();base="http://127.0.0.1:"+portal.porta();
         cliente=HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5)).followRedirects(HttpClient.Redirect.NEVER).build();
     }
-    @AfterEach void descartar() throws Exception {if(portal!=null)portal.close();if(cliente!=null)cliente.close();if(f!=null)f.close();}
+    @AfterEach @Timeout(value=20,threadMode=Timeout.ThreadMode.SEPARATE_THREAD) void descartar() throws Exception {if(portal!=null)portal.close();if(cliente!=null)cliente.close();if(f!=null)f.close();}
     private HttpResponse<String> get(String caminho) throws Exception {
         var b=HttpRequest.newBuilder(URI.create(base+caminho)).timeout(Duration.ofSeconds(15));if(cookie!=null)b.header("Cookie",cookie);
         return cliente.send(b.GET().build(),HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
     }
     private String codificar(Map<String,String> campos) { return campos.entrySet().stream().map(e->URLEncoder.encode(e.getKey(),StandardCharsets.UTF_8)+"="+URLEncoder.encode(e.getValue(),StandardCharsets.UTF_8)).reduce((a,b)->a+"&"+b).orElse(""); }
-    private HttpResponse<String> post(String caminho,Map<String,String> campos) throws Exception {return post(caminho,campos,null);}
+    private HttpResponse<String> post(String caminho,Map<String,String> campos) throws Exception {return post(caminho,campos,base);}
     private HttpResponse<String> post(String caminho,Map<String,String> campos,String origem) throws Exception {
         var b=HttpRequest.newBuilder(URI.create(base+caminho)).timeout(Duration.ofSeconds(15)).header("Content-Type","application/x-www-form-urlencoded");if(cookie!=null)b.header("Cookie",cookie);if(origem!=null)b.header("Origin",origem);
         return cliente.send(b.POST(HttpRequest.BodyPublishers.ofString(codificar(campos))).build(),HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
@@ -58,6 +59,7 @@ class PortalAcademicoJdbcIT {
         var r=get("/");assertEquals(200,r.statusCode());assertTrue(r.body().contains("Acesse sua conta"));
         salvarHtml("entrada",r.body());
         assertEquals("no-store",r.headers().firstValue("Cache-Control").orElseThrow());assertEquals("DENY",r.headers().firstValue("X-Frame-Options").orElseThrow());
+        assertEquals("same-origin",r.headers().firstValue("Referrer-Policy").orElseThrow(),"Formulários devem preservar Origin local no navegador.");
         assertTrue(r.headers().firstValue("Content-Security-Policy").orElseThrow().contains("form-action 'self'"));
         assertTrue(r.headers().allValues("Set-Cookie").getFirst().contains("HttpOnly; SameSite=Strict"));
         assertEquals(401,get("/acao/aluno-historico").statusCode());assertFalse(get("/acao/aluno-historico").body().contains(f.tag));
@@ -82,6 +84,24 @@ class PortalAcademicoJdbcIT {
         var sem=post("/acao/aluno-manifestacao",Map.of("tipo","SUGESTAO","conteudo","Não gravar"));assertEquals(403,sem.statusCode());
         var fora=post("/acao/aluno-manifestacao",Map.of("csrf",csrf,"tipo","SUGESTAO","conteudo","Não gravar"),"https://exemplo.invalid");assertEquals(403,fora.statusCode());
         assertEquals(0,q(f.c,"SELECT COUNT(*) FROM manifestacao_aluno WHERE id_aluno=?",r->r.getInt(1),f.aluno).getFirst());
+    }
+    @Test void origemNulaNaoEContornoParaEntrarENoncePermaneceValidoParaOrigemLocal() throws Exception {
+        var p=get("/");cookie=obterCookie(p,"SCOA_ENTRADA");String token=oculto(p.body(),"csrf");
+        String login=q(f.c,"SELECT identificacao FROM usuario WHERE id_usuario=?",r->r.getString(1),f.alunoConta).getFirst();
+        var campos=Map.of("csrf",token,"login",login,"senha",senha);
+        assertEquals(403,post("/entrar",campos,"null").statusCode());
+        var aceito=post("/entrar",campos,base);assertEquals(303,aceito.statusCode(),aceito.body());
+        cookie=obterCookie(aceito,"SCOA_SESSAO");assertEquals(200,get("/").statusCode());
+    }
+    @Test void metadadoCrossSiteBloqueiaPostMesmoComOrigemLocalETokenValido() throws Exception {
+        entrar(f.alunoConta);var campos=Map.of("csrf",csrf,"tipo","SUGESTAO","conteudo","Não gravar origem cruzada");
+        var req=HttpRequest.newBuilder(URI.create(base+"/acao/aluno-manifestacao")).timeout(Duration.ofSeconds(15))
+                .header("Content-Type","application/x-www-form-urlencoded").header("Cookie",cookie)
+                .header("Origin",base).header("Sec-Fetch-Site","cross-site")
+                .POST(HttpRequest.BodyPublishers.ofString(codificar(campos))).build();
+        assertEquals(403,cliente.send(req,HttpResponse.BodyHandlers.ofString()).statusCode());
+        assertEquals(0,q(f.c,"SELECT COUNT(*) FROM manifestacao_aluno WHERE id_aluno=?",r->r.getInt(1),f.aluno).getFirst());
+        assertEquals(200,preparar("aluno-manifestacao",campos).statusCode());
     }
     @Test void preparacaoNaoGravaEConfirmacaoRepetidaNaoDuplicaManifestacao() throws Exception {
         entrar(f.alunoConta);String texto="<script>alert('x')</script> Sugestão sintética";

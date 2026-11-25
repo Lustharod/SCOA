@@ -8,6 +8,8 @@ Protótipo acadêmico em **Java e MySQL**, desenvolvido para Engenharia de Softw
 
 [Documentação atual](docs/README.md) · [Relatório da v0.13](docs/testes/publicados/execucao_autor_v0_13/RELATORIO.md) · [Capturas reais](docs/testes/publicados/execucao_autor_v0_13/CAPTURAS.md) · [Evolução por versão](CHANGELOG.md)
 
+Correção durante a aceitação: o envio de formulários pelo navegador preserva a origem local. [OC-V14-01 e rechecagem de 206 unitários/436 integrações](docs/testes/publicados/execucao_codex_v0_14/OC_V14_01.md). O autor confirmou o login corrigido; a v0.14 ainda não está fechada.
+
 ## O que já funciona
 
 | Frente | Comportamento disponível no protótipo |
@@ -41,6 +43,7 @@ A escolha repetida de ALUNO/PROFESSOR/COORDENADOR na criação de conta foi elim
 
 | Execução independente | Unitários | Integração | Resultado |
 | --- | ---: | ---: | --- |
+| Codex, correção OC-V14-01 dos formulários locais, 25/11/2026 | 206 | 436 | BUILD SUCCESS; zero falhas, erros ou ignorados. Entrada corrigida confirmada pelo autor; demais casos manuais em andamento. |
 | Codex, incremento v0.14 com portal web, 25/11/2026 | 206 | 434 | BUILD SUCCESS; zero falhas, erros ou ignorados. Rodada manual integrada pendente. |
 | Autor, 23/11/2026 | 130 | 194 | BUILD SUCCESS; zero falhas, erros ou ignorados. |
 | Codex, 23/11/2026 | 130 | 194 | BUILD SUCCESS; zero falhas, erros ou ignorados. |

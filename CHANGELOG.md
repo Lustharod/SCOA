@@ -2,6 +2,8 @@
 
 ## 0.14.0-SNAPSHOT — em desenvolvimento
 
+- OC-V14-01: corrigido o envio dos formulários locais no navegador com Referrer-Policy same-origin; origens nulas/externas e cross-site continuam recusados. Dois testes HTTP adicionais e limites para execução/limpeza. Regressão final: 206 unitários e 436 integrações aprovados; entrada corrigida confirmada pelo autor, aceitação manual completa pendente.
+
 - Portal web local com áreas por vínculos e concessões: aluno, docência, secretaria, coordenação/gestão, relatórios e administração. Reutiliza autorização/regras existentes; confirmações não duplicam operações, downloads entregam os arquivos arquivados e sessões usam conexões separadas. Navegação por referências acadêmicas, boletim e diário completo em tela, preservação de legado desconhecido. Regressão Codex: 206 unitários e 434 integrações aprovados; rodada manual e fechamento pendentes.
 
 - Menu 32 e V024: parâmetros acadêmicos em versões imutáveis, selecionadas explicitamente somente para períodos futuros. Prazos de inscrição/cancelamento/transferência/retificação, tolerância de atraso, frequência mínima e médias usam a seleção do período. Resultados e retificações novos registram a origem das regras; dados anteriores não são recalculados. Regressão Codex: 197 unitários e 411 integrações aprovados; manual integrado pendente.

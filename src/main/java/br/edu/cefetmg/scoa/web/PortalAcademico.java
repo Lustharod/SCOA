@@ -208,7 +208,9 @@ public final class PortalAcademico implements AutoCloseable {
     private static String oculto(String nome,String valor) { return "<input type=hidden name=\""+nome+"\" value=\""+escapar(valor)+"\">"; }
     private static String voltar(Acao a) {return "<p><a href=/acao/"+a.id()+">Voltar à atividade</a> · <a href=/>Início</a></p>";}
     private void cabecalhos(HttpExchange x) {
-        var h=x.getResponseHeaders();h.set("Cache-Control","no-store");h.set("X-Content-Type-Options","nosniff");h.set("Referrer-Policy","no-referrer");h.set("X-Frame-Options","DENY");
+        // no-referrer transforma Origin em "null" nos POST de formulários do navegador.
+        // Preservar a origem local permite validar o formulário sem aceitar origens opacas.
+        var h=x.getResponseHeaders();h.set("Cache-Control","no-store");h.set("X-Content-Type-Options","nosniff");h.set("Referrer-Policy","same-origin");h.set("X-Frame-Options","DENY");
         h.set("Content-Security-Policy","default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'");
     }
     private void resposta(HttpExchange x,int status,String html) throws IOException {cabecalhos(x);x.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");byte[] bytes=html.getBytes(StandardCharsets.UTF_8);x.sendResponseHeaders(status,bytes.length);x.getResponseBody().write(bytes);}
