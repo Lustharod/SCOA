@@ -49,7 +49,7 @@ public final class RepositorioDiarioAcademicoJdbc implements RepositorioDiarioAc
             if(!q(c,"SELECT i.id_inscricao FROM inscricao_disciplina i JOIN resultado_inscricao r ON r.id_inscricao=i.id_inscricao WHERE i.id_turma=? FOR SHARE",
                     r->r.getLong(1),pedido.turma()).isEmpty())
                 throw new IllegalArgumentException("A turma já tem resultado final. Novas aulas exigem análise de impacto.");
-            var horarios=q(c,"SELECT hora_inicio,hora_fim FROM horario_aula WHERE id_turma=? AND dia_semana=? FOR SHARE",
+            var horarios=q(c,"SELECT hora_inicio,hora_fim FROM horario_aula WHERE id_turma=? AND ativo=TRUE AND dia_semana=? FOR SHARE",
                     r->new LocalTime[]{r.getObject(1,LocalTime.class),r.getObject(2,LocalTime.class)},pedido.turma(),pedido.data().getDayOfWeek().getValue());
             var criadas=new ArrayList<Aula>();
             for(var tempo:pedido.tempos()) {

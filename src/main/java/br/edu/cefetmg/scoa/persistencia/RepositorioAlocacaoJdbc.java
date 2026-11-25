@@ -48,7 +48,7 @@ public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
         List<HorarioAula> resultado = new ArrayList<>();
         try {
             buscarTurma(idTurma, false);
-            try (var comando = conexao.prepareStatement("SELECT * FROM horario_aula WHERE id_turma=? ORDER BY dia_semana,hora_inicio,id_horario")) {
+            try (var comando = conexao.prepareStatement("SELECT * FROM horario_aula WHERE id_turma=? AND ativo=TRUE ORDER BY dia_semana,hora_inicio,id_horario")) {
                 comando.setLong(1, idTurma);
                 try (var registros = comando.executeQuery()) {
                     while (registros.next()) resultado.add(lerHorario(registros));
@@ -77,6 +77,7 @@ public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
 
     @Override public HorarioAula alocar(HorarioAula horario) {
         Objects.requireNonNull(horario, "Informe a alocação.");
+        if(horario.idSala()==null) throw new IllegalArgumentException("Selecione sala para a alocação ou use o planejamento sem sala.");
         if (horario.id() != null) throw new IllegalArgumentException("A nova alocação não deve ter ID.");
         return TransacaoJdbc.executar(conexao, () -> {
             // Mesma ordem em todas as inclusões: sala e, depois, turma/período.
@@ -106,15 +107,15 @@ public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
     @Override public void desalocar(long idHorario) {
         HorarioAula.validarId(idHorario);
         TransacaoJdbc.executar(conexao, () -> {
-            long idSala;
+            Long idSala;
             try (var comando = conexao.prepareStatement("SELECT id_sala FROM horario_aula WHERE id_horario=?")) {
                 comando.setLong(1, idHorario);
                 try (var registro = comando.executeQuery()) {
                     if (!registro.next()) throw new IllegalArgumentException("Alocação não encontrada.");
-                    idSala = registro.getLong(1);
+                    idSala = registro.getObject(1,Long.class);
                 }
             }
-            salas.buscarBloqueada(idSala);
+            if(idSala!=null) salas.buscarBloqueada(idSala);
             long idTurma;
             try (var comando=conexao.prepareStatement("SELECT id_turma FROM horario_aula WHERE id_horario=?")) {
                 comando.setLong(1,idHorario);
@@ -125,7 +126,7 @@ public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
             }
             buscarTurma(idTurma,true);
             exigirSemInscricoes(idTurma);
-            try (var comando = conexao.prepareStatement("DELETE FROM horario_aula WHERE id_horario=?")) {
+            try (var comando = conexao.prepareStatement("UPDATE horario_aula SET ativo=FALSE,id_sala=NULL,versao=versao+1,id_usuario_autor=NULL,atualizado_em_utc=UTC_TIMESTAMP(6) WHERE id_horario=? AND ativo=TRUE")) {
                 comando.setLong(1, idHorario);
                 if (comando.executeUpdate() == 0) throw new IllegalArgumentException("Alocação não encontrada.");
             }
@@ -151,7 +152,7 @@ public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
     private boolean temConflito(HorarioAula pedido, PeriodoLetivo periodo, boolean bloquear) throws SQLException {
         String sql = "SELECT h.*,p.data_inicio,p.data_fim FROM horario_aula h "
                 + "JOIN turma t ON t.id_turma=h.id_turma JOIN periodo_letivo p ON p.id_periodo=t.id_periodo "
-                + "WHERE (h.id_sala=? OR h.id_turma=?) AND h.dia_semana=? "
+                + "WHERE h.ativo=TRUE AND (h.id_sala=? OR h.id_turma=?) AND h.dia_semana=? "
                 + "AND h.hora_inicio<? AND h.hora_fim>? AND p.data_inicio<=? AND p.data_fim>=?"
                 + (bloquear ? " FOR UPDATE" : "");
         try (var comando = conexao.prepareStatement(sql)) {
@@ -186,7 +187,7 @@ public final class RepositorioAlocacaoJdbc implements RepositorioAlocacao {
     }
 
     private static HorarioAula lerHorario(ResultSet registro) throws SQLException {
-        return new HorarioAula(registro.getLong("id_horario"), registro.getLong("id_turma"), registro.getLong("id_sala"),
+        return new HorarioAula(registro.getLong("id_horario"), registro.getLong("id_turma"), registro.getObject("id_sala",Long.class),
                 new FaixaHorario(registro.getInt("dia_semana"), registro.getTime("hora_inicio").toLocalTime(), registro.getTime("hora_fim").toLocalTime()));
     }
 }

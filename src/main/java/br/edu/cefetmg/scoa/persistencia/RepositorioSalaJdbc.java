@@ -56,7 +56,7 @@ public final class RepositorioSalaJdbc implements RepositorioSala {
     private void validarCompromissos(Sala sala) throws SQLException {
         String sql = "SELECT t.capacidade FROM horario_aula h JOIN turma t ON t.id_turma=h.id_turma "
                 + "JOIN periodo_letivo p ON p.id_periodo=t.id_periodo "
-                + "WHERE h.id_sala=? AND p.data_fim>=CURRENT_DATE FOR UPDATE";
+                + "WHERE h.ativo=TRUE AND h.id_sala=? AND p.data_fim>=CURRENT_DATE FOR UPDATE";
         try (var comando = conexao.prepareStatement(sql)) {
             comando.setLong(1, sala.getId());
             try (var registros = comando.executeQuery()) {

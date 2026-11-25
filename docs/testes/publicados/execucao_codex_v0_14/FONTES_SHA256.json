@@ -60,6 +60,10 @@
     "sha256": "e674b5c61b7c999dc29d5e23ba2a192b42d7329687aa9a20e7c90756c1b63b7b"
   },
   {
+    "path": "database/migrations/V021__horario_independente_sala.sql",
+    "sha256": "b893f1031b0dbce736a2a913d522f222d4fc6f27d5b74595235f85cd6e45d4f8"
+  },
+  {
     "path": "database/SCOA_MySQL8_schema_v7_5.sql",
     "sha256": "76280f68d978637cd83f66700074482e57c15450331501d8ddcc35404e1523e4"
   },
@@ -118,6 +122,10 @@
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoGestaoAcademica.java",
     "sha256": "39bc48662e2598528146628e15e41bbda7c1be5c6a5f1f59986c1168823138c4"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoHorarioAcademico.java",
+    "sha256": "dc01b62fa80bbe628e382f95cb51c90bbe7be9d3bc4fed3ecf685b4dc681f409"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/aplicacao/ServicoInscricao.java",
@@ -190,6 +198,10 @@
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleGestaoAcademica.java",
     "sha256": "25c27f242bd751b532cd06bb52eceaf691f09d3a22a54bf11ccfc2060317c132"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleHorarioAcademico.java",
+    "sha256": "54b92027ee677c134f5e749653da128dacaa3819a94337ee97120427ded3f0c1"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/apresentacao/ConsoleInscricao.java",
@@ -292,8 +304,12 @@
     "sha256": "e3b267dba8a7b6e317a3e0adec527c58715787a5fbb0984f72444b6bf0231c40"
   },
   {
+    "path": "src/main/java/br/edu/cefetmg/scoa/dominio/HorarioAcademico.java",
+    "sha256": "f72f46ec747e88d198d1a274b0ed8407123ffeae67a02f07e5506bb0a049616e"
+  },
+  {
     "path": "src/main/java/br/edu/cefetmg/scoa/dominio/HorarioAula.java",
-    "sha256": "636bd9f676dcb32c4b204fa57adced53edd03397407a8c04def9f501487a6055"
+    "sha256": "c9e269fb2d2929cffb0a832b31a4a6e61b251ddc61ceded486f272c42a767493"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/dominio/Inscricao.java",
@@ -370,6 +386,10 @@
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioGestaoAcademica.java",
     "sha256": "e442b055d78a254cc56451bc40c27ab4cdb78902432aec0024b3ba099b3c94bb"
+  },
+  {
+    "path": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioHorarioAcademico.java",
+    "sha256": "4d47c7d59cd49ee81a562712efb167bf5dc437bffc679ced4b915af045491a49"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/dominio/RepositorioInscricao.java",
@@ -449,7 +469,7 @@
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/AcessoAcademicoJdbc.java",
-    "sha256": "a17def91d3c7a85f62437cf4df748bc20aba667dac1b9013b38c2d2e14d210b8"
+    "sha256": "a0cc3dbc80359e8ccd6c23335a2b895da7faf4d1d1124cb15cd09382f99dda69"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/AcessoGestaoAcademicaJdbc.java",
@@ -469,7 +489,7 @@
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioAlocacaoJdbc.java",
-    "sha256": "9bd8a40e1e501d6e567ad40d825eeae53c3a871ae80b1bb70636b8159a008eb6"
+    "sha256": "1a93bde747f3724d40c12d84f054b452ea10ced3f35b47447cb29b591bf74c97"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioAtendimentoAlunoJdbc.java",
@@ -481,7 +501,7 @@
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioCadastroAcademicoJdbc.java",
-    "sha256": "c964a901b04b570e83174748a00209a36b4b57ae4bc63ffd4560d45fd49009c4"
+    "sha256": "c1319e2a1d78b22754e52d02efe610101fa455dd6197347bc71eefd0243788ec"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioCancelamentoJdbc.java",
@@ -489,11 +509,11 @@
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioConsultasAlunoJdbc.java",
-    "sha256": "e8ae8c4c42e4976f9f04fc8d21f57ee27f03810a3e7128f8d1ab33c8cad145ba"
+    "sha256": "08bfbb509cf75bc3feb24a45436e1620875d60fce1f7d7bb5036e16305d006cc"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioDiarioAcademicoJdbc.java",
-    "sha256": "36bac5f714bb8a0d2653a0c83c5f1e71694b63505e02f95fdadc89edd4e30529"
+    "sha256": "dde35f85159aaf29bbc280a41a1940abe1aec8590682fa961532a3ea9bacef2a"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioDocumentoAcademicoJdbc.java",
@@ -508,8 +528,12 @@
     "sha256": "5e83fa7745d15cb8767dbac708c392945bff463bea2efb4e0878b59b9e98947d"
   },
   {
+    "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioHorarioAcademicoJdbc.java",
+    "sha256": "b16c91de0c6e0a5d220ec59f07e044ae9f741a744ea945cca1283c6628ed6554"
+  },
+  {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioInscricaoJdbc.java",
-    "sha256": "ea5f7224e8eb92d17fa3920edabe46672d94a3ee1ff021c5eee712318b099381"
+    "sha256": "31d283dcbad0e6216d3808f10347c265fa2ffdc9cb22ee8a5091b8170f498cd7"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioMatriculaJdbc.java",
@@ -521,7 +545,7 @@
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioPlanejamentoJdbc.java",
-    "sha256": "f33206c8a263a649f7257e1b50ea1d6963e518bf6bba6a28415efd5c0ff7eecd"
+    "sha256": "3072dbd3837bb05f0097ad8b77c1ba066acff60b40875f42e88e1cdaca455573"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioPlanoInstitucionalJdbc.java",
@@ -545,11 +569,11 @@
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositoriosAcademicosAutorizados.java",
-    "sha256": "c28d3d9ad1f6970bcf9f9924bd338307fb61757cdf5810117fa035902e5ef164"
+    "sha256": "bdaf49f665d20aecae104b0735c3a940a5a1c25cf7c04b0c65cb67a3d8611779"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioSalaJdbc.java",
-    "sha256": "88fd1c19f369c5c6141b98a99f4b27318d786b874ae658a25a75148d8210f3e1"
+    "sha256": "0fb0f7c73e741577c5bcbc6e208636b1dfe0e2dc37a5dd837d8b30b21812389d"
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/persistencia/RepositorioTransferenciaExternaJdbc.java",
@@ -569,7 +593,7 @@
   },
   {
     "path": "src/main/java/br/edu/cefetmg/scoa/ScoaAplicacao.java",
-    "sha256": "3f9672b7e622eca8544c3a938bdc5857faf7a2cd856ea4134ef95033d3dca30f"
+    "sha256": "b38dabf8c0ca04ff1734bc0d0cfb3862c6a55bd7f9d2095d2f1f9cec4f3e283d"
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/aplicacao/ServicoSalaTest.java",
@@ -626,6 +650,10 @@
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/dominio/GestaoAcademicaTest.java",
     "sha256": "d96e5340b021e0fabe7fbbfc8235163c5976d1b77d81f47aa5e6b1681435a49a"
+  },
+  {
+    "path": "src/test/java/br/edu/cefetmg/scoa/dominio/HorarioAcademicoTest.java",
+    "sha256": "2ba5577ada588d3f55538cc49095edeefaa69900472b96ece9f60ac0d1687d28"
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/dominio/InscricaoTest.java",
@@ -685,7 +713,7 @@
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/ApoioJdbc.java",
-    "sha256": "e8ae58168c36a060b9e5d6d9cfe387b1b1a5def0954df4c450479b38fbec59da"
+    "sha256": "14d206546a67e8473fc60464baf3c6666f11525ec3ffec67dc2f288be12967e5"
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/AtendimentoAlunoJdbcIT.java",
@@ -722,6 +750,10 @@
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/GestaoAcademicaJdbcIT.java",
     "sha256": "596c205c88027fcf5c7ec6305d819282bedaace65a31b8f07a0859254038700d"
+  },
+  {
+    "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/HorarioAcademicoJdbcIT.java",
+    "sha256": "fc68d389b7e2494abfc178878e91628a731324f0392b6f74f634fff43f68ba65"
   },
   {
     "path": "src/test/java/br/edu/cefetmg/scoa/persistencia/InscricaoJdbcIT.java",

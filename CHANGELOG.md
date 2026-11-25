@@ -2,6 +2,8 @@
 
 ## 0.14.0-SNAPSHOT — em desenvolvimento
 
+- Menu 29 e V021: horários por tempos oficiais podem existir sem sala; alocação/retirada posterior preserva dias, tempos e IDs. Versões, motivo e autoria no histórico; cancelamento sem exclusão. Elegibilidade, consulta do aluno, planejamento, diário e capacidade consideram horários ativos. Mudanças de tempos com inscrições/aulas são recusadas; sala pode ser mantida separadamente. Regressão Codex: 180 unitários e 348 integrações aprovados, manual integrado pendente.
+
 - Menu 28 e V020: processos externos de entrada e saída, acompanhamento documental, versões e decisões explícitas. Entrada abre vínculo na mesma pessoa/conta; saída preserva origem como TRANSFERIDO, cancela inscrições com retenção de vagas e bloqueia até regularizar a biblioteca. Repetições não duplicam efeitos; falhas desfazem toda a efetivação. Equivalências externas continuam no processo formal. Regressão Codex: 178 unitários e 330 integrações aprovados.
 
 - Menu 27: metas/prazos docentes com autoria, versões e histórico; avaliações filtradas; consulta e auditoria do diário com retrato imutável; monitoramento do discente sem conclusão presumida. Gestor explícito acompanha todos os cursos, coordenação somente seus cursos; turmas compartilhadas preservam o alcance por curso. ADMIN técnico não substitui o vínculo de gestor. V019 preserva dados legados e separa vínculo, metas e auditoria. Regressão Codex: 175 unitários e 307 integrações, zero falhas/erros/ignorados; testes manuais integrados pendentes.

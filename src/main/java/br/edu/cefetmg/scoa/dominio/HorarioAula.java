@@ -2,11 +2,14 @@ package br.edu.cefetmg.scoa.dominio;
 
 import java.util.Objects;
 
-public record HorarioAula(Long id, long idTurma, long idSala, FaixaHorario faixa) {
+public record HorarioAula(Long id, long idTurma, Long idSala, FaixaHorario faixa) {
+    public HorarioAula(Long id,long idTurma,int idSala,FaixaHorario faixa) {
+        this(id,idTurma,Long.valueOf(idSala),faixa);
+    }
     public HorarioAula {
         if (id != null) validarId(id);
         validarId(idTurma);
-        validarId(idSala);
+        if(idSala!=null) validarId(idSala);
         Objects.requireNonNull(faixa, "Informe o horário.");
     }
 

@@ -1,6 +1,6 @@
 # Resultados automáticos do incremento v0.14
 
-Execução Codex concluída em 2026-11-25T11:23:59-03:00. Rodada manual do autor prevista para o final dos blocos.
+Execução Codex concluída em 2026-11-25T14:55:44-03:00. Rodada manual do autor prevista para o final dos blocos.
 
 | Bateria | Classe | Testes | Falhas | Erros | Ignorados |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -18,6 +18,7 @@ Execução Codex concluída em 2026-11-25T11:23:59-03:00. Rodada manual do autor
 | Unitários | `DocumentoAcademicoTest` | 2 | 0 | 0 | 0 |
 | Unitários | `EquivalenciaTest` | 6 | 0 | 0 | 0 |
 | Unitários | `GestaoAcademicaTest` | 3 | 0 | 0 | 0 |
+| Unitários | `HorarioAcademicoTest` | 2 | 0 | 0 | 0 |
 | Unitários | `InscricaoTest` | 29 | 0 | 0 | 0 |
 | Unitários | `MatriculaTest` | 3 | 0 | 0 | 0 |
 | Unitários | `PlanejamentoTest` | 11 | 0 | 0 | 0 |
@@ -28,7 +29,7 @@ Execução Codex concluída em 2026-11-25T11:23:59-03:00. Rodada manual do autor
 | Unitários | `SegurancaTest` | 3 | 0 | 0 | 0 |
 | Unitários | `TempoLetivoTest` | 20 | 0 | 0 | 0 |
 | Unitários | `TransferenciaExternaTest` | 3 | 0 | 0 | 0 |
-| **Unitários - total** | | **178** | **0** | **0** | **0** |
+| **Unitários - total** | | **180** | **0** | **0** | **0** |
 | Integração | `AcessoAcademicoJdbcIT` | 10 | 0 | 0 | 0 |
 | Integração | `AjustesAcademicosJdbcIT` | 7 | 0 | 0 | 0 |
 | Integração | `AlocacaoJdbcIT` | 17 | 0 | 0 | 0 |
@@ -40,6 +41,7 @@ Execução Codex concluída em 2026-11-25T11:23:59-03:00. Rodada manual do autor
 | Integração | `DocumentoAcademicoJdbcIT` | 12 | 0 | 0 | 0 |
 | Integração | `EquivalenciaJdbcIT` | 21 | 0 | 0 | 0 |
 | Integração | `GestaoAcademicaJdbcIT` | 18 | 0 | 0 | 0 |
+| Integração | `HorarioAcademicoJdbcIT` | 18 | 0 | 0 | 0 |
 | Integração | `InscricaoJdbcIT` | 14 | 0 | 0 | 0 |
 | Integração | `MatriculaJdbcIT` | 29 | 0 | 0 | 0 |
 | Integração | `PlanejamentoJdbcIT` | 14 | 0 | 0 | 0 |
@@ -51,4 +53,4 @@ Execução Codex concluída em 2026-11-25T11:23:59-03:00. Rodada manual do autor
 | Integração | `SegurancaAcademicaJdbcIT` | 15 | 0 | 0 | 0 |
 | Integração | `TransferenciaExternaJdbcIT` | 23 | 0 | 0 | 0 |
 | Integração | `TransferenciaInternaJdbcIT` | 14 | 0 | 0 | 0 |
-| **Integração - total** | | **330** | **0** | **0** | **0** |
+| **Integração - total** | | **348** | **0** | **0** | **0** |

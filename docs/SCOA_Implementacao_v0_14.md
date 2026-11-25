@@ -85,12 +85,20 @@ As consultas de avaliações e diários aceitam filtros de curso, período, disc
 
 O monitoramento informa situação curricular, inscrições e atualidade do plano. Dados insuficientes são apontados sem substituir contagens desconhecidas por zero, criar plano ou declarar conclusão de curso. A V019 acrescenta o vínculo de gestor e o histórico de metas, estende metas/auditorias existentes com campos opcionais para preservar registros anteriores e leva a 97 tabelas previstas no DDL.
 
+## Horário definido antes da sala
+
+O menu 29 define os tempos oficiais de 50 minutos da turma, agrupados por dia, sem exigir sala. Intervalos não se transformam em reserva. Os horários são consultáveis com sala pendente; elegibilidade e consulta do próprio aluno mantêm os tempos visíveis, inclusive antes da alocação física. A atribuição posterior de sala revalida atividade, capacidade, disponibilidade no período e versão consultada. Retirar/trocar a sala preserva ID, dias, tempos, inscrições e aulas.
+
+A definição/cancelamento de tempos exige turma e período ativos ainda não encerrados, sem inscrições ou aulas que seriam afetadas. Uma turma comprometida mantém os tempos e permite tratar a sala separadamente; mudanças acadêmicas de dias/tempos com impacto não são feitas silenciosamente. Horários sem sala também impedem mudar independentemente os vínculos/situação da turma.
+
+A V021 torna a sala opcional no registro existente, preserva IDs/associações e acrescenta atividade, versão, autoria/UTC e histórico. Cancelamento mantém o registro inativo, sem excluir ID. Consultas de aluno, elegibilidade, planejamento, diário e compromissos de salas desconsideram horários cancelados. O caminho autenticado antigo de alocação registra histórico; seu cancelamento de horário não deve ser confundido com retirar somente a sala, disponível no menu 29. Legado mantém autoria e instantes desconhecidos, sem eventos anteriores inventados. São 100 tabelas previstas após V021.
+
 ## Limites e próximos blocos
 
-Validação Codex do incremento com transferências externas em 25/11/2026: **178 unitários e 330 integrações aprovados**, sem falhas, erros ou ignorados, em instância nova de scoa_java_teste. O [relatório](testes/publicados/execucao_codex_v0_14/RELATORIO.md) detalha cobertura e rastreabilidade. A pedido do autor, a rodada manual será integrada ao fim dos blocos; os testes automáticos continuam durante a implementação.
+Validação Codex do incremento com horários antes da sala em 25/11/2026: **180 unitários e 348 integrações aprovados**, sem falhas, erros ou ignorados, em instância nova de scoa_java_teste. O [relatório](testes/publicados/execucao_codex_v0_14/RELATORIO.md) detalha cobertura e rastreabilidade. A pedido do autor, a rodada manual será integrada ao fim dos blocos; os testes automáticos continuam durante a implementação.
 
-Continuam em desenvolvimento: emissão/exportação do diário institucional completo; relatórios demonstrativos MEC; horários definidos antes da sala; administração operacional de concessões; parametrização e interface web. Geração/assinatura oficial de documentos não está implementada; o fluxo aprovado atual é solicitação/acompanhamento e atendimento. O console ainda não é o portal web previsto no Word.
+Continuam em desenvolvimento: emissão/exportação do diário institucional completo; relatórios demonstrativos MEC; administração operacional de concessões; parametrização e interface web. Geração/assinatura oficial de documentos não está implementada; o fluxo aprovado atual é solicitação/acompanhamento e atendimento. O console ainda não é o portal web previsto no Word.
 
 As camadas JDBC básicas mantêm as regras de persistência e são usadas pelas fixtures e pela regressão legada. Os serviços de entrada do executável usam `RepositoriosAcademicosAutorizados` ou repositórios que já exigem a sessão. Qualquer futura interface web deve reutilizar essa fronteira, sem expor diretamente os repositórios básicos.
 
-Desenvolvimento e testes usam exclusivamente `scoa_java_teste`, em instância nova. As migrações V013 a V020 não devem ser aplicadas automaticamente à base do autor ou ao schema `scoa`. Word editável, decisões detalhadas, guias, configurações, credenciais e evidências brutas permanecem privados.
+Desenvolvimento e testes usam exclusivamente `scoa_java_teste`, em instância nova. As migrações V013 a V021 não devem ser aplicadas automaticamente à base do autor ou ao schema `scoa`. Word editável, decisões detalhadas, guias, configurações, credenciais e evidências brutas permanecem privados.

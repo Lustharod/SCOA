@@ -38,7 +38,7 @@ public final class RepositorioConsultasAlunoJdbc implements ConsultasAluno {
         return TransacaoJdbc.executar(conexao, () -> q(conexao, TURMA + """
                 h.id_horario, h.dia_semana, h.hora_inicio, h.hora_fim, s.identificacao AS sala
                 """ + INSCRICOES + """
-                LEFT JOIN horario_aula h ON h.id_turma = t.id_turma
+                LEFT JOIN horario_aula h ON h.id_turma = t.id_turma AND h.ativo=TRUE
                 LEFT JOIN sala s ON s.id_sala = h.id_sala
                 WHERE m.id_aluno = ? AND i.situacao = 'ATIVO'
                 ORDER BY p.data_inicio, p.id_periodo, h.dia_semana, h.hora_inicio,

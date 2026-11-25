@@ -33,8 +33,8 @@ public final class RepositoriosAcademicosAutorizados {
             @Override public TurmaResumo buscarTurma(long idTurma) { return acesso.consultar(() -> repo.buscarTurma(idTurma)); }
             @Override public List<HorarioAula> listarHorarios(long idTurma) { return acesso.consultar(() -> repo.listarHorarios(idTurma)); }
             @Override public List<Sala> listarDisponiveis(long idTurma, FaixaHorario faixa) { return acesso.consultar(() -> repo.listarDisponiveis(idTurma,faixa)); }
-            @Override public HorarioAula alocar(HorarioAula horario) { return acesso.manter("RepositorioAlocacao","alocar",0,() -> repo.alocar(horario)); }
-            @Override public void desalocar(long idHorario) { acesso.manter("RepositorioAlocacao","desalocar",idHorario,() -> { repo.desalocar(idHorario); return null; }); }
+            @Override public HorarioAula alocar(HorarioAula horario) { return new RepositorioHorarioAcademicoJdbc(c,sessao).alocarLegado(horario); }
+            @Override public void desalocar(long idHorario) { new RepositorioHorarioAcademicoJdbc(c,sessao).cancelarPorAlocacao(idHorario); }
         };
     }
 

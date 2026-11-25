@@ -56,6 +56,7 @@ public final class ScoaAplicacao {
                 System.out.println("26 Rematrícula institucional em lote");
                 System.out.println("27 Gestão acadêmica: metas, auditoria, avaliações e monitoramento");
                 System.out.println("28 Transferências externas: entrada, saída e acompanhamento");
+                System.out.println("29 Horários da turma antes da sala e alocação posterior");
                 String opcao = ler(entrada, "Opção: ");
                 try {
                     switch (opcao) {
@@ -85,7 +86,7 @@ public final class ScoaAplicacao {
                         case "6" -> alocacao.listarTurmas().forEach(t -> System.out.printf(
                                 "%d | %s | capacidade %d | %s a %s%n", t.id(), t.codigo(), t.capacidade(), t.periodo().inicio(), t.periodo().fim()));
                         case "7" -> alocacao.listarHorarios(numero(entrada, "ID da turma: ")).forEach(h -> System.out.printf(
-                                "%d | turma %d | sala %d | dia %d | %s–%s%n", h.id(), h.idTurma(), h.idSala(), h.faixa().diaSemana(), h.faixa().inicio(), h.faixa().fim()));
+                                "%d | turma %d | sala %s | dia %d | %s–%s%n", h.id(), h.idTurma(), h.idSala()==null?"pendente":h.idSala(), h.faixa().diaSemana(), h.faixa().inicio(), h.faixa().fim()));
                         case "8", "9" -> {
                             long turma = numero(entrada, "ID da turma: ");
                             var dados = alocacao.buscarTurma(turma);
@@ -93,8 +94,8 @@ public final class ScoaAplicacao {
                                     dados.capacidade(), dados.periodo().inicio(), dados.periodo().fim());
                             var horarios = alocacao.listarHorarios(turma);
                             if (horarios.isEmpty()) System.out.println("A turma ainda não possui horários alocados.");
-                            horarios.forEach(h -> System.out.printf("Alocação %d | sala %d | dia %d | %s–%s%n",
-                                    h.id(),h.idSala(),h.faixa().diaSemana(),h.faixa().inicio(),h.faixa().fim()));
+                            horarios.forEach(h -> System.out.printf("Alocação %d | sala %s | dia %d | %s–%s%n",
+                                    h.id(),h.idSala()==null?"pendente":h.idSala(),h.faixa().diaSemana(),h.faixa().inicio(),h.faixa().fim()));
                             int dia = inteiro(entrada, "Dia da semana (1=segunda a 7=domingo): ");
                             LocalTime inicio = hora(entrada, "Início (HH:mm): ");
                             LocalTime fim = hora(entrada, "Fim (HH:mm): ");
@@ -109,7 +110,7 @@ public final class ScoaAplicacao {
                         }
                         case "10" -> {
                             alocacao.desalocar(numero(entrada, "ID da alocação: "));
-                            System.out.println("Alocação removida.");
+                            System.out.println("Horário e alocação cancelados, com histórico preservado. Para retirar somente a sala, use o menu 29.");
                         }
                         case "11" -> new ConsoleCadastrosAcademicos(entrada,
                                 new ServicoCadastroAcademico(RepositoriosAcademicosAutorizados.cadastros(conexao,sessao))).executar();
@@ -119,6 +120,9 @@ public final class ScoaAplicacao {
                         case "19" -> new ConsoleConsultasAluno(entrada,
                                 new RepositorioConsultasAlunoJdbc(conexao, sessao)).executar();
                         case "20" -> new ConsoleAjustesAcademicos(entrada,conexao,sessao).executar();
+                        case "29" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleHorarioAcademico(entrada,
+                                new br.edu.cefetmg.scoa.aplicacao.ServicoHorarioAcademico(
+                                    new br.edu.cefetmg.scoa.persistencia.RepositorioHorarioAcademicoJdbc(conexao,sessao))).executar();
                         case "28" -> new br.edu.cefetmg.scoa.apresentacao.ConsoleTransferenciaExterna(entrada,
                                 new br.edu.cefetmg.scoa.aplicacao.ServicoTransferenciaExterna(
                                     new br.edu.cefetmg.scoa.persistencia.RepositorioTransferenciaExternaJdbc(conexao,sessao))).executar();

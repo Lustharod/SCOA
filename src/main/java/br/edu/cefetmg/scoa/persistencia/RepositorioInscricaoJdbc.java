@@ -91,7 +91,7 @@ public final class RepositorioInscricaoJdbc implements RepositorioInscricao {
     }
     private record Horario(int dia,LocalTime inicio,LocalTime fim) { }
     private List<Horario> horarios(long turma) throws SQLException {
-        return q("SELECT dia_semana,hora_inicio,hora_fim FROM horario_aula WHERE id_turma=? ORDER BY id_horario FOR SHARE",
+        return q("SELECT dia_semana,hora_inicio,hora_fim FROM horario_aula WHERE id_turma=? AND ativo=TRUE ORDER BY id_horario FOR SHARE",
                 r->new Horario(r.getInt(1),r.getTime(2).toLocalTime(),r.getTime(3).toLocalTime()),turma);
     }
     private boolean cumpriu(long matricula,long disciplina,LocalDate data) throws SQLException { return evidencia(matricula,disciplina,data)!=null; }

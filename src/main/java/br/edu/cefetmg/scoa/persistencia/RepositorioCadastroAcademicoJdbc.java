@@ -136,10 +136,13 @@ public final class RepositorioCadastroAcademicoJdbc implements RepositorioCadast
             validarVinculos(nova);
             var horarios=consultar("SELECT s.capacidade,p.data_fim>=CURRENT_DATE AS compromisso FROM horario_aula h "
                     + "JOIN sala s ON s.id_sala=h.id_sala JOIN periodo_letivo p ON p.id_periodo=? "
-                    + "WHERE h.id_turma=? FOR UPDATE",r -> new int[]{r.getInt(1),r.getBoolean(2)?1:0},atual.idPeriodo(),id);
+                    + "WHERE h.id_turma=? AND h.ativo=TRUE FOR UPDATE",r -> new int[]{r.getInt(1),r.getBoolean(2)?1:0},atual.idPeriodo(),id);
             boolean mudouVinculos=atual.idDisciplina()!=nova.idDisciplina() || atual.idProfessor()!=nova.idProfessor() || atual.idPeriodo()!=nova.idPeriodo();
-            if (!horarios.isEmpty() && mudouVinculos)
+            boolean temHorario=!consultar("SELECT id_horario FROM horario_aula WHERE id_turma=? AND ativo=TRUE FOR UPDATE",r->r.getLong(1),id).isEmpty();
+            if (temHorario && mudouVinculos)
                 throw new IllegalArgumentException("A turma possui horários. Remova as alocações antes de mudar seus vínculos.");
+            if(temHorario && !atual.situacao().equals(nova.situacao()))
+                throw new IllegalArgumentException("Cancele os horários ativos antes de mudar a situação da turma.");
             for (int[] horario:horarios) {
                 if (horario[1]==1 && nova.capacidade()>horario[0]) throw new IllegalArgumentException("A capacidade da turma supera a de uma sala alocada.");
                 if (horario[1]==1 && !"ATIVO".equals(nova.situacao())) throw new IllegalArgumentException("Remova as alocações atuais ou futuras antes de inativar a turma.");

@@ -35,7 +35,7 @@ public final class RepositorioPlanejamentoJdbc implements RepositorioPlanejament
         var estados=JdbcAcademico.ocupacoes(c,turma);
         if(estados.stream().anyMatch(s->!s.conhecida()))
             throw new IllegalArgumentException("Turma "+turma+" com situação de inscrição desconhecida; conciliação necessária.");
-        var horarios=q("SELECT dia_semana,hora_inicio,hora_fim FROM horario_aula WHERE id_turma=? ORDER BY id_horario FOR SHARE",
+        var horarios=q("SELECT dia_semana,hora_inicio,hora_fim FROM horario_aula WHERE id_turma=? AND ativo=TRUE ORDER BY id_horario FOR SHARE",
                 r->new FaixaHorario(r.getInt(1),r.getTime(2).toLocalTime(),r.getTime(3).toLocalTime()),turma);
         return new Oferta(turma,(long)linha[0],periodos.get((long)linha[1]),(String)linha[2],
                 Math.max(0,(int)linha[3]-(int)estados.stream().filter(JdbcAcademico.Ocupacao::ocupa).count()),horarios);
